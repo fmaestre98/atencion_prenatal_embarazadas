@@ -67,11 +67,11 @@ class HomePage extends StatelessWidget {
                               return Card(
                                 child: ListTile(
                                   leading: CircleAvatar(
-                                    child: Text(embarazada.nombre[0].toUpperCase()),
+                                    child: Text(embarazada.nombre?[0].toUpperCase() ?? ""),
                                   ),
-                                  title: Text(embarazada.nombre),
+                                  title: Text(embarazada.nombre ?? ""),
                                   subtitle: Text(
-                                    'Registrada el: ${embarazada.fechaDeRegistro.toLocal().toString().split(' ')[0]}',
+                                    'Registrada el: ${embarazada.fechaDeRegistro?.toLocal().toString().split(' ')[0]}',
                                   ),
                                   onTap: () {
                                     // Navegar a detalles o editar

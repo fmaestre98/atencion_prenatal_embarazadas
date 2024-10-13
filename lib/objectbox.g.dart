@@ -1475,35 +1475,71 @@ obx_int.ModelDefinition getObjectBoxModel() {
           object.id = id;
         },
         objectToFB: (Paciente object, fb.Builder fbb) {
-          final nombreOffset = fbb.writeString(object.nombre);
-          final primerApellidoOffset = fbb.writeString(object.primerApellido);
-          final segundoApellidoOffset = fbb.writeString(object.segundoApellido);
-          final sexoOffset = fbb.writeString(object.sexo);
-          final direccionOffset = fbb.writeString(object.direccion);
-          final tipoDePacienteOffset = fbb.writeString(object.tipoDePaciente);
-          final noIdentidadOffset = fbb.writeString(object.noIdentidad);
-          final aboRhOffset = fbb.writeString(object.aboRh);
-          final unidadHospitalariaOffset =
-              fbb.writeString(object.unidadHospitalaria);
-          final policlinicoOffset = fbb.writeString(object.policlinico);
-          final estadoCivilOffset = fbb.writeString(object.estadoCivil);
-          final escolaridadOffset = fbb.writeString(object.escolaridad);
-          final consultorioOffset = fbb.writeString(object.consultorio);
-          final ocupacionOffset = fbb.writeString(object.ocupacion);
-          final tipoDeRiesgoOffset = fbb.writeString(object.tipoDeRiesgo);
-          final datosDeInteresOffset = fbb.writeString(object.datosDeInteres);
-          final tipoDeDiagnosticoOffset =
-              fbb.writeString(object.tipoDeDiagnostico);
-          final codigoOffset = fbb.writeString(object.codigo);
-          final descripcionOffset = fbb.writeString(object.descripcion);
-          final estructuraOffset = fbb.writeString(object.estructura);
-          final conductaSeguidaOffset = fbb.writeString(object.conductaSeguida);
+          final nombreOffset =
+              object.nombre == null ? null : fbb.writeString(object.nombre!);
+          final primerApellidoOffset = object.primerApellido == null
+              ? null
+              : fbb.writeString(object.primerApellido!);
+          final segundoApellidoOffset = object.segundoApellido == null
+              ? null
+              : fbb.writeString(object.segundoApellido!);
+          final sexoOffset =
+              object.sexo == null ? null : fbb.writeString(object.sexo!);
+          final direccionOffset = object.direccion == null
+              ? null
+              : fbb.writeString(object.direccion!);
+          final tipoDePacienteOffset = object.tipoDePaciente == null
+              ? null
+              : fbb.writeString(object.tipoDePaciente!);
+          final noIdentidadOffset = object.noIdentidad == null
+              ? null
+              : fbb.writeString(object.noIdentidad!);
+          final aboRhOffset =
+              object.aboRh == null ? null : fbb.writeString(object.aboRh!);
+          final unidadHospitalariaOffset = object.unidadHospitalaria == null
+              ? null
+              : fbb.writeString(object.unidadHospitalaria!);
+          final policlinicoOffset = object.policlinico == null
+              ? null
+              : fbb.writeString(object.policlinico!);
+          final estadoCivilOffset = object.estadoCivil == null
+              ? null
+              : fbb.writeString(object.estadoCivil!);
+          final escolaridadOffset = object.escolaridad == null
+              ? null
+              : fbb.writeString(object.escolaridad!);
+          final consultorioOffset = object.consultorio == null
+              ? null
+              : fbb.writeString(object.consultorio!);
+          final ocupacionOffset = object.ocupacion == null
+              ? null
+              : fbb.writeString(object.ocupacion!);
+          final tipoDeRiesgoOffset = object.tipoDeRiesgo == null
+              ? null
+              : fbb.writeString(object.tipoDeRiesgo!);
+          final datosDeInteresOffset = object.datosDeInteres == null
+              ? null
+              : fbb.writeString(object.datosDeInteres!);
+          final tipoDeDiagnosticoOffset = object.tipoDeDiagnostico == null
+              ? null
+              : fbb.writeString(object.tipoDeDiagnostico!);
+          final codigoOffset =
+              object.codigo == null ? null : fbb.writeString(object.codigo!);
+          final descripcionOffset = object.descripcion == null
+              ? null
+              : fbb.writeString(object.descripcion!);
+          final estructuraOffset = object.estructura == null
+              ? null
+              : fbb.writeString(object.estructura!);
+          final conductaSeguidaOffset = object.conductaSeguida == null
+              ? null
+              : fbb.writeString(object.conductaSeguida!);
           fbb.startTable(32);
           fbb.addInt64(0, object.id);
           fbb.addOffset(1, nombreOffset);
           fbb.addOffset(2, primerApellidoOffset);
           fbb.addOffset(3, segundoApellidoOffset);
-          fbb.addInt64(4, object.fechaNacimiento.millisecondsSinceEpoch);
+          fbb.addInt64(4, object.fechaNacimiento?.millisecondsSinceEpoch);
           fbb.addOffset(5, sexoOffset);
           fbb.addOffset(6, direccionOffset);
           fbb.addOffset(7, tipoDePacienteOffset);
@@ -1528,110 +1564,119 @@ obx_int.ModelDefinition getObjectBoxModel() {
           fbb.addInt64(26, object.antecedentesObstetricos.targetId);
           fbb.addInt64(27, object.embarazoActual.targetId);
           fbb.addInt64(28, object.interrogatorio.targetId);
-          fbb.addInt64(29, object.fechaDeRegistro.millisecondsSinceEpoch);
-          fbb.addInt64(30, object.fechaDeActualizacion.millisecondsSinceEpoch);
+          fbb.addInt64(29, object.fechaDeRegistro?.millisecondsSinceEpoch);
+          fbb.addInt64(30, object.fechaDeActualizacion?.millisecondsSinceEpoch);
           fbb.finish(fbb.endTable());
           return object.id;
         },
         objectFromFB: (obx.Store store, ByteData fbData) {
           final buffer = fb.BufferContext(fbData);
           final rootOffset = buffer.derefObject(0);
-          final nombreParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGet(buffer, rootOffset, 6, '');
-          final primerApellidoParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGet(buffer, rootOffset, 8, '');
-          final segundoApellidoParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGet(buffer, rootOffset, 10, '');
-          final fechaNacimientoParam = DateTime.fromMillisecondsSinceEpoch(
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 12, 0));
-          final sexoParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGet(buffer, rootOffset, 14, '');
-          final direccionParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGet(buffer, rootOffset, 16, '');
-          final tipoDePacienteParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGet(buffer, rootOffset, 18, '');
-          final noIdentidadParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGet(buffer, rootOffset, 20, '');
-          final aboRhParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGet(buffer, rootOffset, 22, '');
-          final unidadHospitalariaParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGet(buffer, rootOffset, 24, '');
-          final policlinicoParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGet(buffer, rootOffset, 26, '');
-          final estadoCivilParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGet(buffer, rootOffset, 28, '');
-          final escolaridadParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGet(buffer, rootOffset, 30, '');
-          final consultorioParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGet(buffer, rootOffset, 32, '');
-          final ocupacionParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGet(buffer, rootOffset, 34, '');
-          final noDormitoriosParam =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 36, 0);
-          final noPersonasNucleoPersonalParam =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 38, 0);
-          final codigoParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGet(buffer, rootOffset, 46, '');
-          final datosDeInteresParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGet(buffer, rootOffset, 42, '');
-          final descripcionParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGet(buffer, rootOffset, 48, '');
-          final estructuraParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGet(buffer, rootOffset, 50, '');
-          final tipoDeDiagnosticoParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGet(buffer, rootOffset, 44, '');
-          final tipoDeRiesgoParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGet(buffer, rootOffset, 40, '');
-          final conductaSeguidaParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGet(buffer, rootOffset, 52, '');
-          final fechaDeRegistroParam = DateTime.fromMillisecondsSinceEpoch(
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 62, 0));
-          final fechaDeActualizacionParam = DateTime.fromMillisecondsSinceEpoch(
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 64, 0));
+          final fechaNacimientoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 12);
+          final fechaDeRegistroValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 62);
+          final fechaDeActualizacionValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 64);
           final idParam =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
+          final nombreParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 6);
+          final primerApellidoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 8);
+          final segundoApellidoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 10);
+          final fechaNacimientoParam = fechaNacimientoValue == null
+              ? null
+              : DateTime.fromMillisecondsSinceEpoch(fechaNacimientoValue);
+          final sexoParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 14);
+          final direccionParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 16);
+          final tipoDePacienteParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 18);
+          final noIdentidadParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 20);
+          final aboRhParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 22);
+          final unidadHospitalariaParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 24);
+          final policlinicoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 26);
+          final estadoCivilParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 28);
+          final escolaridadParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 30);
+          final consultorioParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 32);
+          final ocupacionParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 34);
+          final noDormitoriosParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 36);
+          final noPersonasNucleoPersonalParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 38);
+          final codigoParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 46);
+          final datosDeInteresParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 42);
+          final descripcionParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 48);
+          final estructuraParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 50);
+          final tipoDeDiagnosticoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 44);
+          final tipoDeRiesgoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 40);
+          final conductaSeguidaParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 52);
+          final fechaDeRegistroParam = fechaDeRegistroValue == null
+              ? null
+              : DateTime.fromMillisecondsSinceEpoch(fechaDeRegistroValue);
+          final fechaDeActualizacionParam = fechaDeActualizacionValue == null
+              ? null
+              : DateTime.fromMillisecondsSinceEpoch(fechaDeActualizacionValue);
           final object = Paciente(
-              nombreParam,
-              primerApellidoParam,
-              segundoApellidoParam,
-              fechaNacimientoParam,
-              sexoParam,
-              direccionParam,
-              tipoDePacienteParam,
-              noIdentidadParam,
-              aboRhParam,
-              unidadHospitalariaParam,
-              policlinicoParam,
-              estadoCivilParam,
-              escolaridadParam,
-              consultorioParam,
-              ocupacionParam,
-              noDormitoriosParam,
-              noPersonasNucleoPersonalParam,
-              codigoParam,
-              datosDeInteresParam,
-              descripcionParam,
-              estructuraParam,
-              tipoDeDiagnosticoParam,
-              tipoDeRiesgoParam,
-              conductaSeguidaParam,
-              fechaDeRegistroParam,
-              fechaDeActualizacionParam,
-              id: idParam);
+              id: idParam,
+              nombre: nombreParam,
+              primerApellido: primerApellidoParam,
+              segundoApellido: segundoApellidoParam,
+              fechaNacimiento: fechaNacimientoParam,
+              sexo: sexoParam,
+              direccion: direccionParam,
+              tipoDePaciente: tipoDePacienteParam,
+              noIdentidad: noIdentidadParam,
+              aboRh: aboRhParam,
+              unidadHospitalaria: unidadHospitalariaParam,
+              policlinico: policlinicoParam,
+              estadoCivil: estadoCivilParam,
+              escolaridad: escolaridadParam,
+              consultorio: consultorioParam,
+              ocupacion: ocupacionParam,
+              noDormitorios: noDormitoriosParam,
+              noPersonasNucleoPersonal: noPersonasNucleoPersonalParam,
+              codigo: codigoParam,
+              datosDeInteres: datosDeInteresParam,
+              descripcion: descripcionParam,
+              estructura: estructuraParam,
+              tipoDeDiagnostico: tipoDeDiagnosticoParam,
+              tipoDeRiesgo: tipoDeRiesgoParam,
+              conductaSeguida: conductaSeguidaParam,
+              fechaDeRegistro: fechaDeRegistroParam,
+              fechaDeActualizacion: fechaDeActualizacionParam);
           object.antecedentesPatologicos.targetId =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 54, 0);
           object.antecedentesPatologicos.attach(store);

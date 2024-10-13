@@ -4,40 +4,40 @@ import 'package:objectbox/objectbox.dart';
 @Entity()
 class Paciente {
   int id; // field auto-incremented
-  String nombre;
-  String primerApellido;
-  String segundoApellido;
+  String? nombre;
+  String? primerApellido;
+  String? segundoApellido;
   @Property(type: PropertyType.date)
-  DateTime fechaNacimiento;
-  String sexo;
-  String direccion;
-  String tipoDePaciente;
-  String noIdentidad;
-  String aboRh;
-  String unidadHospitalaria;
-  String policlinico;
-  String estadoCivil;
-  String escolaridad;
-  String consultorio;
-  String ocupacion;
+  DateTime? fechaNacimiento;
+  String? sexo;
+  String? direccion;
+  String? tipoDePaciente;
+  String? noIdentidad;
+  String? aboRh;
+  String? unidadHospitalaria;
+  String? policlinico;
+  String? estadoCivil;
+  String? escolaridad;
+  String? consultorio;
+  String? ocupacion;
   @Property(type: PropertyType.date)
-  DateTime fechaDeRegistro;
+  DateTime? fechaDeRegistro;
   @Property(type: PropertyType.date)
-  DateTime fechaDeActualizacion;
+  DateTime? fechaDeActualizacion;
 
   //vivienda
-  int noDormitorios;
-  int noPersonasNucleoPersonal;
+  int? noDormitorios;
+  int? noPersonasNucleoPersonal;
 
-  String tipoDeRiesgo;
-  String datosDeInteres;
+  String? tipoDeRiesgo;
+  String? datosDeInteres;
 
   //diagnostico
-  String tipoDeDiagnostico;
-  String codigo;
-  String descripcion;
-  String estructura;
-  String conductaSeguida;
+  String? tipoDeDiagnostico;
+  String? codigo;
+  String? descripcion;
+  String? estructura;
+  String? conductaSeguida;
 
   @Backlink('paciente')
   final antecedentes = ToMany<Antecedente>();
@@ -50,34 +50,35 @@ class Paciente {
 
   final interrogatorio = ToOne<Interrogatorio>();
 
-  Paciente(
-      this.nombre,
-      this.primerApellido,
-      this.segundoApellido,
-      this.fechaNacimiento,
-      this.sexo,
-      this.direccion,
-      this.tipoDePaciente,
-      this.noIdentidad,
-      this.aboRh,
-      this.unidadHospitalaria,
-      this.policlinico,
-      this.estadoCivil,
-      this.escolaridad,
-      this.consultorio,
-      this.ocupacion,
-      this.noDormitorios,
-      this.noPersonasNucleoPersonal,
-      this.codigo,
-      this.datosDeInteres,
-      this.descripcion,
-      this.estructura,
-      this.tipoDeDiagnostico,
-      this.tipoDeRiesgo,
-      this.conductaSeguida,
-      this.fechaDeRegistro,
-      this.fechaDeActualizacion,
-      {this.id = 0});
+  Paciente({
+    this.id = 0,
+    this.nombre,
+    this.primerApellido,
+    this.segundoApellido,
+    this.fechaNacimiento,
+    this.sexo,
+    this.direccion,
+    this.tipoDePaciente,
+    this.noIdentidad,
+    this.aboRh,
+    this.unidadHospitalaria,
+    this.policlinico,
+    this.estadoCivil,
+    this.escolaridad,
+    this.consultorio,
+    this.ocupacion,
+    this.noDormitorios,
+    this.noPersonasNucleoPersonal,
+    this.codigo,
+    this.datosDeInteres,
+    this.descripcion,
+    this.estructura,
+    this.tipoDeDiagnostico,
+    this.tipoDeRiesgo,
+    this.conductaSeguida,
+    this.fechaDeRegistro,
+    this.fechaDeActualizacion,
+  });
 }
 
 @Entity()

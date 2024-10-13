@@ -21,13 +21,13 @@ class PersistentBottomNavPage extends StatelessWidget {
           navigatorkey: _tab1navigatorKey,
         ),
         PersistentTabItem(
-          tab: const SearchPage(),
+          tab: SearchPage(),
           icon: Icons.search,
           title: 'Buscar',
           navigatorkey: _tab2navigatorKey,
         ),
         PersistentTabItem(
-          tab: const AddPage(),
+          tab: AddPage(),
           icon: Icons.add,
           title: 'Adicionar',
           navigatorkey: _tab3navigatorKey,
