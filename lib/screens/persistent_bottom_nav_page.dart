@@ -37,89 +37,9 @@ class PersistentBottomNavPage extends StatelessWidget {
   }
 }
 
-class Page1 extends StatelessWidget {
-  final String inTab;
-
-  const Page1(this.inTab, {Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Page 1')),
-      body: SizedBox(
-        width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('in $inTab Page 1'),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => Page2(inTab)));
-                },
-                child: const Text('Go to page2'))
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class Page2 extends StatelessWidget {
-  final String inTab;
-
-  const Page2(this.inTab, {Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Page 2')),
-      body: SizedBox(
-        width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('in $inTab Page 2'),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => Page3(inTab)));
-                },
-                child: const Text('Go to page3'))
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class Page3 extends StatelessWidget {
-  final String inTab;
-
-  const Page3(this.inTab, {Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Page 3')),
-      body: SizedBox(
-        width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('in $inTab Page 3'),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: const Text('Go back'))
-          ],
-        ),
-      ),
-    );
-  }
-}
 
 class PersistentBottomBarScaffold extends StatefulWidget {
-  /// pass the required items for the tabs and BottomNavigationBar
+  /// Lista de tabs y elementos del BottomNavigationBar
   final List<PersistentTabItem> items;
 
   const PersistentBottomBarScaffold({Key? key, required this.items})
@@ -133,30 +53,33 @@ class PersistentBottomBarScaffold extends StatefulWidget {
 class _PersistentBottomBarScaffoldState
     extends State<PersistentBottomBarScaffold> {
   int _selectedTab = 0;
+  void _resetNavigator(int index) {
+    final navigatorKey = widget.items[index].navigatorkey;
+    navigatorKey?.currentState?.popUntil((route) => route.isFirst);
+  }
 
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        /// Check if curent tab can be popped
+        /// Verificar si la pestaña actual puede hacer pop
         if (widget.items[_selectedTab].navigatorkey?.currentState?.canPop() ??
             false) {
           widget.items[_selectedTab].navigatorkey?.currentState?.pop();
           return false;
         } else {
-          // if current tab can't be popped then use the root navigator
+          // Si la pestaña actual no puede hacer pop, usar el root navigator
           return true;
         }
       },
       child: Scaffold(
-        /// Using indexedStack to maintain the order of the tabs and the state of the
-        /// previously opened tab
+        /// Usar IndexedStack para mantener el orden y estado de las pestañas
         body: IndexedStack(
           index: _selectedTab,
           children: widget.items
               .map((page) => Navigator(
-            /// Each tab is wrapped in a Navigator so that naigation in
-            /// one tab can be independent of the other tabs
+            /// Cada pestaña está envuelta en un Navigator para
+            /// que la navegación dentro de cada pestaña sea independiente
             key: page.navigatorkey,
             onGenerateInitialRoutes: (navigator, initialRoute) {
               return [
@@ -167,13 +90,17 @@ class _PersistentBottomBarScaffoldState
               .toList(),
         ),
 
-        /// Define the persistent bottom bar
+        /// Definir la barra de navegación inferior persistente
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedTab,
           onTap: (index) {
+            /// Restablecer el estado del Navigator para la nueva pestaña
+            if (index != _selectedTab) {
+              _resetNavigator(index); // Reiniciar la navegación
+            }
             setState(() {
               _selectedTab = index;
-            });
+            });// Llamar a la función provista por el padre
           },
           items: widget.items
               .map((item) => BottomNavigationBarItem(

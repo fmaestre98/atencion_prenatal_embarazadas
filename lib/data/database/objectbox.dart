@@ -102,5 +102,10 @@ class ObjectBox {
     ];
     _pacienteBox.putMany(demoPacientes);*/
   }
+
+  /// Método para obtener un paciente por ID
+  Paciente? getPacienteById(int id) {
+    return _pacienteBox.get(id); // Devuelve el paciente por su ID, o null si no se encuentra
+  }
 }
 

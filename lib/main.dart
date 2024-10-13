@@ -1,5 +1,6 @@
 import 'package:atencion_prenatal_embarazadas/screens/persistent_bottom_nav_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'core/service_locator.dart';
 
@@ -10,7 +11,8 @@ void main() async{
   // to store the database in.
   WidgetsFlutterBinding.ensureInitialized();
   await setupLocator();
-
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   runApp(const MyApp());
 }
 

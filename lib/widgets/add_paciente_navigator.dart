@@ -1,23 +1,28 @@
-import 'package:flutter/material.dart';
+// add_paciente_navigator.dart
 
-import '../screens/addPacientePages/datos_personales_page.dart';
-import '../screens/addPacientePages/examen_fisico_page.dart';
-import '../screens/addPacientePages/genetica_page.dart';
-import '../screens/addPacientePages/interconsultas_page.dart';
-import '../screens/addPacientePages/interrogatorios_page.dart';
-import '../screens/addPacientePages/laboratorio_page.dart';
-import '../screens/addPacientePages/resumen_atencion_page.dart';
-import '../screens/addPacientePages/signos_vitales_page.dart';
+import 'package:atencion_prenatal_embarazadas/screens/addPacientePages/add_paciente_intermediate_page.dart';
+import 'package:atencion_prenatal_embarazadas/screens/addPacientePages/datos_personales_page.dart';
+import 'package:atencion_prenatal_embarazadas/screens/addPacientePages/examen_fisico_page.dart';
+import 'package:atencion_prenatal_embarazadas/screens/addPacientePages/genetica_page.dart';
+import 'package:atencion_prenatal_embarazadas/screens/addPacientePages/interconsultas_page.dart';
+import 'package:atencion_prenatal_embarazadas/screens/addPacientePages/interrogatorios_page.dart';
+import 'package:atencion_prenatal_embarazadas/screens/addPacientePages/laboratorio_page.dart';
+import 'package:atencion_prenatal_embarazadas/screens/addPacientePages/resumen_atencion_page.dart';
+import 'package:atencion_prenatal_embarazadas/screens/addPacientePages/signos_vitales_page.dart';
+import 'package:flutter/material.dart';
 
 class AddPacienteNavigator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Navigator(
-      initialRoute: '/datosPersonales',
+      initialRoute: '/intermediate',
       onGenerateRoute: (RouteSettings settings) {
         WidgetBuilder builder;
         switch (settings.name) {
-          case '/datosPersonales':
+          case '/intermediate':
+            builder = (BuildContext _) => AddPacienteIntermediatePage();
+            break;
+          case '/':
             builder = (BuildContext _) => DatosPersonalesPage();
             break;
           case '/interrogatorio':

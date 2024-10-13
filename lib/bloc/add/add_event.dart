@@ -20,6 +20,41 @@ class UpdateDatosPersonales extends AddPacienteEvent {
   List<Object?> get props => [paciente];
 }
 
+// Evento para actualizar Datos Personales
+class LoadPacienteData extends AddPacienteEvent {
+  final int? pacienteId;
+
+  const LoadPacienteData({this.pacienteId});
+
+  @override
+  List<Object?> get props => [pacienteId];
+}
+
+// Evento para actualizar Datos Personales
+class UpdatePacienteLoaded extends AddPacienteEvent {
+  final bool? pacienteLoaded;
+
+  const UpdatePacienteLoaded({this.pacienteLoaded});
+
+  @override
+  List<Object?> get props => [pacienteLoaded];
+}
+
+class UpdateFechaNacimiento extends AddPacienteEvent {
+  final DateTime fechaNacimiento;
+
+  const UpdateFechaNacimiento({required this.fechaNacimiento});
+}
+
+class DeletePaciente extends AddPacienteEvent {
+  final int pacienteId;
+
+  const DeletePaciente({required this.pacienteId});
+
+  @override
+  List<Object?> get props => [pacienteId];
+}
+
 // Evento para actualizar Interrogatorio
 class UpdateInterrogatorio extends AddPacienteEvent {
   final Interrogatorio interrogatorio;

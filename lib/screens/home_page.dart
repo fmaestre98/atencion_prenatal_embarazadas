@@ -2,8 +2,10 @@
 import 'package:atencion_prenatal_embarazadas/bloc/home/home_bloc.dart';
 import 'package:atencion_prenatal_embarazadas/bloc/home/home_event.dart';
 import 'package:atencion_prenatal_embarazadas/bloc/home/home_state.dart';
+import 'package:atencion_prenatal_embarazadas/screens/add_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 
 class HomePage extends StatelessWidget {
   @override
@@ -74,7 +76,13 @@ class HomePage extends StatelessWidget {
                                     'Registrada el: ${embarazada.fechaDeRegistro?.toLocal().toString().split(' ')[0]}',
                                   ),
                                   onTap: () {
-                                    // Navegar a detalles o editar
+                                    // Navega a la página de adicionar/editar
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => AddPage(pacienteId: embarazada.id),
+                                      ),
+                                    );
                                   },
                                 ),
                               );
