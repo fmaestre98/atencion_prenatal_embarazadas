@@ -46,6 +46,48 @@ class UpdateFechaNacimiento extends AddPacienteEvent {
   const UpdateFechaNacimiento({required this.fechaNacimiento});
 }
 
+class UpdateUltimaMenstruacion extends AddPacienteEvent {
+  final DateTime fecha;
+
+  const UpdateUltimaMenstruacion({required this.fecha});
+}
+
+class UpdateFechaProbableParto extends AddPacienteEvent {
+  final DateTime fecha;
+
+  const UpdateFechaProbableParto({required this.fecha});
+}
+
+class UpdateDesconocida extends AddPacienteEvent {
+  final bool desconocida;
+
+  const UpdateDesconocida({required this.desconocida});
+}
+
+class UpdateNoConfiable extends AddPacienteEvent {
+  final bool noConfiable;
+
+  const UpdateNoConfiable({required this.noConfiable});
+}
+
+class UpdateCurrentStep extends AddPacienteEvent {
+  final int step;
+
+  const UpdateCurrentStep({required this.step});
+}
+
+class UpdateCurrentStepInterrogatorio extends AddPacienteEvent {
+  final int step;
+
+  const UpdateCurrentStepInterrogatorio({required this.step});
+}
+
+class UpdateCurrentStepSignosVitales extends AddPacienteEvent {
+  final int step;
+
+  const UpdateCurrentStepSignosVitales({required this.step});
+}
+
 class DeletePaciente extends AddPacienteEvent {
   final int pacienteId;
 

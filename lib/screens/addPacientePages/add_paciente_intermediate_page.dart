@@ -51,7 +51,7 @@ class AddPacienteIntermediatePage extends StatelessWidget {
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 10),
-                      ElevatedButton.icon(
+                     /* ElevatedButton.icon(
                         onPressed: () {
                           // Confirmar eliminación
                           showDialog(
@@ -85,7 +85,7 @@ class AddPacienteIntermediatePage extends StatelessWidget {
                         label: const Text('Eliminar Paciente'),
                         style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.red),
-                      ),
+                      ),*/
                     ],
                   ),
                 const SizedBox(height: 20),
@@ -97,7 +97,7 @@ class AddPacienteIntermediatePage extends StatelessWidget {
                         leading: const Icon(Icons.person),
                         title: const Text('Datos Personales'),
                         onTap: () {
-                          Navigator.of(context).pushNamed('/');
+                          Navigator.of(context).pushNamed('/datosPersonales');
                         },
                       ),
                       ListTile(

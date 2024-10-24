@@ -76,8 +76,7 @@ class HomePage extends StatelessWidget {
                                     'Registrada el: ${embarazada.fechaDeRegistro?.toLocal().toString().split(' ')[0]}',
                                   ),
                                   onTap: () {
-                                    // Navega a la página de adicionar/editar
-                                    Navigator.push(
+                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) => AddPage(pacienteId: embarazada.id),

@@ -1,4 +1,5 @@
 import 'package:atencion_prenatal_embarazadas/models/interrogatory_model.dart';
+import 'package:atencion_prenatal_embarazadas/models/signos_vitales_model.dart';
 import 'package:objectbox/objectbox.dart';
 
 @Entity()
@@ -13,6 +14,7 @@ class Paciente {
   String? direccion;
   String? tipoDePaciente;
   String? noIdentidad;
+  int? edad;
   String? aboRh;
   String? unidadHospitalaria;
   String? policlinico;
@@ -50,6 +52,8 @@ class Paciente {
 
   final interrogatorio = ToOne<Interrogatorio>();
 
+  final signosVitales = ToOne<SignosVitalesModel>();
+
   Paciente({
     this.id = 0,
     this.nombre,
@@ -78,6 +82,7 @@ class Paciente {
     this.conductaSeguida,
     this.fechaDeRegistro,
     this.fechaDeActualizacion,
+    this.edad,
   });
 }
 

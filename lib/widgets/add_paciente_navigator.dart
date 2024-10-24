@@ -15,14 +15,14 @@ class AddPacienteNavigator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Navigator(
-      initialRoute: '/intermediate',
+      initialRoute: '/',
       onGenerateRoute: (RouteSettings settings) {
         WidgetBuilder builder;
         switch (settings.name) {
-          case '/intermediate':
+          case '/':
             builder = (BuildContext _) => AddPacienteIntermediatePage();
             break;
-          case '/':
+          case '/datosPersonales':
             builder = (BuildContext _) => DatosPersonalesPage();
             break;
           case '/interrogatorio':

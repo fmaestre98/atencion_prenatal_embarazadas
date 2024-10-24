@@ -4,40 +4,8 @@
   "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
   "entities": [
     {
-      "id": "1:3996157001370866902",
-      "lastPropertyId": "4:2789899094985484205",
-      "name": "Elemento",
-      "properties": [
-        {
-          "id": "1:4620656507009253317",
-          "name": "id",
-          "type": 6,
-          "flags": 1
-        },
-        {
-          "id": "2:8313944828278512612",
-          "name": "seccionId",
-          "type": 11,
-          "flags": 520,
-          "indexId": "1:8355460756985994122",
-          "relationTarget": "Seccion"
-        },
-        {
-          "id": "3:8192819360287344475",
-          "name": "nombre",
-          "type": 9
-        },
-        {
-          "id": "4:2789899094985484205",
-          "name": "respuesta",
-          "type": 1
-        }
-      ],
-      "relations": []
-    },
-    {
       "id": "2:2039920815618038356",
-      "lastPropertyId": "2:288244551746073971",
+      "lastPropertyId": "86:8409211551056974565",
       "name": "Interrogatorio",
       "properties": [
         {
@@ -53,36 +21,424 @@
           "flags": 520,
           "indexId": "2:502127217175195618",
           "relationTarget": "Paciente"
-        }
-      ],
-      "relations": []
-    },
-    {
-      "id": "3:6473606377810914912",
-      "lastPropertyId": "4:4736388164980832843",
-      "name": "Seccion",
-      "properties": [
-        {
-          "id": "1:7004613500463965696",
-          "name": "id",
-          "type": 6,
-          "flags": 1
         },
         {
-          "id": "2:4031979108904179218",
-          "name": "interrogatorioId",
-          "type": 11,
-          "flags": 520,
-          "indexId": "3:8615709609684153934",
-          "relationTarget": "Interrogatorio"
+          "id": "3:2040052404020008783",
+          "name": "srDisnea",
+          "type": 1
         },
         {
-          "id": "3:1041392091051900192",
-          "name": "nombre",
+          "id": "4:5396446009219443373",
+          "name": "srDolor",
+          "type": 1
+        },
+        {
+          "id": "5:6568034613747416934",
+          "name": "srHermoptisis",
+          "type": 1
+        },
+        {
+          "id": "6:5290212240748200649",
+          "name": "srExpectoracion",
+          "type": 1
+        },
+        {
+          "id": "7:4968161020554697048",
+          "name": "srTos",
+          "type": 1
+        },
+        {
+          "id": "8:8283170431783502530",
+          "name": "srOtros",
+          "type": 1
+        },
+        {
+          "id": "9:6784685384954465279",
+          "name": "srObservaciones",
           "type": 9
         },
         {
-          "id": "4:4736388164980832843",
+          "id": "10:5388388614320073253",
+          "name": "scDisnea",
+          "type": 1
+        },
+        {
+          "id": "11:3956724560622278979",
+          "name": "scDolor",
+          "type": 1
+        },
+        {
+          "id": "12:6806552144908941588",
+          "name": "scClaudicacionIntermitente",
+          "type": 1
+        },
+        {
+          "id": "13:8516407137153206090",
+          "name": "scCianosis",
+          "type": 1
+        },
+        {
+          "id": "14:3424378900088449323",
+          "name": "scTos",
+          "type": 1
+        },
+        {
+          "id": "15:560912546797602271",
+          "name": "scPalpitaciones",
+          "type": 1
+        },
+        {
+          "id": "16:5569562982260190155",
+          "name": "scOtros",
+          "type": 1
+        },
+        {
+          "id": "17:4542956156164308762",
+          "name": "scObservaciones",
+          "type": 9
+        },
+        {
+          "id": "18:7346496002497895271",
+          "name": "sdDisfagia",
+          "type": 1
+        },
+        {
+          "id": "19:7589160006550130414",
+          "name": "sdDolor",
+          "type": 1
+        },
+        {
+          "id": "20:5810795224105284302",
+          "name": "sdColicos",
+          "type": 1
+        },
+        {
+          "id": "21:1456163888125888160",
+          "name": "sdHermatemesis",
+          "type": 1
+        },
+        {
+          "id": "22:2947057343699154403",
+          "name": "sdAcolia",
+          "type": 1
+        },
+        {
+          "id": "23:7035268152892623605",
+          "name": "sdPirosis",
+          "type": 1
+        },
+        {
+          "id": "24:601548858261786454",
+          "name": "sdNauseas",
+          "type": 1
+        },
+        {
+          "id": "25:2428206538545125125",
+          "name": "sdEnterorragia",
+          "type": 1
+        },
+        {
+          "id": "26:2279504084986548735",
+          "name": "sdConstipacion",
+          "type": 1
+        },
+        {
+          "id": "27:3611323001338059041",
+          "name": "sdAcidez",
+          "type": 1
+        },
+        {
+          "id": "28:5570440674310474174",
+          "name": "sdDiarreas",
+          "type": 1
+        },
+        {
+          "id": "29:1332750805297726085",
+          "name": "sdAerogastrias",
+          "type": 1
+        },
+        {
+          "id": "30:5032107827731125223",
+          "name": "sdVomitos",
+          "type": 1
+        },
+        {
+          "id": "31:5817886758638717735",
+          "name": "sdMelena",
+          "type": 1
+        },
+        {
+          "id": "32:7127017319211556852",
+          "name": "sdOtros",
+          "type": 1
+        },
+        {
+          "id": "33:5699425193761294195",
+          "name": "sdObservaciones",
+          "type": 9
+        },
+        {
+          "id": "34:3547139485145267530",
+          "name": "suNicturioas",
+          "type": 1
+        },
+        {
+          "id": "35:2509937740677600959",
+          "name": "suDolor",
+          "type": 1
+        },
+        {
+          "id": "36:8414444702389775316",
+          "name": "suOrinasTurbias",
+          "type": 1
+        },
+        {
+          "id": "37:5982610539700571060",
+          "name": "suExudadoUretral",
+          "type": 1
+        },
+        {
+          "id": "38:384739864669175990",
+          "name": "suDisuria",
+          "type": 1
+        },
+        {
+          "id": "39:8362592802644511288",
+          "name": "suRetencionUrinaria",
+          "type": 1
+        },
+        {
+          "id": "40:2700624191772864261",
+          "name": "suHermaturia",
+          "type": 1
+        },
+        {
+          "id": "41:3238498322905056047",
+          "name": "suIncontinencia",
+          "type": 1
+        },
+        {
+          "id": "42:3967853347935001398",
+          "name": "suPolaquiuria",
+          "type": 1
+        },
+        {
+          "id": "43:9150226651802003774",
+          "name": "suUretorragia",
+          "type": 1
+        },
+        {
+          "id": "44:5224583956909800184",
+          "name": "suImpotiencia",
+          "type": 1
+        },
+        {
+          "id": "45:6860352792820781788",
+          "name": "suTumoracion",
+          "type": 1
+        },
+        {
+          "id": "46:3086924680856923509",
+          "name": "suCalculos",
+          "type": 1
+        },
+        {
+          "id": "47:2180044394910726151",
+          "name": "suOtros",
+          "type": 1
+        },
+        {
+          "id": "48:6413688659981496922",
+          "name": "suObservaciones",
+          "type": 9
+        },
+        {
+          "id": "49:1979013063463950191",
+          "name": "snCefaleas",
+          "type": 1
+        },
+        {
+          "id": "50:3101922278839707671",
+          "name": "snDolorFacial",
+          "type": 1
+        },
+        {
+          "id": "51:4137299886585482020",
+          "name": "snVomitos",
+          "type": 1
+        },
+        {
+          "id": "52:665950956199609323",
+          "name": "snDolorCervical",
+          "type": 1
+        },
+        {
+          "id": "53:3226310869881100978",
+          "name": "snVertigos",
+          "type": 1
+        },
+        {
+          "id": "54:2694765650501988915",
+          "name": "snDolorLumbar",
+          "type": 1
+        },
+        {
+          "id": "55:4529794587201163620",
+          "name": "snConvulsiones",
+          "type": 1
+        },
+        {
+          "id": "56:3454955923432963330",
+          "name": "snAlteracionMarcha",
+          "type": 1
+        },
+        {
+          "id": "57:6971888800257167929",
+          "name": "snDefictMotor",
+          "type": 1
+        },
+        {
+          "id": "58:4291774409502212695",
+          "name": "snAlteracionEquilibrio",
+          "type": 1
+        },
+        {
+          "id": "59:4519254983000143045",
+          "name": "snDeficitSensitivo",
+          "type": 1
+        },
+        {
+          "id": "60:9129597357152828410",
+          "name": "snAlteracionVisual",
+          "type": 1
+        },
+        {
+          "id": "61:6451434834402749841",
+          "name": "snAlteracionConciencia",
+          "type": 1
+        },
+        {
+          "id": "62:2170014959946722785",
+          "name": "snDificultadHablarEntender",
+          "type": 1
+        },
+        {
+          "id": "63:8013160307922947503",
+          "name": "snOtros",
+          "type": 1
+        },
+        {
+          "id": "64:9006509001905429934",
+          "name": "snObservaciones",
+          "type": 9
+        },
+        {
+          "id": "65:3889572056645025768",
+          "name": "seHipofisis",
+          "type": 1
+        },
+        {
+          "id": "66:4350195461073055345",
+          "name": "seOvarios",
+          "type": 1
+        },
+        {
+          "id": "67:4345528158554945122",
+          "name": "sePancreas",
+          "type": 1
+        },
+        {
+          "id": "68:8030031801634583290",
+          "name": "seSuprarrenal",
+          "type": 1
+        },
+        {
+          "id": "69:6876428555602642273",
+          "name": "seParatiroideas",
+          "type": 1
+        },
+        {
+          "id": "70:853567969511843938",
+          "name": "seTiroides",
+          "type": 1
+        },
+        {
+          "id": "71:850098628574935334",
+          "name": "seTesticulos",
+          "type": 1
+        },
+        {
+          "id": "72:532052742892426574",
+          "name": "seOtros",
+          "type": 1
+        },
+        {
+          "id": "73:990989788134360592",
+          "name": "seObservaciones",
+          "type": 9
+        },
+        {
+          "id": "74:2892668957114967810",
+          "name": "astenia",
+          "type": 1
+        },
+        {
+          "id": "75:6448169016127627023",
+          "name": "anorexia",
+          "type": 1
+        },
+        {
+          "id": "76:1385389702704709955",
+          "name": "epistaxis",
+          "type": 1
+        },
+        {
+          "id": "77:7567034758459879940",
+          "name": "fiebre",
+          "type": 1
+        },
+        {
+          "id": "78:4413779796195449768",
+          "name": "artralgia",
+          "type": 1
+        },
+        {
+          "id": "79:4974394618334568933",
+          "name": "polifagia",
+          "type": 1
+        },
+        {
+          "id": "80:2034967528770849069",
+          "name": "edema",
+          "type": 1
+        },
+        {
+          "id": "81:2589416108703320217",
+          "name": "prurito",
+          "type": 1
+        },
+        {
+          "id": "82:8074908678560769049",
+          "name": "perdidaPeso",
+          "type": 1
+        },
+        {
+          "id": "83:879471134077002930",
+          "name": "gananciaPeso",
+          "type": 1
+        },
+        {
+          "id": "84:8197447883493453474",
+          "name": "acroparentesias",
+          "type": 1
+        },
+        {
+          "id": "85:8322679470164056844",
+          "name": "otros",
+          "type": 1
+        },
+        {
+          "id": "86:8409211551056974565",
           "name": "observaciones",
           "type": 9
         }
@@ -519,7 +875,7 @@
     },
     {
       "id": "12:7761614205288077719",
-      "lastPropertyId": "31:5355125049851457999",
+      "lastPropertyId": "32:3343682868467014237",
       "name": "Paciente",
       "properties": [
         {
@@ -689,6 +1045,11 @@
           "id": "31:5355125049851457999",
           "name": "fechaDeActualizacion",
           "type": 10
+        },
+        {
+          "id": "32:3343682868467014237",
+          "name": "edad",
+          "type": 6
         }
       ],
       "relations": []
@@ -762,9 +1123,21 @@
   "lastSequenceId": "0:0",
   "modelVersion": 5,
   "modelVersionParserMinimum": 5,
-  "retiredEntityUids": [],
+  "retiredEntityUids": [
+    3996157001370866902,
+    6473606377810914912
+  ],
   "retiredIndexUids": [],
-  "retiredPropertyUids": [],
+  "retiredPropertyUids": [
+    4620656507009253317,
+    8313944828278512612,
+    8192819360287344475,
+    2789899094985484205,
+    7004613500463965696,
+    4031979108904179218,
+    1041392091051900192,
+    4736388164980832843
+  ],
   "retiredRelationUids": [
     737123734785742008,
     5549541683541151137
