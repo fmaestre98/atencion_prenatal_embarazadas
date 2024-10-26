@@ -15,6 +15,7 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
     on<LoadPacienteData>(_loadPacienteData);
     on<UpdateDatosPersonales>(_onUpdateDatosPersonales);
     on<UpdateInterrogatorio>(_onUpdateInterrogatorio);
+    on<UpdateSignosVitales>(_onUpdateSignosVitales);
     on<UpdateFechaNacimiento>(_onUpdateFechaNacimiento);
     // Maneja otros eventos similares...
     on<SubmitPaciente>(_onSubmitPaciente);
@@ -27,6 +28,7 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
     on<UpdateFechaProbableParto>(_onUpdateFechaProbableParto);
     on<UpdateCurrentStepInterrogatorio>(_onUpdateCurrentStepInterrogatorio);
     on<UpdateCurrentStepSignosVitales>(_onUpdateCurrentStepSignosVitales);
+    on<UpdateCurrentStepExamenFisico>(_onUpdateCurrentStepExamenFisico);
   }
 
   void _loadPacienteData(LoadPacienteData event, Emitter<AddPacienteState> emit) {
@@ -59,6 +61,11 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
   void _onUpdateCurrentStepSignosVitales(
       UpdateCurrentStepSignosVitales event, Emitter<AddPacienteState> emit) {
     emit(state.copyWith(currentStepSignosVitales: event.step));
+  }
+
+  void _onUpdateCurrentStepExamenFisico(
+      UpdateCurrentStepExamenFisico event, Emitter<AddPacienteState> emit) {
+    emit(state.copyWith(currentStepExamenFisico: event.step));
   }
 
 
@@ -130,6 +137,12 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
     emit(state.copyWith(isSubmitting: true, errorMessage: null));
     _savePaciente();
     emit(state.copyWith(isSubmitting: false, isSuccess: true));
+  }
+
+  void _onUpdateSignosVitales(
+      UpdateSignosVitales event, Emitter<AddPacienteState> emit) {
+    emit(state.copyWith(signosVitales: event.signosVitalesModel));
+    _savePaciente();
   }
 
   // Implementa métodos para manejar otros eventos...

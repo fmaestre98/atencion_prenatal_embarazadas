@@ -64,7 +64,7 @@ class SignosVitalesPage extends StatelessWidget {
       ),
       body: BlocConsumer<AddPacienteBloc, AddPacienteState>(
         listener: (context, state) {
-          if (state.isSuccess) {
+          if (state.isSuccessSignosVitales) {
             // Navegar a la página de Interrogatorio cuando el estado sea exitoso
             Navigator.push(
               context,

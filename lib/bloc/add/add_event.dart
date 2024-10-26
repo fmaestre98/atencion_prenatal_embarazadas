@@ -1,3 +1,4 @@
+import 'package:atencion_prenatal_embarazadas/models/signos_vitales_model.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../models/interrogatory_model.dart';
@@ -88,6 +89,12 @@ class UpdateCurrentStepSignosVitales extends AddPacienteEvent {
   const UpdateCurrentStepSignosVitales({required this.step});
 }
 
+class UpdateCurrentStepExamenFisico extends AddPacienteEvent {
+  final int step;
+
+  const UpdateCurrentStepExamenFisico({required this.step});
+}
+
 class DeletePaciente extends AddPacienteEvent {
   final int pacienteId;
 
@@ -105,6 +112,16 @@ class UpdateInterrogatorio extends AddPacienteEvent {
 
   @override
   List<Object?> get props => [interrogatorio];
+}
+
+// Evento para actualizar Interrogatorio
+class UpdateSignosVitales extends AddPacienteEvent {
+  final SignosVitalesModel signosVitalesModel;
+
+  const UpdateSignosVitales({required this.signosVitalesModel});
+
+  @override
+  List<Object?> get props => [signosVitalesModel];
 }
 
 // Agrega eventos similares para las demás categorías...
