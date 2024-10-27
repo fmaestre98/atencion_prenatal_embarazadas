@@ -1,5 +1,6 @@
 // lib/screens/laboratorio_page.dart
 import 'package:atencion_prenatal_embarazadas/models/laboratorio_microbiologia_model.dart';
+import 'package:atencion_prenatal_embarazadas/screens/addPacientePages/interconsultas_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../bloc/add/add_bloc.dart';
@@ -33,11 +34,6 @@ class LaboratorioPage extends StatelessWidget {
   final _formKey23 = GlobalKey<FormState>();
   final _formKey24 = GlobalKey<FormState>();
 
-  // Controladores de texto
-  final TextEditingController _resultadosLaboratorioController =
-  TextEditingController();
-  final TextEditingController _resultadosMicrobiologiaController =
-  TextEditingController();
   // Agrega más controladores según tu modelo
 
   LaboratorioPage({Key? key}) : super(key: key);
@@ -45,24 +41,9 @@ class LaboratorioPage extends StatelessWidget {
   void _submitLaboratorio(BuildContext context) {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
-
-      // Crear objeto Laboratorio (si tienes una entidad separada)
-      // Si es parte de Paciente, actualiza el objeto Paciente en el BLoC
-     /* Paciente updatedPaciente = state.paciente.copyWith(
-        // Añade los campos de laboratorio
-        // Por ejemplo:
-        // resultadosLaboratorio: _resultadosLaboratorioController.text,
-        // resultadosMicrobiologia: _resultadosMicrobiologiaController.text,
-      );
-
-      // Enviar evento al BLoC
-      context.read<AddPacienteBloc>().add(UpdateDatosPersonales(paciente: updatedPaciente));*/
-
-      // Navegar a la siguiente página (Genética e Imagenología)
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => GeneticaPage()),
-      );
+      context
+          .read<AddPacienteBloc>()
+          .add(SubmitLaboratorio());
     }
   }
 
@@ -78,7 +59,7 @@ class LaboratorioPage extends StatelessWidget {
             // Navegar a la página de Interrogatorio cuando el estado sea exitoso
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => GeneticaPage()),
+              MaterialPageRoute(builder: (context) => InterconsultasPage()),
             );
           } else if (state.errorMessage != null) {
             // Mostrar mensaje de error

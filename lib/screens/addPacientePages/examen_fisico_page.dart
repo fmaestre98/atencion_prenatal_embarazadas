@@ -35,27 +35,24 @@ class ExamenFisicoPage extends StatelessWidget {
   ExamenFisicoPage({Key? key}) : super(key: key);
 
   void _submitExamenFisico(BuildContext context) {
-    if (_formKey.currentState!.validate()) {
+    if (_formKey.currentState!.validate() &&
+        _formKey2.currentState!.validate() &&
+        _formKey3.currentState!.validate() &&
+        _formKey4.currentState!.validate() &&
+        _formKey5.currentState!.validate() &&
+        _formKey6.currentState!.validate() &&
+        _formKey7.currentState!.validate() &&
+        _formKey8.currentState!.validate() &&
+        _formKey9.currentState!.validate() &&
+        _formKey10.currentState!.validate() &&
+        _formKey11.currentState!.validate() &&
+        _formKey12.currentState!.validate() &&
+        _formKey13.currentState!.validate() &&
+        _formKey14.currentState!.validate()) {
       _formKey.currentState!.save();
-
-      // Crear objeto ExamenFisico (si tienes una entidad separada)
-      // Si es parte de Paciente, actualiza el objeto Paciente en el BLoC
-      // Suponiendo que ExamenFisico es una parte de Paciente:
-      /* Paciente updatedPaciente = context.read<AddPacienteBloc>().state.paciente?.copyWith(
-        // Añade los campos de examen físico
-        // Por ejemplo:
-        // examenFisicoGeneral: _examenFisicoGeneralController.text,
-        // examenEspecifico: _examenEspecificoController.text,
-      );*/
-
-      // Enviar evento al BLoC
-      // context.read<AddPacienteBloc>().add(UpdateDatosPersonales(paciente: updatedPaciente));
-
-      // Navegar a la siguiente página (Laboratorio y Microbiología)
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => LaboratorioPage()),
-      );
+      context
+          .read<AddPacienteBloc>()
+          .add(SubmitExamenFisico());
     }
   }
 
@@ -94,7 +91,7 @@ class ExamenFisicoPage extends StatelessWidget {
                       UpdateCurrentStepExamenFisico(
                           step: state.currentStepExamenFisico + 1));
                 } else {
-                  //_submitDatosPersonales(context);
+                  _submitExamenFisico(context);
                 }
               },
               onStepCancel: () {
@@ -1079,6 +1076,11 @@ class ExamenFisicoPage extends StatelessWidget {
                       ],
                     ),
                   ),
+                ),
+                Step(
+                  title: const Text('Guardar'),
+                  isActive: state.currentStepExamenFisico >= 14,
+                  content: const SizedBox(),
                 ),
               ],
             ),

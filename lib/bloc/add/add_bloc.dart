@@ -1,4 +1,5 @@
 import 'package:atencion_prenatal_embarazadas/core/utils.dart';
+import 'package:atencion_prenatal_embarazadas/models/interrogatory_model.dart';
 import 'package:atencion_prenatal_embarazadas/models/personal_data_model.dart';
 import 'package:bloc/bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -17,16 +18,17 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
     on<UpdateDatosPersonales>(_onUpdateDatosPersonales);
     on<UpdateInterrogatorio>(_onUpdateInterrogatorio);
     on<UpdateSignosVitales>(_onUpdateSignosVitales);
-    on<UpdateFechaNacimiento>(_onUpdateFechaNacimiento);
     // Maneja otros eventos similares...
     on<SubmitPaciente>(_onSubmitPaciente);
+    on<SubmitInterrogatorio>(_onSubmitInterrogatorio);
+    on<SubmitSignosVitales>(_onSubmitSignosVitales);
+    on<SubmitInterconsultas>(_onSubmitInterconsultas);
+    on<SubmitExamenFisico>(_onSubmitExamenFisico);
+    on<SubmitGenetica>(_onSubmitGenetica);
+    on<SubmitLaboratorio>(_onSubmitLaboratorio);
     on<UpdatePacienteLoaded>(_onUpdatePacienteLoaded);
-    on<DeletePaciente>(_onDeletePaciente);
     on<UpdateCurrentStep>(_onUpdateCurrentStepDatosPersonales);
-    on<UpdateUltimaMenstruacion>(_onUpdateFechaUltimaMenstruacion);
-    on<UpdateDesconocida>(_onUpdateDesconocida);
-    on<UpdateNoConfiable>(_onUpdateNoConfiable);
-    on<UpdateFechaProbableParto>(_onUpdateFechaProbableParto);
+    on<UpdateEmbarazoActual>(_onUpdateEmbarazoActual);
     on<UpdateCurrentStepInterrogatorio>(_onUpdateCurrentStepInterrogatorio);
     on<UpdateCurrentStepSignosVitales>(_onUpdateCurrentStepSignosVitales);
     on<UpdateCurrentStepExamenFisico>(_onUpdateCurrentStepExamenFisico);
@@ -34,10 +36,13 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
     on<UpdateExamenFisico>(_onUpdateExamenFisico);
     on<UpdateLaboratorio>(_onUpdateLaboratorio);
     on<UpdateCurrentStepLaboratorio>(_onUpdateCurrentStepLaboratorio);
+    on<UpdateCurrentStepGenetica>(_onUpdateCurrentStepGenetica);
     on<UpdateGenetica>(_onUpdateGenetica);
     on<UpdateInterconsultas>(_onUpdateInterconsultas);
     on<UpdateFetoUltrasonido1erTrimestre>(_onUpdateFetoUltrasonido1erTrimestre);
     on<AddFetoUltrasonido1erTrimestre>(_onAddFetoUltrasonido1erTrimestre);
+    on<UpdateFetoUltrasonidoSeguimiento>(_onUpdateFetoUltrasonidoSeguimiento);
+    on<AddFetoUltrasonidoSeguimiento>(_onAddFetoUltrasonidoSeguimiento);
 
   }
 
@@ -46,9 +51,16 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
     if(event.pacienteId != null ){
       // Aquí carga el paciente usando el ID
       final paciente = _objectBox.getPacienteById(event.pacienteId!); // Asume que tienes un método para obtener el paciente por ID
-      safePrint('cubit ${paciente?.nombre}');
+      safePrint('cubit ${paciente?.toString()}');
       if (paciente != null) {
-        emit(state.copyWith(paciente: paciente, pacienteLoaded: true, fechaNacimiento: paciente.fechaNacimiento));
+        emit(state.copyWith(paciente: paciente,
+            interrogatorio: paciente.interrogatorio.target,
+            signosVitales: paciente.signosVitales.target,
+            examenFisico: paciente.examenFisico.target,
+            embarazoActual: paciente.embarazoActual.target,
+            interconsultasModel: paciente.interconsultas.target,
+            laboratorio: paciente.laboratorio.target,
+            pacienteLoaded: true,));
       }
     }
   }
@@ -88,6 +100,11 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
     emit(state.copyWith(currentStepLaboratorio: event.step));
   }
 
+  void _onUpdateCurrentStepGenetica(
+      UpdateCurrentStepGenetica event, Emitter<AddPacienteState> emit) {
+    emit(state.copyWith(currentStepGenetica: event.step));
+  }
+
   void _onUpdateLaboratorio(
       UpdateLaboratorio event, Emitter<AddPacienteState> emit) {
     emit(state.copyWith(laboratorio: event.model));
@@ -105,92 +122,77 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
 
 
   void _onUpdateDatosPersonales(
-      UpdateDatosPersonales event, Emitter<AddPacienteState> emit) {
+      UpdateDatosPersonales event, Emitter<AddPacienteState> emit) async {
     emit(state.copyWith(paciente: event.paciente));
-    emit(state.copyWith(isSubmitting: true, errorMessage: null));
-    _savePaciente();
-    emit(state.copyWith(isSubmitting: false, isSuccess: true));
   }
 
-  void _onUpdateFechaNacimiento(
-      UpdateFechaNacimiento event, Emitter<AddPacienteState> emit) {
-    print("my-logs $event.fechaNacimiento");
-    emit(state.copyWith(fechaNacimiento: event.fechaNacimiento));
-  }
 
-  void _onUpdateFechaUltimaMenstruacion(
-      UpdateUltimaMenstruacion event, Emitter<AddPacienteState> emit) {
-    if(state.embarazoActual == null){
-      EmbarazoActual embarazo = EmbarazoActual(null, false, false, null, 0, 0, id: 0);
-      embarazo.fechaUltimaMenstruacion = event.fecha;
-      emit(state.copyWith(embarazoActual: embarazo));
-    } else {
-      state.embarazoActual!.fechaUltimaMenstruacion = event.fecha;
-      emit(state.copyWith(embarazoActual: state.embarazoActual));
-    }
-  }
 
-  void _onUpdateFechaProbableParto(
-      UpdateFechaProbableParto event, Emitter<AddPacienteState> emit) {
-    if(state.embarazoActual == null){
-      EmbarazoActual embarazo = EmbarazoActual(null, false, false, null, 0, 0, id: 0);
-      embarazo.fechaPartoEstimado = event.fecha;
-      emit(state.copyWith(embarazoActual: embarazo));
-    } else {
-      state.embarazoActual!.fechaPartoEstimado = event.fecha;
-      emit(state.copyWith(embarazoActual: state.embarazoActual));
-    }
-  }
+  void _onUpdateEmbarazoActual(
+      UpdateEmbarazoActual event, Emitter<AddPacienteState> emit) {
 
-  void _onUpdateNoConfiable(
-      UpdateNoConfiable event, Emitter<AddPacienteState> emit) {
-    if(state.embarazoActual == null){
-      EmbarazoActual embarazo = EmbarazoActual(null, false, false, null, 0, 0, id: 0);
-      embarazo.noConfiable = event.noConfiable;
-      emit(state.copyWith(embarazoActual: embarazo));
-    } else {
-      state.embarazoActual!.noConfiable = event.noConfiable;
-      emit(state.copyWith(embarazoActual: state.embarazoActual));
-    }
-  }
-
-  void _onUpdateDesconocida(
-      UpdateDesconocida event, Emitter<AddPacienteState> emit) {
-    if(state.embarazoActual == null){
-      EmbarazoActual embarazo = EmbarazoActual(null, false, false, null, 0, 0, id: 0);
-      embarazo.desconocida = event.desconocida;
-      emit(state.copyWith(embarazoActual: embarazo));
-    } else {
-      state.embarazoActual!.desconocida = event.desconocida;
-      emit(state.copyWith(embarazoActual: state.embarazoActual));
-    }
+    emit(state.copyWith(embarazoActual: event.embarazoActual));
   }
 
   void _onUpdateInterrogatorio(
-      UpdateInterrogatorio event, Emitter<AddPacienteState> emit) {
+      UpdateInterrogatorio event, Emitter<AddPacienteState> emit) async {
     emit(state.copyWith(interrogatorio: event.interrogatorio));
-    emit(state.copyWith(isSubmitting: true, errorMessage: null));
-    _savePaciente();
-    emit(state.copyWith(isSubmitting: false, isSuccess: true));
   }
 
   void _onUpdateSignosVitales(
-      UpdateSignosVitales event, Emitter<AddPacienteState> emit) {
+      UpdateSignosVitales event, Emitter<AddPacienteState> emit) async {
     emit(state.copyWith(signosVitales: event.signosVitalesModel));
-    _savePaciente();
   }
 
   void _onUpdateExamenFisico(
-      UpdateExamenFisico event, Emitter<AddPacienteState> emit) {
+      UpdateExamenFisico event, Emitter<AddPacienteState> emit) async {
     emit(state.copyWith(examenFisico: event.examenFisicoModel));
-    _savePaciente();
   }
 
   // Implementa métodos para manejar otros eventos...
 
   Future<void> _onSubmitPaciente(
       SubmitPaciente event, Emitter<AddPacienteState> emit) async {
-    _savePaciente();
+    await _savePaciente();
+    emit(state.copyWith(isSuccess: true));
+  }
+
+  Future<void> _onSubmitInterrogatorio(
+      SubmitInterrogatorio event, Emitter<AddPacienteState> emit) async {
+    await _savePaciente();
+    emit(state.copyWith(isSuccessInterrogatorio: true));
+  }
+
+  Future<void> _onSubmitInterconsultas(
+      SubmitInterconsultas event, Emitter<AddPacienteState> emit) async {
+    await _savePaciente();
+    emit(state.copyWith(isSuccessInterconsultas: true));
+  }
+
+  Future<void> _onSubmitSignosVitales(
+      SubmitSignosVitales event, Emitter<AddPacienteState> emit) async {
+    await _savePaciente();
+    emit(state.copyWith(isSuccessSignosVitales: true));
+  }
+
+  Future<void> _onSubmitExamenFisico(
+      SubmitExamenFisico event, Emitter<AddPacienteState> emit) async {
+    await _savePaciente();
+    emit(state.copyWith(isSuccessExamenFisico: true));
+  }
+
+
+  Future<void> _onSubmitGenetica(
+      SubmitGenetica event, Emitter<AddPacienteState> emit) async {
+    await _savePaciente();
+    emit(state.copyWith(isSuccessGenetica: true));
+  }
+
+
+  Future<void> _onSubmitLaboratorio(
+      SubmitLaboratorio event, Emitter<AddPacienteState> emit) async {
+    await _savePaciente();
+    emit(state.copyWith(isSuccessLaboratorio: true));
   }
 
   Future<void> _savePaciente() async {
@@ -198,10 +200,20 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
     try {
       // Asume que ya has llenado todas las secciones necesarias
       // Aquí puedes validar que todas las secciones estén llenas
+      Paciente? paciente = state.paciente;
       safePrint(state.paciente != null);
       // Guarda los datos de Paciente
-      if(state.paciente != null){
-        _objectBox.addPaciente(state.paciente!);
+      if(paciente != null){
+        paciente.fechaDeRegistro ??= DateTime.now();
+        paciente.embarazoActual.target = state.embarazoActual;
+        safePrint(state.embarazoActual);
+        paciente.interrogatorio.target = state.interrogatorio;
+        paciente.signosVitales.target = state.signosVitales;
+        paciente.examenFisico.target = state.examenFisicoModel;
+        paciente.laboratorio.target = state.laboratorioMicrobiologiaModel;
+        paciente.genetica.target = state.geneticaModel;
+        safePrint(paciente.toString());
+        _objectBox.addPaciente(paciente);
         // Si hay interrogatorio, asócialo con el Paciente this dont make sense
         /* if (state.interrogatorio != null) {
         state.interrogatorio!.paciente.target = _objectBox.pacienteBox.get(pacienteId);
@@ -210,7 +222,7 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
         safePrint("hereeeee");
         // Guarda otras secciones similares...
       }
-      emit(state.copyWith(isSubmitting: false, isSuccess: true));
+      emit(state.copyWith(isSubmitting: false));
     } catch (e) {
       safePrint("jejejejejej $e");
       emit(state.copyWith(
@@ -253,6 +265,30 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
     GeneticaModel? geneticaModel = state.geneticaModel;
     if(geneticaModel != null){
       geneticaModel.fetos1erTrimestre.add(event.feto);
+    }
+    emit(state.copyWith(
+      genetica: geneticaModel,
+    ));
+  }
+
+  // Manejador para actualizar los datos de un feto específico
+  void _onUpdateFetoUltrasonidoSeguimiento(
+      UpdateFetoUltrasonidoSeguimiento event, Emitter<AddPacienteState> emit) {
+    GeneticaModel? geneticaModel = state.geneticaModel;
+    if(geneticaModel != null){
+      geneticaModel.fetosSeguimiento[event.index] = event.feto;
+    }
+    emit(state.copyWith(
+      genetica: geneticaModel,
+    ));
+  }
+
+  // Manejador para agregar un nuevo feto
+  void _onAddFetoUltrasonidoSeguimiento(
+      AddFetoUltrasonidoSeguimiento event, Emitter<AddPacienteState> emit) {
+    GeneticaModel? geneticaModel = state.geneticaModel;
+    if(geneticaModel != null){
+      geneticaModel.fetosSeguimiento.add(event.feto);
     }
     emit(state.copyWith(
       genetica: geneticaModel,

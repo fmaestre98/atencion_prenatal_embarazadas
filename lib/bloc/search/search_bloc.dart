@@ -24,7 +24,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   Future<void> _onTextChanged(TextChanged event, Emitter<SearchState> emit) async {
     final query = event.query;
 
-    if (query.length < 3) {
+    if (query.length < 2) {
       emit(SearchInitial());
       return;
     }

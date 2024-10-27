@@ -16,45 +16,10 @@ class DatosPersonalesPage extends StatelessWidget {
   final _formKey3 = GlobalKey<FormState>();
   final _formKey4 = GlobalKey<FormState>();
 
-  // Controladores de texto
-  final TextEditingController _nombreController = TextEditingController();
-  final TextEditingController _primerApellidoController =
-      TextEditingController();
-  final TextEditingController _segundoApellidoController =
-      TextEditingController();
-  final TextEditingController _edadController = TextEditingController();
-  String sexo = 'Femenino';
-  final TextEditingController _direccionController = TextEditingController();
-  final TextEditingController _noIdentidadController = TextEditingController();
-  final TextEditingController _tipoDePacienteController =
-      TextEditingController(text: "Nacional");
-  final TextEditingController _aboRhController = TextEditingController();
-  final TextEditingController _unidadHospitalariaController =
-      TextEditingController();
-  final TextEditingController _policlinicoController = TextEditingController();
-  final TextEditingController _estadoCivilController = TextEditingController();
-  final TextEditingController _escolaridadController = TextEditingController();
-  final TextEditingController _consultorioController = TextEditingController();
-  final TextEditingController _ocupacionController = TextEditingController();
-  final TextEditingController _noDormitoriosController =
-      TextEditingController();
-  final TextEditingController _noPersonasNucleoPersonalController =
-      TextEditingController();
-  final TextEditingController _tipoDeRiesgoController = TextEditingController();
-  final TextEditingController _datosDeInteresController =
-      TextEditingController();
-  final TextEditingController _tipoDeDiagnosticoController =
-      TextEditingController();
-  final TextEditingController _descripcionController = TextEditingController();
-  final TextEditingController _estructuraController = TextEditingController();
-  final TextEditingController _conductaSeguidaController = TextEditingController();
-  final TextEditingController _codigoController = TextEditingController();
-  final TextEditingController _captacionController = TextEditingController();
-  final TextEditingController _semanasController = TextEditingController();
 
   DatosPersonalesPage({Key? key}) : super(key: key);
 
-  void _selectDateTime(BuildContext context) async {
+  void _selectDateTime(BuildContext context, AddPacienteState state) async {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: DateTime(1990),
@@ -64,13 +29,18 @@ class DatosPersonalesPage extends StatelessWidget {
     if (picked != null) {
       // Actualiza la fecha de nacimiento
       print("my-logs $picked");
+      var paciente =
+          state.paciente ?? Paciente(id: 0);
       context
           .read<AddPacienteBloc>()
-          .add(UpdateFechaNacimiento(fechaNacimiento: picked));
+          .add(UpdateDatosPersonales(
+        paciente: paciente.copyWith(
+            fechaNacimiento: picked),
+      ));
     }
   }
 
-  void _selectDateTimeUltimaMenstruacion(BuildContext context) async {
+  void _selectDateTimeUltimaMenstruacion(BuildContext context, AddPacienteState state) async {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: DateTime(1990),
@@ -80,13 +50,18 @@ class DatosPersonalesPage extends StatelessWidget {
     if (picked != null) {
       // Actualiza la fecha de nacimiento
       print("my-logs $picked");
-      context
-          .read<AddPacienteBloc>()
-          .add(UpdateUltimaMenstruacion(fecha: picked));
+        var embarazo =
+            state.embarazoActual ?? EmbarazoActual(id: 0);
+        context
+            .read<AddPacienteBloc>()
+            .add(UpdateEmbarazoActual(
+          embarazoActual: embarazo.copyWith(
+              fechaUltimaMenstruacion: picked),
+        ));
     }
   }
 
-  void _selectDateTimePartoEstimado(BuildContext context) async {
+  void _selectDateTimePartoEstimado(BuildContext context, AddPacienteState state) async {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: DateTime(1990),
@@ -95,10 +70,14 @@ class DatosPersonalesPage extends StatelessWidget {
     );
     if (picked != null) {
       // Actualiza la fecha de nacimiento
-      print("my-logs $picked");
+      var embarazo =
+          state.embarazoActual ?? EmbarazoActual(id: 0);
       context
           .read<AddPacienteBloc>()
-          .add(UpdateFechaProbableParto(fecha: picked));
+          .add(UpdateEmbarazoActual(
+        embarazoActual: embarazo.copyWith(
+            fechaPartoEstimado: picked),
+      ));
     }
   }
 
@@ -107,51 +86,10 @@ class DatosPersonalesPage extends StatelessWidget {
         _formKey2.currentState!.validate() &&
         _formKey3.currentState!.validate() &&
         _formKey4.currentState!.validate()) {
-      final state = context.read<AddPacienteBloc>().state;
-      if (state.fechaNacimiento == null) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-              content: Text('Por favor selecciona una fecha de nacimiento')),
-        );
-        return;
-      }
-
-      // Crear objeto Paciente con los datos personales
-      Paciente paciente = Paciente(
-        nombre: _nombreController.text,
-        primerApellido: _primerApellidoController.text,
-        segundoApellido: _segundoApellidoController.text,
-        fechaNacimiento: state.fechaNacimiento!,
-        sexo: sexo,
-        direccion: _direccionController.text,
-        tipoDePaciente: _tipoDePacienteController.text,
-        // Puedes ajustar según tus necesidades
-        noIdentidad: _noIdentidadController.text,
-        aboRh: _aboRhController.text,
-        unidadHospitalaria: _unidadHospitalariaController.text,
-        policlinico: _policlinicoController.text,
-        estadoCivil: _estadoCivilController.text,
-        escolaridad: _escolaridadController.text,
-        consultorio: _consultorioController.text,
-        ocupacion: _ocupacionController.text,
-        noDormitorios: int.tryParse(_noDormitoriosController.text) ?? 0,
-        noPersonasNucleoPersonal:
-            int.tryParse(_noPersonasNucleoPersonalController.text) ?? 0,
-        tipoDeRiesgo: _tipoDeRiesgoController.text,
-        datosDeInteres: _datosDeInteresController.text,
-        tipoDeDiagnostico: _tipoDeDiagnosticoController.text,
-        descripcion: _descripcionController.text,
-        estructura: _estructuraController.text,
-        conductaSeguida: _conductaSeguidaController.text,
-        fechaDeRegistro: DateTime.now(),
-        fechaDeActualizacion: DateTime.now(),
-        edad: int.tryParse(_edadController.text),
-      );
-      safePrint("hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
       // Enviar evento al BLoC
       context
           .read<AddPacienteBloc>()
-          .add(UpdateDatosPersonales(paciente: paciente));
+          .add(SubmitPaciente());
     }
   }
 
@@ -163,10 +101,13 @@ class DatosPersonalesPage extends StatelessWidget {
         title: const Text('Datos Personales'),
       ),
       body: BlocConsumer<AddPacienteBloc, AddPacienteState>(
+        listenWhen: (previous, current) => previous.isSuccess != current.isSuccess
+        || previous.errorMessage != current.errorMessage,
         listener: (context, state) {
           safePrint("in listenner KKKKKKKKKKKKKKKKK");
           safePrint(state);
           if (state.isSuccess) {
+            safePrint("Hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
             // Navegar a la página de Interrogatorio cuando el estado sea exitoso
             Navigator.push(
               context,
@@ -177,21 +118,42 @@ class DatosPersonalesPage extends StatelessWidget {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(state.errorMessage!)),
             );
-          } else if (state.pacienteLoaded) {
-            _updateControllers(state);
           }
         },
+        buildWhen: (previous, current) => previous.paciente != current.paciente ||
+        current.currentStepDatosPersonales != previous.currentStepDatosPersonales ||
+        previous.embarazoActual != current.embarazoActual,
         builder: (context, state) {
-          _updateControllers(state);
+          safePrint("called builder datos personales");
           return Padding(
             padding: const EdgeInsets.all(16.0),
             child: Stepper(
               type: StepperType.vertical,
               currentStep: state.currentStepDatosPersonales,
               onStepContinue: () {
+                bool update = false;
                 if (state.currentStepDatosPersonales < 4) {
-                  context.read<AddPacienteBloc>().add(UpdateCurrentStep(
-                      step: state.currentStepDatosPersonales + 1));
+                 if(state.currentStepDatosPersonales == 0){
+                   if (_formKey.currentState!.validate()){
+                     update=true;
+                   }
+                 } else if(state.currentStepDatosPersonales == 1){
+                   if (_formKey2.currentState!.validate()){
+                     update=true;
+                   }
+                 } else if(state.currentStepDatosPersonales == 2){
+                   if (_formKey3.currentState!.validate()){
+                     update=true;
+                   }
+                 } else if(state.currentStepDatosPersonales == 3){
+                   if (_formKey4.currentState!.validate()){
+                     update=true;
+                   }
+                 }
+                 if(update){
+                   context.read<AddPacienteBloc>().add(UpdateCurrentStep(
+                       step: state.currentStepDatosPersonales + 1));
+                 }
                 } else {
                   _submitDatosPersonales(context);
                 }
@@ -211,31 +173,61 @@ class DatosPersonalesPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
-                          controller: _nombreController,
+                          initialValue: state.paciente?.nombre ?? '',
                           decoration:
                               const InputDecoration(labelText: 'Nombre'),
                           validator: (value) => value == null || value.isEmpty
                               ? 'Por favor ingresa el nombre'
                               : null,
+                          onChanged: (value){
+                            var paciente =
+                                state.paciente ?? Paciente(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateDatosPersonales(
+                              paciente: paciente.copyWith(
+                                  nombre: value),
+                            ));
+                          },
                         ),
                         TextFormField(
-                          controller: _primerApellidoController,
+                          initialValue: state.paciente?.primerApellido ?? '',
                           decoration: const InputDecoration(
                               labelText: 'Primer Apellido'),
                           validator: (value) => value == null || value.isEmpty
                               ? 'Por favor ingresa el primer apellido'
                               : null,
+                          onChanged: (value){
+                            var paciente =
+                                state.paciente ?? Paciente(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateDatosPersonales(
+                              paciente: paciente.copyWith(
+                                  primerApellido: value),
+                            ));
+                          },
                         ),
                         TextFormField(
-                          controller: _segundoApellidoController,
+                          initialValue: state.paciente?.segundoApellido ?? '',
                           decoration: const InputDecoration(
                               labelText: 'Segundo Apellido'),
                           validator: (value) => value == null || value.isEmpty
                               ? 'Por favor ingresa el segundo apellido'
                               : null,
+                          onChanged: (value){
+                            var paciente =
+                                state.paciente ?? Paciente(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateDatosPersonales(
+                              paciente: paciente.copyWith(
+                                  segundoApellido: value),
+                            ));
+                          },
                         ),
                         TextFormField(
-                          controller: _noIdentidadController,
+                          initialValue: state.paciente?.noIdentidad ?? '',
                           decoration:
                               const InputDecoration(labelText: 'No. Identidad'),
                           keyboardType: TextInputType.number,
@@ -249,9 +241,19 @@ class DatosPersonalesPage extends StatelessWidget {
                             }
                             return null;
                           },
+                          onChanged: (value){
+                            var paciente =
+                                state.paciente ?? Paciente(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateDatosPersonales(
+                              paciente: paciente.copyWith(
+                                  noIdentidad: value),
+                            ));
+                          },
                         ),
                         TextFormField(
-                          controller: _edadController,
+                          initialValue: state.paciente?.edad?.toString(),
                           keyboardType: TextInputType.number,
                           decoration: const InputDecoration(labelText: 'Edad'),
                           validator: (value) {
@@ -260,41 +262,71 @@ class DatosPersonalesPage extends StatelessWidget {
                             }
                             return null;
                           },
+                          onChanged: (value){
+                            var paciente =
+                                state.paciente ?? Paciente(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateDatosPersonales(
+                              paciente: paciente.copyWith(
+                                  edad: int.tryParse(value)),
+                            ));
+                          },
                         ),
                         const SizedBox(height: 16),
                         Row(
                           children: [
                             Expanded(
                               child: Text(
-                                state.fechaNacimiento == null
+                                state.paciente?.fechaNacimiento == null
                                     ? 'Fecha de Nacimiento'
-                                    : 'Fecha: ${state.fechaNacimiento!.toLocal().toString().split(' ')[0]}',
+                                    : 'Fecha: ${state.paciente?.fechaNacimiento!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context),
+                              onPressed: () => _selectDateTime(context, state),
                               child: const Text('Seleccionar'),
                             ),
                           ],
                         ),
                         TextFormField(
-                          controller: _aboRhController,
+                          initialValue: state.paciente?.aboRh ?? '',
                           decoration:
                               const InputDecoration(labelText: 'ABO Rh'),
                           validator: (value) => value == null || value.isEmpty
                               ? 'Por favor ingresa el grupo sanguíneo ABORh'
                               : null,
+                          onChanged: (value){
+                            var paciente =
+                                state.paciente ?? Paciente(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateDatosPersonales(
+                              paciente: paciente.copyWith(
+                                  aboRh: value),
+                            ));
+                          },
                         ),
                         TextFormField(
-                          controller: _tipoDePacienteController,
+                          initialValue: state.paciente?.tipoDePaciente ?? '',
                           decoration: const InputDecoration(
                               labelText: 'Tipo de paciente'),
                           validator: (value) => value == null || value.isEmpty
                               ? 'Por favor ingresa el tipo de paciente'
                               : null,
+                          onChanged: (value){
+                            var paciente =
+                                state.paciente ?? Paciente(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateDatosPersonales(
+                              paciente: paciente.copyWith(
+                                 tipoDePaciente: value),
+                            ));
+                          },
                         ),
                         DropdownButtonFormField<String>(
-                          value: sexo,
+                          value: state.paciente?.sexo ?? "Femenino",
                           decoration: const InputDecoration(labelText: 'Sexo'),
                           items: ['Femenino', 'Masculino', 'Otro']
                               .map((String value) {
@@ -304,7 +336,14 @@ class DatosPersonalesPage extends StatelessWidget {
                             );
                           }).toList(),
                           onChanged: (newValue) {
-                            sexo = newValue ?? '';
+                            var paciente =
+                                state.paciente ?? Paciente(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateDatosPersonales(
+                              paciente: paciente.copyWith(
+                                  sexo: newValue),
+                            ));
                           },
                         ),
                       ],
@@ -320,7 +359,7 @@ class DatosPersonalesPage extends StatelessWidget {
                       children: <Widget>[
                         // Unidad Hospitalaria
                         TextFormField(
-                          controller: _unidadHospitalariaController,
+                          initialValue: state.paciente?.unidadHospitalaria ?? "",
                           decoration: const InputDecoration(
                               labelText: 'Unidad Hospitalaria'),
                           validator: (value) {
@@ -329,10 +368,20 @@ class DatosPersonalesPage extends StatelessWidget {
                             }
                             return null;
                           },
+                          onChanged: (newValue) {
+                            var paciente =
+                                state.paciente ?? Paciente(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateDatosPersonales(
+                              paciente: paciente.copyWith(
+                                  unidadHospitalaria: newValue),
+                            ));
+                          },
                         ),
                         // Policlinico
                         TextFormField(
-                          controller: _policlinicoController,
+                          initialValue: state.paciente?.policlinico ?? "",
                           decoration:
                               const InputDecoration(labelText: 'Policlinico'),
                           validator: (value) {
@@ -341,18 +390,38 @@ class DatosPersonalesPage extends StatelessWidget {
                             }
                             return null;
                           },
+                          onChanged: (newValue) {
+                            var paciente =
+                                state.paciente ?? Paciente(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateDatosPersonales(
+                              paciente: paciente.copyWith(
+                                  policlinico: newValue),
+                            ));
+                          },
                         ),
                         TextFormField(
-                          controller: _direccionController,
+                          initialValue: state.paciente?.direccion ?? "",
                           decoration:
                               const InputDecoration(labelText: 'Dirección'),
                           validator: (value) => value == null || value.isEmpty
                               ? 'Por favor ingresa la dirección'
                               : null,
+                          onChanged: (newValue) {
+                            var paciente =
+                                state.paciente ?? Paciente(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateDatosPersonales(
+                              paciente: paciente.copyWith(
+                                  direccion: newValue),
+                            ));
+                          },
                         ),
                         // Estado Civil
                         TextFormField(
-                          controller: _estadoCivilController,
+                          initialValue: state.paciente?.estadoCivil ?? "",
                           decoration:
                               const InputDecoration(labelText: 'Estado Civil'),
                           validator: (value) {
@@ -361,10 +430,20 @@ class DatosPersonalesPage extends StatelessWidget {
                             }
                             return null;
                           },
+                          onChanged: (newValue) {
+                            var paciente =
+                                state.paciente ?? Paciente(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateDatosPersonales(
+                              paciente: paciente.copyWith(
+                                  estadoCivil: newValue),
+                            ));
+                          },
                         ),
                         // Escolaridad
                         TextFormField(
-                          controller: _escolaridadController,
+                          initialValue: state.paciente?.escolaridad ?? "",
                           decoration:
                               const InputDecoration(labelText: 'Escolaridad'),
                           validator: (value) {
@@ -373,10 +452,20 @@ class DatosPersonalesPage extends StatelessWidget {
                             }
                             return null;
                           },
+                          onChanged: (newValue) {
+                            var paciente =
+                                state.paciente ?? Paciente(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateDatosPersonales(
+                              paciente: paciente.copyWith(
+                                  escolaridad: newValue),
+                            ));
+                          },
                         ),
                         // Consultorio
                         TextFormField(
-                          controller: _consultorioController,
+                          initialValue: state.paciente?.consultorio ?? "",
                           decoration:
                               const InputDecoration(labelText: 'Consultorio'),
                           validator: (value) {
@@ -385,10 +474,20 @@ class DatosPersonalesPage extends StatelessWidget {
                             }
                             return null;
                           },
+                          onChanged: (newValue) {
+                            var paciente =
+                                state.paciente ?? Paciente(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateDatosPersonales(
+                              paciente: paciente.copyWith(
+                                  consultorio: newValue),
+                            ));
+                          },
                         ),
                         // Ocupación
                         TextFormField(
-                          controller: _ocupacionController,
+                          initialValue: state.paciente?.ocupacion ?? "",
                           decoration:
                               const InputDecoration(labelText: 'Ocupación'),
                           validator: (value) {
@@ -397,10 +496,20 @@ class DatosPersonalesPage extends StatelessWidget {
                             }
                             return null;
                           },
+                          onChanged: (newValue) {
+                            var paciente =
+                                state.paciente ?? Paciente(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateDatosPersonales(
+                              paciente: paciente.copyWith(
+                                  ocupacion: newValue),
+                            ));
+                          },
                         ),
                         // No. Dormitorios
                         TextFormField(
-                          controller: _noDormitoriosController,
+                          initialValue: state.paciente?.noDormitorios?.toString() ?? '',
                           decoration: const InputDecoration(
                               labelText: 'No. Dormitorios'),
                           keyboardType: TextInputType.number,
@@ -413,10 +522,20 @@ class DatosPersonalesPage extends StatelessWidget {
                             }
                             return null;
                           },
+                          onChanged: (newValue) {
+                            var paciente =
+                                state.paciente ?? Paciente(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateDatosPersonales(
+                              paciente: paciente.copyWith(
+                                  noDormitorios: int.tryParse(newValue)),
+                            ));
+                          },
                         ),
                         // No. Personas en Núcleo Personal
                         TextFormField(
-                          controller: _noPersonasNucleoPersonalController,
+                          initialValue: state.paciente?.noPersonasNucleoPersonal?.toString(),
                           decoration: const InputDecoration(
                               labelText: 'No. Personas en Núcleo Personal'),
                           keyboardType: TextInputType.number,
@@ -428,6 +547,16 @@ class DatosPersonalesPage extends StatelessWidget {
                               return 'Ingresa un número válido';
                             }
                             return null;
+                          },
+                          onChanged: (newValue) {
+                            var paciente =
+                                state.paciente ?? Paciente(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateDatosPersonales(
+                              paciente: paciente.copyWith(
+                                  noPersonasNucleoPersonal: int.tryParse(newValue)),
+                            ));
                           },
                         ),
                       ],
@@ -453,7 +582,7 @@ class DatosPersonalesPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTimeUltimaMenstruacion(context),
+                                  _selectDateTimeUltimaMenstruacion(context, state),
                               child: const Text('Seleccionar'),
                             ),
                           ],
@@ -461,34 +590,66 @@ class DatosPersonalesPage extends StatelessWidget {
                         CheckboxListTile(
                           value: state.embarazoActual?.noConfiable ?? false,
                           onChanged: (value) {
-                            context.read<AddPacienteBloc>().add(UpdateNoConfiable(
-                                noConfiable: value ?? false));
+                            var embarazo =
+                                state.embarazoActual ?? EmbarazoActual(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateEmbarazoActual(
+                              embarazoActual: embarazo.copyWith(
+                                  noConfiable: value),
+                            ));
                           },
                           title: const Text("No confiable"),
                         ),
                         CheckboxListTile(
                           value: state.embarazoActual?.desconocida ?? false,
                           onChanged: (value) {
-                            context.read<AddPacienteBloc>().add(UpdateDesconocida(
-                                desconocida: value ?? false));
+                            var embarazo =
+                                state.embarazoActual ?? EmbarazoActual(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateEmbarazoActual(
+                              embarazoActual: embarazo.copyWith(
+                                  desconocida: value),
+                            ));
                           },
                           title: const Text("Desconocido"),
                         ),
                         TextFormField(
-                          controller: _captacionController,
+                          initialValue: state.embarazoActual?.captacion?.toString(),
                           decoration: const InputDecoration(
                               labelText: 'Captacion'),
                           validator: (value) => value == null || value.isEmpty
                               ? 'Por favor ingresa la captación'
                               : null,
+                          onChanged: (value) {
+                            var embarazo =
+                                state.embarazoActual ?? EmbarazoActual(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateEmbarazoActual(
+                              embarazoActual: embarazo.copyWith(
+                                  captacion: int.tryParse(value)),
+                            ));
+                          },
                         ),
                         TextFormField(
-                          controller: _semanasController,
+                          initialValue: state.embarazoActual?.semanas?.toString(),
                           decoration: const InputDecoration(
                               labelText: 'Semanas'),
                           validator: (value) => value == null || value.isEmpty
                               ? 'Por favor ingresa las semanas'
                               : null,
+                          onChanged: (value) {
+                            var embarazo =
+                                state.embarazoActual ?? EmbarazoActual(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateEmbarazoActual(
+                              embarazoActual: embarazo.copyWith(
+                                  semanas: int.tryParse(value)),
+                            ));
+                          },
                         ),
                         Row(
                           children: [
@@ -502,7 +663,7 @@ class DatosPersonalesPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTimePartoEstimado(context),
+                                  _selectDateTimePartoEstimado(context, state),
                               child: const Text('Seleccionar'),
                             ),
                           ],
@@ -519,33 +680,63 @@ class DatosPersonalesPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
-                          controller: _tipoDeRiesgoController,
+                          initialValue: state.paciente?.tipoDeRiesgo,
                           decoration: const InputDecoration(
                               labelText: 'Tipo de Riesgo'),
                           validator: (value) => value == null || value.isEmpty
                               ? 'Por favor ingresa el tipo de riesgo'
                               : null,
+                          onChanged: (newValue) {
+                            var paciente =
+                                state.paciente ?? Paciente(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateDatosPersonales(
+                              paciente: paciente.copyWith(
+                                  tipoDeRiesgo: newValue),
+                            ));
+                          },
                         ),
                         TextFormField(
-                          controller: _codigoController,
+                          initialValue: state.paciente?.codigo,
                           decoration:
                           const InputDecoration(labelText: 'Código'),
-                          maxLines: 3,
+                          maxLines: 1,
                           validator: (value) => value == null || value.isEmpty
                               ? 'Por favor ingresa el código'
                               : null,
+                          onChanged: (newValue) {
+                            var paciente =
+                                state.paciente ?? Paciente(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateDatosPersonales(
+                              paciente: paciente.copyWith(
+                                  codigo: newValue),
+                            ));
+                          },
                         ),
                         TextFormField(
-                          controller: _descripcionController,
+                          initialValue: state.paciente?.descripcion,
                           decoration:
                               const InputDecoration(labelText: 'Descripción'),
                           maxLines: 3,
                           validator: (value) => value == null || value.isEmpty
                               ? 'Por favor ingresa la descripción'
                               : null,
+                          onChanged: (newValue) {
+                            var paciente =
+                                state.paciente ?? Paciente(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateDatosPersonales(
+                              paciente: paciente.copyWith(
+                                  descripcion: newValue),
+                            ));
+                          },
                         ),
                         TextFormField(
-                          controller: _datosDeInteresController,
+                          initialValue:  state.paciente?.datosDeInteres,
                           decoration: const InputDecoration(
                               labelText: 'Datos de Interés'),
                           validator: (value) {
@@ -554,10 +745,20 @@ class DatosPersonalesPage extends StatelessWidget {
                             }
                             return null;
                           },
+                          onChanged: (newValue) {
+                            var paciente =
+                                state.paciente ?? Paciente(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateDatosPersonales(
+                              paciente: paciente.copyWith(
+                                  datosDeInteres: newValue),
+                            ));
+                          },
                         ),
                         // Tipo de Diagnóstico
                         TextFormField(
-                          controller: _tipoDeDiagnosticoController,
+                          initialValue: state.paciente?.tipoDeDiagnostico,
                           decoration: const InputDecoration(
                               labelText: 'Tipo de Diagnóstico'),
                           validator: (value) {
@@ -566,9 +767,19 @@ class DatosPersonalesPage extends StatelessWidget {
                             }
                             return null;
                           },
+                          onChanged: (newValue) {
+                            var paciente =
+                                state.paciente ?? Paciente(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateDatosPersonales(
+                              paciente: paciente.copyWith(
+                                  tipoDeDiagnostico: newValue),
+                            ));
+                          },
                         ),
                         TextFormField(
-                          controller: _estructuraController,
+                          initialValue: state.paciente?.estructura,
                           decoration:
                               const InputDecoration(labelText: 'Estructura'),
                           validator: (value) {
@@ -577,10 +788,20 @@ class DatosPersonalesPage extends StatelessWidget {
                             }
                             return null;
                           },
+                          onChanged: (newValue) {
+                            var paciente =
+                                state.paciente ?? Paciente(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateDatosPersonales(
+                              paciente: paciente.copyWith(
+                                  estructura: newValue),
+                            ));
+                          },
                         ),
                         // Conducta Seguidora
                         TextFormField(
-                          controller: _conductaSeguidaController,
+                          initialValue:  state.paciente?.conductaSeguida,
                           decoration: const InputDecoration(
                               labelText: 'Conducta Seguida'),
                           validator: (value) {
@@ -589,19 +810,26 @@ class DatosPersonalesPage extends StatelessWidget {
                             }
                             return null;
                           },
+                          onChanged: (newValue) {
+                            var paciente =
+                                state.paciente ?? Paciente(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateDatosPersonales(
+                              paciente: paciente.copyWith(
+                                  conductaSeguida: newValue),
+                            ));
+                          },
                         ),
                         const SizedBox(height: 32),
-                        ElevatedButton(
-                          onPressed: () {
-                            _submitDatosPersonales(context);
-                          },
-                          child: state.isSubmitting
-                              ? const CircularProgressIndicator() // Mostrar indicador de carga
-                              : const Text('Siguiente'),
-                        ),
                       ],
                     ),
                   ),
+                ),
+                Step(
+                  title: const Text('Guardar'),
+                  isActive: state.currentStepDatosPersonales >= 4,
+                  content: const SizedBox(),
                 ),
               ],
             ),
@@ -609,87 +837,5 @@ class DatosPersonalesPage extends StatelessWidget {
         },
       ),
     );
-  }
-
-  _updateControllers(AddPacienteState state){
-    _nombreController.text =
-    state.paciente?.nombre != null ? state.paciente!.nombre! : '';
-    _primerApellidoController.text =
-    state.paciente?.primerApellido != null
-        ? state.paciente!.primerApellido!
-        : '';
-    _segundoApellidoController.text =
-    state.paciente?.segundoApellido != null
-        ? state.paciente!.segundoApellido!
-        : '';
-    _direccionController.text = state.paciente?.direccion != null
-        ? state.paciente!.direccion!
-        : '';
-    _noIdentidadController.text = state.paciente?.noIdentidad != null
-        ? state.paciente!.noIdentidad!
-        : '';
-    _tipoDePacienteController.text =
-    state.paciente?.tipoDePaciente != null
-        ? state.paciente!.tipoDePaciente!
-        : 'Nacional';
-    _aboRhController.text =
-    state.paciente?.aboRh != null ? state.paciente!.aboRh! : '';
-    _unidadHospitalariaController.text =
-    state.paciente?.unidadHospitalaria != null
-        ? state.paciente!.unidadHospitalaria!
-        : '';
-    _policlinicoController.text = state.paciente?.policlinico != null
-        ? state.paciente!.policlinico!
-        : '';
-    _estadoCivilController.text = state.paciente?.estadoCivil != null
-        ? state.paciente!.estadoCivil!
-        : '';
-    _escolaridadController.text = state.paciente?.escolaridad != null
-        ? state.paciente!.escolaridad!
-        : '';
-    _consultorioController.text = state.paciente?.consultorio != null
-        ? state.paciente!.consultorio!
-        : '';
-    _ocupacionController.text = state.paciente?.ocupacion != null
-        ? state.paciente!.ocupacion!
-        : '';
-    _noDormitoriosController.text =
-    state.paciente?.noDormitorios != null
-        ? state.paciente!.noDormitorios.toString()
-        : '';
-    _noPersonasNucleoPersonalController.text =
-    state.paciente?.noPersonasNucleoPersonal != null
-        ? state.paciente!.noPersonasNucleoPersonal.toString()
-        : '';
-    _tipoDeRiesgoController.text = state.paciente?.tipoDeRiesgo != null
-        ? state.paciente!.tipoDeRiesgo!
-        : '';
-    _datosDeInteresController.text =
-    state.paciente?.datosDeInteres != null
-        ? state.paciente!.datosDeInteres!
-        : '';
-    _tipoDeDiagnosticoController.text =
-    state.paciente?.tipoDeDiagnostico != null
-        ? state.paciente!.tipoDeDiagnostico!
-        : '';
-    _descripcionController.text = state.paciente?.descripcion != null
-        ? state.paciente!.descripcion!
-        : '';
-    _estructuraController.text = state.paciente?.estructura != null
-        ? state.paciente!.estructura!
-        : '';
-    _conductaSeguidaController.text =
-    state.paciente?.conductaSeguida != null
-        ? state.paciente!.conductaSeguida!
-        : '';
-    _edadController.text = state.paciente?.edad != null
-        ? state.paciente!.conductaSeguida!
-        : '0';
-    _captacionController.text = state.embarazoActual?.captacion != null
-        ? state.embarazoActual!.captacion.toString() : "";
-    _semanasController.text = state.embarazoActual?.semanas != null
-        ? state.embarazoActual!.semanas.toString() : "";
-    _codigoController.text = state.paciente?.codigo != null
-        ? state.paciente!.codigo! : "";
   }
 }

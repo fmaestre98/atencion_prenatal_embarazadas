@@ -15,45 +15,21 @@ class SignosVitalesPage extends StatelessWidget {
   final _formKey5 = GlobalKey<FormState>();
   final _formKey6 = GlobalKey<FormState>();
 
-  // Controladores de texto
-  final TextEditingController _pesoController = TextEditingController();
-  final TextEditingController _alturaController = TextEditingController();
-  final TextEditingController _presionArterialController = TextEditingController();
-  double imc = 0.0;
 
   SignosVitalesPage({Key? key}) : super(key: key);
 
-  void _calculateIMC() {
-    double peso = double.tryParse(_pesoController.text) ?? 0.0;
-    double alturaCm = double.tryParse(_alturaController.text) ?? 0.0;
-    double alturaM = alturaCm / 100;
-    if (alturaM > 0) {
-      imc = peso / (alturaM * alturaM);
-    } else {
-      imc = 0.0;
-    }
-  }
 
   void _submitSignosVitales(BuildContext context) {
-    if (_formKey.currentState!.validate()) {
+    if (_formKey.currentState!.validate() &&
+        _formKey2.currentState!.validate() &&
+        _formKey3.currentState!.validate() &&
+        _formKey4.currentState!.validate() &&
+        _formKey5.currentState!.validate() &&
+        _formKey6.currentState!.validate()) {
       _formKey.currentState!.save();
-      _calculateIMC();
-
-      // Enviar evento al BLoC
-      /*   context.read<AddPacienteBloc>().add(
-        UpdateSignosVitales(
-          peso: double.parse(_pesoController.text),
-          altura: double.parse(_alturaController.text),
-          imc: imc,
-          presionArterial: _presionArterialController.text,
-        ),
-      );*/
-
-      // Navegar a la siguiente página (Examen Físico)
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => ExamenFisicoPage()),
-      );
+      context
+          .read<AddPacienteBloc>()
+          .add(SubmitSignosVitales());
     }
   }
 
@@ -76,8 +52,6 @@ class SignosVitalesPage extends StatelessWidget {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(state.errorMessage!)),
             );
-          } else if (state.pacienteLoaded) {
-            //_updateControllers(state);
           }
         },
         builder: (context, state) {
@@ -91,7 +65,7 @@ class SignosVitalesPage extends StatelessWidget {
                   context.read<AddPacienteBloc>().add(UpdateCurrentStepSignosVitales(
                       step: state.currentStepSignosVitales + 1));
                 } else {
-                  //_submitDatosPersonales(context);
+                  _submitSignosVitales(context);
                 }
               },
               onStepCancel: () {
@@ -435,6 +409,11 @@ class SignosVitalesPage extends StatelessWidget {
                       ],
                     ),
                   ),
+                ),
+                Step(
+                  title: const Text('Guardar'),
+                  isActive: state.currentStepSignosVitales >= 6,
+                  content: const SizedBox(),
                 ),
               ],
             ),

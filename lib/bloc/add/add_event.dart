@@ -45,34 +45,10 @@ class UpdatePacienteLoaded extends AddPacienteEvent {
   List<Object?> get props => [pacienteLoaded];
 }
 
-class UpdateFechaNacimiento extends AddPacienteEvent {
-  final DateTime fechaNacimiento;
+class UpdateEmbarazoActual extends AddPacienteEvent {
+  final EmbarazoActual embarazoActual;
 
-  const UpdateFechaNacimiento({required this.fechaNacimiento});
-}
-
-class UpdateUltimaMenstruacion extends AddPacienteEvent {
-  final DateTime fecha;
-
-  const UpdateUltimaMenstruacion({required this.fecha});
-}
-
-class UpdateFechaProbableParto extends AddPacienteEvent {
-  final DateTime fecha;
-
-  const UpdateFechaProbableParto({required this.fecha});
-}
-
-class UpdateDesconocida extends AddPacienteEvent {
-  final bool desconocida;
-
-  const UpdateDesconocida({required this.desconocida});
-}
-
-class UpdateNoConfiable extends AddPacienteEvent {
-  final bool noConfiable;
-
-  const UpdateNoConfiable({required this.noConfiable});
+  const UpdateEmbarazoActual({required this.embarazoActual});
 }
 
 class UpdateCurrentStep extends AddPacienteEvent {
@@ -239,3 +215,19 @@ class AddFetoUltrasonidoSeguimiento extends AddPacienteEvent {
 
 // Evento para enviar todos los datos y guardar en la base de datos
 class SubmitPaciente extends AddPacienteEvent {}
+
+class SubmitInterrogatorio extends AddPacienteEvent {}
+
+class SubmitExamenFisico extends AddPacienteEvent {}
+
+class SubmitGenetica extends AddPacienteEvent {}
+
+class SubmitInterconsultas extends AddPacienteEvent {}
+
+class SubmitSignosVitales extends AddPacienteEvent {}
+
+class SubmitLaboratorio extends AddPacienteEvent {}
+
+
+
+

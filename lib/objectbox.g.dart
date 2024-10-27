@@ -14,8 +14,13 @@ import 'package:objectbox/internal.dart'
 import 'package:objectbox/objectbox.dart' as obx;
 import 'package:objectbox_flutter_libs/objectbox_flutter_libs.dart';
 
+import 'models/examen_fisico_model.dart';
+import 'models/genetica_model.dart';
+import 'models/interconsultas_model.dart';
 import 'models/interrogatory_model.dart';
+import 'models/laboratorio_microbiologia_model.dart';
 import 'models/personal_data_model.dart';
+import 'models/signos_vitales_model.dart';
 
 export 'package:objectbox/objectbox.dart'; // so that callers only have to import this file
 
@@ -880,7 +885,7 @@ final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
       id: const obx_int.IdUid(12, 7761614205288077719),
       name: 'Paciente',
-      lastPropertyId: const obx_int.IdUid(32, 3343682868467014237),
+      lastPropertyId: const obx_int.IdUid(37, 4171410278652026002),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
@@ -1050,7 +1055,42 @@ final _entities = <obx_int.ModelEntity>[
             id: const obx_int.IdUid(32, 3343682868467014237),
             name: 'edad',
             type: 6,
-            flags: 0)
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(33, 9116442927737983382),
+            name: 'signosVitalesId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(23, 8201558340184330337),
+            relationTarget: 'SignosVitalesModel'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(34, 8450042244872535087),
+            name: 'examenFisicoId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(24, 2190030544975487551),
+            relationTarget: 'ExamenFisicoModel'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(35, 8006616618205960480),
+            name: 'interconsultasId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(25, 1686872265094260734),
+            relationTarget: 'InterconsultasModel'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(36, 7697322776669860200),
+            name: 'geneticaId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(26, 6955833706687552710),
+            relationTarget: 'GeneticaModel'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(37, 4171410278652026002),
+            name: 'laboratorioId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(27, 4154737050510400679),
+            relationTarget: 'LaboratorioMicrobiologiaModel')
       ],
       relations: <obx_int.ModelRelation>[],
       backlinks: <obx_int.ModelBacklink>[
@@ -1119,6 +1159,1287 @@ final _entities = <obx_int.ModelEntity>[
             relationTarget: 'Embarazo')
       ],
       relations: <obx_int.ModelRelation>[],
+      backlinks: <obx_int.ModelBacklink>[]),
+  obx_int.ModelEntity(
+      id: const obx_int.IdUid(14, 5741221267339422420),
+      name: 'ExamenFisicoModel',
+      lastPropertyId: const obx_int.IdUid(59, 2147453723864899800),
+      flags: 0,
+      properties: <obx_int.ModelProperty>[
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(1, 8688330271867079560),
+            name: 'id',
+            type: 6,
+            flags: 1),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(2, 4940379001907952353),
+            name: 'pacienteId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(17, 704544510088554514),
+            relationTarget: 'Paciente'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(3, 7890795162060713921),
+            name: 'semanasDeGestacion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(4, 3177665098167231226),
+            name: 'peso',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(5, 4474610992256222968),
+            name: 'alturaUterina',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(6, 5718696735946559933),
+            name: 'circunsferenciaAbdominal',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(7, 6346944710292157951),
+            name: 'presentacion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(8, 1861591247494969526),
+            name: 'posicion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(9, 634577009327273944),
+            name: 'focoFetal',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(10, 5985613706137303031),
+            name: 'movimientoFetal',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(11, 1426849224303413478),
+            name: 'tonoUterino',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(12, 8275043006628288651),
+            name: 'edemas',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(13, 3315544004505515239),
+            name: 'dinamicaUterina',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(14, 5421773155683001284),
+            name: 'tejidoCelularSubcutaneo',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(15, 6682436749206571759),
+            name: 'facies',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(16, 4186611532551426596),
+            name: 'piel',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(17, 6732196928722544729),
+            name: 'gObservacions',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(18, 7689027552794960819),
+            name: 'mucosas',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(19, 7178860477864082232),
+            name: 'faneras',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(20, 5646276737792710315),
+            name: 'rInspeccion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(21, 1421074104826180840),
+            name: 'rPalpacion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(22, 5710087683450743780),
+            name: 'rPercucion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(23, 948348904837597098),
+            name: 'rAuscultacion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(24, 1841805659649256861),
+            name: 'rObservacions',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(25, 6262386830103969331),
+            name: 'acInspeccion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(26, 914399997208292803),
+            name: 'acPalpacion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(27, 5604274348223698177),
+            name: 'acAuscultacion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(28, 1246210253807028007),
+            name: 'acObservacions',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(29, 2082135501001400669),
+            name: 'venosoPeriferico',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(30, 7634679008406445488),
+            name: 'linfatico',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(31, 1180181773065726238),
+            name: 'vlObservacions',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(32, 8840282273097061154),
+            name: 'boca',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(33, 6116049166426954965),
+            name: 'lengua',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(34, 5866245399807434792),
+            name: 'orofaringe',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(35, 6042253867705316563),
+            name: 'dsObservacions',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(36, 470687122533511301),
+            name: 'aInspeccion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(37, 4352185094489862423),
+            name: 'aPalpacion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(38, 151511879725194698),
+            name: 'aPercucion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(39, 618787662223057892),
+            name: 'aAuscultacion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(40, 6251568887127485770),
+            name: 'aTactoRectal',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(41, 1751043828284157822),
+            name: 'aObservacions',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(42, 4557529458853952187),
+            name: 'uInspeccion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(43, 975855250958595544),
+            name: 'uPalpacion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(44, 690290611252295496),
+            name: 'uPercucion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(45, 2117253705461585325),
+            name: 'uObservacions',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(46, 5803667265878243321),
+            name: 'vuelvaPerine',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(47, 3694951316305582939),
+            name: 'vObservaciones',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(48, 8542552196116121742),
+            name: 'vagina',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(49, 8735917069777603045),
+            name: 'vagObservaciones',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(50, 4297910410523489441),
+            name: 'cuello',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(51, 353391596446138985),
+            name: 'cObservaciones',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(52, 5319265957663311244),
+            name: 'utero',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(53, 3571772333653998035),
+            name: 'utObservaciones',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(54, 3454116637060313626),
+            name: 'anejos',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(55, 8782307850104867108),
+            name: 'anObservaciones',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(56, 2487165962218614225),
+            name: 'mInspeccion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(57, 3541751772873469832),
+            name: 'mPalpacion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(58, 5723635455979407052),
+            name: 'aptasLaptar',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(59, 2147453723864899800),
+            name: 'mObservaciones',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <obx_int.ModelRelation>[],
+      backlinks: <obx_int.ModelBacklink>[]),
+  obx_int.ModelEntity(
+      id: const obx_int.IdUid(15, 3662604372185394157),
+      name: 'FetoUltrasonido1erTrimestre',
+      lastPropertyId: const obx_int.IdUid(16, 1027369132793922077),
+      flags: 0,
+      properties: <obx_int.ModelProperty>[
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(1, 3125946366706916733),
+            name: 'id',
+            type: 6,
+            flags: 1),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(2, 5978819714644387426),
+            name: 'lc',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(3, 7293225964262647217),
+            name: 'corion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(4, 8517130644830799992),
+            name: 'lcr',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(5, 5817401172394981847),
+            name: 'dbp',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(6, 3439484276179102944),
+            name: 'tn',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(7, 4561520246876412711),
+            name: 'hn',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(8, 3766962808434350931),
+            name: 'cristalinos',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(9, 334208035354213382),
+            name: 'estomago',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(10, 4700319859280097862),
+            name: 'paa',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(11, 8818730017350044748),
+            name: 'cuatroMiembros',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(12, 5148541706448086574),
+            name: 'eg',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(13, 8130416207633606399),
+            name: 'ip',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(14, 3255566421439409914),
+            name: 'ipPercentil',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(15, 8475597562460842413),
+            name: 'onda',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(16, 1027369132793922077),
+            name: 'geneticaId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(18, 4592602352847734047),
+            relationTarget: 'GeneticaModel')
+      ],
+      relations: <obx_int.ModelRelation>[],
+      backlinks: <obx_int.ModelBacklink>[]),
+  obx_int.ModelEntity(
+      id: const obx_int.IdUid(16, 251014534238979815),
+      name: 'FetoUltrasonidoSeguimiento',
+      lastPropertyId: const obx_int.IdUid(30, 1563168873480773821),
+      flags: 0,
+      properties: <obx_int.ModelProperty>[
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(1, 8057549421994480848),
+            name: 'id',
+            type: 6,
+            flags: 1),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(2, 6306411711820394489),
+            name: 'lc',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(3, 7139575735983327593),
+            name: 'cc',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(4, 4754414430149739636),
+            name: 'ca',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(5, 7949076784008281895),
+            name: 'lf',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(6, 1202032701240761724),
+            name: 'ila',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(7, 2847471464772980264),
+            name: 'ts',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(8, 8892162452562973750),
+            name: 'threeVasos',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(9, 3027524774471497910),
+            name: 'la',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(10, 8719123678407108861),
+            name: 'pocision',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(11, 6341271019889664315),
+            name: 'signosDeAcretismo',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(12, 8569742419055808378),
+            name: 'variedadDeAcretismo',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(13, 8587571896474204837),
+            name: 'madurezPlacentaria',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(14, 4403263744325612439),
+            name: 'vejiga',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(15, 1929275231911009692),
+            name: 'estomago',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(16, 4591934391921557398),
+            name: 'columna',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(17, 9033633483216298449),
+            name: 'riniones',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(18, 5912166084474092363),
+            name: 'macisoFacial',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(19, 8105513774057253109),
+            name: 'fourMiembros',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(20, 1328620507178648408),
+            name: 'paa',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(21, 3963809765986885145),
+            name: 'pliegueNucal',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(22, 6599116917334667825),
+            name: 'fosaPosteriol',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(23, 2416066946066679624),
+            name: 'atrioVentricular',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(24, 6173100428254639403),
+            name: 'cerebelo',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(25, 5445241934716663628),
+            name: 'cordon3Vasos',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(26, 6511409092474064707),
+            name: 'eg',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(27, 6203707289614097684),
+            name: 'pf',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(28, 1662028972588592085),
+            name: 'pfPercentil',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(29, 6873378873597868551),
+            name: 'datosDeInteres',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(30, 1563168873480773821),
+            name: 'geneticaId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(19, 6140709056239397922),
+            relationTarget: 'GeneticaModel')
+      ],
+      relations: <obx_int.ModelRelation>[],
+      backlinks: <obx_int.ModelBacklink>[]),
+  obx_int.ModelEntity(
+      id: const obx_int.IdUid(17, 6738869765077871938),
+      name: 'GeneticaModel',
+      lastPropertyId: const obx_int.IdUid(30, 9145423353426510466),
+      flags: 0,
+      properties: <obx_int.ModelProperty>[
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(1, 6868762528945526900),
+            name: 'id',
+            type: 6,
+            flags: 1),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(2, 3348647497235402612),
+            name: 'pacienteId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(20, 5736363076161751233),
+            relationTarget: 'Paciente'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(3, 106507458029769245),
+            name: 'efhb',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(4, 7441357797545844740),
+            name: 'afp',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(5, 2521274137684755901),
+            name: 'fechaRealizacion',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(6, 5193330369408047568),
+            name: 'numFetos',
+            type: 6,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(7, 6250560872290918689),
+            name: 'datosDeInteres',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(8, 6584880490051681336),
+            name: 'usFechaRealizacion',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(9, 742252711457330577),
+            name: 'usNumFetos',
+            type: 6,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(10, 8919640897566972490),
+            name: 'longitudDelCuello',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(11, 151523477907093382),
+            name: 'oci',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(12, 2860433256649961346),
+            name: 'valorOci',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(13, 91603583383567628),
+            name: 'maniobrasEsfuerzo',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(14, 755611787974734716),
+            name: 'icc',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(15, 1252822012129767092),
+            name: 'iccPercentil',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(16, 2929045663357553490),
+            name: 'csDatosDeInteres',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(17, 8119347056841073414),
+            name: 'ip1',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(18, 8207806876933661457),
+            name: 'ipD',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(19, 6578612760844198872),
+            name: 'ipM',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(20, 6455495328283809556),
+            name: 'ipmPercentil',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(21, 5394843672275240645),
+            name: 'dusDatosDeInteres',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(22, 7603274497977678801),
+            name: 'scfechaRealizacion',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(23, 8050578930135661119),
+            name: 'scLongitudCuello',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(24, 37048806778003277),
+            name: 'scOci',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(25, 1132550142141951864),
+            name: 'scValorOci',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(26, 7218139921966173950),
+            name: 'scManiobrasEsfuerzo',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(27, 7445603231039948446),
+            name: 'scIcc',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(28, 8999231914683457794),
+            name: 'scIccPercentil',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(29, 4404023032317355133),
+            name: 'eg',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(30, 9145423353426510466),
+            name: 'scDatosDeInteres',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <obx_int.ModelRelation>[],
+      backlinks: <obx_int.ModelBacklink>[
+        obx_int.ModelBacklink(
+            name: 'fetos1erTrimestre',
+            srcEntity: 'FetoUltrasonido1erTrimestre',
+            srcField: 'genetica'),
+        obx_int.ModelBacklink(
+            name: 'fetosSeguimiento',
+            srcEntity: 'FetoUltrasonidoSeguimiento',
+            srcField: 'genetica')
+      ]),
+  obx_int.ModelEntity(
+      id: const obx_int.IdUid(18, 701333006210659001),
+      name: 'InterconsultasModel',
+      lastPropertyId: const obx_int.IdUid(25, 1362005881937332900),
+      flags: 0,
+      properties: <obx_int.ModelProperty>[
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(1, 6861142600724165663),
+            name: 'id',
+            type: 6,
+            flags: 1),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(2, 7369823130972320210),
+            name: 'pacienteId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(21, 1688863015651471715),
+            relationTarget: 'Paciente'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(3, 465020686379089288),
+            name: 'psFechaConsulta',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(4, 7483436663214471967),
+            name: 'psEvaluacion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(5, 4577691702803435112),
+            name: 'psCodigo',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(6, 6457473762218755446),
+            name: 'psDescripcion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(7, 5639389772266945375),
+            name: 'psEstructura',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(8, 8297809171504285100),
+            name: 'psTipoDiagnostico',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(9, 179634100452749180),
+            name: 'conductaSeguida',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(10, 4028592540333375075),
+            name: 'nFechaConsulta',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(11, 2126145012103346070),
+            name: 'nEvaluacion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(12, 7487233330102507856),
+            name: 'miFechaConsulta',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(13, 3411359536565201342),
+            name: 'miEvaluacion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(14, 5994045353850564314),
+            name: 'tsFechaConsulta',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(15, 731632408536578843),
+            name: 'tsEvaluacion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(16, 7960342035754081043),
+            name: 'dFechaConsulta',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(17, 1405691180407342081),
+            name: 'dEvaluacion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(18, 2330917686207398048),
+            name: 'examenEstomatologico',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(19, 2199762075422887433),
+            name: 'numeroExodoncia',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(20, 1227726692282970969),
+            name: 'realizadasExodoncia',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(21, 5384345394006931462),
+            name: 'numeroObsturaciones',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(22, 4115443838294278631),
+            name: 'realizadasObsturaciones',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(23, 3998801540494521328),
+            name: 'remitida',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(24, 5386765509776316260),
+            name: 'noAsistencia',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(25, 1362005881937332900),
+            name: 'observaciones',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <obx_int.ModelRelation>[],
+      backlinks: <obx_int.ModelBacklink>[]),
+  obx_int.ModelEntity(
+      id: const obx_int.IdUid(19, 7625648154578817663),
+      name: 'LaboratorioMicrobiologiaModel',
+      lastPropertyId: const obx_int.IdUid(58, 4387549549362868548),
+      flags: 0,
+      properties: <obx_int.ModelProperty>[
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(1, 4960685588553202207),
+            name: 'id',
+            type: 6,
+            flags: 1),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(2, 6786591075011972152),
+            name: 'pacienteId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(22, 3403228673761836591),
+            relationTarget: 'Paciente'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(3, 4371396784873576370),
+            name: 'ghResultadoMaterno',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(4, 4833926131427641344),
+            name: 'grFechaRealizacionMaterno',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(5, 8846063688202262905),
+            name: 'ghResultadoPaterno',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(6, 6566662937549517588),
+            name: 'grFechaRealizacionPaterno',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(7, 6215622661927594894),
+            name: 'vihResultadoMaterno',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(8, 8388887843492735688),
+            name: 'vihFechaRealizacionMaterno',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(9, 5735964825236515972),
+            name: 'vihResultadoPaterno',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(10, 3302608187943536385),
+            name: 'vihFechaRealizacionPaterno',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(11, 6915434656020484835),
+            name: 'sResultadoMaterno',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(12, 642338209316877797),
+            name: 'sFechaRealizacionMaterno',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(13, 5452209617661244561),
+            name: 'sResultadoPaterno',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(14, 2779539092730150295),
+            name: 'sFechaRealizacionPaterno',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(15, 2068267759664354013),
+            name: 'asResultadoMaterno',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(16, 5743320717494979098),
+            name: 'asFechaRealizacionMaterno',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(17, 8341270976424983077),
+            name: 'asResultadoPaterno',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(18, 8533498262678108779),
+            name: 'asFechaRealizacionPaterno',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(19, 4742673532704070448),
+            name: 'hbResultadoMaterno',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(20, 2776099310695552872),
+            name: 'hbFechaRealizacionMaterno',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(21, 5345760823352045869),
+            name: 'htoResultadoMaterno',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(22, 2707428133201756013),
+            name: 'htoFechaRealizacionMaterno',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(23, 1931001695894788643),
+            name: 'gResultadoMaterno',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(24, 4364155235209527148),
+            name: 'gFechaRealizacionMaterno',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(25, 8956387731993778106),
+            name: 'ptgaResultadoMaterno',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(26, 7818795656834832715),
+            name: 'ptgaFechaRealizacionMaterno',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(27, 839469475374220082),
+            name: 'ptg2hResultadoMaterno',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(28, 518874891881476723),
+            name: 'ptg2hFechaRealizacionMaterno',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(29, 8955873835111977673),
+            name: 'cResultadoMaterno',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(30, 8737740260154030359),
+            name: 'cFechaRealizacionMaterno',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(31, 8053266216877622216),
+            name: 'auResultadoMaterno',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(32, 3869963371597931220),
+            name: 'auFechaRealizacionMaterno',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(33, 1350502546798933509),
+            name: 'uResultadoMaterno',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(34, 1689224228046626482),
+            name: 'uFechaRealizacionMaterno',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(35, 6684822105443782363),
+            name: 'colResultadoMaterno',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(36, 4129111868315252031),
+            name: 'colFechaRealizacionMaterno',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(37, 7197458764157444742),
+            name: 'tResultadoMaterno',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(38, 7439754062438390069),
+            name: 'tFechaRealizacionMaterno',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(39, 7399630138108299598),
+            name: 'bResultadoMaterno',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(40, 3868348738925196331),
+            name: 'bFechaRealizacionMaterno',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(41, 1859783780192681785),
+            name: 'tpgResultadoMaterno',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(42, 3506057299493180023),
+            name: 'tpgFechaRealizacionMaterno',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(43, 8820315911981192789),
+            name: 'tgoResultadoMaterno',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(44, 5454246626392139320),
+            name: 'tgoFechaRealizacionMaterno',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(45, 5219203585294678391),
+            name: 'ggtResultadoMaterno',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(46, 4670547379783359533),
+            name: 'ggtFechaRealizacionMaterno',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(47, 8237988770648578283),
+            name: 'citResultadoMaterno',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(48, 8773477606549102755),
+            name: 'citFechaRealizacionMaterno',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(49, 6687077032876381893),
+            name: 'uroResultadoMaterno',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(50, 3923895628220387430),
+            name: 'uroFechaRealizacionMaterno',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(51, 609843289645012664),
+            name: 'hfResultadoMaterno',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(52, 2463654898243192769),
+            name: 'hfFechaRealizacionMaterno',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(53, 7001870118651702822),
+            name: 'evsResultadoMaterno',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(54, 4816822694496079690),
+            name: 'evsFechaRealizacionMaterno',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(55, 4802216872219306148),
+            name: 'evcResultadoMaterno',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(56, 8281237728964507903),
+            name: 'evcFechaRealizacionMaterno',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(57, 5371891735322641822),
+            name: 'pcsultadoMaterno',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(58, 4387549549362868548),
+            name: 'pcFechaRealizacionMaterno',
+            type: 10,
+            flags: 0)
+      ],
+      relations: <obx_int.ModelRelation>[],
+      backlinks: <obx_int.ModelBacklink>[]),
+  obx_int.ModelEntity(
+      id: const obx_int.IdUid(20, 4744735908949802630),
+      name: 'SignosVitalesModel',
+      lastPropertyId: const obx_int.IdUid(21, 5052657070569879854),
+      flags: 0,
+      properties: <obx_int.ModelProperty>[
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(1, 888913118658284724),
+            name: 'id',
+            type: 6,
+            flags: 1),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(2, 2527057029857282194),
+            name: 'pacienteId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(28, 1214914561460118661),
+            relationTarget: 'Paciente'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(3, 6976235514380405979),
+            name: 'peso',
+            type: 8,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(4, 5535047770527756050),
+            name: 'talla',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(5, 299307616092585758),
+            name: 'percentilPeso',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(6, 8406147767071948413),
+            name: 'indiceMasaCorporal',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(7, 2811998407402130132),
+            name: 'valorNutricional',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(8, 5021741179137947030),
+            name: 'circunsferenciaAbdominal',
+            type: 8,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(9, 4010706179652445800),
+            name: 'sistolica',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(10, 544095999977981224),
+            name: 'diastolica',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(11, 3321660472390039466),
+            name: 'media',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(12, 1606915355672765596),
+            name: 'postura',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(13, 1189789295170296990),
+            name: 'ubicacion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(14, 6595917127401857267),
+            name: 'valor',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(15, 6014268453187644172),
+            name: 'caracteristicas',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(16, 3990840188827448116),
+            name: 'pulsoUbicacion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(17, 6521026176923761859),
+            name: 'frValor',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(18, 1579009564913040207),
+            name: 'frCarateristicas',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(19, 4229917485171913527),
+            name: 'temperatura',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(20, 5810202213934020960),
+            name: 'localizacion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(21, 5052657070569879854),
+            name: 'fcValor',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <obx_int.ModelRelation>[],
       backlinks: <obx_int.ModelBacklink>[])
 ];
 
@@ -1157,8 +2478,8 @@ Future<obx.Store> openStore(
 obx_int.ModelDefinition getObjectBoxModel() {
   final model = obx_int.ModelInfo(
       entities: _entities,
-      lastEntityId: const obx_int.IdUid(13, 6960418874851669987),
-      lastIndexId: const obx_int.IdUid(16, 3429999169993845107),
+      lastEntityId: const obx_int.IdUid(20, 4744735908949802630),
+      lastIndexId: const obx_int.IdUid(28, 1214914561460118661),
       lastRelationId: const obx_int.IdUid(14, 5431265603138581775),
       lastSequenceId: const obx_int.IdUid(0, 0),
       retiredEntityUids: const [3996157001370866902, 6473606377810914912],
@@ -1304,175 +2625,267 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final rootOffset = buffer.derefObject(0);
           final idParam =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
-          final object = Interrogatorio(id: idParam)
-            ..srDisnea =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 8)
-            ..srDolor =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 10)
-            ..srHermoptisis =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 12)
-            ..srExpectoracion =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 14)
-            ..srTos =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 16)
-            ..srOtros =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 18)
-            ..srObservaciones = const fb.StringReader(asciiOptimization: true)
-                .vTableGetNullable(buffer, rootOffset, 20)
-            ..scDisnea =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 22)
-            ..scDolor =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 24)
-            ..scClaudicacionIntermitente =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 26)
-            ..scCianosis =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 28)
-            ..scTos =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 30)
-            ..scPalpitaciones =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 32)
-            ..scOtros =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 34)
-            ..scObservaciones = const fb.StringReader(asciiOptimization: true)
-                .vTableGetNullable(buffer, rootOffset, 36)
-            ..sdDisfagia =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 38)
-            ..sdDolor =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 40)
-            ..sdColicos =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 42)
-            ..sdHermatemesis =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 44)
-            ..sdAcolia =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 46)
-            ..sdPirosis =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 48)
-            ..sdNauseas =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 50)
-            ..sdEnterorragia =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 52)
-            ..sdConstipacion =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 54)
-            ..sdAcidez =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 56)
-            ..sdDiarreas =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 58)
-            ..sdAerogastrias =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 60)
-            ..sdVomitos =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 62)
-            ..sdMelena =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 64)
-            ..sdOtros =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 66)
-            ..sdObservaciones = const fb.StringReader(asciiOptimization: true)
-                .vTableGetNullable(buffer, rootOffset, 68)
-            ..suNicturioas =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 70)
-            ..suDolor =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 72)
-            ..suOrinasTurbias =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 74)
-            ..suExudadoUretral =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 76)
-            ..suDisuria =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 78)
-            ..suRetencionUrinaria =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 80)
-            ..suHermaturia =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 82)
-            ..suIncontinencia =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 84)
-            ..suPolaquiuria =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 86)
-            ..suUretorragia =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 88)
-            ..suImpotiencia =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 90)
-            ..suTumoracion =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 92)
-            ..suCalculos =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 94)
-            ..suOtros =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 96)
-            ..suObservaciones = const fb.StringReader(asciiOptimization: true)
-                .vTableGetNullable(buffer, rootOffset, 98)
-            ..snCefaleas =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 100)
-            ..snDolorFacial =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 102)
-            ..snVomitos =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 104)
-            ..snDolorCervical =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 106)
-            ..snVertigos =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 108)
-            ..snDolorLumbar =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 110)
-            ..snConvulsiones =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 112)
-            ..snAlteracionMarcha =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 114)
-            ..snDefictMotor =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 116)
-            ..snAlteracionEquilibrio =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 118)
-            ..snDeficitSensitivo =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 120)
-            ..snAlteracionVisual =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 122)
-            ..snAlteracionConciencia =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 124)
-            ..snDificultadHablarEntender =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 126)
-            ..snOtros =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 128)
-            ..snObservaciones = const fb.StringReader(asciiOptimization: true)
-                .vTableGetNullable(buffer, rootOffset, 130)
-            ..seHipofisis =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 132)
-            ..seOvarios =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 134)
-            ..sePancreas =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 136)
-            ..seSuprarrenal =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 138)
-            ..seParatiroideas =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 140)
-            ..seTiroides =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 142)
-            ..seTesticulos =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 144)
-            ..seOtros =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 146)
-            ..seObservaciones = const fb.StringReader(asciiOptimization: true)
-                .vTableGetNullable(buffer, rootOffset, 148)
-            ..astenia =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 150)
-            ..anorexia =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 152)
-            ..epistaxis =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 154)
-            ..fiebre =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 156)
-            ..artralgia =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 158)
-            ..polifagia =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 160)
-            ..edema =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 162)
-            ..prurito =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 164)
-            ..perdidaPeso =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 166)
-            ..gananciaPeso =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 168)
-            ..acroparentesias =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 170)
-            ..otros =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 172)
-            ..observaciones = const fb.StringReader(asciiOptimization: true)
-                .vTableGetNullable(buffer, rootOffset, 174);
+          final srDisneaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 8);
+          final srDolorParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 10);
+          final srHermoptisisParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 12);
+          final srExpectoracionParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 14);
+          final srTosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 16);
+          final srOtrosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 18);
+          final srObservacionesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 20);
+          final scDisneaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 22);
+          final scDolorParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 24);
+          final scClaudicacionIntermitenteParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 26);
+          final scCianosisParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 28);
+          final scTosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 30);
+          final scPalpitacionesParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 32);
+          final scOtrosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 34);
+          final scObservacionesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 36);
+          final sdDisfagiaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 38);
+          final sdDolorParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 40);
+          final sdColicosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 42);
+          final sdHermatemesisParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 44);
+          final sdAcoliaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 46);
+          final sdPirosisParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 48);
+          final sdNauseasParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 50);
+          final sdEnterorragiaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 52);
+          final sdConstipacionParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 54);
+          final sdAcidezParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 56);
+          final sdDiarreasParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 58);
+          final sdAerogastriasParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 60);
+          final sdVomitosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 62);
+          final sdMelenaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 64);
+          final sdOtrosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 66);
+          final sdObservacionesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 68);
+          final suNicturioasParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 70);
+          final suDolorParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 72);
+          final suOrinasTurbiasParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 74);
+          final suExudadoUretralParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 76);
+          final suDisuriaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 78);
+          final suRetencionUrinariaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 80);
+          final suHermaturiaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 82);
+          final suIncontinenciaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 84);
+          final suPolaquiuriaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 86);
+          final suUretorragiaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 88);
+          final suImpotienciaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 90);
+          final suTumoracionParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 92);
+          final suCalculosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 94);
+          final suOtrosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 96);
+          final suObservacionesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 98);
+          final snCefaleasParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 100);
+          final snDolorFacialParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 102);
+          final snVomitosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 104);
+          final snDolorCervicalParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 106);
+          final snVertigosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 108);
+          final snDolorLumbarParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 110);
+          final snConvulsionesParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 112);
+          final snAlteracionMarchaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 114);
+          final snDefictMotorParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 116);
+          final snAlteracionEquilibrioParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 118);
+          final snDeficitSensitivoParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 120);
+          final snAlteracionVisualParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 122);
+          final snAlteracionConcienciaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 124);
+          final snDificultadHablarEntenderParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 126);
+          final snOtrosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 128);
+          final snObservacionesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 130);
+          final seHipofisisParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 132);
+          final seOvariosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 134);
+          final sePancreasParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 136);
+          final seSuprarrenalParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 138);
+          final seParatiroideasParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 140);
+          final seTiroidesParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 142);
+          final seTesticulosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 144);
+          final seOtrosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 146);
+          final seObservacionesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 148);
+          final asteniaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 150);
+          final anorexiaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 152);
+          final epistaxisParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 154);
+          final fiebreParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 156);
+          final artralgiaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 158);
+          final polifagiaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 160);
+          final edemaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 162);
+          final pruritoParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 164);
+          final perdidaPesoParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 166);
+          final gananciaPesoParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 168);
+          final acroparentesiasParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 170);
+          final otrosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 172);
+          final observacionesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 174);
+          final object = Interrogatorio(
+              id: idParam,
+              srDisnea: srDisneaParam,
+              srDolor: srDolorParam,
+              srHermoptisis: srHermoptisisParam,
+              srExpectoracion: srExpectoracionParam,
+              srTos: srTosParam,
+              srOtros: srOtrosParam,
+              srObservaciones: srObservacionesParam,
+              scDisnea: scDisneaParam,
+              scDolor: scDolorParam,
+              scClaudicacionIntermitente: scClaudicacionIntermitenteParam,
+              scCianosis: scCianosisParam,
+              scTos: scTosParam,
+              scPalpitaciones: scPalpitacionesParam,
+              scOtros: scOtrosParam,
+              scObservaciones: scObservacionesParam,
+              sdDisfagia: sdDisfagiaParam,
+              sdDolor: sdDolorParam,
+              sdColicos: sdColicosParam,
+              sdHermatemesis: sdHermatemesisParam,
+              sdAcolia: sdAcoliaParam,
+              sdPirosis: sdPirosisParam,
+              sdNauseas: sdNauseasParam,
+              sdEnterorragia: sdEnterorragiaParam,
+              sdConstipacion: sdConstipacionParam,
+              sdAcidez: sdAcidezParam,
+              sdDiarreas: sdDiarreasParam,
+              sdAerogastrias: sdAerogastriasParam,
+              sdVomitos: sdVomitosParam,
+              sdMelena: sdMelenaParam,
+              sdOtros: sdOtrosParam,
+              sdObservaciones: sdObservacionesParam,
+              suNicturioas: suNicturioasParam,
+              suDolor: suDolorParam,
+              suOrinasTurbias: suOrinasTurbiasParam,
+              suExudadoUretral: suExudadoUretralParam,
+              suDisuria: suDisuriaParam,
+              suRetencionUrinaria: suRetencionUrinariaParam,
+              suHermaturia: suHermaturiaParam,
+              suIncontinencia: suIncontinenciaParam,
+              suPolaquiuria: suPolaquiuriaParam,
+              suUretorragia: suUretorragiaParam,
+              suImpotiencia: suImpotienciaParam,
+              suTumoracion: suTumoracionParam,
+              suCalculos: suCalculosParam,
+              suOtros: suOtrosParam,
+              suObservaciones: suObservacionesParam,
+              snCefaleas: snCefaleasParam,
+              snDolorFacial: snDolorFacialParam,
+              snVomitos: snVomitosParam,
+              snDolorCervical: snDolorCervicalParam,
+              snVertigos: snVertigosParam,
+              snDolorLumbar: snDolorLumbarParam,
+              snConvulsiones: snConvulsionesParam,
+              snAlteracionMarcha: snAlteracionMarchaParam,
+              snDefictMotor: snDefictMotorParam,
+              snAlteracionEquilibrio: snAlteracionEquilibrioParam,
+              snDeficitSensitivo: snDeficitSensitivoParam,
+              snAlteracionVisual: snAlteracionVisualParam,
+              snAlteracionConciencia: snAlteracionConcienciaParam,
+              snDificultadHablarEntender: snDificultadHablarEntenderParam,
+              snOtros: snOtrosParam,
+              snObservaciones: snObservacionesParam,
+              seHipofisis: seHipofisisParam,
+              seOvarios: seOvariosParam,
+              sePancreas: sePancreasParam,
+              seSuprarrenal: seSuprarrenalParam,
+              seParatiroideas: seParatiroideasParam,
+              seTiroides: seTiroidesParam,
+              seTesticulos: seTesticulosParam,
+              seOtros: seOtrosParam,
+              seObservaciones: seObservacionesParam,
+              astenia: asteniaParam,
+              anorexia: anorexiaParam,
+              epistaxis: epistaxisParam,
+              fiebre: fiebreParam,
+              artralgia: artralgiaParam,
+              polifagia: polifagiaParam,
+              edema: edemaParam,
+              prurito: pruritoParam,
+              perdidaPeso: perdidaPesoParam,
+              gananciaPeso: gananciaPesoParam,
+              acroparentesias: acroparentesiasParam,
+              otros: otrosParam,
+              observaciones: observacionesParam);
           object.paciente.targetId =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0);
           object.paciente.attach(store);
@@ -1929,6 +3342,8 @@ obx_int.ModelDefinition getObjectBoxModel() {
               const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 6);
           final fechaPartoEstimadoValue =
               const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 12);
+          final idParam =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
           final fechaUltimaMenstruacionParam =
               fechaUltimaMenstruacionValue == null
                   ? null
@@ -1942,19 +3357,17 @@ obx_int.ModelDefinition getObjectBoxModel() {
               ? null
               : DateTime.fromMillisecondsSinceEpoch(fechaPartoEstimadoValue);
           final captacionParam =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 14, 0);
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 14);
           final semanasParam =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 16, 0);
-          final idParam =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 16);
           final object = EmbarazoActual(
-              fechaUltimaMenstruacionParam,
-              noConfiableParam,
-              desconocidaParam,
-              fechaPartoEstimadoParam,
-              captacionParam,
-              semanasParam,
-              id: idParam);
+              id: idParam,
+              fechaUltimaMenstruacion: fechaUltimaMenstruacionParam,
+              noConfiable: noConfiableParam,
+              desconocida: desconocidaParam,
+              fechaPartoEstimado: fechaPartoEstimadoParam,
+              captacion: captacionParam,
+              semanas: semanasParam);
           object.paciente.targetId =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 18, 0);
           object.paciente.attach(store);
@@ -2015,7 +3428,12 @@ obx_int.ModelDefinition getObjectBoxModel() {
               object.antecedentesPatologicos,
               object.antecedentesObstetricos,
               object.embarazoActual,
-              object.interrogatorio
+              object.interrogatorio,
+              object.signosVitales,
+              object.examenFisico,
+              object.interconsultas,
+              object.genetica,
+              object.laboratorio
             ],
         toManyRelations: (Paciente object) => {
               obx_int.RelInfo<Antecedente>.toOneBacklink(2, object.id,
@@ -2086,7 +3504,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final conductaSeguidaOffset = object.conductaSeguida == null
               ? null
               : fbb.writeString(object.conductaSeguida!);
-          fbb.startTable(33);
+          fbb.startTable(38);
           fbb.addInt64(0, object.id);
           fbb.addOffset(1, nombreOffset);
           fbb.addOffset(2, primerApellidoOffset);
@@ -2119,6 +3537,11 @@ obx_int.ModelDefinition getObjectBoxModel() {
           fbb.addInt64(29, object.fechaDeRegistro?.millisecondsSinceEpoch);
           fbb.addInt64(30, object.fechaDeActualizacion?.millisecondsSinceEpoch);
           fbb.addInt64(31, object.edad);
+          fbb.addInt64(32, object.signosVitales.targetId);
+          fbb.addInt64(33, object.examenFisico.targetId);
+          fbb.addInt64(34, object.interconsultas.targetId);
+          fbb.addInt64(35, object.genetica.targetId);
+          fbb.addInt64(36, object.laboratorio.targetId);
           fbb.finish(fbb.endTable());
           return object.id;
         },
@@ -2245,6 +3668,21 @@ obx_int.ModelDefinition getObjectBoxModel() {
           object.interrogatorio.targetId =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 60, 0);
           object.interrogatorio.attach(store);
+          object.signosVitales.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 68, 0);
+          object.signosVitales.attach(store);
+          object.examenFisico.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 70, 0);
+          object.examenFisico.attach(store);
+          object.interconsultas.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 72, 0);
+          object.interconsultas.attach(store);
+          object.genetica.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 74, 0);
+          object.genetica.attach(store);
+          object.laboratorio.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 76, 0);
+          object.laboratorio.attach(store);
           obx_int.InternalToManyAccess.setRelInfo<Paciente>(
               object.antecedentes,
               store,
@@ -2320,6 +3758,1935 @@ obx_int.ModelDefinition getObjectBoxModel() {
           object.embarazo.targetId =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 22, 0);
           object.embarazo.attach(store);
+          return object;
+        }),
+    ExamenFisicoModel: obx_int.EntityDefinition<ExamenFisicoModel>(
+        model: _entities[11],
+        toOneRelations: (ExamenFisicoModel object) => [object.paciente],
+        toManyRelations: (ExamenFisicoModel object) => {},
+        getId: (ExamenFisicoModel object) => object.id,
+        setId: (ExamenFisicoModel object, int id) {
+          object.id = id;
+        },
+        objectToFB: (ExamenFisicoModel object, fb.Builder fbb) {
+          final semanasDeGestacionOffset = object.semanasDeGestacion == null
+              ? null
+              : fbb.writeString(object.semanasDeGestacion!);
+          final pesoOffset =
+              object.peso == null ? null : fbb.writeString(object.peso!);
+          final alturaUterinaOffset = object.alturaUterina == null
+              ? null
+              : fbb.writeString(object.alturaUterina!);
+          final circunsferenciaAbdominalOffset =
+              object.circunsferenciaAbdominal == null
+                  ? null
+                  : fbb.writeString(object.circunsferenciaAbdominal!);
+          final presentacionOffset = object.presentacion == null
+              ? null
+              : fbb.writeString(object.presentacion!);
+          final posicionOffset = object.posicion == null
+              ? null
+              : fbb.writeString(object.posicion!);
+          final focoFetalOffset = object.focoFetal == null
+              ? null
+              : fbb.writeString(object.focoFetal!);
+          final movimientoFetalOffset = object.movimientoFetal == null
+              ? null
+              : fbb.writeString(object.movimientoFetal!);
+          final tonoUterinoOffset = object.tonoUterino == null
+              ? null
+              : fbb.writeString(object.tonoUterino!);
+          final edemasOffset =
+              object.edemas == null ? null : fbb.writeString(object.edemas!);
+          final dinamicaUterinaOffset = object.dinamicaUterina == null
+              ? null
+              : fbb.writeString(object.dinamicaUterina!);
+          final tejidoCelularSubcutaneoOffset =
+              object.tejidoCelularSubcutaneo == null
+                  ? null
+                  : fbb.writeString(object.tejidoCelularSubcutaneo!);
+          final faciesOffset =
+              object.facies == null ? null : fbb.writeString(object.facies!);
+          final pielOffset =
+              object.piel == null ? null : fbb.writeString(object.piel!);
+          final gObservacionsOffset = object.gObservacions == null
+              ? null
+              : fbb.writeString(object.gObservacions!);
+          final mucosasOffset =
+              object.mucosas == null ? null : fbb.writeString(object.mucosas!);
+          final fanerasOffset =
+              object.faneras == null ? null : fbb.writeString(object.faneras!);
+          final rInspeccionOffset = object.rInspeccion == null
+              ? null
+              : fbb.writeString(object.rInspeccion!);
+          final rPalpacionOffset = object.rPalpacion == null
+              ? null
+              : fbb.writeString(object.rPalpacion!);
+          final rPercucionOffset = object.rPercucion == null
+              ? null
+              : fbb.writeString(object.rPercucion!);
+          final rAuscultacionOffset = object.rAuscultacion == null
+              ? null
+              : fbb.writeString(object.rAuscultacion!);
+          final rObservacionsOffset = object.rObservacions == null
+              ? null
+              : fbb.writeString(object.rObservacions!);
+          final acInspeccionOffset = object.acInspeccion == null
+              ? null
+              : fbb.writeString(object.acInspeccion!);
+          final acPalpacionOffset = object.acPalpacion == null
+              ? null
+              : fbb.writeString(object.acPalpacion!);
+          final acAuscultacionOffset = object.acAuscultacion == null
+              ? null
+              : fbb.writeString(object.acAuscultacion!);
+          final acObservacionsOffset = object.acObservacions == null
+              ? null
+              : fbb.writeString(object.acObservacions!);
+          final venosoPerifericoOffset = object.venosoPeriferico == null
+              ? null
+              : fbb.writeString(object.venosoPeriferico!);
+          final linfaticoOffset = object.linfatico == null
+              ? null
+              : fbb.writeString(object.linfatico!);
+          final vlObservacionsOffset = object.vlObservacions == null
+              ? null
+              : fbb.writeString(object.vlObservacions!);
+          final bocaOffset =
+              object.boca == null ? null : fbb.writeString(object.boca!);
+          final lenguaOffset =
+              object.lengua == null ? null : fbb.writeString(object.lengua!);
+          final orofaringeOffset = object.orofaringe == null
+              ? null
+              : fbb.writeString(object.orofaringe!);
+          final dsObservacionsOffset = object.dsObservacions == null
+              ? null
+              : fbb.writeString(object.dsObservacions!);
+          final aInspeccionOffset = object.aInspeccion == null
+              ? null
+              : fbb.writeString(object.aInspeccion!);
+          final aPalpacionOffset = object.aPalpacion == null
+              ? null
+              : fbb.writeString(object.aPalpacion!);
+          final aPercucionOffset = object.aPercucion == null
+              ? null
+              : fbb.writeString(object.aPercucion!);
+          final aAuscultacionOffset = object.aAuscultacion == null
+              ? null
+              : fbb.writeString(object.aAuscultacion!);
+          final aTactoRectalOffset = object.aTactoRectal == null
+              ? null
+              : fbb.writeString(object.aTactoRectal!);
+          final aObservacionsOffset = object.aObservacions == null
+              ? null
+              : fbb.writeString(object.aObservacions!);
+          final uInspeccionOffset = object.uInspeccion == null
+              ? null
+              : fbb.writeString(object.uInspeccion!);
+          final uPalpacionOffset = object.uPalpacion == null
+              ? null
+              : fbb.writeString(object.uPalpacion!);
+          final uPercucionOffset = object.uPercucion == null
+              ? null
+              : fbb.writeString(object.uPercucion!);
+          final uObservacionsOffset = object.uObservacions == null
+              ? null
+              : fbb.writeString(object.uObservacions!);
+          final vuelvaPerineOffset = object.vuelvaPerine == null
+              ? null
+              : fbb.writeString(object.vuelvaPerine!);
+          final vObservacionesOffset = object.vObservaciones == null
+              ? null
+              : fbb.writeString(object.vObservaciones!);
+          final vaginaOffset =
+              object.vagina == null ? null : fbb.writeString(object.vagina!);
+          final vagObservacionesOffset = object.vagObservaciones == null
+              ? null
+              : fbb.writeString(object.vagObservaciones!);
+          final cuelloOffset =
+              object.cuello == null ? null : fbb.writeString(object.cuello!);
+          final cObservacionesOffset = object.cObservaciones == null
+              ? null
+              : fbb.writeString(object.cObservaciones!);
+          final uteroOffset =
+              object.utero == null ? null : fbb.writeString(object.utero!);
+          final utObservacionesOffset = object.utObservaciones == null
+              ? null
+              : fbb.writeString(object.utObservaciones!);
+          final anejosOffset =
+              object.anejos == null ? null : fbb.writeString(object.anejos!);
+          final anObservacionesOffset = object.anObservaciones == null
+              ? null
+              : fbb.writeString(object.anObservaciones!);
+          final mInspeccionOffset = object.mInspeccion == null
+              ? null
+              : fbb.writeString(object.mInspeccion!);
+          final mPalpacionOffset = object.mPalpacion == null
+              ? null
+              : fbb.writeString(object.mPalpacion!);
+          final mObservacionesOffset = object.mObservaciones == null
+              ? null
+              : fbb.writeString(object.mObservaciones!);
+          fbb.startTable(60);
+          fbb.addInt64(0, object.id);
+          fbb.addInt64(1, object.paciente.targetId);
+          fbb.addOffset(2, semanasDeGestacionOffset);
+          fbb.addOffset(3, pesoOffset);
+          fbb.addOffset(4, alturaUterinaOffset);
+          fbb.addOffset(5, circunsferenciaAbdominalOffset);
+          fbb.addOffset(6, presentacionOffset);
+          fbb.addOffset(7, posicionOffset);
+          fbb.addOffset(8, focoFetalOffset);
+          fbb.addOffset(9, movimientoFetalOffset);
+          fbb.addOffset(10, tonoUterinoOffset);
+          fbb.addOffset(11, edemasOffset);
+          fbb.addOffset(12, dinamicaUterinaOffset);
+          fbb.addOffset(13, tejidoCelularSubcutaneoOffset);
+          fbb.addOffset(14, faciesOffset);
+          fbb.addOffset(15, pielOffset);
+          fbb.addOffset(16, gObservacionsOffset);
+          fbb.addOffset(17, mucosasOffset);
+          fbb.addOffset(18, fanerasOffset);
+          fbb.addOffset(19, rInspeccionOffset);
+          fbb.addOffset(20, rPalpacionOffset);
+          fbb.addOffset(21, rPercucionOffset);
+          fbb.addOffset(22, rAuscultacionOffset);
+          fbb.addOffset(23, rObservacionsOffset);
+          fbb.addOffset(24, acInspeccionOffset);
+          fbb.addOffset(25, acPalpacionOffset);
+          fbb.addOffset(26, acAuscultacionOffset);
+          fbb.addOffset(27, acObservacionsOffset);
+          fbb.addOffset(28, venosoPerifericoOffset);
+          fbb.addOffset(29, linfaticoOffset);
+          fbb.addOffset(30, vlObservacionsOffset);
+          fbb.addOffset(31, bocaOffset);
+          fbb.addOffset(32, lenguaOffset);
+          fbb.addOffset(33, orofaringeOffset);
+          fbb.addOffset(34, dsObservacionsOffset);
+          fbb.addOffset(35, aInspeccionOffset);
+          fbb.addOffset(36, aPalpacionOffset);
+          fbb.addOffset(37, aPercucionOffset);
+          fbb.addOffset(38, aAuscultacionOffset);
+          fbb.addOffset(39, aTactoRectalOffset);
+          fbb.addOffset(40, aObservacionsOffset);
+          fbb.addOffset(41, uInspeccionOffset);
+          fbb.addOffset(42, uPalpacionOffset);
+          fbb.addOffset(43, uPercucionOffset);
+          fbb.addOffset(44, uObservacionsOffset);
+          fbb.addOffset(45, vuelvaPerineOffset);
+          fbb.addOffset(46, vObservacionesOffset);
+          fbb.addOffset(47, vaginaOffset);
+          fbb.addOffset(48, vagObservacionesOffset);
+          fbb.addOffset(49, cuelloOffset);
+          fbb.addOffset(50, cObservacionesOffset);
+          fbb.addOffset(51, uteroOffset);
+          fbb.addOffset(52, utObservacionesOffset);
+          fbb.addOffset(53, anejosOffset);
+          fbb.addOffset(54, anObservacionesOffset);
+          fbb.addOffset(55, mInspeccionOffset);
+          fbb.addOffset(56, mPalpacionOffset);
+          fbb.addBool(57, object.aptasLaptar);
+          fbb.addOffset(58, mObservacionesOffset);
+          fbb.finish(fbb.endTable());
+          return object.id;
+        },
+        objectFromFB: (obx.Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final idParam =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
+          final semanasDeGestacionParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 8);
+          final pesoParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 10);
+          final alturaUterinaParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 12);
+          final circunsferenciaAbdominalParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 14);
+          final presentacionParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 16);
+          final posicionParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 18);
+          final focoFetalParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 20);
+          final movimientoFetalParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 22);
+          final tonoUterinoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 24);
+          final edemasParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 26);
+          final dinamicaUterinaParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 28);
+          final tejidoCelularSubcutaneoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 30);
+          final faciesParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 32);
+          final pielParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 34);
+          final gObservacionsParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 36);
+          final mucosasParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 38);
+          final fanerasParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 40);
+          final rInspeccionParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 42);
+          final rPalpacionParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 44);
+          final rPercucionParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 46);
+          final rAuscultacionParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 48);
+          final rObservacionsParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 50);
+          final acInspeccionParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 52);
+          final acPalpacionParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 54);
+          final acAuscultacionParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 56);
+          final acObservacionsParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 58);
+          final venosoPerifericoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 60);
+          final linfaticoParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 62);
+          final vlObservacionsParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 64);
+          final bocaParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 66);
+          final lenguaParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 68);
+          final orofaringeParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 70);
+          final dsObservacionsParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 72);
+          final aInspeccionParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 74);
+          final aPalpacionParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 76);
+          final aPercucionParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 78);
+          final aAuscultacionParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 80);
+          final aTactoRectalParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 82);
+          final aObservacionsParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 84);
+          final uInspeccionParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 86);
+          final uPalpacionParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 88);
+          final uPercucionParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 90);
+          final uObservacionsParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 92);
+          final vuelvaPerineParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 94);
+          final vObservacionesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 96);
+          final vaginaParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 98);
+          final vagObservacionesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 100);
+          final cuelloParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 102);
+          final cObservacionesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 104);
+          final uteroParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 106);
+          final utObservacionesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 108);
+          final anejosParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 110);
+          final anObservacionesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 112);
+          final mInspeccionParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 114);
+          final mPalpacionParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 116);
+          final aptasLaptarParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 118);
+          final mObservacionesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 120);
+          final object = ExamenFisicoModel(
+              id: idParam,
+              semanasDeGestacion: semanasDeGestacionParam,
+              peso: pesoParam,
+              alturaUterina: alturaUterinaParam,
+              circunsferenciaAbdominal: circunsferenciaAbdominalParam,
+              presentacion: presentacionParam,
+              posicion: posicionParam,
+              focoFetal: focoFetalParam,
+              movimientoFetal: movimientoFetalParam,
+              tonoUterino: tonoUterinoParam,
+              edemas: edemasParam,
+              dinamicaUterina: dinamicaUterinaParam,
+              tejidoCelularSubcutaneo: tejidoCelularSubcutaneoParam,
+              facies: faciesParam,
+              piel: pielParam,
+              gObservacions: gObservacionsParam,
+              mucosas: mucosasParam,
+              faneras: fanerasParam,
+              rInspeccion: rInspeccionParam,
+              rPalpacion: rPalpacionParam,
+              rPercucion: rPercucionParam,
+              rAuscultacion: rAuscultacionParam,
+              rObservacions: rObservacionsParam,
+              acInspeccion: acInspeccionParam,
+              acPalpacion: acPalpacionParam,
+              acAuscultacion: acAuscultacionParam,
+              acObservacions: acObservacionsParam,
+              venosoPeriferico: venosoPerifericoParam,
+              linfatico: linfaticoParam,
+              vlObservacions: vlObservacionsParam,
+              boca: bocaParam,
+              lengua: lenguaParam,
+              orofaringe: orofaringeParam,
+              dsObservacions: dsObservacionsParam,
+              aInspeccion: aInspeccionParam,
+              aPalpacion: aPalpacionParam,
+              aPercucion: aPercucionParam,
+              aAuscultacion: aAuscultacionParam,
+              aTactoRectal: aTactoRectalParam,
+              aObservacions: aObservacionsParam,
+              uInspeccion: uInspeccionParam,
+              uPalpacion: uPalpacionParam,
+              uPercucion: uPercucionParam,
+              uObservacions: uObservacionsParam,
+              vuelvaPerine: vuelvaPerineParam,
+              vObservaciones: vObservacionesParam,
+              vagina: vaginaParam,
+              vagObservaciones: vagObservacionesParam,
+              cuello: cuelloParam,
+              cObservaciones: cObservacionesParam,
+              utero: uteroParam,
+              utObservaciones: utObservacionesParam,
+              anejos: anejosParam,
+              anObservaciones: anObservacionesParam,
+              mInspeccion: mInspeccionParam,
+              mPalpacion: mPalpacionParam,
+              aptasLaptar: aptasLaptarParam,
+              mObservaciones: mObservacionesParam);
+          object.paciente.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0);
+          object.paciente.attach(store);
+          return object;
+        }),
+    FetoUltrasonido1erTrimestre:
+        obx_int.EntityDefinition<FetoUltrasonido1erTrimestre>(
+            model: _entities[12],
+            toOneRelations: (FetoUltrasonido1erTrimestre object) =>
+                [object.genetica],
+            toManyRelations: (FetoUltrasonido1erTrimestre object) => {},
+            getId: (FetoUltrasonido1erTrimestre object) => object.id,
+            setId: (FetoUltrasonido1erTrimestre object, int id) {
+              object.id = id;
+            },
+            objectToFB: (FetoUltrasonido1erTrimestre object, fb.Builder fbb) {
+              final lcOffset =
+                  object.lc == null ? null : fbb.writeString(object.lc!);
+              final corionOffset = object.corion == null
+                  ? null
+                  : fbb.writeString(object.corion!);
+              final lcrOffset =
+                  object.lcr == null ? null : fbb.writeString(object.lcr!);
+              final dbpOffset =
+                  object.dbp == null ? null : fbb.writeString(object.dbp!);
+              final tnOffset =
+                  object.tn == null ? null : fbb.writeString(object.tn!);
+              final hnOffset =
+                  object.hn == null ? null : fbb.writeString(object.hn!);
+              final cristalinosOffset = object.cristalinos == null
+                  ? null
+                  : fbb.writeString(object.cristalinos!);
+              final estomagoOffset = object.estomago == null
+                  ? null
+                  : fbb.writeString(object.estomago!);
+              final paaOffset =
+                  object.paa == null ? null : fbb.writeString(object.paa!);
+              final cuatroMiembrosOffset = object.cuatroMiembros == null
+                  ? null
+                  : fbb.writeString(object.cuatroMiembros!);
+              final egOffset =
+                  object.eg == null ? null : fbb.writeString(object.eg!);
+              final ipOffset =
+                  object.ip == null ? null : fbb.writeString(object.ip!);
+              final ipPercentilOffset = object.ipPercentil == null
+                  ? null
+                  : fbb.writeString(object.ipPercentil!);
+              final ondaOffset =
+                  object.onda == null ? null : fbb.writeString(object.onda!);
+              fbb.startTable(17);
+              fbb.addInt64(0, object.id);
+              fbb.addOffset(1, lcOffset);
+              fbb.addOffset(2, corionOffset);
+              fbb.addOffset(3, lcrOffset);
+              fbb.addOffset(4, dbpOffset);
+              fbb.addOffset(5, tnOffset);
+              fbb.addOffset(6, hnOffset);
+              fbb.addOffset(7, cristalinosOffset);
+              fbb.addOffset(8, estomagoOffset);
+              fbb.addOffset(9, paaOffset);
+              fbb.addOffset(10, cuatroMiembrosOffset);
+              fbb.addOffset(11, egOffset);
+              fbb.addOffset(12, ipOffset);
+              fbb.addOffset(13, ipPercentilOffset);
+              fbb.addOffset(14, ondaOffset);
+              fbb.addInt64(15, object.genetica.targetId);
+              fbb.finish(fbb.endTable());
+              return object.id;
+            },
+            objectFromFB: (obx.Store store, ByteData fbData) {
+              final buffer = fb.BufferContext(fbData);
+              final rootOffset = buffer.derefObject(0);
+              final idParam =
+                  const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
+              final lcParam = const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 6);
+              final corionParam = const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 8);
+              final lcrParam = const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 10);
+              final dbpParam = const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 12);
+              final tnParam = const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 14);
+              final hnParam = const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 16);
+              final cristalinosParam =
+                  const fb.StringReader(asciiOptimization: true)
+                      .vTableGetNullable(buffer, rootOffset, 18);
+              final estomagoParam =
+                  const fb.StringReader(asciiOptimization: true)
+                      .vTableGetNullable(buffer, rootOffset, 20);
+              final paaParam = const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 22);
+              final cuatroMiembrosParam =
+                  const fb.StringReader(asciiOptimization: true)
+                      .vTableGetNullable(buffer, rootOffset, 24);
+              final egParam = const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 26);
+              final ipParam = const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 28);
+              final ipPercentilParam =
+                  const fb.StringReader(asciiOptimization: true)
+                      .vTableGetNullable(buffer, rootOffset, 30);
+              final ondaParam = const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 32);
+              final object = FetoUltrasonido1erTrimestre(
+                  id: idParam,
+                  lc: lcParam,
+                  corion: corionParam,
+                  lcr: lcrParam,
+                  dbp: dbpParam,
+                  tn: tnParam,
+                  hn: hnParam,
+                  cristalinos: cristalinosParam,
+                  estomago: estomagoParam,
+                  paa: paaParam,
+                  cuatroMiembros: cuatroMiembrosParam,
+                  eg: egParam,
+                  ip: ipParam,
+                  ipPercentil: ipPercentilParam,
+                  onda: ondaParam);
+              object.genetica.targetId =
+                  const fb.Int64Reader().vTableGet(buffer, rootOffset, 34, 0);
+              object.genetica.attach(store);
+              return object;
+            }),
+    FetoUltrasonidoSeguimiento: obx_int.EntityDefinition<
+            FetoUltrasonidoSeguimiento>(
+        model: _entities[13],
+        toOneRelations: (FetoUltrasonidoSeguimiento object) =>
+            [object.genetica],
+        toManyRelations: (FetoUltrasonidoSeguimiento object) => {},
+        getId: (FetoUltrasonidoSeguimiento object) => object.id,
+        setId: (FetoUltrasonidoSeguimiento object, int id) {
+          object.id = id;
+        },
+        objectToFB: (FetoUltrasonidoSeguimiento object, fb.Builder fbb) {
+          final lcOffset =
+              object.lc == null ? null : fbb.writeString(object.lc!);
+          final ccOffset =
+              object.cc == null ? null : fbb.writeString(object.cc!);
+          final caOffset =
+              object.ca == null ? null : fbb.writeString(object.ca!);
+          final lfOffset =
+              object.lf == null ? null : fbb.writeString(object.lf!);
+          final ilaOffset =
+              object.ila == null ? null : fbb.writeString(object.ila!);
+          final tsOffset =
+              object.ts == null ? null : fbb.writeString(object.ts!);
+          final threeVasosOffset = object.threeVasos == null
+              ? null
+              : fbb.writeString(object.threeVasos!);
+          final laOffset =
+              object.la == null ? null : fbb.writeString(object.la!);
+          final pocisionOffset = object.pocision == null
+              ? null
+              : fbb.writeString(object.pocision!);
+          final signosDeAcretismoOffset = object.signosDeAcretismo == null
+              ? null
+              : fbb.writeString(object.signosDeAcretismo!);
+          final variedadDeAcretismoOffset = object.variedadDeAcretismo == null
+              ? null
+              : fbb.writeString(object.variedadDeAcretismo!);
+          final madurezPlacentariaOffset = object.madurezPlacentaria == null
+              ? null
+              : fbb.writeString(object.madurezPlacentaria!);
+          final vejigaOffset =
+              object.vejiga == null ? null : fbb.writeString(object.vejiga!);
+          final estomagoOffset = object.estomago == null
+              ? null
+              : fbb.writeString(object.estomago!);
+          final columnaOffset =
+              object.columna == null ? null : fbb.writeString(object.columna!);
+          final rinionesOffset = object.riniones == null
+              ? null
+              : fbb.writeString(object.riniones!);
+          final macisoFacialOffset = object.macisoFacial == null
+              ? null
+              : fbb.writeString(object.macisoFacial!);
+          final fourMiembrosOffset = object.fourMiembros == null
+              ? null
+              : fbb.writeString(object.fourMiembros!);
+          final paaOffset =
+              object.paa == null ? null : fbb.writeString(object.paa!);
+          final pliegueNucalOffset = object.pliegueNucal == null
+              ? null
+              : fbb.writeString(object.pliegueNucal!);
+          final fosaPosteriolOffset = object.fosaPosteriol == null
+              ? null
+              : fbb.writeString(object.fosaPosteriol!);
+          final atrioVentricularOffset = object.atrioVentricular == null
+              ? null
+              : fbb.writeString(object.atrioVentricular!);
+          final cerebeloOffset = object.cerebelo == null
+              ? null
+              : fbb.writeString(object.cerebelo!);
+          final cordon3VasosOffset = object.cordon3Vasos == null
+              ? null
+              : fbb.writeString(object.cordon3Vasos!);
+          final egOffset =
+              object.eg == null ? null : fbb.writeString(object.eg!);
+          final pfOffset =
+              object.pf == null ? null : fbb.writeString(object.pf!);
+          final pfPercentilOffset = object.pfPercentil == null
+              ? null
+              : fbb.writeString(object.pfPercentil!);
+          final datosDeInteresOffset = object.datosDeInteres == null
+              ? null
+              : fbb.writeString(object.datosDeInteres!);
+          fbb.startTable(31);
+          fbb.addInt64(0, object.id);
+          fbb.addOffset(1, lcOffset);
+          fbb.addOffset(2, ccOffset);
+          fbb.addOffset(3, caOffset);
+          fbb.addOffset(4, lfOffset);
+          fbb.addOffset(5, ilaOffset);
+          fbb.addOffset(6, tsOffset);
+          fbb.addOffset(7, threeVasosOffset);
+          fbb.addOffset(8, laOffset);
+          fbb.addOffset(9, pocisionOffset);
+          fbb.addOffset(10, signosDeAcretismoOffset);
+          fbb.addOffset(11, variedadDeAcretismoOffset);
+          fbb.addOffset(12, madurezPlacentariaOffset);
+          fbb.addOffset(13, vejigaOffset);
+          fbb.addOffset(14, estomagoOffset);
+          fbb.addOffset(15, columnaOffset);
+          fbb.addOffset(16, rinionesOffset);
+          fbb.addOffset(17, macisoFacialOffset);
+          fbb.addOffset(18, fourMiembrosOffset);
+          fbb.addOffset(19, paaOffset);
+          fbb.addOffset(20, pliegueNucalOffset);
+          fbb.addOffset(21, fosaPosteriolOffset);
+          fbb.addOffset(22, atrioVentricularOffset);
+          fbb.addOffset(23, cerebeloOffset);
+          fbb.addOffset(24, cordon3VasosOffset);
+          fbb.addOffset(25, egOffset);
+          fbb.addOffset(26, pfOffset);
+          fbb.addOffset(27, pfPercentilOffset);
+          fbb.addOffset(28, datosDeInteresOffset);
+          fbb.addInt64(29, object.genetica.targetId);
+          fbb.finish(fbb.endTable());
+          return object.id;
+        },
+        objectFromFB: (obx.Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final idParam =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
+          final lcParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 6);
+          final ccParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 8);
+          final caParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 10);
+          final lfParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 12);
+          final ilaParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 14);
+          final tsParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 16);
+          final threeVasosParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 18);
+          final laParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 20);
+          final pocisionParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 22);
+          final signosDeAcretismoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 24);
+          final variedadDeAcretismoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 26);
+          final madurezPlacentariaParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 28);
+          final vejigaParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 30);
+          final estomagoParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 32);
+          final columnaParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 34);
+          final rinionesParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 36);
+          final macisoFacialParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 38);
+          final fourMiembrosParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 40);
+          final paaParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 42);
+          final pliegueNucalParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 44);
+          final fosaPosteriolParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 46);
+          final atrioVentricularParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 48);
+          final cerebeloParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 50);
+          final cordon3VasosParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 52);
+          final egParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 54);
+          final pfParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 56);
+          final pfPercentilParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 58);
+          final datosDeInteresParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 60);
+          final object = FetoUltrasonidoSeguimiento(
+              id: idParam,
+              lc: lcParam,
+              cc: ccParam,
+              ca: caParam,
+              lf: lfParam,
+              ila: ilaParam,
+              ts: tsParam,
+              threeVasos: threeVasosParam,
+              la: laParam,
+              pocision: pocisionParam,
+              signosDeAcretismo: signosDeAcretismoParam,
+              variedadDeAcretismo: variedadDeAcretismoParam,
+              madurezPlacentaria: madurezPlacentariaParam,
+              vejiga: vejigaParam,
+              estomago: estomagoParam,
+              columna: columnaParam,
+              riniones: rinionesParam,
+              macisoFacial: macisoFacialParam,
+              fourMiembros: fourMiembrosParam,
+              paa: paaParam,
+              pliegueNucal: pliegueNucalParam,
+              fosaPosteriol: fosaPosteriolParam,
+              atrioVentricular: atrioVentricularParam,
+              cerebelo: cerebeloParam,
+              cordon3Vasos: cordon3VasosParam,
+              eg: egParam,
+              pf: pfParam,
+              pfPercentil: pfPercentilParam,
+              datosDeInteres: datosDeInteresParam);
+          object.genetica.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 62, 0);
+          object.genetica.attach(store);
+          return object;
+        }),
+    GeneticaModel: obx_int.EntityDefinition<GeneticaModel>(
+        model: _entities[14],
+        toOneRelations: (GeneticaModel object) => [object.paciente],
+        toManyRelations: (GeneticaModel object) => {
+              obx_int.RelInfo<FetoUltrasonido1erTrimestre>.toOneBacklink(
+                  16,
+                  object.id,
+                  (FetoUltrasonido1erTrimestre srcObject) =>
+                      srcObject.genetica): object.fetos1erTrimestre,
+              obx_int.RelInfo<FetoUltrasonidoSeguimiento>.toOneBacklink(
+                  30,
+                  object.id,
+                  (FetoUltrasonidoSeguimiento srcObject) =>
+                      srcObject.genetica): object.fetosSeguimiento
+            },
+        getId: (GeneticaModel object) => object.id,
+        setId: (GeneticaModel object, int id) {
+          object.id = id;
+        },
+        objectToFB: (GeneticaModel object, fb.Builder fbb) {
+          final efhbOffset =
+              object.efhb == null ? null : fbb.writeString(object.efhb!);
+          final afpOffset =
+              object.afp == null ? null : fbb.writeString(object.afp!);
+          final datosDeInteresOffset = object.datosDeInteres == null
+              ? null
+              : fbb.writeString(object.datosDeInteres!);
+          final longitudDelCuelloOffset = object.longitudDelCuello == null
+              ? null
+              : fbb.writeString(object.longitudDelCuello!);
+          final ociOffset =
+              object.oci == null ? null : fbb.writeString(object.oci!);
+          final valorOciOffset = object.valorOci == null
+              ? null
+              : fbb.writeString(object.valorOci!);
+          final maniobrasEsfuerzoOffset = object.maniobrasEsfuerzo == null
+              ? null
+              : fbb.writeString(object.maniobrasEsfuerzo!);
+          final iccOffset =
+              object.icc == null ? null : fbb.writeString(object.icc!);
+          final iccPercentilOffset = object.iccPercentil == null
+              ? null
+              : fbb.writeString(object.iccPercentil!);
+          final csDatosDeInteresOffset = object.csDatosDeInteres == null
+              ? null
+              : fbb.writeString(object.csDatosDeInteres!);
+          final ip1Offset =
+              object.ip1 == null ? null : fbb.writeString(object.ip1!);
+          final ipDOffset =
+              object.ipD == null ? null : fbb.writeString(object.ipD!);
+          final ipMOffset =
+              object.ipM == null ? null : fbb.writeString(object.ipM!);
+          final ipmPercentilOffset = object.ipmPercentil == null
+              ? null
+              : fbb.writeString(object.ipmPercentil!);
+          final dusDatosDeInteresOffset = object.dusDatosDeInteres == null
+              ? null
+              : fbb.writeString(object.dusDatosDeInteres!);
+          final scLongitudCuelloOffset = object.scLongitudCuello == null
+              ? null
+              : fbb.writeString(object.scLongitudCuello!);
+          final scOciOffset =
+              object.scOci == null ? null : fbb.writeString(object.scOci!);
+          final scValorOciOffset = object.scValorOci == null
+              ? null
+              : fbb.writeString(object.scValorOci!);
+          final scManiobrasEsfuerzoOffset = object.scManiobrasEsfuerzo == null
+              ? null
+              : fbb.writeString(object.scManiobrasEsfuerzo!);
+          final scIccOffset =
+              object.scIcc == null ? null : fbb.writeString(object.scIcc!);
+          final scIccPercentilOffset = object.scIccPercentil == null
+              ? null
+              : fbb.writeString(object.scIccPercentil!);
+          final egOffset =
+              object.eg == null ? null : fbb.writeString(object.eg!);
+          final scDatosDeInteresOffset = object.scDatosDeInteres == null
+              ? null
+              : fbb.writeString(object.scDatosDeInteres!);
+          fbb.startTable(31);
+          fbb.addInt64(0, object.id);
+          fbb.addInt64(1, object.paciente.targetId);
+          fbb.addOffset(2, efhbOffset);
+          fbb.addOffset(3, afpOffset);
+          fbb.addInt64(4, object.fechaRealizacion?.millisecondsSinceEpoch);
+          fbb.addInt64(5, object.numFetos);
+          fbb.addOffset(6, datosDeInteresOffset);
+          fbb.addInt64(7, object.usFechaRealizacion?.millisecondsSinceEpoch);
+          fbb.addInt64(8, object.usNumFetos);
+          fbb.addOffset(9, longitudDelCuelloOffset);
+          fbb.addOffset(10, ociOffset);
+          fbb.addOffset(11, valorOciOffset);
+          fbb.addOffset(12, maniobrasEsfuerzoOffset);
+          fbb.addOffset(13, iccOffset);
+          fbb.addOffset(14, iccPercentilOffset);
+          fbb.addOffset(15, csDatosDeInteresOffset);
+          fbb.addOffset(16, ip1Offset);
+          fbb.addOffset(17, ipDOffset);
+          fbb.addOffset(18, ipMOffset);
+          fbb.addOffset(19, ipmPercentilOffset);
+          fbb.addOffset(20, dusDatosDeInteresOffset);
+          fbb.addInt64(21, object.scfechaRealizacion?.millisecondsSinceEpoch);
+          fbb.addOffset(22, scLongitudCuelloOffset);
+          fbb.addOffset(23, scOciOffset);
+          fbb.addOffset(24, scValorOciOffset);
+          fbb.addOffset(25, scManiobrasEsfuerzoOffset);
+          fbb.addOffset(26, scIccOffset);
+          fbb.addOffset(27, scIccPercentilOffset);
+          fbb.addOffset(28, egOffset);
+          fbb.addOffset(29, scDatosDeInteresOffset);
+          fbb.finish(fbb.endTable());
+          return object.id;
+        },
+        objectFromFB: (obx.Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final fechaRealizacionValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 12);
+          final usFechaRealizacionValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 18);
+          final scfechaRealizacionValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 46);
+          final idParam =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
+          final efhbParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 8);
+          final afpParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 10);
+          final fechaRealizacionParam = fechaRealizacionValue == null
+              ? null
+              : DateTime.fromMillisecondsSinceEpoch(fechaRealizacionValue);
+          final numFetosParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 14);
+          final datosDeInteresParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 16);
+          final usFechaRealizacionParam = usFechaRealizacionValue == null
+              ? null
+              : DateTime.fromMillisecondsSinceEpoch(usFechaRealizacionValue);
+          final usNumFetosParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 20);
+          final longitudDelCuelloParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 22);
+          final ociParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 24);
+          final valorOciParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 26);
+          final maniobrasEsfuerzoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 28);
+          final iccParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 30);
+          final iccPercentilParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 32);
+          final csDatosDeInteresParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 34);
+          final ip1Param = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 36);
+          final ipDParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 38);
+          final ipMParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 40);
+          final ipmPercentilParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 42);
+          final dusDatosDeInteresParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 44);
+          final scfechaRealizacionParam = scfechaRealizacionValue == null
+              ? null
+              : DateTime.fromMillisecondsSinceEpoch(scfechaRealizacionValue);
+          final scLongitudCuelloParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 48);
+          final scOciParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 50);
+          final scValorOciParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 52);
+          final scManiobrasEsfuerzoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 54);
+          final scIccParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 56);
+          final scIccPercentilParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 58);
+          final egParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 60);
+          final scDatosDeInteresParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 62);
+          final object = GeneticaModel(
+              id: idParam,
+              efhb: efhbParam,
+              afp: afpParam,
+              fechaRealizacion: fechaRealizacionParam,
+              numFetos: numFetosParam,
+              datosDeInteres: datosDeInteresParam,
+              usFechaRealizacion: usFechaRealizacionParam,
+              usNumFetos: usNumFetosParam,
+              longitudDelCuello: longitudDelCuelloParam,
+              oci: ociParam,
+              valorOci: valorOciParam,
+              maniobrasEsfuerzo: maniobrasEsfuerzoParam,
+              icc: iccParam,
+              iccPercentil: iccPercentilParam,
+              csDatosDeInteres: csDatosDeInteresParam,
+              ip1: ip1Param,
+              ipD: ipDParam,
+              ipM: ipMParam,
+              ipmPercentil: ipmPercentilParam,
+              dusDatosDeInteres: dusDatosDeInteresParam,
+              scfechaRealizacion: scfechaRealizacionParam,
+              scLongitudCuello: scLongitudCuelloParam,
+              scOci: scOciParam,
+              scValorOci: scValorOciParam,
+              scManiobrasEsfuerzo: scManiobrasEsfuerzoParam,
+              scIcc: scIccParam,
+              scIccPercentil: scIccPercentilParam,
+              eg: egParam,
+              scDatosDeInteres: scDatosDeInteresParam);
+          object.paciente.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0);
+          object.paciente.attach(store);
+          obx_int.InternalToManyAccess.setRelInfo<GeneticaModel>(
+              object.fetos1erTrimestre,
+              store,
+              obx_int.RelInfo<FetoUltrasonido1erTrimestre>.toOneBacklink(
+                  16,
+                  object.id,
+                  (FetoUltrasonido1erTrimestre srcObject) =>
+                      srcObject.genetica));
+          obx_int.InternalToManyAccess.setRelInfo<GeneticaModel>(
+              object.fetosSeguimiento,
+              store,
+              obx_int.RelInfo<FetoUltrasonidoSeguimiento>.toOneBacklink(
+                  30,
+                  object.id,
+                  (FetoUltrasonidoSeguimiento srcObject) =>
+                      srcObject.genetica));
+          return object;
+        }),
+    InterconsultasModel: obx_int.EntityDefinition<InterconsultasModel>(
+        model: _entities[15],
+        toOneRelations: (InterconsultasModel object) => [object.paciente],
+        toManyRelations: (InterconsultasModel object) => {},
+        getId: (InterconsultasModel object) => object.id,
+        setId: (InterconsultasModel object, int id) {
+          object.id = id;
+        },
+        objectToFB: (InterconsultasModel object, fb.Builder fbb) {
+          final psEvaluacionOffset = object.psEvaluacion == null
+              ? null
+              : fbb.writeString(object.psEvaluacion!);
+          final psCodigoOffset = object.psCodigo == null
+              ? null
+              : fbb.writeString(object.psCodigo!);
+          final psDescripcionOffset = object.psDescripcion == null
+              ? null
+              : fbb.writeString(object.psDescripcion!);
+          final psEstructuraOffset = object.psEstructura == null
+              ? null
+              : fbb.writeString(object.psEstructura!);
+          final psTipoDiagnosticoOffset = object.psTipoDiagnostico == null
+              ? null
+              : fbb.writeString(object.psTipoDiagnostico!);
+          final conductaSeguidaOffset = object.conductaSeguida == null
+              ? null
+              : fbb.writeString(object.conductaSeguida!);
+          final nEvaluacionOffset = object.nEvaluacion == null
+              ? null
+              : fbb.writeString(object.nEvaluacion!);
+          final miEvaluacionOffset = object.miEvaluacion == null
+              ? null
+              : fbb.writeString(object.miEvaluacion!);
+          final tsEvaluacionOffset = object.tsEvaluacion == null
+              ? null
+              : fbb.writeString(object.tsEvaluacion!);
+          final dEvaluacionOffset = object.dEvaluacion == null
+              ? null
+              : fbb.writeString(object.dEvaluacion!);
+          final examenEstomatologicoOffset = object.examenEstomatologico == null
+              ? null
+              : fbb.writeString(object.examenEstomatologico!);
+          final numeroExodonciaOffset = object.numeroExodoncia == null
+              ? null
+              : fbb.writeString(object.numeroExodoncia!);
+          final realizadasExodonciaOffset = object.realizadasExodoncia == null
+              ? null
+              : fbb.writeString(object.realizadasExodoncia!);
+          final numeroObsturacionesOffset = object.numeroObsturaciones == null
+              ? null
+              : fbb.writeString(object.numeroObsturaciones!);
+          final realizadasObsturacionesOffset =
+              object.realizadasObsturaciones == null
+                  ? null
+                  : fbb.writeString(object.realizadasObsturaciones!);
+          final noAsistenciaOffset = object.noAsistencia == null
+              ? null
+              : fbb.writeString(object.noAsistencia!);
+          final observacionesOffset = object.observaciones == null
+              ? null
+              : fbb.writeString(object.observaciones!);
+          fbb.startTable(26);
+          fbb.addInt64(0, object.id);
+          fbb.addInt64(1, object.paciente.targetId);
+          fbb.addInt64(2, object.psFechaConsulta?.millisecondsSinceEpoch);
+          fbb.addOffset(3, psEvaluacionOffset);
+          fbb.addOffset(4, psCodigoOffset);
+          fbb.addOffset(5, psDescripcionOffset);
+          fbb.addOffset(6, psEstructuraOffset);
+          fbb.addOffset(7, psTipoDiagnosticoOffset);
+          fbb.addOffset(8, conductaSeguidaOffset);
+          fbb.addInt64(9, object.nFechaConsulta?.millisecondsSinceEpoch);
+          fbb.addOffset(10, nEvaluacionOffset);
+          fbb.addInt64(11, object.miFechaConsulta?.millisecondsSinceEpoch);
+          fbb.addOffset(12, miEvaluacionOffset);
+          fbb.addInt64(13, object.tsFechaConsulta?.millisecondsSinceEpoch);
+          fbb.addOffset(14, tsEvaluacionOffset);
+          fbb.addInt64(15, object.dFechaConsulta?.millisecondsSinceEpoch);
+          fbb.addOffset(16, dEvaluacionOffset);
+          fbb.addOffset(17, examenEstomatologicoOffset);
+          fbb.addOffset(18, numeroExodonciaOffset);
+          fbb.addOffset(19, realizadasExodonciaOffset);
+          fbb.addOffset(20, numeroObsturacionesOffset);
+          fbb.addOffset(21, realizadasObsturacionesOffset);
+          fbb.addBool(22, object.remitida);
+          fbb.addOffset(23, noAsistenciaOffset);
+          fbb.addOffset(24, observacionesOffset);
+          fbb.finish(fbb.endTable());
+          return object.id;
+        },
+        objectFromFB: (obx.Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final psFechaConsultaValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 8);
+          final nFechaConsultaValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 22);
+          final miFechaConsultaValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 26);
+          final tsFechaConsultaValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 30);
+          final dFechaConsultaValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 34);
+          final idParam =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
+          final psFechaConsultaParam = psFechaConsultaValue == null
+              ? null
+              : DateTime.fromMillisecondsSinceEpoch(psFechaConsultaValue);
+          final psEvaluacionParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 10);
+          final psCodigoParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 12);
+          final psDescripcionParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 14);
+          final psEstructuraParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 16);
+          final psTipoDiagnosticoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 18);
+          final conductaSeguidaParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 20);
+          final nFechaConsultaParam = nFechaConsultaValue == null
+              ? null
+              : DateTime.fromMillisecondsSinceEpoch(nFechaConsultaValue);
+          final nEvaluacionParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 24);
+          final miFechaConsultaParam = miFechaConsultaValue == null
+              ? null
+              : DateTime.fromMillisecondsSinceEpoch(miFechaConsultaValue);
+          final miEvaluacionParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 28);
+          final tsFechaConsultaParam = tsFechaConsultaValue == null
+              ? null
+              : DateTime.fromMillisecondsSinceEpoch(tsFechaConsultaValue);
+          final tsEvaluacionParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 32);
+          final dFechaConsultaParam = dFechaConsultaValue == null
+              ? null
+              : DateTime.fromMillisecondsSinceEpoch(dFechaConsultaValue);
+          final dEvaluacionParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 36);
+          final examenEstomatologicoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 38);
+          final numeroExodonciaParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 40);
+          final realizadasExodonciaParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 42);
+          final numeroObsturacionesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 44);
+          final realizadasObsturacionesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 46);
+          final remitidaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 48);
+          final noAsistenciaParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 50);
+          final observacionesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 52);
+          final object = InterconsultasModel(
+              id: idParam,
+              psFechaConsulta: psFechaConsultaParam,
+              psEvaluacion: psEvaluacionParam,
+              psCodigo: psCodigoParam,
+              psDescripcion: psDescripcionParam,
+              psEstructura: psEstructuraParam,
+              psTipoDiagnostico: psTipoDiagnosticoParam,
+              conductaSeguida: conductaSeguidaParam,
+              nFechaConsulta: nFechaConsultaParam,
+              nEvaluacion: nEvaluacionParam,
+              miFechaConsulta: miFechaConsultaParam,
+              miEvaluacion: miEvaluacionParam,
+              tsFechaConsulta: tsFechaConsultaParam,
+              tsEvaluacion: tsEvaluacionParam,
+              dFechaConsulta: dFechaConsultaParam,
+              dEvaluacion: dEvaluacionParam,
+              examenEstomatologico: examenEstomatologicoParam,
+              numeroExodoncia: numeroExodonciaParam,
+              realizadasExodoncia: realizadasExodonciaParam,
+              numeroObsturaciones: numeroObsturacionesParam,
+              realizadasObsturaciones: realizadasObsturacionesParam,
+              remitida: remitidaParam,
+              noAsistencia: noAsistenciaParam,
+              observaciones: observacionesParam);
+          object.paciente.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0);
+          object.paciente.attach(store);
+          return object;
+        }),
+    LaboratorioMicrobiologiaModel: obx_int.EntityDefinition<
+            LaboratorioMicrobiologiaModel>(
+        model: _entities[16],
+        toOneRelations: (LaboratorioMicrobiologiaModel object) =>
+            [object.paciente],
+        toManyRelations: (LaboratorioMicrobiologiaModel object) => {},
+        getId: (LaboratorioMicrobiologiaModel object) => object.id,
+        setId: (LaboratorioMicrobiologiaModel object, int id) {
+          object.id = id;
+        },
+        objectToFB: (LaboratorioMicrobiologiaModel object, fb.Builder fbb) {
+          final ghResultadoMaternoOffset = object.ghResultadoMaterno == null
+              ? null
+              : fbb.writeString(object.ghResultadoMaterno!);
+          final ghResultadoPaternoOffset = object.ghResultadoPaterno == null
+              ? null
+              : fbb.writeString(object.ghResultadoPaterno!);
+          final vihResultadoMaternoOffset = object.vihResultadoMaterno == null
+              ? null
+              : fbb.writeString(object.vihResultadoMaterno!);
+          final vihResultadoPaternoOffset = object.vihResultadoPaterno == null
+              ? null
+              : fbb.writeString(object.vihResultadoPaterno!);
+          final sResultadoMaternoOffset = object.sResultadoMaterno == null
+              ? null
+              : fbb.writeString(object.sResultadoMaterno!);
+          final sResultadoPaternoOffset = object.sResultadoPaterno == null
+              ? null
+              : fbb.writeString(object.sResultadoPaterno!);
+          final asResultadoMaternoOffset = object.asResultadoMaterno == null
+              ? null
+              : fbb.writeString(object.asResultadoMaterno!);
+          final asResultadoPaternoOffset = object.asResultadoPaterno == null
+              ? null
+              : fbb.writeString(object.asResultadoPaterno!);
+          final hbResultadoMaternoOffset = object.hbResultadoMaterno == null
+              ? null
+              : fbb.writeString(object.hbResultadoMaterno!);
+          final htoResultadoMaternoOffset = object.htoResultadoMaterno == null
+              ? null
+              : fbb.writeString(object.htoResultadoMaterno!);
+          final gResultadoMaternoOffset = object.gResultadoMaterno == null
+              ? null
+              : fbb.writeString(object.gResultadoMaterno!);
+          final ptgaResultadoMaternoOffset = object.ptgaResultadoMaterno == null
+              ? null
+              : fbb.writeString(object.ptgaResultadoMaterno!);
+          final ptg2hResultadoMaternoOffset =
+              object.ptg2hResultadoMaterno == null
+                  ? null
+                  : fbb.writeString(object.ptg2hResultadoMaterno!);
+          final cResultadoMaternoOffset = object.cResultadoMaterno == null
+              ? null
+              : fbb.writeString(object.cResultadoMaterno!);
+          final auResultadoMaternoOffset = object.auResultadoMaterno == null
+              ? null
+              : fbb.writeString(object.auResultadoMaterno!);
+          final uResultadoMaternoOffset = object.uResultadoMaterno == null
+              ? null
+              : fbb.writeString(object.uResultadoMaterno!);
+          final colResultadoMaternoOffset = object.colResultadoMaterno == null
+              ? null
+              : fbb.writeString(object.colResultadoMaterno!);
+          final tResultadoMaternoOffset = object.tResultadoMaterno == null
+              ? null
+              : fbb.writeString(object.tResultadoMaterno!);
+          final bResultadoMaternoOffset = object.bResultadoMaterno == null
+              ? null
+              : fbb.writeString(object.bResultadoMaterno!);
+          final tpgResultadoMaternoOffset = object.tpgResultadoMaterno == null
+              ? null
+              : fbb.writeString(object.tpgResultadoMaterno!);
+          final tgoResultadoMaternoOffset = object.tgoResultadoMaterno == null
+              ? null
+              : fbb.writeString(object.tgoResultadoMaterno!);
+          final ggtResultadoMaternoOffset = object.ggtResultadoMaterno == null
+              ? null
+              : fbb.writeString(object.ggtResultadoMaterno!);
+          final citResultadoMaternoOffset = object.citResultadoMaterno == null
+              ? null
+              : fbb.writeString(object.citResultadoMaterno!);
+          final uroResultadoMaternoOffset = object.uroResultadoMaterno == null
+              ? null
+              : fbb.writeString(object.uroResultadoMaterno!);
+          final hfResultadoMaternoOffset = object.hfResultadoMaterno == null
+              ? null
+              : fbb.writeString(object.hfResultadoMaterno!);
+          final evsResultadoMaternoOffset = object.evsResultadoMaterno == null
+              ? null
+              : fbb.writeString(object.evsResultadoMaterno!);
+          final evcResultadoMaternoOffset = object.evcResultadoMaterno == null
+              ? null
+              : fbb.writeString(object.evcResultadoMaterno!);
+          final pcsultadoMaternoOffset = object.pcsultadoMaterno == null
+              ? null
+              : fbb.writeString(object.pcsultadoMaterno!);
+          fbb.startTable(59);
+          fbb.addInt64(0, object.id);
+          fbb.addInt64(1, object.paciente.targetId);
+          fbb.addOffset(2, ghResultadoMaternoOffset);
+          fbb.addInt64(
+              3, object.grFechaRealizacionMaterno?.millisecondsSinceEpoch);
+          fbb.addOffset(4, ghResultadoPaternoOffset);
+          fbb.addInt64(
+              5, object.grFechaRealizacionPaterno?.millisecondsSinceEpoch);
+          fbb.addOffset(6, vihResultadoMaternoOffset);
+          fbb.addInt64(
+              7, object.vihFechaRealizacionMaterno?.millisecondsSinceEpoch);
+          fbb.addOffset(8, vihResultadoPaternoOffset);
+          fbb.addInt64(
+              9, object.vihFechaRealizacionPaterno?.millisecondsSinceEpoch);
+          fbb.addOffset(10, sResultadoMaternoOffset);
+          fbb.addInt64(
+              11, object.sFechaRealizacionMaterno?.millisecondsSinceEpoch);
+          fbb.addOffset(12, sResultadoPaternoOffset);
+          fbb.addInt64(
+              13, object.sFechaRealizacionPaterno?.millisecondsSinceEpoch);
+          fbb.addOffset(14, asResultadoMaternoOffset);
+          fbb.addInt64(
+              15, object.asFechaRealizacionMaterno?.millisecondsSinceEpoch);
+          fbb.addOffset(16, asResultadoPaternoOffset);
+          fbb.addInt64(
+              17, object.asFechaRealizacionPaterno?.millisecondsSinceEpoch);
+          fbb.addOffset(18, hbResultadoMaternoOffset);
+          fbb.addInt64(
+              19, object.hbFechaRealizacionMaterno?.millisecondsSinceEpoch);
+          fbb.addOffset(20, htoResultadoMaternoOffset);
+          fbb.addInt64(
+              21, object.htoFechaRealizacionMaterno?.millisecondsSinceEpoch);
+          fbb.addOffset(22, gResultadoMaternoOffset);
+          fbb.addInt64(
+              23, object.gFechaRealizacionMaterno?.millisecondsSinceEpoch);
+          fbb.addOffset(24, ptgaResultadoMaternoOffset);
+          fbb.addInt64(
+              25, object.ptgaFechaRealizacionMaterno?.millisecondsSinceEpoch);
+          fbb.addOffset(26, ptg2hResultadoMaternoOffset);
+          fbb.addInt64(
+              27, object.ptg2hFechaRealizacionMaterno?.millisecondsSinceEpoch);
+          fbb.addOffset(28, cResultadoMaternoOffset);
+          fbb.addInt64(
+              29, object.cFechaRealizacionMaterno?.millisecondsSinceEpoch);
+          fbb.addOffset(30, auResultadoMaternoOffset);
+          fbb.addInt64(
+              31, object.auFechaRealizacionMaterno?.millisecondsSinceEpoch);
+          fbb.addOffset(32, uResultadoMaternoOffset);
+          fbb.addInt64(
+              33, object.uFechaRealizacionMaterno?.millisecondsSinceEpoch);
+          fbb.addOffset(34, colResultadoMaternoOffset);
+          fbb.addInt64(
+              35, object.colFechaRealizacionMaterno?.millisecondsSinceEpoch);
+          fbb.addOffset(36, tResultadoMaternoOffset);
+          fbb.addInt64(
+              37, object.tFechaRealizacionMaterno?.millisecondsSinceEpoch);
+          fbb.addOffset(38, bResultadoMaternoOffset);
+          fbb.addInt64(
+              39, object.bFechaRealizacionMaterno?.millisecondsSinceEpoch);
+          fbb.addOffset(40, tpgResultadoMaternoOffset);
+          fbb.addInt64(
+              41, object.tpgFechaRealizacionMaterno?.millisecondsSinceEpoch);
+          fbb.addOffset(42, tgoResultadoMaternoOffset);
+          fbb.addInt64(
+              43, object.tgoFechaRealizacionMaterno?.millisecondsSinceEpoch);
+          fbb.addOffset(44, ggtResultadoMaternoOffset);
+          fbb.addInt64(
+              45, object.ggtFechaRealizacionMaterno?.millisecondsSinceEpoch);
+          fbb.addOffset(46, citResultadoMaternoOffset);
+          fbb.addInt64(
+              47, object.citFechaRealizacionMaterno?.millisecondsSinceEpoch);
+          fbb.addOffset(48, uroResultadoMaternoOffset);
+          fbb.addInt64(
+              49, object.uroFechaRealizacionMaterno?.millisecondsSinceEpoch);
+          fbb.addOffset(50, hfResultadoMaternoOffset);
+          fbb.addInt64(
+              51, object.hfFechaRealizacionMaterno?.millisecondsSinceEpoch);
+          fbb.addOffset(52, evsResultadoMaternoOffset);
+          fbb.addInt64(
+              53, object.evsFechaRealizacionMaterno?.millisecondsSinceEpoch);
+          fbb.addOffset(54, evcResultadoMaternoOffset);
+          fbb.addInt64(
+              55, object.evcFechaRealizacionMaterno?.millisecondsSinceEpoch);
+          fbb.addOffset(56, pcsultadoMaternoOffset);
+          fbb.addInt64(
+              57, object.pcFechaRealizacionMaterno?.millisecondsSinceEpoch);
+          fbb.finish(fbb.endTable());
+          return object.id;
+        },
+        objectFromFB: (obx.Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final grFechaRealizacionMaternoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 10);
+          final grFechaRealizacionPaternoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 14);
+          final vihFechaRealizacionMaternoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 18);
+          final vihFechaRealizacionPaternoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 22);
+          final sFechaRealizacionMaternoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 26);
+          final sFechaRealizacionPaternoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 30);
+          final asFechaRealizacionMaternoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 34);
+          final asFechaRealizacionPaternoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 38);
+          final hbFechaRealizacionMaternoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 42);
+          final htoFechaRealizacionMaternoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 46);
+          final gFechaRealizacionMaternoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 50);
+          final ptgaFechaRealizacionMaternoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 54);
+          final ptg2hFechaRealizacionMaternoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 58);
+          final cFechaRealizacionMaternoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 62);
+          final auFechaRealizacionMaternoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 66);
+          final uFechaRealizacionMaternoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 70);
+          final colFechaRealizacionMaternoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 74);
+          final tFechaRealizacionMaternoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 78);
+          final bFechaRealizacionMaternoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 82);
+          final tpgFechaRealizacionMaternoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 86);
+          final tgoFechaRealizacionMaternoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 90);
+          final ggtFechaRealizacionMaternoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 94);
+          final citFechaRealizacionMaternoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 98);
+          final uroFechaRealizacionMaternoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 102);
+          final hfFechaRealizacionMaternoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 106);
+          final evsFechaRealizacionMaternoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 110);
+          final evcFechaRealizacionMaternoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 114);
+          final pcFechaRealizacionMaternoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 118);
+          final idParam =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
+          final ghResultadoMaternoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 8);
+          final grFechaRealizacionMaternoParam =
+              grFechaRealizacionMaternoValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      grFechaRealizacionMaternoValue);
+          final ghResultadoPaternoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 12);
+          final grFechaRealizacionPaternoParam =
+              grFechaRealizacionPaternoValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      grFechaRealizacionPaternoValue);
+          final vihResultadoMaternoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 16);
+          final vihFechaRealizacionMaternoParam =
+              vihFechaRealizacionMaternoValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      vihFechaRealizacionMaternoValue);
+          final vihResultadoPaternoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 20);
+          final vihFechaRealizacionPaternoParam =
+              vihFechaRealizacionPaternoValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      vihFechaRealizacionPaternoValue);
+          final sResultadoMaternoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 24);
+          final sFechaRealizacionMaternoParam =
+              sFechaRealizacionMaternoValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      sFechaRealizacionMaternoValue);
+          final sResultadoPaternoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 28);
+          final sFechaRealizacionPaternoParam =
+              sFechaRealizacionPaternoValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      sFechaRealizacionPaternoValue);
+          final asResultadoMaternoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 32);
+          final asFechaRealizacionMaternoParam =
+              asFechaRealizacionMaternoValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      asFechaRealizacionMaternoValue);
+          final asResultadoPaternoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 36);
+          final asFechaRealizacionPaternoParam =
+              asFechaRealizacionPaternoValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      asFechaRealizacionPaternoValue);
+          final hbResultadoMaternoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 40);
+          final hbFechaRealizacionMaternoParam =
+              hbFechaRealizacionMaternoValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      hbFechaRealizacionMaternoValue);
+          final htoResultadoMaternoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 44);
+          final htoFechaRealizacionMaternoParam =
+              htoFechaRealizacionMaternoValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      htoFechaRealizacionMaternoValue);
+          final gResultadoMaternoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 48);
+          final gFechaRealizacionMaternoParam =
+              gFechaRealizacionMaternoValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      gFechaRealizacionMaternoValue);
+          final ptgaResultadoMaternoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 52);
+          final ptgaFechaRealizacionMaternoParam =
+              ptgaFechaRealizacionMaternoValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      ptgaFechaRealizacionMaternoValue);
+          final ptg2hResultadoMaternoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 56);
+          final ptg2hFechaRealizacionMaternoParam =
+              ptg2hFechaRealizacionMaternoValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      ptg2hFechaRealizacionMaternoValue);
+          final cResultadoMaternoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 60);
+          final cFechaRealizacionMaternoParam =
+              cFechaRealizacionMaternoValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      cFechaRealizacionMaternoValue);
+          final auResultadoMaternoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 64);
+          final auFechaRealizacionMaternoParam =
+              auFechaRealizacionMaternoValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      auFechaRealizacionMaternoValue);
+          final uResultadoMaternoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 68);
+          final uFechaRealizacionMaternoParam =
+              uFechaRealizacionMaternoValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      uFechaRealizacionMaternoValue);
+          final colResultadoMaternoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 72);
+          final colFechaRealizacionMaternoParam =
+              colFechaRealizacionMaternoValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      colFechaRealizacionMaternoValue);
+          final tResultadoMaternoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 76);
+          final tFechaRealizacionMaternoParam =
+              tFechaRealizacionMaternoValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      tFechaRealizacionMaternoValue);
+          final bResultadoMaternoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 80);
+          final bFechaRealizacionMaternoParam =
+              bFechaRealizacionMaternoValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      bFechaRealizacionMaternoValue);
+          final tpgResultadoMaternoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 84);
+          final tpgFechaRealizacionMaternoParam =
+              tpgFechaRealizacionMaternoValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      tpgFechaRealizacionMaternoValue);
+          final tgoResultadoMaternoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 88);
+          final tgoFechaRealizacionMaternoParam =
+              tgoFechaRealizacionMaternoValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      tgoFechaRealizacionMaternoValue);
+          final ggtResultadoMaternoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 92);
+          final ggtFechaRealizacionMaternoParam =
+              ggtFechaRealizacionMaternoValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      ggtFechaRealizacionMaternoValue);
+          final citResultadoMaternoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 96);
+          final citFechaRealizacionMaternoParam =
+              citFechaRealizacionMaternoValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      citFechaRealizacionMaternoValue);
+          final uroResultadoMaternoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 100);
+          final uroFechaRealizacionMaternoParam =
+              uroFechaRealizacionMaternoValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      uroFechaRealizacionMaternoValue);
+          final hfResultadoMaternoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 104);
+          final hfFechaRealizacionMaternoParam =
+              hfFechaRealizacionMaternoValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      hfFechaRealizacionMaternoValue);
+          final evsResultadoMaternoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 108);
+          final evsFechaRealizacionMaternoParam =
+              evsFechaRealizacionMaternoValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      evsFechaRealizacionMaternoValue);
+          final evcResultadoMaternoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 112);
+          final evcFechaRealizacionMaternoParam =
+              evcFechaRealizacionMaternoValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      evcFechaRealizacionMaternoValue);
+          final pcsultadoMaternoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 116);
+          final pcFechaRealizacionMaternoParam =
+              pcFechaRealizacionMaternoValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      pcFechaRealizacionMaternoValue);
+          final object = LaboratorioMicrobiologiaModel(
+              id: idParam,
+              ghResultadoMaterno: ghResultadoMaternoParam,
+              grFechaRealizacionMaterno: grFechaRealizacionMaternoParam,
+              ghResultadoPaterno: ghResultadoPaternoParam,
+              grFechaRealizacionPaterno: grFechaRealizacionPaternoParam,
+              vihResultadoMaterno: vihResultadoMaternoParam,
+              vihFechaRealizacionMaterno: vihFechaRealizacionMaternoParam,
+              vihResultadoPaterno: vihResultadoPaternoParam,
+              vihFechaRealizacionPaterno: vihFechaRealizacionPaternoParam,
+              sResultadoMaterno: sResultadoMaternoParam,
+              sFechaRealizacionMaterno: sFechaRealizacionMaternoParam,
+              sResultadoPaterno: sResultadoPaternoParam,
+              sFechaRealizacionPaterno: sFechaRealizacionPaternoParam,
+              asResultadoMaterno: asResultadoMaternoParam,
+              asFechaRealizacionMaterno: asFechaRealizacionMaternoParam,
+              asResultadoPaterno: asResultadoPaternoParam,
+              asFechaRealizacionPaterno: asFechaRealizacionPaternoParam,
+              hbResultadoMaterno: hbResultadoMaternoParam,
+              hbFechaRealizacionMaterno: hbFechaRealizacionMaternoParam,
+              htoResultadoMaterno: htoResultadoMaternoParam,
+              htoFechaRealizacionMaterno: htoFechaRealizacionMaternoParam,
+              gResultadoMaterno: gResultadoMaternoParam,
+              gFechaRealizacionMaterno: gFechaRealizacionMaternoParam,
+              ptgaResultadoMaterno: ptgaResultadoMaternoParam,
+              ptgaFechaRealizacionMaterno: ptgaFechaRealizacionMaternoParam,
+              ptg2hResultadoMaterno: ptg2hResultadoMaternoParam,
+              ptg2hFechaRealizacionMaterno: ptg2hFechaRealizacionMaternoParam,
+              cResultadoMaterno: cResultadoMaternoParam,
+              cFechaRealizacionMaterno: cFechaRealizacionMaternoParam,
+              auResultadoMaterno: auResultadoMaternoParam,
+              auFechaRealizacionMaterno: auFechaRealizacionMaternoParam,
+              uResultadoMaterno: uResultadoMaternoParam,
+              uFechaRealizacionMaterno: uFechaRealizacionMaternoParam,
+              colResultadoMaterno: colResultadoMaternoParam,
+              colFechaRealizacionMaterno: colFechaRealizacionMaternoParam,
+              tResultadoMaterno: tResultadoMaternoParam,
+              tFechaRealizacionMaterno: tFechaRealizacionMaternoParam,
+              bResultadoMaterno: bResultadoMaternoParam,
+              bFechaRealizacionMaterno: bFechaRealizacionMaternoParam,
+              tpgResultadoMaterno: tpgResultadoMaternoParam,
+              tpgFechaRealizacionMaterno: tpgFechaRealizacionMaternoParam,
+              tgoResultadoMaterno: tgoResultadoMaternoParam,
+              tgoFechaRealizacionMaterno: tgoFechaRealizacionMaternoParam,
+              ggtResultadoMaterno: ggtResultadoMaternoParam,
+              ggtFechaRealizacionMaterno: ggtFechaRealizacionMaternoParam,
+              citResultadoMaterno: citResultadoMaternoParam,
+              citFechaRealizacionMaterno: citFechaRealizacionMaternoParam,
+              uroResultadoMaterno: uroResultadoMaternoParam,
+              uroFechaRealizacionMaterno: uroFechaRealizacionMaternoParam,
+              hfResultadoMaterno: hfResultadoMaternoParam,
+              hfFechaRealizacionMaterno: hfFechaRealizacionMaternoParam,
+              evsResultadoMaterno: evsResultadoMaternoParam,
+              evsFechaRealizacionMaterno: evsFechaRealizacionMaternoParam,
+              evcResultadoMaterno: evcResultadoMaternoParam,
+              evcFechaRealizacionMaterno: evcFechaRealizacionMaternoParam,
+              pcsultadoMaterno: pcsultadoMaternoParam,
+              pcFechaRealizacionMaterno: pcFechaRealizacionMaternoParam);
+          object.paciente.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0);
+          object.paciente.attach(store);
+          return object;
+        }),
+    SignosVitalesModel: obx_int.EntityDefinition<SignosVitalesModel>(
+        model: _entities[17],
+        toOneRelations: (SignosVitalesModel object) => [object.paciente],
+        toManyRelations: (SignosVitalesModel object) => {},
+        getId: (SignosVitalesModel object) => object.id,
+        setId: (SignosVitalesModel object, int id) {
+          object.id = id;
+        },
+        objectToFB: (SignosVitalesModel object, fb.Builder fbb) {
+          final tallaOffset =
+              object.talla == null ? null : fbb.writeString(object.talla!);
+          final percentilPesoOffset = object.percentilPeso == null
+              ? null
+              : fbb.writeString(object.percentilPeso!);
+          final indiceMasaCorporalOffset = object.indiceMasaCorporal == null
+              ? null
+              : fbb.writeString(object.indiceMasaCorporal!);
+          final valorNutricionalOffset = object.valorNutricional == null
+              ? null
+              : fbb.writeString(object.valorNutricional!);
+          final sistolicaOffset = object.sistolica == null
+              ? null
+              : fbb.writeString(object.sistolica!);
+          final diastolicaOffset = object.diastolica == null
+              ? null
+              : fbb.writeString(object.diastolica!);
+          final mediaOffset =
+              object.media == null ? null : fbb.writeString(object.media!);
+          final posturaOffset =
+              object.postura == null ? null : fbb.writeString(object.postura!);
+          final ubicacionOffset = object.ubicacion == null
+              ? null
+              : fbb.writeString(object.ubicacion!);
+          final valorOffset =
+              object.valor == null ? null : fbb.writeString(object.valor!);
+          final caracteristicasOffset = object.caracteristicas == null
+              ? null
+              : fbb.writeString(object.caracteristicas!);
+          final pulsoUbicacionOffset = object.pulsoUbicacion == null
+              ? null
+              : fbb.writeString(object.pulsoUbicacion!);
+          final frValorOffset =
+              object.frValor == null ? null : fbb.writeString(object.frValor!);
+          final frCarateristicasOffset = object.frCarateristicas == null
+              ? null
+              : fbb.writeString(object.frCarateristicas!);
+          final temperaturaOffset = object.temperatura == null
+              ? null
+              : fbb.writeString(object.temperatura!);
+          final localizacionOffset = object.localizacion == null
+              ? null
+              : fbb.writeString(object.localizacion!);
+          final fcValorOffset =
+              object.fcValor == null ? null : fbb.writeString(object.fcValor!);
+          fbb.startTable(22);
+          fbb.addInt64(0, object.id);
+          fbb.addInt64(1, object.paciente.targetId);
+          fbb.addFloat64(2, object.peso);
+          fbb.addOffset(3, tallaOffset);
+          fbb.addOffset(4, percentilPesoOffset);
+          fbb.addOffset(5, indiceMasaCorporalOffset);
+          fbb.addOffset(6, valorNutricionalOffset);
+          fbb.addFloat64(7, object.circunsferenciaAbdominal);
+          fbb.addOffset(8, sistolicaOffset);
+          fbb.addOffset(9, diastolicaOffset);
+          fbb.addOffset(10, mediaOffset);
+          fbb.addOffset(11, posturaOffset);
+          fbb.addOffset(12, ubicacionOffset);
+          fbb.addOffset(13, valorOffset);
+          fbb.addOffset(14, caracteristicasOffset);
+          fbb.addOffset(15, pulsoUbicacionOffset);
+          fbb.addOffset(16, frValorOffset);
+          fbb.addOffset(17, frCarateristicasOffset);
+          fbb.addOffset(18, temperaturaOffset);
+          fbb.addOffset(19, localizacionOffset);
+          fbb.addOffset(20, fcValorOffset);
+          fbb.finish(fbb.endTable());
+          return object.id;
+        },
+        objectFromFB: (obx.Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final idParam =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
+          final pesoParam =
+              const fb.Float64Reader().vTableGetNullable(buffer, rootOffset, 8);
+          final tallaParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 10);
+          final percentilPesoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 12);
+          final indiceMasaCorporalParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 14);
+          final valorNutricionalParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 16);
+          final circunsferenciaAbdominalParam = const fb.Float64Reader()
+              .vTableGetNullable(buffer, rootOffset, 18);
+          final sistolicaParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 20);
+          final diastolicaParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 22);
+          final mediaParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 24);
+          final posturaParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 26);
+          final ubicacionParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 28);
+          final valorParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 30);
+          final caracteristicasParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 32);
+          final pulsoUbicacionParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 34);
+          final frValorParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 36);
+          final frCarateristicasParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 38);
+          final temperaturaParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 40);
+          final localizacionParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 42);
+          final fcValorParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 44);
+          final object = SignosVitalesModel(
+              id: idParam,
+              peso: pesoParam,
+              talla: tallaParam,
+              percentilPeso: percentilPesoParam,
+              indiceMasaCorporal: indiceMasaCorporalParam,
+              valorNutricional: valorNutricionalParam,
+              circunsferenciaAbdominal: circunsferenciaAbdominalParam,
+              sistolica: sistolicaParam,
+              diastolica: diastolicaParam,
+              media: mediaParam,
+              postura: posturaParam,
+              ubicacion: ubicacionParam,
+              valor: valorParam,
+              caracteristicas: caracteristicasParam,
+              pulsoUbicacion: pulsoUbicacionParam,
+              frValor: frValorParam,
+              frCarateristicas: frCarateristicasParam,
+              temperatura: temperaturaParam,
+              localizacion: localizacionParam,
+              fcValor: fcValorParam);
+          object.paciente.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0);
+          object.paciente.attach(store);
           return object;
         })
   };
@@ -3132,6 +6499,30 @@ class Paciente_ {
   static final edad =
       obx.QueryIntegerProperty<Paciente>(_entities[9].properties[31]);
 
+  /// See [Paciente.signosVitales].
+  static final signosVitales =
+      obx.QueryRelationToOne<Paciente, SignosVitalesModel>(
+          _entities[9].properties[32]);
+
+  /// See [Paciente.examenFisico].
+  static final examenFisico =
+      obx.QueryRelationToOne<Paciente, ExamenFisicoModel>(
+          _entities[9].properties[33]);
+
+  /// See [Paciente.interconsultas].
+  static final interconsultas =
+      obx.QueryRelationToOne<Paciente, InterconsultasModel>(
+          _entities[9].properties[34]);
+
+  /// See [Paciente.genetica].
+  static final genetica = obx.QueryRelationToOne<Paciente, GeneticaModel>(
+      _entities[9].properties[35]);
+
+  /// See [Paciente.laboratorio].
+  static final laboratorio =
+      obx.QueryRelationToOne<Paciente, LaboratorioMicrobiologiaModel>(
+          _entities[9].properties[36]);
+
   /// see [Paciente.antecedentes]
   static final antecedentes =
       obx.QueryBacklinkToMany<Antecedente, Paciente>(Antecedente_.paciente);
@@ -3178,4 +6569,1068 @@ class RecienNacido_ {
   /// See [RecienNacido.embarazo].
   static final embarazo = obx.QueryRelationToOne<RecienNacido, Embarazo>(
       _entities[10].properties[9]);
+}
+
+/// [ExamenFisicoModel] entity fields to define ObjectBox queries.
+class ExamenFisicoModel_ {
+  /// See [ExamenFisicoModel.id].
+  static final id =
+      obx.QueryIntegerProperty<ExamenFisicoModel>(_entities[11].properties[0]);
+
+  /// See [ExamenFisicoModel.paciente].
+  static final paciente = obx.QueryRelationToOne<ExamenFisicoModel, Paciente>(
+      _entities[11].properties[1]);
+
+  /// See [ExamenFisicoModel.semanasDeGestacion].
+  static final semanasDeGestacion =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[2]);
+
+  /// See [ExamenFisicoModel.peso].
+  static final peso =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[3]);
+
+  /// See [ExamenFisicoModel.alturaUterina].
+  static final alturaUterina =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[4]);
+
+  /// See [ExamenFisicoModel.circunsferenciaAbdominal].
+  static final circunsferenciaAbdominal =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[5]);
+
+  /// See [ExamenFisicoModel.presentacion].
+  static final presentacion =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[6]);
+
+  /// See [ExamenFisicoModel.posicion].
+  static final posicion =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[7]);
+
+  /// See [ExamenFisicoModel.focoFetal].
+  static final focoFetal =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[8]);
+
+  /// See [ExamenFisicoModel.movimientoFetal].
+  static final movimientoFetal =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[9]);
+
+  /// See [ExamenFisicoModel.tonoUterino].
+  static final tonoUterino =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[10]);
+
+  /// See [ExamenFisicoModel.edemas].
+  static final edemas =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[11]);
+
+  /// See [ExamenFisicoModel.dinamicaUterina].
+  static final dinamicaUterina =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[12]);
+
+  /// See [ExamenFisicoModel.tejidoCelularSubcutaneo].
+  static final tejidoCelularSubcutaneo =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[13]);
+
+  /// See [ExamenFisicoModel.facies].
+  static final facies =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[14]);
+
+  /// See [ExamenFisicoModel.piel].
+  static final piel =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[15]);
+
+  /// See [ExamenFisicoModel.gObservacions].
+  static final gObservacions =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[16]);
+
+  /// See [ExamenFisicoModel.mucosas].
+  static final mucosas =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[17]);
+
+  /// See [ExamenFisicoModel.faneras].
+  static final faneras =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[18]);
+
+  /// See [ExamenFisicoModel.rInspeccion].
+  static final rInspeccion =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[19]);
+
+  /// See [ExamenFisicoModel.rPalpacion].
+  static final rPalpacion =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[20]);
+
+  /// See [ExamenFisicoModel.rPercucion].
+  static final rPercucion =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[21]);
+
+  /// See [ExamenFisicoModel.rAuscultacion].
+  static final rAuscultacion =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[22]);
+
+  /// See [ExamenFisicoModel.rObservacions].
+  static final rObservacions =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[23]);
+
+  /// See [ExamenFisicoModel.acInspeccion].
+  static final acInspeccion =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[24]);
+
+  /// See [ExamenFisicoModel.acPalpacion].
+  static final acPalpacion =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[25]);
+
+  /// See [ExamenFisicoModel.acAuscultacion].
+  static final acAuscultacion =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[26]);
+
+  /// See [ExamenFisicoModel.acObservacions].
+  static final acObservacions =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[27]);
+
+  /// See [ExamenFisicoModel.venosoPeriferico].
+  static final venosoPeriferico =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[28]);
+
+  /// See [ExamenFisicoModel.linfatico].
+  static final linfatico =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[29]);
+
+  /// See [ExamenFisicoModel.vlObservacions].
+  static final vlObservacions =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[30]);
+
+  /// See [ExamenFisicoModel.boca].
+  static final boca =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[31]);
+
+  /// See [ExamenFisicoModel.lengua].
+  static final lengua =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[32]);
+
+  /// See [ExamenFisicoModel.orofaringe].
+  static final orofaringe =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[33]);
+
+  /// See [ExamenFisicoModel.dsObservacions].
+  static final dsObservacions =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[34]);
+
+  /// See [ExamenFisicoModel.aInspeccion].
+  static final aInspeccion =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[35]);
+
+  /// See [ExamenFisicoModel.aPalpacion].
+  static final aPalpacion =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[36]);
+
+  /// See [ExamenFisicoModel.aPercucion].
+  static final aPercucion =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[37]);
+
+  /// See [ExamenFisicoModel.aAuscultacion].
+  static final aAuscultacion =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[38]);
+
+  /// See [ExamenFisicoModel.aTactoRectal].
+  static final aTactoRectal =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[39]);
+
+  /// See [ExamenFisicoModel.aObservacions].
+  static final aObservacions =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[40]);
+
+  /// See [ExamenFisicoModel.uInspeccion].
+  static final uInspeccion =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[41]);
+
+  /// See [ExamenFisicoModel.uPalpacion].
+  static final uPalpacion =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[42]);
+
+  /// See [ExamenFisicoModel.uPercucion].
+  static final uPercucion =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[43]);
+
+  /// See [ExamenFisicoModel.uObservacions].
+  static final uObservacions =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[44]);
+
+  /// See [ExamenFisicoModel.vuelvaPerine].
+  static final vuelvaPerine =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[45]);
+
+  /// See [ExamenFisicoModel.vObservaciones].
+  static final vObservaciones =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[46]);
+
+  /// See [ExamenFisicoModel.vagina].
+  static final vagina =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[47]);
+
+  /// See [ExamenFisicoModel.vagObservaciones].
+  static final vagObservaciones =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[48]);
+
+  /// See [ExamenFisicoModel.cuello].
+  static final cuello =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[49]);
+
+  /// See [ExamenFisicoModel.cObservaciones].
+  static final cObservaciones =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[50]);
+
+  /// See [ExamenFisicoModel.utero].
+  static final utero =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[51]);
+
+  /// See [ExamenFisicoModel.utObservaciones].
+  static final utObservaciones =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[52]);
+
+  /// See [ExamenFisicoModel.anejos].
+  static final anejos =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[53]);
+
+  /// See [ExamenFisicoModel.anObservaciones].
+  static final anObservaciones =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[54]);
+
+  /// See [ExamenFisicoModel.mInspeccion].
+  static final mInspeccion =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[55]);
+
+  /// See [ExamenFisicoModel.mPalpacion].
+  static final mPalpacion =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[56]);
+
+  /// See [ExamenFisicoModel.aptasLaptar].
+  static final aptasLaptar =
+      obx.QueryBooleanProperty<ExamenFisicoModel>(_entities[11].properties[57]);
+
+  /// See [ExamenFisicoModel.mObservaciones].
+  static final mObservaciones =
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[58]);
+}
+
+/// [FetoUltrasonido1erTrimestre] entity fields to define ObjectBox queries.
+class FetoUltrasonido1erTrimestre_ {
+  /// See [FetoUltrasonido1erTrimestre.id].
+  static final id = obx.QueryIntegerProperty<FetoUltrasonido1erTrimestre>(
+      _entities[12].properties[0]);
+
+  /// See [FetoUltrasonido1erTrimestre.lc].
+  static final lc = obx.QueryStringProperty<FetoUltrasonido1erTrimestre>(
+      _entities[12].properties[1]);
+
+  /// See [FetoUltrasonido1erTrimestre.corion].
+  static final corion = obx.QueryStringProperty<FetoUltrasonido1erTrimestre>(
+      _entities[12].properties[2]);
+
+  /// See [FetoUltrasonido1erTrimestre.lcr].
+  static final lcr = obx.QueryStringProperty<FetoUltrasonido1erTrimestre>(
+      _entities[12].properties[3]);
+
+  /// See [FetoUltrasonido1erTrimestre.dbp].
+  static final dbp = obx.QueryStringProperty<FetoUltrasonido1erTrimestre>(
+      _entities[12].properties[4]);
+
+  /// See [FetoUltrasonido1erTrimestre.tn].
+  static final tn = obx.QueryStringProperty<FetoUltrasonido1erTrimestre>(
+      _entities[12].properties[5]);
+
+  /// See [FetoUltrasonido1erTrimestre.hn].
+  static final hn = obx.QueryStringProperty<FetoUltrasonido1erTrimestre>(
+      _entities[12].properties[6]);
+
+  /// See [FetoUltrasonido1erTrimestre.cristalinos].
+  static final cristalinos =
+      obx.QueryStringProperty<FetoUltrasonido1erTrimestre>(
+          _entities[12].properties[7]);
+
+  /// See [FetoUltrasonido1erTrimestre.estomago].
+  static final estomago = obx.QueryStringProperty<FetoUltrasonido1erTrimestre>(
+      _entities[12].properties[8]);
+
+  /// See [FetoUltrasonido1erTrimestre.paa].
+  static final paa = obx.QueryStringProperty<FetoUltrasonido1erTrimestre>(
+      _entities[12].properties[9]);
+
+  /// See [FetoUltrasonido1erTrimestre.cuatroMiembros].
+  static final cuatroMiembros =
+      obx.QueryStringProperty<FetoUltrasonido1erTrimestre>(
+          _entities[12].properties[10]);
+
+  /// See [FetoUltrasonido1erTrimestre.eg].
+  static final eg = obx.QueryStringProperty<FetoUltrasonido1erTrimestre>(
+      _entities[12].properties[11]);
+
+  /// See [FetoUltrasonido1erTrimestre.ip].
+  static final ip = obx.QueryStringProperty<FetoUltrasonido1erTrimestre>(
+      _entities[12].properties[12]);
+
+  /// See [FetoUltrasonido1erTrimestre.ipPercentil].
+  static final ipPercentil =
+      obx.QueryStringProperty<FetoUltrasonido1erTrimestre>(
+          _entities[12].properties[13]);
+
+  /// See [FetoUltrasonido1erTrimestre.onda].
+  static final onda = obx.QueryStringProperty<FetoUltrasonido1erTrimestre>(
+      _entities[12].properties[14]);
+
+  /// See [FetoUltrasonido1erTrimestre.genetica].
+  static final genetica =
+      obx.QueryRelationToOne<FetoUltrasonido1erTrimestre, GeneticaModel>(
+          _entities[12].properties[15]);
+}
+
+/// [FetoUltrasonidoSeguimiento] entity fields to define ObjectBox queries.
+class FetoUltrasonidoSeguimiento_ {
+  /// See [FetoUltrasonidoSeguimiento.id].
+  static final id = obx.QueryIntegerProperty<FetoUltrasonidoSeguimiento>(
+      _entities[13].properties[0]);
+
+  /// See [FetoUltrasonidoSeguimiento.lc].
+  static final lc = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
+      _entities[13].properties[1]);
+
+  /// See [FetoUltrasonidoSeguimiento.cc].
+  static final cc = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
+      _entities[13].properties[2]);
+
+  /// See [FetoUltrasonidoSeguimiento.ca].
+  static final ca = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
+      _entities[13].properties[3]);
+
+  /// See [FetoUltrasonidoSeguimiento.lf].
+  static final lf = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
+      _entities[13].properties[4]);
+
+  /// See [FetoUltrasonidoSeguimiento.ila].
+  static final ila = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
+      _entities[13].properties[5]);
+
+  /// See [FetoUltrasonidoSeguimiento.ts].
+  static final ts = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
+      _entities[13].properties[6]);
+
+  /// See [FetoUltrasonidoSeguimiento.threeVasos].
+  static final threeVasos = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
+      _entities[13].properties[7]);
+
+  /// See [FetoUltrasonidoSeguimiento.la].
+  static final la = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
+      _entities[13].properties[8]);
+
+  /// See [FetoUltrasonidoSeguimiento.pocision].
+  static final pocision = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
+      _entities[13].properties[9]);
+
+  /// See [FetoUltrasonidoSeguimiento.signosDeAcretismo].
+  static final signosDeAcretismo =
+      obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
+          _entities[13].properties[10]);
+
+  /// See [FetoUltrasonidoSeguimiento.variedadDeAcretismo].
+  static final variedadDeAcretismo =
+      obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
+          _entities[13].properties[11]);
+
+  /// See [FetoUltrasonidoSeguimiento.madurezPlacentaria].
+  static final madurezPlacentaria =
+      obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
+          _entities[13].properties[12]);
+
+  /// See [FetoUltrasonidoSeguimiento.vejiga].
+  static final vejiga = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
+      _entities[13].properties[13]);
+
+  /// See [FetoUltrasonidoSeguimiento.estomago].
+  static final estomago = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
+      _entities[13].properties[14]);
+
+  /// See [FetoUltrasonidoSeguimiento.columna].
+  static final columna = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
+      _entities[13].properties[15]);
+
+  /// See [FetoUltrasonidoSeguimiento.riniones].
+  static final riniones = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
+      _entities[13].properties[16]);
+
+  /// See [FetoUltrasonidoSeguimiento.macisoFacial].
+  static final macisoFacial =
+      obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
+          _entities[13].properties[17]);
+
+  /// See [FetoUltrasonidoSeguimiento.fourMiembros].
+  static final fourMiembros =
+      obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
+          _entities[13].properties[18]);
+
+  /// See [FetoUltrasonidoSeguimiento.paa].
+  static final paa = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
+      _entities[13].properties[19]);
+
+  /// See [FetoUltrasonidoSeguimiento.pliegueNucal].
+  static final pliegueNucal =
+      obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
+          _entities[13].properties[20]);
+
+  /// See [FetoUltrasonidoSeguimiento.fosaPosteriol].
+  static final fosaPosteriol =
+      obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
+          _entities[13].properties[21]);
+
+  /// See [FetoUltrasonidoSeguimiento.atrioVentricular].
+  static final atrioVentricular =
+      obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
+          _entities[13].properties[22]);
+
+  /// See [FetoUltrasonidoSeguimiento.cerebelo].
+  static final cerebelo = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
+      _entities[13].properties[23]);
+
+  /// See [FetoUltrasonidoSeguimiento.cordon3Vasos].
+  static final cordon3Vasos =
+      obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
+          _entities[13].properties[24]);
+
+  /// See [FetoUltrasonidoSeguimiento.eg].
+  static final eg = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
+      _entities[13].properties[25]);
+
+  /// See [FetoUltrasonidoSeguimiento.pf].
+  static final pf = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
+      _entities[13].properties[26]);
+
+  /// See [FetoUltrasonidoSeguimiento.pfPercentil].
+  static final pfPercentil =
+      obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
+          _entities[13].properties[27]);
+
+  /// See [FetoUltrasonidoSeguimiento.datosDeInteres].
+  static final datosDeInteres =
+      obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
+          _entities[13].properties[28]);
+
+  /// See [FetoUltrasonidoSeguimiento.genetica].
+  static final genetica =
+      obx.QueryRelationToOne<FetoUltrasonidoSeguimiento, GeneticaModel>(
+          _entities[13].properties[29]);
+}
+
+/// [GeneticaModel] entity fields to define ObjectBox queries.
+class GeneticaModel_ {
+  /// See [GeneticaModel.id].
+  static final id =
+      obx.QueryIntegerProperty<GeneticaModel>(_entities[14].properties[0]);
+
+  /// See [GeneticaModel.paciente].
+  static final paciente = obx.QueryRelationToOne<GeneticaModel, Paciente>(
+      _entities[14].properties[1]);
+
+  /// See [GeneticaModel.efhb].
+  static final efhb =
+      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[2]);
+
+  /// See [GeneticaModel.afp].
+  static final afp =
+      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[3]);
+
+  /// See [GeneticaModel.fechaRealizacion].
+  static final fechaRealizacion =
+      obx.QueryDateProperty<GeneticaModel>(_entities[14].properties[4]);
+
+  /// See [GeneticaModel.numFetos].
+  static final numFetos =
+      obx.QueryIntegerProperty<GeneticaModel>(_entities[14].properties[5]);
+
+  /// See [GeneticaModel.datosDeInteres].
+  static final datosDeInteres =
+      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[6]);
+
+  /// See [GeneticaModel.usFechaRealizacion].
+  static final usFechaRealizacion =
+      obx.QueryDateProperty<GeneticaModel>(_entities[14].properties[7]);
+
+  /// See [GeneticaModel.usNumFetos].
+  static final usNumFetos =
+      obx.QueryIntegerProperty<GeneticaModel>(_entities[14].properties[8]);
+
+  /// See [GeneticaModel.longitudDelCuello].
+  static final longitudDelCuello =
+      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[9]);
+
+  /// See [GeneticaModel.oci].
+  static final oci =
+      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[10]);
+
+  /// See [GeneticaModel.valorOci].
+  static final valorOci =
+      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[11]);
+
+  /// See [GeneticaModel.maniobrasEsfuerzo].
+  static final maniobrasEsfuerzo =
+      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[12]);
+
+  /// See [GeneticaModel.icc].
+  static final icc =
+      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[13]);
+
+  /// See [GeneticaModel.iccPercentil].
+  static final iccPercentil =
+      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[14]);
+
+  /// See [GeneticaModel.csDatosDeInteres].
+  static final csDatosDeInteres =
+      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[15]);
+
+  /// See [GeneticaModel.ip1].
+  static final ip1 =
+      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[16]);
+
+  /// See [GeneticaModel.ipD].
+  static final ipD =
+      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[17]);
+
+  /// See [GeneticaModel.ipM].
+  static final ipM =
+      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[18]);
+
+  /// See [GeneticaModel.ipmPercentil].
+  static final ipmPercentil =
+      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[19]);
+
+  /// See [GeneticaModel.dusDatosDeInteres].
+  static final dusDatosDeInteres =
+      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[20]);
+
+  /// See [GeneticaModel.scfechaRealizacion].
+  static final scfechaRealizacion =
+      obx.QueryDateProperty<GeneticaModel>(_entities[14].properties[21]);
+
+  /// See [GeneticaModel.scLongitudCuello].
+  static final scLongitudCuello =
+      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[22]);
+
+  /// See [GeneticaModel.scOci].
+  static final scOci =
+      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[23]);
+
+  /// See [GeneticaModel.scValorOci].
+  static final scValorOci =
+      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[24]);
+
+  /// See [GeneticaModel.scManiobrasEsfuerzo].
+  static final scManiobrasEsfuerzo =
+      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[25]);
+
+  /// See [GeneticaModel.scIcc].
+  static final scIcc =
+      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[26]);
+
+  /// See [GeneticaModel.scIccPercentil].
+  static final scIccPercentil =
+      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[27]);
+
+  /// See [GeneticaModel.eg].
+  static final eg =
+      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[28]);
+
+  /// See [GeneticaModel.scDatosDeInteres].
+  static final scDatosDeInteres =
+      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[29]);
+
+  /// see [GeneticaModel.fetos1erTrimestre]
+  static final fetos1erTrimestre =
+      obx.QueryBacklinkToMany<FetoUltrasonido1erTrimestre, GeneticaModel>(
+          FetoUltrasonido1erTrimestre_.genetica);
+
+  /// see [GeneticaModel.fetosSeguimiento]
+  static final fetosSeguimiento =
+      obx.QueryBacklinkToMany<FetoUltrasonidoSeguimiento, GeneticaModel>(
+          FetoUltrasonidoSeguimiento_.genetica);
+}
+
+/// [InterconsultasModel] entity fields to define ObjectBox queries.
+class InterconsultasModel_ {
+  /// See [InterconsultasModel.id].
+  static final id = obx.QueryIntegerProperty<InterconsultasModel>(
+      _entities[15].properties[0]);
+
+  /// See [InterconsultasModel.paciente].
+  static final paciente = obx.QueryRelationToOne<InterconsultasModel, Paciente>(
+      _entities[15].properties[1]);
+
+  /// See [InterconsultasModel.psFechaConsulta].
+  static final psFechaConsulta =
+      obx.QueryDateProperty<InterconsultasModel>(_entities[15].properties[2]);
+
+  /// See [InterconsultasModel.psEvaluacion].
+  static final psEvaluacion =
+      obx.QueryStringProperty<InterconsultasModel>(_entities[15].properties[3]);
+
+  /// See [InterconsultasModel.psCodigo].
+  static final psCodigo =
+      obx.QueryStringProperty<InterconsultasModel>(_entities[15].properties[4]);
+
+  /// See [InterconsultasModel.psDescripcion].
+  static final psDescripcion =
+      obx.QueryStringProperty<InterconsultasModel>(_entities[15].properties[5]);
+
+  /// See [InterconsultasModel.psEstructura].
+  static final psEstructura =
+      obx.QueryStringProperty<InterconsultasModel>(_entities[15].properties[6]);
+
+  /// See [InterconsultasModel.psTipoDiagnostico].
+  static final psTipoDiagnostico =
+      obx.QueryStringProperty<InterconsultasModel>(_entities[15].properties[7]);
+
+  /// See [InterconsultasModel.conductaSeguida].
+  static final conductaSeguida =
+      obx.QueryStringProperty<InterconsultasModel>(_entities[15].properties[8]);
+
+  /// See [InterconsultasModel.nFechaConsulta].
+  static final nFechaConsulta =
+      obx.QueryDateProperty<InterconsultasModel>(_entities[15].properties[9]);
+
+  /// See [InterconsultasModel.nEvaluacion].
+  static final nEvaluacion = obx.QueryStringProperty<InterconsultasModel>(
+      _entities[15].properties[10]);
+
+  /// See [InterconsultasModel.miFechaConsulta].
+  static final miFechaConsulta =
+      obx.QueryDateProperty<InterconsultasModel>(_entities[15].properties[11]);
+
+  /// See [InterconsultasModel.miEvaluacion].
+  static final miEvaluacion = obx.QueryStringProperty<InterconsultasModel>(
+      _entities[15].properties[12]);
+
+  /// See [InterconsultasModel.tsFechaConsulta].
+  static final tsFechaConsulta =
+      obx.QueryDateProperty<InterconsultasModel>(_entities[15].properties[13]);
+
+  /// See [InterconsultasModel.tsEvaluacion].
+  static final tsEvaluacion = obx.QueryStringProperty<InterconsultasModel>(
+      _entities[15].properties[14]);
+
+  /// See [InterconsultasModel.dFechaConsulta].
+  static final dFechaConsulta =
+      obx.QueryDateProperty<InterconsultasModel>(_entities[15].properties[15]);
+
+  /// See [InterconsultasModel.dEvaluacion].
+  static final dEvaluacion = obx.QueryStringProperty<InterconsultasModel>(
+      _entities[15].properties[16]);
+
+  /// See [InterconsultasModel.examenEstomatologico].
+  static final examenEstomatologico =
+      obx.QueryStringProperty<InterconsultasModel>(
+          _entities[15].properties[17]);
+
+  /// See [InterconsultasModel.numeroExodoncia].
+  static final numeroExodoncia = obx.QueryStringProperty<InterconsultasModel>(
+      _entities[15].properties[18]);
+
+  /// See [InterconsultasModel.realizadasExodoncia].
+  static final realizadasExodoncia =
+      obx.QueryStringProperty<InterconsultasModel>(
+          _entities[15].properties[19]);
+
+  /// See [InterconsultasModel.numeroObsturaciones].
+  static final numeroObsturaciones =
+      obx.QueryStringProperty<InterconsultasModel>(
+          _entities[15].properties[20]);
+
+  /// See [InterconsultasModel.realizadasObsturaciones].
+  static final realizadasObsturaciones =
+      obx.QueryStringProperty<InterconsultasModel>(
+          _entities[15].properties[21]);
+
+  /// See [InterconsultasModel.remitida].
+  static final remitida = obx.QueryBooleanProperty<InterconsultasModel>(
+      _entities[15].properties[22]);
+
+  /// See [InterconsultasModel.noAsistencia].
+  static final noAsistencia = obx.QueryStringProperty<InterconsultasModel>(
+      _entities[15].properties[23]);
+
+  /// See [InterconsultasModel.observaciones].
+  static final observaciones = obx.QueryStringProperty<InterconsultasModel>(
+      _entities[15].properties[24]);
+}
+
+/// [LaboratorioMicrobiologiaModel] entity fields to define ObjectBox queries.
+class LaboratorioMicrobiologiaModel_ {
+  /// See [LaboratorioMicrobiologiaModel.id].
+  static final id = obx.QueryIntegerProperty<LaboratorioMicrobiologiaModel>(
+      _entities[16].properties[0]);
+
+  /// See [LaboratorioMicrobiologiaModel.paciente].
+  static final paciente =
+      obx.QueryRelationToOne<LaboratorioMicrobiologiaModel, Paciente>(
+          _entities[16].properties[1]);
+
+  /// See [LaboratorioMicrobiologiaModel.ghResultadoMaterno].
+  static final ghResultadoMaterno =
+      obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[2]);
+
+  /// See [LaboratorioMicrobiologiaModel.grFechaRealizacionMaterno].
+  static final grFechaRealizacionMaterno =
+      obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[3]);
+
+  /// See [LaboratorioMicrobiologiaModel.ghResultadoPaterno].
+  static final ghResultadoPaterno =
+      obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[4]);
+
+  /// See [LaboratorioMicrobiologiaModel.grFechaRealizacionPaterno].
+  static final grFechaRealizacionPaterno =
+      obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[5]);
+
+  /// See [LaboratorioMicrobiologiaModel.vihResultadoMaterno].
+  static final vihResultadoMaterno =
+      obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[6]);
+
+  /// See [LaboratorioMicrobiologiaModel.vihFechaRealizacionMaterno].
+  static final vihFechaRealizacionMaterno =
+      obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[7]);
+
+  /// See [LaboratorioMicrobiologiaModel.vihResultadoPaterno].
+  static final vihResultadoPaterno =
+      obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[8]);
+
+  /// See [LaboratorioMicrobiologiaModel.vihFechaRealizacionPaterno].
+  static final vihFechaRealizacionPaterno =
+      obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[9]);
+
+  /// See [LaboratorioMicrobiologiaModel.sResultadoMaterno].
+  static final sResultadoMaterno =
+      obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[10]);
+
+  /// See [LaboratorioMicrobiologiaModel.sFechaRealizacionMaterno].
+  static final sFechaRealizacionMaterno =
+      obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[11]);
+
+  /// See [LaboratorioMicrobiologiaModel.sResultadoPaterno].
+  static final sResultadoPaterno =
+      obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[12]);
+
+  /// See [LaboratorioMicrobiologiaModel.sFechaRealizacionPaterno].
+  static final sFechaRealizacionPaterno =
+      obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[13]);
+
+  /// See [LaboratorioMicrobiologiaModel.asResultadoMaterno].
+  static final asResultadoMaterno =
+      obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[14]);
+
+  /// See [LaboratorioMicrobiologiaModel.asFechaRealizacionMaterno].
+  static final asFechaRealizacionMaterno =
+      obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[15]);
+
+  /// See [LaboratorioMicrobiologiaModel.asResultadoPaterno].
+  static final asResultadoPaterno =
+      obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[16]);
+
+  /// See [LaboratorioMicrobiologiaModel.asFechaRealizacionPaterno].
+  static final asFechaRealizacionPaterno =
+      obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[17]);
+
+  /// See [LaboratorioMicrobiologiaModel.hbResultadoMaterno].
+  static final hbResultadoMaterno =
+      obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[18]);
+
+  /// See [LaboratorioMicrobiologiaModel.hbFechaRealizacionMaterno].
+  static final hbFechaRealizacionMaterno =
+      obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[19]);
+
+  /// See [LaboratorioMicrobiologiaModel.htoResultadoMaterno].
+  static final htoResultadoMaterno =
+      obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[20]);
+
+  /// See [LaboratorioMicrobiologiaModel.htoFechaRealizacionMaterno].
+  static final htoFechaRealizacionMaterno =
+      obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[21]);
+
+  /// See [LaboratorioMicrobiologiaModel.gResultadoMaterno].
+  static final gResultadoMaterno =
+      obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[22]);
+
+  /// See [LaboratorioMicrobiologiaModel.gFechaRealizacionMaterno].
+  static final gFechaRealizacionMaterno =
+      obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[23]);
+
+  /// See [LaboratorioMicrobiologiaModel.ptgaResultadoMaterno].
+  static final ptgaResultadoMaterno =
+      obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[24]);
+
+  /// See [LaboratorioMicrobiologiaModel.ptgaFechaRealizacionMaterno].
+  static final ptgaFechaRealizacionMaterno =
+      obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[25]);
+
+  /// See [LaboratorioMicrobiologiaModel.ptg2hResultadoMaterno].
+  static final ptg2hResultadoMaterno =
+      obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[26]);
+
+  /// See [LaboratorioMicrobiologiaModel.ptg2hFechaRealizacionMaterno].
+  static final ptg2hFechaRealizacionMaterno =
+      obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[27]);
+
+  /// See [LaboratorioMicrobiologiaModel.cResultadoMaterno].
+  static final cResultadoMaterno =
+      obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[28]);
+
+  /// See [LaboratorioMicrobiologiaModel.cFechaRealizacionMaterno].
+  static final cFechaRealizacionMaterno =
+      obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[29]);
+
+  /// See [LaboratorioMicrobiologiaModel.auResultadoMaterno].
+  static final auResultadoMaterno =
+      obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[30]);
+
+  /// See [LaboratorioMicrobiologiaModel.auFechaRealizacionMaterno].
+  static final auFechaRealizacionMaterno =
+      obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[31]);
+
+  /// See [LaboratorioMicrobiologiaModel.uResultadoMaterno].
+  static final uResultadoMaterno =
+      obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[32]);
+
+  /// See [LaboratorioMicrobiologiaModel.uFechaRealizacionMaterno].
+  static final uFechaRealizacionMaterno =
+      obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[33]);
+
+  /// See [LaboratorioMicrobiologiaModel.colResultadoMaterno].
+  static final colResultadoMaterno =
+      obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[34]);
+
+  /// See [LaboratorioMicrobiologiaModel.colFechaRealizacionMaterno].
+  static final colFechaRealizacionMaterno =
+      obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[35]);
+
+  /// See [LaboratorioMicrobiologiaModel.tResultadoMaterno].
+  static final tResultadoMaterno =
+      obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[36]);
+
+  /// See [LaboratorioMicrobiologiaModel.tFechaRealizacionMaterno].
+  static final tFechaRealizacionMaterno =
+      obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[37]);
+
+  /// See [LaboratorioMicrobiologiaModel.bResultadoMaterno].
+  static final bResultadoMaterno =
+      obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[38]);
+
+  /// See [LaboratorioMicrobiologiaModel.bFechaRealizacionMaterno].
+  static final bFechaRealizacionMaterno =
+      obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[39]);
+
+  /// See [LaboratorioMicrobiologiaModel.tpgResultadoMaterno].
+  static final tpgResultadoMaterno =
+      obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[40]);
+
+  /// See [LaboratorioMicrobiologiaModel.tpgFechaRealizacionMaterno].
+  static final tpgFechaRealizacionMaterno =
+      obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[41]);
+
+  /// See [LaboratorioMicrobiologiaModel.tgoResultadoMaterno].
+  static final tgoResultadoMaterno =
+      obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[42]);
+
+  /// See [LaboratorioMicrobiologiaModel.tgoFechaRealizacionMaterno].
+  static final tgoFechaRealizacionMaterno =
+      obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[43]);
+
+  /// See [LaboratorioMicrobiologiaModel.ggtResultadoMaterno].
+  static final ggtResultadoMaterno =
+      obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[44]);
+
+  /// See [LaboratorioMicrobiologiaModel.ggtFechaRealizacionMaterno].
+  static final ggtFechaRealizacionMaterno =
+      obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[45]);
+
+  /// See [LaboratorioMicrobiologiaModel.citResultadoMaterno].
+  static final citResultadoMaterno =
+      obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[46]);
+
+  /// See [LaboratorioMicrobiologiaModel.citFechaRealizacionMaterno].
+  static final citFechaRealizacionMaterno =
+      obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[47]);
+
+  /// See [LaboratorioMicrobiologiaModel.uroResultadoMaterno].
+  static final uroResultadoMaterno =
+      obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[48]);
+
+  /// See [LaboratorioMicrobiologiaModel.uroFechaRealizacionMaterno].
+  static final uroFechaRealizacionMaterno =
+      obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[49]);
+
+  /// See [LaboratorioMicrobiologiaModel.hfResultadoMaterno].
+  static final hfResultadoMaterno =
+      obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[50]);
+
+  /// See [LaboratorioMicrobiologiaModel.hfFechaRealizacionMaterno].
+  static final hfFechaRealizacionMaterno =
+      obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[51]);
+
+  /// See [LaboratorioMicrobiologiaModel.evsResultadoMaterno].
+  static final evsResultadoMaterno =
+      obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[52]);
+
+  /// See [LaboratorioMicrobiologiaModel.evsFechaRealizacionMaterno].
+  static final evsFechaRealizacionMaterno =
+      obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[53]);
+
+  /// See [LaboratorioMicrobiologiaModel.evcResultadoMaterno].
+  static final evcResultadoMaterno =
+      obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[54]);
+
+  /// See [LaboratorioMicrobiologiaModel.evcFechaRealizacionMaterno].
+  static final evcFechaRealizacionMaterno =
+      obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[55]);
+
+  /// See [LaboratorioMicrobiologiaModel.pcsultadoMaterno].
+  static final pcsultadoMaterno =
+      obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[56]);
+
+  /// See [LaboratorioMicrobiologiaModel.pcFechaRealizacionMaterno].
+  static final pcFechaRealizacionMaterno =
+      obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
+          _entities[16].properties[57]);
+}
+
+/// [SignosVitalesModel] entity fields to define ObjectBox queries.
+class SignosVitalesModel_ {
+  /// See [SignosVitalesModel.id].
+  static final id =
+      obx.QueryIntegerProperty<SignosVitalesModel>(_entities[17].properties[0]);
+
+  /// See [SignosVitalesModel.paciente].
+  static final paciente = obx.QueryRelationToOne<SignosVitalesModel, Paciente>(
+      _entities[17].properties[1]);
+
+  /// See [SignosVitalesModel.peso].
+  static final peso =
+      obx.QueryDoubleProperty<SignosVitalesModel>(_entities[17].properties[2]);
+
+  /// See [SignosVitalesModel.talla].
+  static final talla =
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[3]);
+
+  /// See [SignosVitalesModel.percentilPeso].
+  static final percentilPeso =
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[4]);
+
+  /// See [SignosVitalesModel.indiceMasaCorporal].
+  static final indiceMasaCorporal =
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[5]);
+
+  /// See [SignosVitalesModel.valorNutricional].
+  static final valorNutricional =
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[6]);
+
+  /// See [SignosVitalesModel.circunsferenciaAbdominal].
+  static final circunsferenciaAbdominal =
+      obx.QueryDoubleProperty<SignosVitalesModel>(_entities[17].properties[7]);
+
+  /// See [SignosVitalesModel.sistolica].
+  static final sistolica =
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[8]);
+
+  /// See [SignosVitalesModel.diastolica].
+  static final diastolica =
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[9]);
+
+  /// See [SignosVitalesModel.media].
+  static final media =
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[10]);
+
+  /// See [SignosVitalesModel.postura].
+  static final postura =
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[11]);
+
+  /// See [SignosVitalesModel.ubicacion].
+  static final ubicacion =
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[12]);
+
+  /// See [SignosVitalesModel.valor].
+  static final valor =
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[13]);
+
+  /// See [SignosVitalesModel.caracteristicas].
+  static final caracteristicas =
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[14]);
+
+  /// See [SignosVitalesModel.pulsoUbicacion].
+  static final pulsoUbicacion =
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[15]);
+
+  /// See [SignosVitalesModel.frValor].
+  static final frValor =
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[16]);
+
+  /// See [SignosVitalesModel.frCarateristicas].
+  static final frCarateristicas =
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[17]);
+
+  /// See [SignosVitalesModel.temperatura].
+  static final temperatura =
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[18]);
+
+  /// See [SignosVitalesModel.localizacion].
+  static final localizacion =
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[19]);
+
+  /// See [SignosVitalesModel.fcValor].
+  static final fcValor =
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[20]);
 }

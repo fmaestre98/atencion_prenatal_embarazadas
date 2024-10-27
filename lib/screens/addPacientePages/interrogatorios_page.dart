@@ -17,43 +17,25 @@ class InterrogatorioPage extends StatelessWidget {
   final _formKey6 = GlobalKey<FormState>();
   final _formKey7 = GlobalKey<FormState>();
 
-  // Variables para Interrogatorio
-  final TextEditingController _srObservacionesController =
-      TextEditingController();
-  final TextEditingController _scObservacionesController =
-      TextEditingController();
-  final TextEditingController _sdObservacionesController =
-      TextEditingController();
-  final TextEditingController _suObservacionesController =
-      TextEditingController();
-  final TextEditingController _snObservacionesController =
-      TextEditingController();
-  final TextEditingController _seObservacionesController =
-      TextEditingController();
-  final TextEditingController _odObservacionesController =
-      TextEditingController();
 
   // Agrega más controladores según tu modelo
 
   InterrogatorioPage({Key? key}) : super(key: key);
 
   void _submitInterrogatorio(BuildContext context) {
-    if (_formKey.currentState!.validate()) {
-      // Crear objeto Interrogatorio
-      /* Interrogatorio interrogatorio = Interrogatorio(
-        // Asigna valores específicos según tu modelo
-        // Por ejemplo, secciones y elementos
-        // Dependiendo de tu implementación, puedes necesitar agregar más detalles
-      );
+    if (_formKey.currentState!.validate() &&
+        _formKey2.currentState!.validate() &&
+        _formKey3.currentState!.validate() &&
+        _formKey4.currentState!.validate() &&
+        _formKey5.currentState!.validate() &&
+        _formKey6.currentState!.validate() &&
+        _formKey7.currentState!.validate()) {
 
       // Enviar evento al BLoC
-      context.read<AddPacienteBloc>().add(UpdateInterrogatorio(interrogatorio: interrogatorio));*/
-
-      // Navegar a la siguiente página (Signos Vitales/Datos Antropométricos)
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => SignosVitalesPage()),
-      );
+      context
+          .read<AddPacienteBloc>()
+          .add(SubmitInterrogatorio());
+     safePrint("lkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
     }
   }
 
@@ -64,8 +46,12 @@ class InterrogatorioPage extends StatelessWidget {
         title: const Text('Interrogatorio'),
       ),
       body: BlocConsumer<AddPacienteBloc, AddPacienteState>(
+        listenWhen: (previous, current) => previous.isSuccessInterrogatorio != current.isSuccessInterrogatorio
+            || previous.errorMessage != current.errorMessage,
         listener: (context, state) {
           safePrint(state.interrogatorio.toString());
+          safePrint(state.isSuccessInterrogatorio);
+          safePrint("LOLOLOLOLOLOLOLOLO");
           if (state.isSuccessInterrogatorio) {
             // Navegar a la página de Interrogatorio cuando el estado sea exitoso
             Navigator.push(
@@ -77,9 +63,12 @@ class InterrogatorioPage extends StatelessWidget {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(state.errorMessage!)),
             );
-          } else if (state.pacienteLoaded) {}
+          }
         },
+        buildWhen: (previous, current) => previous.interrogatorio != current.interrogatorio ||
+            current.currentStepInterrogatorio != previous.currentStepInterrogatorio,
         builder: (context, state) {
+          safePrint("called builder interrogatorio");
           return Padding(
             padding: const EdgeInsets.all(16.0),
             child: Stepper(
@@ -87,11 +76,43 @@ class InterrogatorioPage extends StatelessWidget {
               currentStep: state.currentStepInterrogatorio,
               onStepContinue: () {
                 safePrint(state.currentStepInterrogatorio);
+                bool update = false;
                 if (state.currentStepInterrogatorio < 7) {
-                  context.read<AddPacienteBloc>().add(
-                      UpdateCurrentStepInterrogatorio(
-                          step: state.currentStepInterrogatorio + 1));
+                  if(state.currentStepInterrogatorio == 0){
+                    if (_formKey.currentState!.validate()){
+                      update=true;
+                    }
+                  } else if(state.currentStepInterrogatorio == 1){
+                    if (_formKey2.currentState!.validate()){
+                      update=true;
+                    }
+                  } else if(state.currentStepInterrogatorio == 2){
+                    if (_formKey3.currentState!.validate()){
+                      update=true;
+                    }
+                  } else if(state.currentStepInterrogatorio == 3){
+                    if (_formKey4.currentState!.validate()){
+                      update=true;
+                    }
+                  } else if(state.currentStepInterrogatorio == 4){
+                    if (_formKey5.currentState!.validate()){
+                      update=true;
+                    }
+                  } else if(state.currentStepInterrogatorio == 5){
+                    if (_formKey6.currentState!.validate()){
+                      update=true;
+                    }
+                  } else if(state.currentStepInterrogatorio == 6){
+                    if (_formKey7.currentState!.validate()){
+                      update=true;
+                    }
+                  }
+                  if(update){
+                    context.read<AddPacienteBloc>().add(UpdateCurrentStepInterrogatorio(
+                        step: state.currentStepInterrogatorio + 1));
+                  }
                 } else {
+                  safePrint("hereeee befor submit interrogatorio");
                   _submitInterrogatorio(context);
                 }
               },
@@ -121,6 +142,7 @@ class InterrogatorioPage extends StatelessWidget {
                               ));
                         }),
                         _buildRadioGroup('Dolor:', state.interrogatorio?.srDolor, (value) {
+                          safePrint(value);
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -170,7 +192,16 @@ class InterrogatorioPage extends StatelessWidget {
                                     srOtros: value == 'Sí'),
                               ));
                         }),
-                        _buildObservationField(_srObservacionesController),
+                        _buildObservationField(state.interrogatorio?.srObservaciones,(value) {
+                          var interrogatorio =
+                              state.interrogatorio ?? Interrogatorio(id: 0);
+                          context
+                              .read<AddPacienteBloc>()
+                              .add(UpdateInterrogatorio(
+                            interrogatorio: interrogatorio.copyWith(
+                                srObservaciones: value),
+                          ));
+                        }),
                       ],
                     ),
                   ),
@@ -252,7 +283,16 @@ class InterrogatorioPage extends StatelessWidget {
                                     scOtros: value == 'Sí'),
                               ));
                         }),
-                        _buildObservationField(_scObservacionesController),
+                        _buildObservationField(state.interrogatorio?.scObservaciones,(value) {
+                          var interrogatorio =
+                              state.interrogatorio ?? Interrogatorio(id: 0);
+                          context
+                              .read<AddPacienteBloc>()
+                              .add(UpdateInterrogatorio(
+                            interrogatorio: interrogatorio.copyWith(
+                                scObservaciones: value),
+                          ));
+                        }),
                       ],
                     ),
                   ),
@@ -414,7 +454,16 @@ class InterrogatorioPage extends StatelessWidget {
                                     sdOtros: value == 'Sí'),
                               ));
                         }),
-                        _buildObservationField(_sdObservacionesController),
+                        _buildObservationField(state.interrogatorio?.sdObservaciones,(value) {
+                          var interrogatorio =
+                              state.interrogatorio ?? Interrogatorio(id: 0);
+                          context
+                              .read<AddPacienteBloc>()
+                              .add(UpdateInterrogatorio(
+                            interrogatorio: interrogatorio.copyWith(
+                                sdObservaciones: value),
+                          ));
+                        }),
                       ],
                     ),
                   ),
@@ -566,7 +615,16 @@ class InterrogatorioPage extends StatelessWidget {
                                     suOtros: value == 'Sí'),
                               ));
                         }),
-                        _buildObservationField(_suObservacionesController),
+                        _buildObservationField(state.interrogatorio?.suObservaciones,(value) {
+                          var interrogatorio =
+                              state.interrogatorio ?? Interrogatorio(id: 0);
+                          context
+                              .read<AddPacienteBloc>()
+                              .add(UpdateInterrogatorio(
+                            interrogatorio: interrogatorio.copyWith(
+                                suObservaciones: value),
+                          ));
+                        }),
                       ],
                     ),
                   ),
@@ -730,7 +788,16 @@ class InterrogatorioPage extends StatelessWidget {
                                     snOtros: value == 'Sí'),
                               ));
                         }),
-                        _buildObservationField(_snObservacionesController),
+                        _buildObservationField(state.interrogatorio?.snObservaciones,(value) {
+                          var interrogatorio =
+                              state.interrogatorio ?? Interrogatorio(id: 0);
+                          context
+                              .read<AddPacienteBloc>()
+                              .add(UpdateInterrogatorio(
+                            interrogatorio: interrogatorio.copyWith(
+                                snObservaciones: value),
+                          ));
+                        }),
                       ],
                     ),
                   ),
@@ -827,7 +894,16 @@ class InterrogatorioPage extends StatelessWidget {
                                     seOtros: value == 'Sí'),
                               ));
                         }),
-                        _buildObservationField(_seObservacionesController),
+                        _buildObservationField(state.interrogatorio?.seObservaciones,(value) {
+                          var interrogatorio =
+                              state.interrogatorio ?? Interrogatorio(id: 0);
+                          context
+                              .read<AddPacienteBloc>()
+                              .add(UpdateInterrogatorio(
+                            interrogatorio: interrogatorio.copyWith(
+                                seObservaciones: value),
+                          ));
+                        }),
                       ],
                     ),
                   ),
@@ -975,10 +1051,24 @@ class InterrogatorioPage extends StatelessWidget {
                                     otros: value == 'Sí'),
                               ));
                         }),
-                        _buildObservationField(_odObservacionesController),
+                        _buildObservationField(state.interrogatorio?.observaciones,(value) {
+                          var interrogatorio =
+                              state.interrogatorio ?? Interrogatorio(id: 0);
+                          context
+                              .read<AddPacienteBloc>()
+                              .add(UpdateInterrogatorio(
+                            interrogatorio: interrogatorio.copyWith(
+                                observaciones: value),
+                          ));
+                        }),
                       ],
                     ),
                   ),
+                ),
+                Step(
+                  title: const Text('Guardar'),
+                  isActive: state.currentStepInterrogatorio >= 7,
+                  content: const SizedBox(),
                 ),
               ],
             ),
@@ -1016,14 +1106,16 @@ class InterrogatorioPage extends StatelessWidget {
     );
   }
 
-  Widget _buildObservationField(TextEditingController controller) {
-    return TextField(
-      controller: controller,
+  Widget _buildObservationField(String? initialValue, Function(String?) onChanged ) {
+    return TextFormField(
+      initialValue: initialValue,
       decoration: const InputDecoration(
         labelText: 'Observaciones',
         border: OutlineInputBorder(),
       ),
       maxLines: 3,
+      onChanged: onChanged,
+
     );
   }
 

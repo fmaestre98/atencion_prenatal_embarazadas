@@ -1,4 +1,8 @@
+import 'package:atencion_prenatal_embarazadas/models/examen_fisico_model.dart';
+import 'package:atencion_prenatal_embarazadas/models/genetica_model.dart';
+import 'package:atencion_prenatal_embarazadas/models/interconsultas_model.dart';
 import 'package:atencion_prenatal_embarazadas/models/interrogatory_model.dart';
+import 'package:atencion_prenatal_embarazadas/models/laboratorio_microbiologia_model.dart';
 import 'package:atencion_prenatal_embarazadas/models/signos_vitales_model.dart';
 import 'package:objectbox/objectbox.dart';
 
@@ -54,6 +58,14 @@ class Paciente {
 
   final signosVitales = ToOne<SignosVitalesModel>();
 
+  final examenFisico = ToOne<ExamenFisicoModel>();
+
+  final interconsultas = ToOne<InterconsultasModel>();
+
+  final genetica = ToOne<GeneticaModel>();
+
+  final laboratorio = ToOne<LaboratorioMicrobiologiaModel>();
+
   Paciente({
     this.id = 0,
     this.nombre,
@@ -84,6 +96,69 @@ class Paciente {
     this.fechaDeActualizacion,
     this.edad,
   });
+
+  Paciente copyWith({
+    int? id,
+    String? nombre,
+    String? primerApellido,
+    String? segundoApellido,
+    DateTime? fechaNacimiento,
+    String? sexo,
+    String? direccion,
+    String? tipoDePaciente,
+    String? noIdentidad,
+    int? edad,
+    String? aboRh,
+    String? unidadHospitalaria,
+    String? policlinico,
+    String? estadoCivil,
+    String? escolaridad,
+    String? consultorio,
+    String? ocupacion,
+    DateTime? fechaDeRegistro,
+    DateTime? fechaDeActualizacion,
+    int? noDormitorios,
+    int? noPersonasNucleoPersonal,
+    String? tipoDeRiesgo,
+    String? datosDeInteres,
+    String? tipoDeDiagnostico,
+    String? codigo,
+    String? descripcion,
+    String? estructura,
+    String? conductaSeguida,
+  }) {
+    return Paciente(
+      id: id ?? this.id,
+      nombre: nombre ?? this.nombre,
+      primerApellido: primerApellido ?? this.primerApellido,
+      segundoApellido: segundoApellido ?? this.segundoApellido,
+      fechaNacimiento: fechaNacimiento ?? this.fechaNacimiento,
+      sexo: sexo ?? this.sexo,
+      direccion: direccion ?? this.direccion,
+      tipoDePaciente: tipoDePaciente ?? this.tipoDePaciente,
+      noIdentidad: noIdentidad ?? this.noIdentidad,
+      edad: edad ?? this.edad,
+      aboRh: aboRh ?? this.aboRh,
+      unidadHospitalaria: unidadHospitalaria ?? this.unidadHospitalaria,
+      policlinico: policlinico ?? this.policlinico,
+      estadoCivil: estadoCivil ?? this.estadoCivil,
+      escolaridad: escolaridad ?? this.escolaridad,
+      consultorio: consultorio ?? this.consultorio,
+      ocupacion: ocupacion ?? this.ocupacion,
+      fechaDeRegistro: fechaDeRegistro ?? this.fechaDeRegistro,
+      fechaDeActualizacion: fechaDeActualizacion ?? this.fechaDeActualizacion,
+      noDormitorios: noDormitorios ?? this.noDormitorios,
+      noPersonasNucleoPersonal: noPersonasNucleoPersonal ?? this.noPersonasNucleoPersonal,
+      tipoDeRiesgo: tipoDeRiesgo ?? this.tipoDeRiesgo,
+      datosDeInteres: datosDeInteres ?? this.datosDeInteres,
+      tipoDeDiagnostico: tipoDeDiagnostico ?? this.tipoDeDiagnostico,
+      codigo: codigo ?? this.codigo,
+      descripcion: descripcion ?? this.descripcion,
+      estructura: estructura ?? this.estructura,
+      conductaSeguida: conductaSeguida ?? this.conductaSeguida,
+    );
+  }
+
 }
 
 @Entity()
@@ -99,14 +174,33 @@ class EmbarazoActual {
   @Property(type: PropertyType.date)
   DateTime? fechaPartoEstimado;
 
-  int captacion;
-  int semanas;
+  int? captacion;
+  int? semanas;
 
   final paciente = ToOne<Paciente>();
 
-  EmbarazoActual(this.fechaUltimaMenstruacion, this.noConfiable,
-      this.desconocida, this.fechaPartoEstimado, this.captacion, this.semanas,
-      {this.id = 0});
+  EmbarazoActual({this.id = 0, this.fechaUltimaMenstruacion, this.noConfiable = false,
+      this.desconocida = false, this.fechaPartoEstimado, this.captacion, this.semanas});
+
+  EmbarazoActual copyWith({
+    int? id,
+    DateTime? fechaUltimaMenstruacion,
+    bool? noConfiable,
+    bool? desconocida,
+    DateTime? fechaPartoEstimado,
+    int? captacion,
+    int? semanas,
+  }) {
+    return EmbarazoActual(
+      fechaUltimaMenstruacion: fechaUltimaMenstruacion ?? this.fechaUltimaMenstruacion,
+      noConfiable: noConfiable ?? this.noConfiable,
+      desconocida: desconocida ?? this.desconocida,
+      fechaPartoEstimado: fechaPartoEstimado ?? this.fechaPartoEstimado,
+      captacion: captacion ?? this.captacion,
+      semanas: semanas ?? this.semanas,
+      id: id ?? this.id,
+    );
+  }
 }
 
 @Entity()

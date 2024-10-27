@@ -27,22 +27,10 @@ class InterconsultasPage extends StatelessWidget {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
 
-      // Crear objeto Interconsultas (si tienes una entidad separada)
-      // Si es parte de Paciente, actualiza el objeto Paciente en el BLoC
-      /*Paciente updatedPaciente = state.paciente.copyWith(
-        // Añade los campos de interconsultas
-        // Por ejemplo:
-        // interconsultas: _interconsultasController.text,
-      );
+      context
+          .read<AddPacienteBloc>()
+          .add(SubmitInterconsultas());
 
-      // Enviar evento al BLoC
-      context.read<AddPacienteBloc>().add(UpdateDatosPersonales(paciente: updatedPaciente));*/
-
-      // Navegar a la página de Resumen de la Atención
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => ResumenAtencionPage()),
-      );
     }
   }
 
@@ -80,7 +68,7 @@ class InterconsultasPage extends StatelessWidget {
                   context.read<AddPacienteBloc>().add(UpdateCurrentStepInterconsultas(
                       step: state.currentStepInterconsultas + 1));
                 } else {
-                  //_submitDatosPersonales(context);
+                  _submitInterconsultas(context);
                 }
               },
               onStepCancel: () {
@@ -401,6 +389,11 @@ class InterconsultasPage extends StatelessWidget {
                       ],
                     ),
                   ),
+                ),
+                Step(
+                  title: const Text('Guardar'),
+                  isActive: state.currentStepInterconsultas >= 7,
+                  content: const SizedBox(),
                 ),
               ],
             ),

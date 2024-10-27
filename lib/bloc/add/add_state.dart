@@ -4,7 +4,6 @@ import 'package:atencion_prenatal_embarazadas/models/genetica_model.dart';
 import 'package:atencion_prenatal_embarazadas/models/interconsultas_model.dart';
 import 'package:atencion_prenatal_embarazadas/models/laboratorio_microbiologia_model.dart';
 import 'package:atencion_prenatal_embarazadas/models/signos_vitales_model.dart';
-import 'package:atencion_prenatal_embarazadas/screens/addPacientePages/genetica_page.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../models/interrogatory_model.dart';
@@ -19,7 +18,6 @@ class AddPacienteState extends Equatable {
   final GeneticaModel? geneticaModel;
   final EmbarazoActual? embarazoActual;
   final InterconsultasModel? interconsultasModel;
-  final DateTime? fechaNacimiento;
   final bool pacienteLoaded;
   final bool isSubmitting;
   final bool isSuccess;
@@ -49,7 +47,6 @@ class AddPacienteState extends Equatable {
     this.laboratorioMicrobiologiaModel,
     this.geneticaModel,
     this.interconsultasModel,
-    this.fechaNacimiento,
     this.pacienteLoaded = false,
     this.isSubmitting = false,
     this.isSuccess = false,
@@ -81,7 +78,6 @@ class AddPacienteState extends Equatable {
     LaboratorioMicrobiologiaModel? laboratorio,
     GeneticaModel? genetica,
     InterconsultasModel? interconsultasModel,
-    DateTime? fechaNacimiento,
     bool? pacienteLoaded,
     bool? isSubmitting,
     bool? isSuccess,
@@ -112,7 +108,6 @@ class AddPacienteState extends Equatable {
       laboratorioMicrobiologiaModel:
           laboratorio ?? this.laboratorioMicrobiologiaModel,
       interconsultasModel: interconsultasModel ?? this.interconsultasModel,
-      fechaNacimiento: fechaNacimiento ?? this.fechaNacimiento,
       pacienteLoaded: pacienteLoaded ?? this.pacienteLoaded,
       isSubmitting: isSubmitting ?? this.isSubmitting,
       isSuccess: isSuccess ?? this.isSuccess,
@@ -156,7 +151,6 @@ class AddPacienteState extends Equatable {
         examenFisicoModel,
         interconsultasModel,
         laboratorioMicrobiologiaModel,
-        fechaNacimiento,
         pacienteLoaded,
         isSubmitting,
         isSuccess,
@@ -170,6 +164,11 @@ class AddPacienteState extends Equatable {
         currentStepGenetica,
         isSuccessGenetica,
         isSuccessInterconsultas,
+        isSuccessInterrogatorio,
+        isSuccessSignosVitales,
+        isSuccessExamenFisico,
+        isSuccessLaboratorio,
         currentStepInterconsultas,
+        embarazoActual,
       ];
 }

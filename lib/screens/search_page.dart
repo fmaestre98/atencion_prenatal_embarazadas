@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/search/search_bloc.dart';
 import '../bloc/search/search_event.dart';
 import '../bloc/search/search_state.dart';
+import 'add_page.dart';
 
 class SearchPage extends StatelessWidget {
   @override
@@ -45,7 +46,7 @@ class SearchPageChild extends StatelessWidget {
                 builder: (context, state) {
                   if (state is SearchInitial) {
                     return const Center(
-                      child: Text('Introduce al menos 3 caracteres para buscar.'),
+                      child: Text('Introduce al menos 2 caracteres para buscar.'),
                     );
                   } else if (state is SearchLoading) {
                     return const Center(child: CircularProgressIndicator());
@@ -65,8 +66,12 @@ class SearchPageChild extends StatelessWidget {
                             title: Text(paciente.nombre ?? ""),
                             subtitle: Text('No. Identidad: ${paciente.noIdentidad}'),
                             onTap: () {
-                              // Navegar a detalles o editar
-                              // Navigator.push(context, MaterialPageRoute(builder: (_) => DetallePacientePage(paciente: paciente)));
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => AddPage(pacienteId: paciente.id),
+                                ),
+                              );
                             },
                           ),
                         );

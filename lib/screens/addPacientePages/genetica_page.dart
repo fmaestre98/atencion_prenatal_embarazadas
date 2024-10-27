@@ -1,6 +1,7 @@
 // lib/screens/genetica_page.dart
 import 'package:atencion_prenatal_embarazadas/bloc/add/add_event.dart';
 import 'package:atencion_prenatal_embarazadas/models/genetica_model.dart';
+import 'package:atencion_prenatal_embarazadas/screens/addPacientePages/laboratorio_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../bloc/add/add_bloc.dart';
@@ -20,26 +21,17 @@ class GeneticaPage extends StatelessWidget {
   GeneticaPage({Key? key}) : super(key: key);
 
   void _submitGenetica(BuildContext context) {
-    if (_formKey.currentState!.validate()) {
+    if (_formKey.currentState!.validate() &&
+        _formKey2.currentState!.validate() &&
+        _formKey3.currentState!.validate() &&
+        _formKey4.currentState!.validate() &&
+        _formKey5.currentState!.validate() &&
+        _formKey6.currentState!.validate()) {
       _formKey.currentState!.save();
+      context
+          .read<AddPacienteBloc>()
+          .add(SubmitGenetica());
 
-      // Crear objeto Genetica (si tienes una entidad separada)
-      // Si es parte de Paciente, actualiza el objeto Paciente en el BLoC
-      /*Paciente updatedPaciente = state.paciente.copyWith(
-        // Añade los campos de genética e imagenología
-        // Por ejemplo:
-        // estudiosGeneticos: _estudiosGeneticosController.text,
-        // imagenologia: _imagenologiaController.text,
-      );
-
-      // Enviar evento al BLoC
-      context.read<AddPacienteBloc>().add(UpdateDatosPersonales(paciente: updatedPaciente));*/
-
-      // Navegar a la siguiente página (Interconsultas)
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => InterconsultasPage()),
-      );
     }
   }
 
@@ -55,7 +47,7 @@ class GeneticaPage extends StatelessWidget {
             // Navegar a la página de Interrogatorio cuando el estado sea exitoso
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => InterconsultasPage()),
+              MaterialPageRoute(builder: (context) => LaboratorioPage()),
             );
           } else if (state.errorMessage != null) {
             // Mostrar mensaje de error
@@ -77,7 +69,7 @@ class GeneticaPage extends StatelessWidget {
                   context.read<AddPacienteBloc>().add(UpdateCurrentStepGenetica(
                       step: state.currentStepGenetica + 1));
                 } else {
-                  //_submitDatosPersonales(context);
+                  _submitGenetica(context);
                 }
               },
               onStepCancel: () {
@@ -195,9 +187,9 @@ class GeneticaPage extends StatelessWidget {
                 ),
                 Step(
                   title: const Text('Ultrasonido de seguimiento'),
-                  isActive: state.currentStepGenetica >= 3,
+                  isActive: state.currentStepGenetica >= 2,
                   content: Form(
-                    key: _formKey4,
+                    key: _formKey3,
                     child: Column(
                       children: <Widget>[
                         TextFormField(
@@ -270,9 +262,9 @@ class GeneticaPage extends StatelessWidget {
                 ),
                 Step(
                   title: const Text('Cervicometría'),
-                  isActive: state.currentStepGenetica >= 0,
+                  isActive: state.currentStepGenetica >= 3,
                   content: Form(
-                    key: _formKey,
+                    key: _formKey4,
                     child: Column(
                       children: <Widget>[
                         TextFormField(
@@ -351,9 +343,9 @@ class GeneticaPage extends StatelessWidget {
                 ),
                 Step(
                   title: const Text('Doppler Arterias Uterinas'),
-                  isActive: state.currentStepGenetica >= 0,
+                  isActive: state.currentStepGenetica >= 4,
                   content: Form(
-                    key: _formKey,
+                    key: _formKey5,
                     child: Column(
                       children: <Widget>[
                         TextFormField(
@@ -412,9 +404,9 @@ class GeneticaPage extends StatelessWidget {
                 ),
                 Step(
                   title: const Text('Cervicometría de Seguimiento'),
-                  isActive: state.currentStepGenetica >= 0,
+                  isActive: state.currentStepGenetica >= 5,
                   content: Form(
-                    key: _formKey,
+                    key: _formKey6,
                     child: Column(
                       children: <Widget>[
                         TextFormField(
@@ -511,6 +503,11 @@ class GeneticaPage extends StatelessWidget {
                       ],
                     ),
                   ),
+                ),
+                Step(
+                  title: const Text('Guardar'),
+                  isActive: state.currentStepGenetica >= 6,
+                  content: const SizedBox(),
                 ),
               ],
             ),
