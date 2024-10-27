@@ -13,18 +13,18 @@ class GeneticaModel {
   //ultrasonido 1er trimestre
   DateTime? fechaRealizacion;
   int? numFetos;
-
-  String? datosDeInteres;
-
   @Backlink('genetica')
   final fetos1erTrimestre = ToMany<FetoUltrasonido1erTrimestre>();
+  String? datosDeInteres;
 
-  @Backlink('genetica')
-  final fetosSeguimiento = ToMany<FetoUltrasonidoSeguimiento>();
+
 
   //ultrasonido de seguimiento
   DateTime? usFechaRealizacion;
   int? usNumFetos;
+  @Backlink('genetica')
+  final fetosSeguimiento = ToMany<FetoUltrasonidoSeguimiento>();
+
 
   //cervicometria
   String? longitudDelCuello;
@@ -42,7 +42,7 @@ class GeneticaModel {
   String? ipmPercentil;
   String? dusDatosDeInteres;
 
-  //cervicometria de seguimeiento
+  //cervicometria de seguimiento
   DateTime? scfechaRealizacion;
   String? scLongitudCuello;
   String? scOci;

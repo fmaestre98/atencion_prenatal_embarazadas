@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../data/database/objectbox.dart';
+import '../../models/genetica_model.dart';
 import 'add_event.dart';
 import 'add_state.dart';
 
@@ -29,6 +30,15 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
     on<UpdateCurrentStepInterrogatorio>(_onUpdateCurrentStepInterrogatorio);
     on<UpdateCurrentStepSignosVitales>(_onUpdateCurrentStepSignosVitales);
     on<UpdateCurrentStepExamenFisico>(_onUpdateCurrentStepExamenFisico);
+    on<UpdateCurrentStepInterconsultas>(_onUpdateCurrentStepInterconsultas);
+    on<UpdateExamenFisico>(_onUpdateExamenFisico);
+    on<UpdateLaboratorio>(_onUpdateLaboratorio);
+    on<UpdateCurrentStepLaboratorio>(_onUpdateCurrentStepLaboratorio);
+    on<UpdateGenetica>(_onUpdateGenetica);
+    on<UpdateInterconsultas>(_onUpdateInterconsultas);
+    on<UpdateFetoUltrasonido1erTrimestre>(_onUpdateFetoUltrasonido1erTrimestre);
+    on<AddFetoUltrasonido1erTrimestre>(_onAddFetoUltrasonido1erTrimestre);
+
   }
 
   void _loadPacienteData(LoadPacienteData event, Emitter<AddPacienteState> emit) {
@@ -66,6 +76,31 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
   void _onUpdateCurrentStepExamenFisico(
       UpdateCurrentStepExamenFisico event, Emitter<AddPacienteState> emit) {
     emit(state.copyWith(currentStepExamenFisico: event.step));
+  }
+
+  void _onUpdateCurrentStepInterconsultas(
+      UpdateCurrentStepInterconsultas event, Emitter<AddPacienteState> emit) {
+    emit(state.copyWith(currentStepInterconsultas: event.step));
+  }
+
+  void _onUpdateCurrentStepLaboratorio(
+      UpdateCurrentStepLaboratorio event, Emitter<AddPacienteState> emit) {
+    emit(state.copyWith(currentStepLaboratorio: event.step));
+  }
+
+  void _onUpdateLaboratorio(
+      UpdateLaboratorio event, Emitter<AddPacienteState> emit) {
+    emit(state.copyWith(laboratorio: event.model));
+  }
+
+  void _onUpdateInterconsultas(
+      UpdateInterconsultas event, Emitter<AddPacienteState> emit) {
+    emit(state.copyWith(interconsultasModel: event.model));
+  }
+
+  void _onUpdateGenetica(
+      UpdateGenetica event, Emitter<AddPacienteState> emit) {
+    emit(state.copyWith(genetica: event.model));
   }
 
 
@@ -145,6 +180,12 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
     _savePaciente();
   }
 
+  void _onUpdateExamenFisico(
+      UpdateExamenFisico event, Emitter<AddPacienteState> emit) {
+    emit(state.copyWith(examenFisico: event.examenFisicoModel));
+    _savePaciente();
+  }
+
   // Implementa métodos para manejar otros eventos...
 
   Future<void> _onSubmitPaciente(
@@ -192,6 +233,30 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
         deleteError: e.toString(),
       ));
     }
+  }
+
+  // Manejador para actualizar los datos de un feto específico
+  void _onUpdateFetoUltrasonido1erTrimestre(
+      UpdateFetoUltrasonido1erTrimestre event, Emitter<AddPacienteState> emit) {
+    GeneticaModel? geneticaModel = state.geneticaModel;
+    if(geneticaModel != null){
+      geneticaModel.fetos1erTrimestre[event.index] = event.feto;
+    }
+    emit(state.copyWith(
+      genetica: geneticaModel,
+    ));
+  }
+
+  // Manejador para agregar un nuevo feto
+  void _onAddFetoUltrasonido1erTrimestre(
+      AddFetoUltrasonido1erTrimestre event, Emitter<AddPacienteState> emit) {
+    GeneticaModel? geneticaModel = state.geneticaModel;
+    if(geneticaModel != null){
+      geneticaModel.fetos1erTrimestre.add(event.feto);
+    }
+    emit(state.copyWith(
+      genetica: geneticaModel,
+    ));
   }
 
 }

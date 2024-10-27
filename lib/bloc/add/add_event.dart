@@ -1,3 +1,7 @@
+import 'package:atencion_prenatal_embarazadas/models/examen_fisico_model.dart';
+import 'package:atencion_prenatal_embarazadas/models/genetica_model.dart';
+import 'package:atencion_prenatal_embarazadas/models/interconsultas_model.dart';
+import 'package:atencion_prenatal_embarazadas/models/laboratorio_microbiologia_model.dart';
 import 'package:atencion_prenatal_embarazadas/models/signos_vitales_model.dart';
 import 'package:equatable/equatable.dart';
 
@@ -95,6 +99,24 @@ class UpdateCurrentStepExamenFisico extends AddPacienteEvent {
   const UpdateCurrentStepExamenFisico({required this.step});
 }
 
+class UpdateCurrentStepLaboratorio extends AddPacienteEvent {
+  final int step;
+
+  const UpdateCurrentStepLaboratorio({required this.step});
+}
+
+class UpdateCurrentStepGenetica extends AddPacienteEvent {
+  final int step;
+
+  const UpdateCurrentStepGenetica({required this.step});
+}
+
+class UpdateCurrentStepInterconsultas extends AddPacienteEvent {
+  final int step;
+
+  const UpdateCurrentStepInterconsultas({required this.step});
+}
+
 class DeletePaciente extends AddPacienteEvent {
   final int pacienteId;
 
@@ -114,7 +136,7 @@ class UpdateInterrogatorio extends AddPacienteEvent {
   List<Object?> get props => [interrogatorio];
 }
 
-// Evento para actualizar Interrogatorio
+// Evento para actualizar signos vitales
 class UpdateSignosVitales extends AddPacienteEvent {
   final SignosVitalesModel signosVitalesModel;
 
@@ -122,6 +144,95 @@ class UpdateSignosVitales extends AddPacienteEvent {
 
   @override
   List<Object?> get props => [signosVitalesModel];
+}
+
+// Evento para actualizar examen fisico
+class UpdateExamenFisico extends AddPacienteEvent {
+  final ExamenFisicoModel examenFisicoModel;
+
+  const UpdateExamenFisico({required this.examenFisicoModel});
+
+  @override
+  List<Object?> get props => [examenFisicoModel];
+}
+
+class UpdateLaboratorio extends AddPacienteEvent {
+  final LaboratorioMicrobiologiaModel model;
+
+  const UpdateLaboratorio({required this.model});
+
+  @override
+  List<Object?> get props => [model];
+}
+
+class UpdateGenetica extends AddPacienteEvent {
+  final GeneticaModel model;
+
+  const UpdateGenetica({required this.model});
+
+  @override
+  List<Object?> get props => [model];
+}
+
+class UpdateInterconsultas extends AddPacienteEvent {
+  final InterconsultasModel model;
+
+  const UpdateInterconsultas({required this.model});
+
+  @override
+  List<Object?> get props => [model];
+}
+
+class UpdateFetoUltrasonido1erTrimestre extends AddPacienteEvent {
+  final FetoUltrasonido1erTrimestre feto;
+  final int index;
+  const UpdateFetoUltrasonido1erTrimestre({required this.feto, required this.index});
+
+  @override
+  List<Object?> get props => [feto, index];
+}
+
+class DeleteFetoUltrasonido1erTrimestre extends AddPacienteEvent {
+  final int index;
+  const DeleteFetoUltrasonido1erTrimestre({required this.index});
+
+  @override
+  List<Object?> get props => [index];
+}
+
+class AddFetoUltrasonido1erTrimestre extends AddPacienteEvent {
+  final FetoUltrasonido1erTrimestre feto;
+
+  const AddFetoUltrasonido1erTrimestre({required this.feto});
+
+  @override
+  List<Object?> get props => [feto];
+}
+
+class UpdateFetoUltrasonidoSeguimiento extends AddPacienteEvent {
+  final FetoUltrasonidoSeguimiento feto;
+  final int index;
+  const UpdateFetoUltrasonidoSeguimiento({required this.feto, required this.index});
+
+  @override
+  List<Object?> get props => [feto, index];
+}
+
+class DeleteFetoUltrasonidoSeguimiento extends AddPacienteEvent {
+  final int index;
+  const DeleteFetoUltrasonidoSeguimiento({required this.index});
+
+  @override
+  List<Object?> get props => [index];
+}
+
+class AddFetoUltrasonidoSeguimiento extends AddPacienteEvent {
+  final FetoUltrasonidoSeguimiento feto;
+
+  const AddFetoUltrasonidoSeguimiento({required this.feto});
+
+  @override
+  List<Object?> get props => [feto];
 }
 
 // Agrega eventos similares para las demás categorías...
