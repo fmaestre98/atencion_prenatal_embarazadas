@@ -1,5 +1,4 @@
 import 'package:atencion_prenatal_embarazadas/core/utils.dart';
-import 'package:atencion_prenatal_embarazadas/models/interrogatory_model.dart';
 import 'package:atencion_prenatal_embarazadas/models/personal_data_model.dart';
 import 'package:bloc/bloc.dart';
 import 'package:get_it/get_it.dart';
