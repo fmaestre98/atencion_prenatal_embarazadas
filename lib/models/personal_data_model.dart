@@ -48,10 +48,6 @@ class Paciente {
   @Backlink('paciente')
   final antecedentes = ToMany<Antecedente>();
 
-  final antecedentesPatologicos = ToOne<AntecedentesPatologicosPersonales>();
-
-  final antecedentesObstetricos = ToOne<AntecedentesObstetricos>();
-
   final embarazoActual = ToOne<EmbarazoActual>();
 
   final interrogatorio = ToOne<Interrogatorio>();
@@ -206,15 +202,29 @@ class EmbarazoActual {
 @Entity()
 class Antecedente {
   int id; // field auto-incremented
-  String tipo; // Puede ser 'personal', 'familiar', etc.
-  String descripcion;
+  String? tipo; // Puede ser 'personal', 'familiar', etc.
+  String? descripcion;
   @Property(type: PropertyType.date)
   DateTime? fecha;
 
   final paciente = ToOne<Paciente>();
 
   // Constructor
-  Antecedente(this.tipo, this.descripcion, this.fecha, {this.id = 0});
+  Antecedente({this.tipo, this.descripcion, this.fecha, this.id = 0});
+
+  Antecedente copyWith({
+    int? id,
+    String? tipo,
+    String? descripcion,
+    DateTime? fecha,
+  }) {
+    return Antecedente(
+      tipo: tipo ?? this.tipo,
+      descripcion: descripcion ?? this.descripcion,
+      fecha: fecha ?? this.fecha,
+      id: id ?? this.id,
+    );
+  }
 }
 
 @Entity()

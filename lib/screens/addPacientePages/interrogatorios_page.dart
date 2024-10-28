@@ -50,8 +50,6 @@ class InterrogatorioPage extends StatelessWidget {
             || previous.errorMessage != current.errorMessage,
         listener: (context, state) {
           safePrint(state.interrogatorio.toString());
-          safePrint(state.isSuccessInterrogatorio);
-          safePrint("LOLOLOLOLOLOLOLOLO");
           if (state.isSuccessInterrogatorio) {
             // Navegar a la página de Interrogatorio cuando el estado sea exitoso
             Navigator.push(

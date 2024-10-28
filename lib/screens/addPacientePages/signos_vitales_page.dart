@@ -40,6 +40,8 @@ class SignosVitalesPage extends StatelessWidget {
         title: Text('Signos Vitales/Datos Antropométricos'),
       ),
       body: BlocConsumer<AddPacienteBloc, AddPacienteState>(
+        listenWhen: (previous, current) => previous.isSuccessSignosVitales != current.isSuccessSignosVitales
+            || previous.errorMessage != current.errorMessage,
         listener: (context, state) {
           if (state.isSuccessSignosVitales) {
             // Navegar a la página de Interrogatorio cuando el estado sea exitoso
@@ -54,6 +56,8 @@ class SignosVitalesPage extends StatelessWidget {
             );
           }
         },
+        buildWhen: (previous, current) => previous.signosVitales != current.signosVitales ||
+            current.currentStepSignosVitales != previous.currentStepSignosVitales,
         builder: (context, state) {
           return Padding(
             padding: const EdgeInsets.all(16.0),
@@ -152,7 +156,6 @@ class SignosVitalesPage extends StatelessWidget {
                           decoration:
                           const InputDecoration(labelText: 'Indice de masa corporal'),
                           keyboardType: TextInputType.number,
-                          maxLength: 11,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Por favor ingresa el indice de masa corporal';

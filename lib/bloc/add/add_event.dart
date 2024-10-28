@@ -168,6 +168,24 @@ class UpdateFetoUltrasonido1erTrimestre extends AddPacienteEvent {
   List<Object?> get props => [feto, index];
 }
 
+class UpdateAntecedente extends AddPacienteEvent {
+  final Antecedente antecedente;
+  final int index;
+  const UpdateAntecedente({required this.antecedente, required this.index});
+
+  @override
+  List<Object?> get props => [antecedente, index];
+}
+
+
+class DeleteAntecedente extends AddPacienteEvent {
+  final int index;
+  const DeleteAntecedente({required this.index});
+
+  @override
+  List<Object?> get props => [index];
+}
+
 class DeleteFetoUltrasonido1erTrimestre extends AddPacienteEvent {
   final int index;
   const DeleteFetoUltrasonido1erTrimestre({required this.index});
@@ -192,6 +210,15 @@ class UpdateFetoUltrasonidoSeguimiento extends AddPacienteEvent {
 
   @override
   List<Object?> get props => [feto, index];
+}
+
+class AddAntecedente extends AddPacienteEvent {
+  final Antecedente antecedente;
+
+  const AddAntecedente({required this.antecedente});
+
+  @override
+  List<Object?> get props => [antecedente];
 }
 
 class DeleteFetoUltrasonidoSeguimiento extends AddPacienteEvent {

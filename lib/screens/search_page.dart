@@ -24,9 +24,9 @@ class SearchPageChild extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: <Widget>[
+            const SizedBox(height: 10,),
             // Campo de búsqueda
             TextField(
-              autofocus: true,
               maxLines: 1,
               maxLength: 11 ,
               keyboardType: TextInputType.number,

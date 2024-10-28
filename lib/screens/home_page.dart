@@ -14,6 +14,7 @@ class HomePage extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: <Widget>[
+            const SizedBox(height: 10,),
             // Resumen Total de Embarazadas
             Card(
               elevation: 4,
@@ -101,6 +102,15 @@ class HomePage extends StatelessWidget {
                         }
                         return const SizedBox.shrink();
                       },
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  // Nota para el usuario
+                  const Center(
+                    child: Text(
+                      'Desliza hacia abajo para actualizar los datos.',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 14, color: Colors.grey),
                     ),
                   ),
                 ],

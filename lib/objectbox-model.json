@@ -1005,22 +1005,6 @@
           "type": 9
         },
         {
-          "id": "26:8396832012455940696",
-          "name": "antecedentesPatologicosId",
-          "type": 11,
-          "flags": 520,
-          "indexId": "12:8057303325378860992",
-          "relationTarget": "AntecedentesPatologicosPersonales"
-        },
-        {
-          "id": "27:1315203403585535857",
-          "name": "antecedentesObstetricosId",
-          "type": 11,
-          "flags": 520,
-          "indexId": "13:3360524346302828976",
-          "relationTarget": "AntecedentesObstetricos"
-        },
-        {
           "id": "28:5779527745294701656",
           "name": "embarazoActualId",
           "type": 11,
@@ -2446,7 +2430,10 @@
     3996157001370866902,
     6473606377810914912
   ],
-  "retiredIndexUids": [],
+  "retiredIndexUids": [
+    8057303325378860992,
+    3360524346302828976
+  ],
   "retiredPropertyUids": [
     4620656507009253317,
     8313944828278512612,
@@ -2455,7 +2442,9 @@
     7004613500463965696,
     4031979108904179218,
     1041392091051900192,
-    4736388164980832843
+    4736388164980832843,
+    8396832012455940696,
+    1315203403585535857
   ],
   "retiredRelationUids": [
     737123734785742008,

@@ -35,7 +35,7 @@ class ExamenFisicoPage extends StatelessWidget {
   ExamenFisicoPage({Key? key}) : super(key: key);
 
   void _submitExamenFisico(BuildContext context) {
-    if (_formKey.currentState!.validate() &&
+   /* if (_formKey.currentState!.validate() &&
         _formKey2.currentState!.validate() &&
         _formKey3.currentState!.validate() &&
         _formKey4.currentState!.validate() &&
@@ -48,12 +48,13 @@ class ExamenFisicoPage extends StatelessWidget {
         _formKey11.currentState!.validate() &&
         _formKey12.currentState!.validate() &&
         _formKey13.currentState!.validate() &&
-        _formKey14.currentState!.validate()) {
+        _formKey14.currentState!.validate()) {*/
       _formKey.currentState!.save();
+
       context
           .read<AddPacienteBloc>()
           .add(SubmitExamenFisico());
-    }
+    //}
   }
 
   @override
@@ -63,8 +64,10 @@ class ExamenFisicoPage extends StatelessWidget {
         title: Text('Examen Físico'),
       ),
       body: BlocConsumer<AddPacienteBloc, AddPacienteState>(
+        listenWhen: (previous, current) => previous.isSuccessExamenFisico != current.isSuccessExamenFisico
+            || previous.errorMessage != current.errorMessage,
         listener: (context, state) {
-          safePrint(state.examenFisicoModel);
+          safePrint(state.isSuccessExamenFisico);
           if (state.isSuccessExamenFisico) {
             Navigator.push(
               context,
@@ -75,10 +78,10 @@ class ExamenFisicoPage extends StatelessWidget {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(state.errorMessage!)),
             );
-          } else if (state.pacienteLoaded) {
-            //_updateControllers(state);
           }
         },
+        buildWhen: (previous, current) => previous.examenFisicoModel != current.examenFisicoModel ||
+            current.currentStepExamenFisico != previous.currentStepExamenFisico,
         builder: (context, state) {
           return Padding(
             padding: const EdgeInsets.all(16.0),

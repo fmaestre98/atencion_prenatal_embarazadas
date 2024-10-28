@@ -18,6 +18,9 @@ class AddPacienteState extends Equatable {
   final GeneticaModel? geneticaModel;
   final EmbarazoActual? embarazoActual;
   final InterconsultasModel? interconsultasModel;
+  final List<FetoUltrasonido1erTrimestre>? fetos1erTrimestre;
+  final List<FetoUltrasonidoSeguimiento>? fetosSeguimiento;
+  final List<Antecedente>? antecedentes;
   final bool pacienteLoaded;
   final bool isSubmitting;
   final bool isSuccess;
@@ -47,6 +50,9 @@ class AddPacienteState extends Equatable {
     this.laboratorioMicrobiologiaModel,
     this.geneticaModel,
     this.interconsultasModel,
+    this.fetos1erTrimestre,
+    this.fetosSeguimiento,
+    this.antecedentes,
     this.pacienteLoaded = false,
     this.isSubmitting = false,
     this.isSuccess = false,
@@ -78,6 +84,8 @@ class AddPacienteState extends Equatable {
     LaboratorioMicrobiologiaModel? laboratorio,
     GeneticaModel? genetica,
     InterconsultasModel? interconsultasModel,
+    List<FetoUltrasonido1erTrimestre>? fetos1erTrimestre,
+    List<FetoUltrasonidoSeguimiento>? fetosSeguimiento,
     bool? pacienteLoaded,
     bool? isSubmitting,
     bool? isSuccess,
@@ -99,6 +107,7 @@ class AddPacienteState extends Equatable {
     bool? isSuccessGenetica,
     bool? isSuccessInterconsultas,
     int? currentStepInterconsultas,
+    List<Antecedente>? antecedentes,
   }) {
     return AddPacienteState(
       paciente: paciente ?? this.paciente,
@@ -140,6 +149,9 @@ class AddPacienteState extends Equatable {
           isSuccessInterconsultas ?? this.isSuccessInterconsultas,
       currentStepInterconsultas:
           currentStepInterconsultas ?? this.currentStepInterconsultas,
+      fetos1erTrimestre: fetos1erTrimestre ?? this.fetos1erTrimestre,
+      fetosSeguimiento: fetosSeguimiento ?? this.fetosSeguimiento,
+      antecedentes: antecedentes ?? this.antecedentes,
     );
   }
 
@@ -170,5 +182,8 @@ class AddPacienteState extends Equatable {
         isSuccessLaboratorio,
         currentStepInterconsultas,
         embarazoActual,
+        fetosSeguimiento,
+        fetos1erTrimestre,
+        antecedentes,
       ];
 }

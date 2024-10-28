@@ -1014,20 +1014,6 @@ final _entities = <obx_int.ModelEntity>[
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(26, 8396832012455940696),
-            name: 'antecedentesPatologicosId',
-            type: 11,
-            flags: 520,
-            indexId: const obx_int.IdUid(12, 8057303325378860992),
-            relationTarget: 'AntecedentesPatologicosPersonales'),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(27, 1315203403585535857),
-            name: 'antecedentesObstetricosId',
-            type: 11,
-            flags: 520,
-            indexId: const obx_int.IdUid(13, 3360524346302828976),
-            relationTarget: 'AntecedentesObstetricos'),
-        obx_int.ModelProperty(
             id: const obx_int.IdUid(28, 5779527745294701656),
             name: 'embarazoActualId',
             type: 11,
@@ -2483,7 +2469,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
       lastRelationId: const obx_int.IdUid(14, 5431265603138581775),
       lastSequenceId: const obx_int.IdUid(0, 0),
       retiredEntityUids: const [3996157001370866902, 6473606377810914912],
-      retiredIndexUids: const [],
+      retiredIndexUids: const [8057303325378860992, 3360524346302828976],
       retiredPropertyUids: const [
         4620656507009253317,
         8313944828278512612,
@@ -2492,7 +2478,9 @@ obx_int.ModelDefinition getObjectBoxModel() {
         7004613500463965696,
         4031979108904179218,
         1041392091051900192,
-        4736388164980832843
+        4736388164980832843,
+        8396832012455940696,
+        1315203403585535857
       ],
       retiredRelationUids: const [737123734785742008, 5549541683541151137],
       modelVersion: 5,
@@ -2900,8 +2888,11 @@ obx_int.ModelDefinition getObjectBoxModel() {
           object.id = id;
         },
         objectToFB: (Antecedente object, fb.Builder fbb) {
-          final tipoOffset = fbb.writeString(object.tipo);
-          final descripcionOffset = fbb.writeString(object.descripcion);
+          final tipoOffset =
+              object.tipo == null ? null : fbb.writeString(object.tipo!);
+          final descripcionOffset = object.descripcion == null
+              ? null
+              : fbb.writeString(object.descripcion!);
           fbb.startTable(6);
           fbb.addInt64(0, object.id);
           fbb.addInt64(1, object.paciente.targetId);
@@ -2917,17 +2908,20 @@ obx_int.ModelDefinition getObjectBoxModel() {
           final fechaValue =
               const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 12);
           final tipoParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGet(buffer, rootOffset, 8, '');
+              .vTableGetNullable(buffer, rootOffset, 8);
           final descripcionParam =
               const fb.StringReader(asciiOptimization: true)
-                  .vTableGet(buffer, rootOffset, 10, '');
+                  .vTableGetNullable(buffer, rootOffset, 10);
           final fechaParam = fechaValue == null
               ? null
               : DateTime.fromMillisecondsSinceEpoch(fechaValue);
           final idParam =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
-          final object =
-              Antecedente(tipoParam, descripcionParam, fechaParam, id: idParam);
+          final object = Antecedente(
+              tipo: tipoParam,
+              descripcion: descripcionParam,
+              fecha: fechaParam,
+              id: idParam);
           object.paciente.targetId =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0);
           object.paciente.attach(store);
@@ -3425,8 +3419,6 @@ obx_int.ModelDefinition getObjectBoxModel() {
     Paciente: obx_int.EntityDefinition<Paciente>(
         model: _entities[9],
         toOneRelations: (Paciente object) => [
-              object.antecedentesPatologicos,
-              object.antecedentesObstetricos,
               object.embarazoActual,
               object.interrogatorio,
               object.signosVitales,
@@ -3530,8 +3522,6 @@ obx_int.ModelDefinition getObjectBoxModel() {
           fbb.addOffset(22, descripcionOffset);
           fbb.addOffset(23, estructuraOffset);
           fbb.addOffset(24, conductaSeguidaOffset);
-          fbb.addInt64(25, object.antecedentesPatologicos.targetId);
-          fbb.addInt64(26, object.antecedentesObstetricos.targetId);
           fbb.addInt64(27, object.embarazoActual.targetId);
           fbb.addInt64(28, object.interrogatorio.targetId);
           fbb.addInt64(29, object.fechaDeRegistro?.millisecondsSinceEpoch);
@@ -3656,12 +3646,6 @@ obx_int.ModelDefinition getObjectBoxModel() {
               fechaDeRegistro: fechaDeRegistroParam,
               fechaDeActualizacion: fechaDeActualizacionParam,
               edad: edadParam);
-          object.antecedentesPatologicos.targetId =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 54, 0);
-          object.antecedentesPatologicos.attach(store);
-          object.antecedentesObstetricos.targetId =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 56, 0);
-          object.antecedentesObstetricos.attach(store);
           object.embarazoActual.targetId =
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 58, 0);
           object.embarazoActual.attach(store);
@@ -6467,61 +6451,51 @@ class Paciente_ {
   static final conductaSeguida =
       obx.QueryStringProperty<Paciente>(_entities[9].properties[24]);
 
-  /// See [Paciente.antecedentesPatologicos].
-  static final antecedentesPatologicos =
-      obx.QueryRelationToOne<Paciente, AntecedentesPatologicosPersonales>(
-          _entities[9].properties[25]);
-
-  /// See [Paciente.antecedentesObstetricos].
-  static final antecedentesObstetricos =
-      obx.QueryRelationToOne<Paciente, AntecedentesObstetricos>(
-          _entities[9].properties[26]);
-
   /// See [Paciente.embarazoActual].
   static final embarazoActual =
       obx.QueryRelationToOne<Paciente, EmbarazoActual>(
-          _entities[9].properties[27]);
+          _entities[9].properties[25]);
 
   /// See [Paciente.interrogatorio].
   static final interrogatorio =
       obx.QueryRelationToOne<Paciente, Interrogatorio>(
-          _entities[9].properties[28]);
+          _entities[9].properties[26]);
 
   /// See [Paciente.fechaDeRegistro].
   static final fechaDeRegistro =
-      obx.QueryDateProperty<Paciente>(_entities[9].properties[29]);
+      obx.QueryDateProperty<Paciente>(_entities[9].properties[27]);
 
   /// See [Paciente.fechaDeActualizacion].
   static final fechaDeActualizacion =
-      obx.QueryDateProperty<Paciente>(_entities[9].properties[30]);
+      obx.QueryDateProperty<Paciente>(_entities[9].properties[28]);
 
   /// See [Paciente.edad].
   static final edad =
-      obx.QueryIntegerProperty<Paciente>(_entities[9].properties[31]);
+      obx.QueryIntegerProperty<Paciente>(_entities[9].properties[29]);
 
   /// See [Paciente.signosVitales].
   static final signosVitales =
       obx.QueryRelationToOne<Paciente, SignosVitalesModel>(
-          _entities[9].properties[32]);
+          _entities[9].properties[30]);
 
   /// See [Paciente.examenFisico].
   static final examenFisico =
       obx.QueryRelationToOne<Paciente, ExamenFisicoModel>(
-          _entities[9].properties[33]);
+          _entities[9].properties[31]);
 
   /// See [Paciente.interconsultas].
   static final interconsultas =
       obx.QueryRelationToOne<Paciente, InterconsultasModel>(
-          _entities[9].properties[34]);
+          _entities[9].properties[32]);
 
   /// See [Paciente.genetica].
   static final genetica = obx.QueryRelationToOne<Paciente, GeneticaModel>(
-      _entities[9].properties[35]);
+      _entities[9].properties[33]);
 
   /// See [Paciente.laboratorio].
   static final laboratorio =
       obx.QueryRelationToOne<Paciente, LaboratorioMicrobiologiaModel>(
-          _entities[9].properties[36]);
+          _entities[9].properties[34]);
 
   /// see [Paciente.antecedentes]
   static final antecedentes =

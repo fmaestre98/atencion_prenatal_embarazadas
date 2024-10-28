@@ -15,6 +15,7 @@ class DatosPersonalesPage extends StatelessWidget {
   final _formKey2 = GlobalKey<FormState>();
   final _formKey3 = GlobalKey<FormState>();
   final _formKey4 = GlobalKey<FormState>();
+  final _formKey5 = GlobalKey<FormState>();
 
 
   DatosPersonalesPage({Key? key}) : super(key: key);
@@ -40,7 +41,8 @@ class DatosPersonalesPage extends StatelessWidget {
     }
   }
 
-  void _selectDateTimeUltimaMenstruacion(BuildContext context, AddPacienteState state) async {
+  void _selectDateTime1(
+      BuildContext context, Null Function(dynamic value) onChange) async {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: DateTime(1990),
@@ -50,18 +52,34 @@ class DatosPersonalesPage extends StatelessWidget {
     if (picked != null) {
       // Actualiza la fecha de nacimiento
       print("my-logs $picked");
-        var embarazo =
-            state.embarazoActual ?? EmbarazoActual(id: 0);
-        context
-            .read<AddPacienteBloc>()
-            .add(UpdateEmbarazoActual(
-          embarazoActual: embarazo.copyWith(
-              fechaUltimaMenstruacion: picked),
-        ));
+      onChange(picked);
     }
   }
 
-  void _selectDateTimePartoEstimado(BuildContext context, AddPacienteState state) async {
+  void _selectDateTimeUltimaMenstruacion(BuildContext context,
+      AddPacienteState state) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime(1990),
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+    );
+    if (picked != null) {
+      // Actualiza la fecha de nacimiento
+      print("my-logs $picked");
+      var embarazo =
+          state.embarazoActual ?? EmbarazoActual(id: 0);
+      context
+          .read<AddPacienteBloc>()
+          .add(UpdateEmbarazoActual(
+        embarazoActual: embarazo.copyWith(
+            fechaUltimaMenstruacion: picked),
+      ));
+    }
+  }
+
+  void _selectDateTimePartoEstimado(BuildContext context,
+      AddPacienteState state) async {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: DateTime(1990),
@@ -101,13 +119,15 @@ class DatosPersonalesPage extends StatelessWidget {
         title: const Text('Datos Personales'),
       ),
       body: BlocConsumer<AddPacienteBloc, AddPacienteState>(
-        listenWhen: (previous, current) => previous.isSuccess != current.isSuccess
-        || previous.errorMessage != current.errorMessage,
+        listenWhen: (previous, current) =>
+        previous.isSuccess != current.isSuccess
+            || previous.errorMessage != current.errorMessage || previous.antecedentes != current.antecedentes,
         listener: (context, state) {
           safePrint("in listenner KKKKKKKKKKKKKKKKK");
           safePrint(state);
           if (state.isSuccess) {
-            safePrint("Hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+            safePrint(
+                "Hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
             // Navegar a la página de Interrogatorio cuando el estado sea exitoso
             Navigator.push(
               context,
@@ -120,9 +140,12 @@ class DatosPersonalesPage extends StatelessWidget {
             );
           }
         },
-        buildWhen: (previous, current) => previous.paciente != current.paciente ||
-        current.currentStepDatosPersonales != previous.currentStepDatosPersonales ||
-        previous.embarazoActual != current.embarazoActual,
+        buildWhen: (previous, current) =>
+        previous.paciente != current.paciente ||
+            current.currentStepDatosPersonales !=
+                previous.currentStepDatosPersonales ||
+            previous.embarazoActual != current.embarazoActual ||
+        previous.antecedentes != current.antecedentes,
         builder: (context, state) {
           safePrint("called builder datos personales");
           return Padding(
@@ -132,28 +155,30 @@ class DatosPersonalesPage extends StatelessWidget {
               currentStep: state.currentStepDatosPersonales,
               onStepContinue: () {
                 bool update = false;
-                if (state.currentStepDatosPersonales < 4) {
-                 if(state.currentStepDatosPersonales == 0){
-                   if (_formKey.currentState!.validate()){
-                     update=true;
-                   }
-                 } else if(state.currentStepDatosPersonales == 1){
-                   if (_formKey2.currentState!.validate()){
-                     update=true;
-                   }
-                 } else if(state.currentStepDatosPersonales == 2){
-                   if (_formKey3.currentState!.validate()){
-                     update=true;
-                   }
-                 } else if(state.currentStepDatosPersonales == 3){
-                   if (_formKey4.currentState!.validate()){
-                     update=true;
-                   }
-                 }
-                 if(update){
-                   context.read<AddPacienteBloc>().add(UpdateCurrentStep(
-                       step: state.currentStepDatosPersonales + 1));
-                 }
+                if (state.currentStepDatosPersonales < 5) {
+                  if (state.currentStepDatosPersonales == 0) {
+                    if (_formKey.currentState!.validate()) {
+                      update = true;
+                    }
+                  } else if (state.currentStepDatosPersonales == 1) {
+                    if (_formKey2.currentState!.validate()) {
+                      update = true;
+                    }
+                  } else if (state.currentStepDatosPersonales == 2) {
+                    if (_formKey3.currentState!.validate()) {
+                      update = true;
+                    }
+                  } else if (state.currentStepDatosPersonales == 3) {
+                    if (_formKey4.currentState!.validate()) {
+                      update = true;
+                    }
+                  } else if (state.currentStepDatosPersonales == 4) {
+                    update = true;
+                  }
+                  if (update) {
+                    context.read<AddPacienteBloc>().add(UpdateCurrentStep(
+                        step: state.currentStepDatosPersonales + 1));
+                  }
                 } else {
                   _submitDatosPersonales(context);
                 }
@@ -175,11 +200,12 @@ class DatosPersonalesPage extends StatelessWidget {
                         TextFormField(
                           initialValue: state.paciente?.nombre ?? '',
                           decoration:
-                              const InputDecoration(labelText: 'Nombre'),
-                          validator: (value) => value == null || value.isEmpty
+                          const InputDecoration(labelText: 'Nombre'),
+                          validator: (value) =>
+                          value == null || value.isEmpty
                               ? 'Por favor ingresa el nombre'
                               : null,
-                          onChanged: (value){
+                          onChanged: (value) {
                             var paciente =
                                 state.paciente ?? Paciente(id: 0);
                             context
@@ -194,10 +220,11 @@ class DatosPersonalesPage extends StatelessWidget {
                           initialValue: state.paciente?.primerApellido ?? '',
                           decoration: const InputDecoration(
                               labelText: 'Primer Apellido'),
-                          validator: (value) => value == null || value.isEmpty
+                          validator: (value) =>
+                          value == null || value.isEmpty
                               ? 'Por favor ingresa el primer apellido'
                               : null,
-                          onChanged: (value){
+                          onChanged: (value) {
                             var paciente =
                                 state.paciente ?? Paciente(id: 0);
                             context
@@ -212,10 +239,11 @@ class DatosPersonalesPage extends StatelessWidget {
                           initialValue: state.paciente?.segundoApellido ?? '',
                           decoration: const InputDecoration(
                               labelText: 'Segundo Apellido'),
-                          validator: (value) => value == null || value.isEmpty
+                          validator: (value) =>
+                          value == null || value.isEmpty
                               ? 'Por favor ingresa el segundo apellido'
                               : null,
-                          onChanged: (value){
+                          onChanged: (value) {
                             var paciente =
                                 state.paciente ?? Paciente(id: 0);
                             context
@@ -229,7 +257,7 @@ class DatosPersonalesPage extends StatelessWidget {
                         TextFormField(
                           initialValue: state.paciente?.noIdentidad ?? '',
                           decoration:
-                              const InputDecoration(labelText: 'No. Identidad'),
+                          const InputDecoration(labelText: 'No. Identidad'),
                           keyboardType: TextInputType.number,
                           maxLength: 11,
                           validator: (value) {
@@ -241,7 +269,7 @@ class DatosPersonalesPage extends StatelessWidget {
                             }
                             return null;
                           },
-                          onChanged: (value){
+                          onChanged: (value) {
                             var paciente =
                                 state.paciente ?? Paciente(id: 0);
                             context
@@ -262,7 +290,7 @@ class DatosPersonalesPage extends StatelessWidget {
                             }
                             return null;
                           },
-                          onChanged: (value){
+                          onChanged: (value) {
                             var paciente =
                                 state.paciente ?? Paciente(id: 0);
                             context
@@ -280,7 +308,8 @@ class DatosPersonalesPage extends StatelessWidget {
                               child: Text(
                                 state.paciente?.fechaNacimiento == null
                                     ? 'Fecha de Nacimiento'
-                                    : 'Fecha: ${state.paciente?.fechaNacimiento!.toLocal().toString().split(' ')[0]}',
+                                    : 'Fecha: ${state.paciente?.fechaNacimiento!
+                                    .toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
@@ -292,11 +321,12 @@ class DatosPersonalesPage extends StatelessWidget {
                         TextFormField(
                           initialValue: state.paciente?.aboRh ?? '',
                           decoration:
-                              const InputDecoration(labelText: 'ABO Rh'),
-                          validator: (value) => value == null || value.isEmpty
+                          const InputDecoration(labelText: 'ABO Rh'),
+                          validator: (value) =>
+                          value == null || value.isEmpty
                               ? 'Por favor ingresa el grupo sanguíneo ABORh'
                               : null,
-                          onChanged: (value){
+                          onChanged: (value) {
                             var paciente =
                                 state.paciente ?? Paciente(id: 0);
                             context
@@ -311,17 +341,18 @@ class DatosPersonalesPage extends StatelessWidget {
                           initialValue: state.paciente?.tipoDePaciente ?? '',
                           decoration: const InputDecoration(
                               labelText: 'Tipo de paciente'),
-                          validator: (value) => value == null || value.isEmpty
+                          validator: (value) =>
+                          value == null || value.isEmpty
                               ? 'Por favor ingresa el tipo de paciente'
                               : null,
-                          onChanged: (value){
+                          onChanged: (value) {
                             var paciente =
                                 state.paciente ?? Paciente(id: 0);
                             context
                                 .read<AddPacienteBloc>()
                                 .add(UpdateDatosPersonales(
                               paciente: paciente.copyWith(
-                                 tipoDePaciente: value),
+                                  tipoDePaciente: value),
                             ));
                           },
                         ),
@@ -359,7 +390,8 @@ class DatosPersonalesPage extends StatelessWidget {
                       children: <Widget>[
                         // Unidad Hospitalaria
                         TextFormField(
-                          initialValue: state.paciente?.unidadHospitalaria ?? "",
+                          initialValue: state.paciente?.unidadHospitalaria ??
+                              "",
                           decoration: const InputDecoration(
                               labelText: 'Unidad Hospitalaria'),
                           validator: (value) {
@@ -383,7 +415,7 @@ class DatosPersonalesPage extends StatelessWidget {
                         TextFormField(
                           initialValue: state.paciente?.policlinico ?? "",
                           decoration:
-                              const InputDecoration(labelText: 'Policlinico'),
+                          const InputDecoration(labelText: 'Policlinico'),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Por favor ingresa el policlinico';
@@ -404,8 +436,9 @@ class DatosPersonalesPage extends StatelessWidget {
                         TextFormField(
                           initialValue: state.paciente?.direccion ?? "",
                           decoration:
-                              const InputDecoration(labelText: 'Dirección'),
-                          validator: (value) => value == null || value.isEmpty
+                          const InputDecoration(labelText: 'Dirección'),
+                          validator: (value) =>
+                          value == null || value.isEmpty
                               ? 'Por favor ingresa la dirección'
                               : null,
                           onChanged: (newValue) {
@@ -423,7 +456,7 @@ class DatosPersonalesPage extends StatelessWidget {
                         TextFormField(
                           initialValue: state.paciente?.estadoCivil ?? "",
                           decoration:
-                              const InputDecoration(labelText: 'Estado Civil'),
+                          const InputDecoration(labelText: 'Estado Civil'),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Por favor ingresa el estado civil';
@@ -445,7 +478,7 @@ class DatosPersonalesPage extends StatelessWidget {
                         TextFormField(
                           initialValue: state.paciente?.escolaridad ?? "",
                           decoration:
-                              const InputDecoration(labelText: 'Escolaridad'),
+                          const InputDecoration(labelText: 'Escolaridad'),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Por favor ingresa la escolaridad';
@@ -467,7 +500,7 @@ class DatosPersonalesPage extends StatelessWidget {
                         TextFormField(
                           initialValue: state.paciente?.consultorio ?? "",
                           decoration:
-                              const InputDecoration(labelText: 'Consultorio'),
+                          const InputDecoration(labelText: 'Consultorio'),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Por favor ingresa el consultorio';
@@ -489,7 +522,7 @@ class DatosPersonalesPage extends StatelessWidget {
                         TextFormField(
                           initialValue: state.paciente?.ocupacion ?? "",
                           decoration:
-                              const InputDecoration(labelText: 'Ocupación'),
+                          const InputDecoration(labelText: 'Ocupación'),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Por favor ingresa la ocupación';
@@ -509,7 +542,8 @@ class DatosPersonalesPage extends StatelessWidget {
                         ),
                         // No. Dormitorios
                         TextFormField(
-                          initialValue: state.paciente?.noDormitorios?.toString() ?? '',
+                          initialValue: state.paciente?.noDormitorios
+                              ?.toString() ?? '',
                           decoration: const InputDecoration(
                               labelText: 'No. Dormitorios'),
                           keyboardType: TextInputType.number,
@@ -535,7 +569,8 @@ class DatosPersonalesPage extends StatelessWidget {
                         ),
                         // No. Personas en Núcleo Personal
                         TextFormField(
-                          initialValue: state.paciente?.noPersonasNucleoPersonal?.toString(),
+                          initialValue: state.paciente?.noPersonasNucleoPersonal
+                              ?.toString(),
                           decoration: const InputDecoration(
                               labelText: 'No. Personas en Núcleo Personal'),
                           keyboardType: TextInputType.number,
@@ -555,7 +590,8 @@ class DatosPersonalesPage extends StatelessWidget {
                                 .read<AddPacienteBloc>()
                                 .add(UpdateDatosPersonales(
                               paciente: paciente.copyWith(
-                                  noPersonasNucleoPersonal: int.tryParse(newValue)),
+                                  noPersonasNucleoPersonal: int.tryParse(
+                                      newValue)),
                             ));
                           },
                         ),
@@ -575,14 +611,19 @@ class DatosPersonalesPage extends StatelessWidget {
                             Expanded(
                               child: Text(
                                 state.embarazoActual?.fechaUltimaMenstruacion ==
-                                        null
+                                    null
                                     ? 'Fecha última menstruación'
-                                    : 'Fecha: ${state.embarazoActual?.fechaUltimaMenstruacion!.toLocal().toString().split(' ')[0]}',
+                                    : 'Fecha: ${state.embarazoActual
+                                    ?.fechaUltimaMenstruacion!
+                                    .toLocal()
+                                    .toString()
+                                    .split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTimeUltimaMenstruacion(context, state),
+                                  _selectDateTimeUltimaMenstruacion(
+                                      context, state),
                               child: const Text('Seleccionar'),
                             ),
                           ],
@@ -616,10 +657,12 @@ class DatosPersonalesPage extends StatelessWidget {
                           title: const Text("Desconocido"),
                         ),
                         TextFormField(
-                          initialValue: state.embarazoActual?.captacion?.toString(),
+                          initialValue: state.embarazoActual?.captacion
+                              ?.toString(),
                           decoration: const InputDecoration(
                               labelText: 'Captacion'),
-                          validator: (value) => value == null || value.isEmpty
+                          validator: (value) =>
+                          value == null || value.isEmpty
                               ? 'Por favor ingresa la captación'
                               : null,
                           onChanged: (value) {
@@ -634,10 +677,12 @@ class DatosPersonalesPage extends StatelessWidget {
                           },
                         ),
                         TextFormField(
-                          initialValue: state.embarazoActual?.semanas?.toString(),
+                          initialValue: state.embarazoActual?.semanas
+                              ?.toString(),
                           decoration: const InputDecoration(
                               labelText: 'Semanas'),
-                          validator: (value) => value == null || value.isEmpty
+                          validator: (value) =>
+                          value == null || value.isEmpty
                               ? 'Por favor ingresa las semanas'
                               : null,
                           onChanged: (value) {
@@ -658,7 +703,10 @@ class DatosPersonalesPage extends StatelessWidget {
                                 state.embarazoActual?.fechaPartoEstimado ==
                                     null
                                     ? 'Fecha probable parto'
-                                    : 'Fecha: ${state.embarazoActual?.fechaPartoEstimado!.toLocal().toString().split(' ')[0]}',
+                                    : 'Fecha: ${state.embarazoActual
+                                    ?.fechaPartoEstimado!.toLocal()
+                                    .toString()
+                                    .split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
@@ -683,7 +731,8 @@ class DatosPersonalesPage extends StatelessWidget {
                           initialValue: state.paciente?.tipoDeRiesgo,
                           decoration: const InputDecoration(
                               labelText: 'Tipo de Riesgo'),
-                          validator: (value) => value == null || value.isEmpty
+                          validator: (value) =>
+                          value == null || value.isEmpty
                               ? 'Por favor ingresa el tipo de riesgo'
                               : null,
                           onChanged: (newValue) {
@@ -702,7 +751,8 @@ class DatosPersonalesPage extends StatelessWidget {
                           decoration:
                           const InputDecoration(labelText: 'Código'),
                           maxLines: 1,
-                          validator: (value) => value == null || value.isEmpty
+                          validator: (value) =>
+                          value == null || value.isEmpty
                               ? 'Por favor ingresa el código'
                               : null,
                           onChanged: (newValue) {
@@ -719,9 +769,10 @@ class DatosPersonalesPage extends StatelessWidget {
                         TextFormField(
                           initialValue: state.paciente?.descripcion,
                           decoration:
-                              const InputDecoration(labelText: 'Descripción'),
+                          const InputDecoration(labelText: 'Descripción'),
                           maxLines: 3,
-                          validator: (value) => value == null || value.isEmpty
+                          validator: (value) =>
+                          value == null || value.isEmpty
                               ? 'Por favor ingresa la descripción'
                               : null,
                           onChanged: (newValue) {
@@ -736,7 +787,7 @@ class DatosPersonalesPage extends StatelessWidget {
                           },
                         ),
                         TextFormField(
-                          initialValue:  state.paciente?.datosDeInteres,
+                          initialValue: state.paciente?.datosDeInteres,
                           decoration: const InputDecoration(
                               labelText: 'Datos de Interés'),
                           validator: (value) {
@@ -781,7 +832,7 @@ class DatosPersonalesPage extends StatelessWidget {
                         TextFormField(
                           initialValue: state.paciente?.estructura,
                           decoration:
-                              const InputDecoration(labelText: 'Estructura'),
+                          const InputDecoration(labelText: 'Estructura'),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Por favor ingresa la estructura';
@@ -801,7 +852,7 @@ class DatosPersonalesPage extends StatelessWidget {
                         ),
                         // Conducta Seguidora
                         TextFormField(
-                          initialValue:  state.paciente?.conductaSeguida,
+                          initialValue: state.paciente?.conductaSeguida,
                           decoration: const InputDecoration(
                               labelText: 'Conducta Seguida'),
                           validator: (value) {
@@ -827,8 +878,104 @@ class DatosPersonalesPage extends StatelessWidget {
                   ),
                 ),
                 Step(
-                  title: const Text('Guardar'),
+                  title: const Text('Antecedentes'),
                   isActive: state.currentStepDatosPersonales >= 4,
+                  content: Form(
+                    key: _formKey5,
+                    child: Column(
+                      children: <Widget>[
+                        if (state.antecedentes != null)
+                          ...state.antecedentes!.asMap().entries.map((entry) {
+                            int index = entry.key;
+                            var antecedente = entry.value;
+                            return Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        'Antecedente ${index + 1}',
+                                        style: const TextStyle(
+                                            fontWeight: FontWeight.bold, fontSize: 16),
+                                      ),
+                                      IconButton(
+                                        icon: const Icon(Icons.delete, color: Colors.red),
+                                        onPressed: () {
+                                          // Lógica para eliminar el feto
+                                          context.read<AddPacienteBloc>().add(
+                                              DeleteAntecedente(index: index));
+                                        },
+                                      ),
+                                    ],
+                                  ),
+                                  TextFormField(
+                                    initialValue: antecedente.tipo,
+                                    decoration: const InputDecoration(labelText: 'Tipo'),
+                                    onChanged: (value) {
+                                      context
+                                          .read<AddPacienteBloc>()
+                                          .add(UpdateAntecedente(
+                                        index: index,
+                                        antecedente: antecedente.copyWith(tipo: value),
+                                      ));
+                                    },
+                                  ),
+                                  TextFormField(
+                                    initialValue: antecedente.descripcion,
+                                    decoration: const InputDecoration(labelText: 'Descripcion'),
+                                    onChanged: (value) {
+                                      context
+                                          .read<AddPacienteBloc>()
+                                          .add(UpdateAntecedente(
+                                        index: index,
+                                        antecedente: antecedente.copyWith(descripcion: value),
+                                      ));
+                                    },
+                                  ),
+                                  Row(
+                                    children: [
+                                      Expanded(
+                                        child: Text(
+                                          antecedente.fecha == null
+                                              ? 'Fecha'
+                                              : 'Fecha: ${antecedente.fecha!.toLocal().toString().split(' ')[0]}',
+                                        ),
+                                      ),
+                                      ElevatedButton(
+                                        onPressed: () =>
+                                            _selectDateTime1(context, (value) {
+                                              context
+                                                  .read<AddPacienteBloc>()
+                                                  .add(UpdateAntecedente(
+                                                index: index,
+                                                antecedente: antecedente.copyWith(fecha: value),
+                                              ));
+                                            }),
+                                        child: const Text('Seleccionar'),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                            );
+                          }).toList(),
+                        ElevatedButton(
+                          onPressed: () {
+                            // Lógica para agregar un nuevo feto
+                            var newAntecedente = Antecedente();
+                            context.read<AddPacienteBloc>().add(
+                                AddAntecedente(antecedente: newAntecedente));
+                          },
+                          child: const Text('Agregar antecedente'),
+                        ),
+                        const SizedBox(height: 32),
+                      ],
+                    ),
+                  ),
+                ),
+                Step(
+                  title: const Text('Guardar'),
+                  isActive: state.currentStepDatosPersonales >= 5,
                   content: const SizedBox(),
                 ),
               ],
