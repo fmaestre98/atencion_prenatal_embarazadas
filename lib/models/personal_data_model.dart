@@ -4,6 +4,7 @@ import 'package:atencion_prenatal_embarazadas/models/interconsultas_model.dart';
 import 'package:atencion_prenatal_embarazadas/models/interrogatory_model.dart';
 import 'package:atencion_prenatal_embarazadas/models/laboratorio_microbiologia_model.dart';
 import 'package:atencion_prenatal_embarazadas/models/signos_vitales_model.dart';
+import 'package:atencion_prenatal_embarazadas/objectbox.g.dart';
 import 'package:objectbox/objectbox.dart';
 
 @Entity()
@@ -45,8 +46,12 @@ class Paciente {
   String? estructura;
   String? conductaSeguida;
 
-  @Backlink('paciente')
-  final antecedentes = ToMany<Antecedente>();
+  final antecedentesPatologicasPersonales =
+      ToOne<AntecedentesPatologicosPersonales>();
+
+  final antecedentesGinecologicos = ToOne<AntecedentesGinecologicos>();
+
+  final antecedentesObstetricos = ToOne<AntecedentesObstetricos>();
 
   final embarazoActual = ToOne<EmbarazoActual>();
 
@@ -61,6 +66,8 @@ class Paciente {
   final genetica = ToOne<GeneticaModel>();
 
   final laboratorio = ToOne<LaboratorioMicrobiologiaModel>();
+
+  String? traumatismoAccidentes;
 
   Paciente({
     this.id = 0,
@@ -91,6 +98,7 @@ class Paciente {
     this.fechaDeRegistro,
     this.fechaDeActualizacion,
     this.edad,
+    this.traumatismoAccidentes,
   });
 
   Paciente copyWith({
@@ -122,6 +130,7 @@ class Paciente {
     String? descripcion,
     String? estructura,
     String? conductaSeguida,
+    String? traumatismoAccidentes,
   }) {
     return Paciente(
       id: id ?? this.id,
@@ -144,7 +153,8 @@ class Paciente {
       fechaDeRegistro: fechaDeRegistro ?? this.fechaDeRegistro,
       fechaDeActualizacion: fechaDeActualizacion ?? this.fechaDeActualizacion,
       noDormitorios: noDormitorios ?? this.noDormitorios,
-      noPersonasNucleoPersonal: noPersonasNucleoPersonal ?? this.noPersonasNucleoPersonal,
+      noPersonasNucleoPersonal:
+          noPersonasNucleoPersonal ?? this.noPersonasNucleoPersonal,
       tipoDeRiesgo: tipoDeRiesgo ?? this.tipoDeRiesgo,
       datosDeInteres: datosDeInteres ?? this.datosDeInteres,
       tipoDeDiagnostico: tipoDeDiagnostico ?? this.tipoDeDiagnostico,
@@ -152,9 +162,10 @@ class Paciente {
       descripcion: descripcion ?? this.descripcion,
       estructura: estructura ?? this.estructura,
       conductaSeguida: conductaSeguida ?? this.conductaSeguida,
+      traumatismoAccidentes:
+          traumatismoAccidentes ?? this.traumatismoAccidentes,
     );
   }
-
 }
 
 @Entity()
@@ -175,8 +186,14 @@ class EmbarazoActual {
 
   final paciente = ToOne<Paciente>();
 
-  EmbarazoActual({this.id = 0, this.fechaUltimaMenstruacion, this.noConfiable = false,
-      this.desconocida = false, this.fechaPartoEstimado, this.captacion, this.semanas});
+  EmbarazoActual(
+      {this.id = 0,
+      this.fechaUltimaMenstruacion,
+      this.noConfiable = false,
+      this.desconocida = false,
+      this.fechaPartoEstimado,
+      this.captacion,
+      this.semanas});
 
   EmbarazoActual copyWith({
     int? id,
@@ -188,7 +205,8 @@ class EmbarazoActual {
     int? semanas,
   }) {
     return EmbarazoActual(
-      fechaUltimaMenstruacion: fechaUltimaMenstruacion ?? this.fechaUltimaMenstruacion,
+      fechaUltimaMenstruacion:
+          fechaUltimaMenstruacion ?? this.fechaUltimaMenstruacion,
       noConfiable: noConfiable ?? this.noConfiable,
       desconocida: desconocida ?? this.desconocida,
       fechaPartoEstimado: fechaPartoEstimado ?? this.fechaPartoEstimado,
@@ -200,72 +218,100 @@ class EmbarazoActual {
 }
 
 @Entity()
-class Antecedente {
-  int id; // field auto-incremented
-  String? tipo; // Puede ser 'personal', 'familiar', etc.
-  String? descripcion;
-  @Property(type: PropertyType.date)
-  DateTime? fecha;
-
-  final paciente = ToOne<Paciente>();
-
-  // Constructor
-  Antecedente({this.tipo, this.descripcion, this.fecha, this.id = 0});
-
-  Antecedente copyWith({
-    int? id,
-    String? tipo,
-    String? descripcion,
-    DateTime? fecha,
-  }) {
-    return Antecedente(
-      tipo: tipo ?? this.tipo,
-      descripcion: descripcion ?? this.descripcion,
-      fecha: fecha ?? this.fecha,
-      id: id ?? this.id,
-    );
-  }
-}
-
-@Entity()
 class AntecedentesPatologicosPersonales {
   int id; // field auto-incremented
   final paciente = ToOne<Paciente>(); // Relación uno a uno con Paciente
 
-  // Relación uno a muchos con Enfermedad
-  final enfermedadesGenerales = ToMany<Enfermedad>();
-  final enfermedadesEndocrinas = ToMany<Enfermedad>();
-  final enfermedadesRespiratorias = ToMany<Enfermedad>();
-  final enfermedadesCardiovasculares = ToMany<Enfermedad>();
-  final enfermedadesDigestivas = ToMany<Enfermedad>();
-  final enfermedadesRenales = ToMany<Enfermedad>();
-  final enfermedadesNeuronales = ToMany<Enfermedad>();
-  final enfermedadesHematologicas = ToMany<Enfermedad>();
-  final enfermedadesReumatologicas = ToMany<Enfermedad>();
-  final enfermedadesTransmisionSexual = ToMany<Enfermedad>();
-  final enfermedadesGinecologicas = ToMany<Enfermedad>();
+  String? enfermedadesGenerales;
+  String? enfermedadesEndocrinas;
+  String? enfermedadesRespiratorias;
+  String? enfermedadesCardiovasculares;
+  String? enfermedadesDigestivas;
+  String? enfermedadesRenales;
+  String? enfermedadesNeuronales;
+  String? enfermedadesHematologicas;
+  String? enfermedadesReumatologicas;
+  String? enfermedadesTransmisionSexual;
+  String? enfermedadesGinecologicas;
 
-  AntecedentesPatologicosPersonales({this.id = 0});
-}
+  String? antecedentesFamiliares;
+  String? antecedentesQuirugicos;
+  String? habitosPsicobiologicos;
+  String? transfusionesPrevias;
+  String? inmunizaciones;
 
-@Entity()
-class Enfermedad {
-  int id; // field auto-incremented
-  String nombre; // Nombre de la enfermedad
-  bool cronica; // Indica si es crónica
-  @Property(type: PropertyType.date)
-  DateTime? fecha; // Fecha de diagnóstico
-  String descripcion; // Descripción adicional
-
-  final antecedente = ToOne<AntecedentesPatologicosPersonales>();
-
-  Enfermedad({
+  AntecedentesPatologicosPersonales({
     this.id = 0,
-    required this.nombre,
-    required this.cronica,
-    this.fecha,
-    required this.descripcion,
+    this.enfermedadesGenerales,
+    this.enfermedadesEndocrinas,
+    this.enfermedadesRespiratorias,
+    this.enfermedadesCardiovasculares,
+    this.enfermedadesDigestivas,
+    this.enfermedadesRenales,
+    this.enfermedadesNeuronales,
+    this.enfermedadesHematologicas,
+    this.enfermedadesReumatologicas,
+    this.enfermedadesTransmisionSexual,
+    this.enfermedadesGinecologicas,
+    this.antecedentesFamiliares,
+    this.antecedentesQuirugicos,
+    this.habitosPsicobiologicos,
+    this.transfusionesPrevias,
+    this.inmunizaciones,
   });
+
+  AntecedentesPatologicosPersonales copyWith({
+    int? id,
+    String? enfermedadesGenerales,
+    String? enfermedadesEndocrinas,
+    String? enfermedadesRespiratorias,
+    String? enfermedadesCardiovasculares,
+    String? enfermedadesDigestivas,
+    String? enfermedadesRenales,
+    String? enfermedadesNeuronales,
+    String? enfermedadesHematologicas,
+    String? enfermedadesReumatologicas,
+    String? enfermedadesTransmisionSexual,
+    String? enfermedadesGinecologicas,
+    String? antecedentesFamiliares,
+    String? antecedentesQuirugicos,
+    String? habitosPsicobiologicos,
+    String? transfusionesPrevias,
+    String? inmunizaciones,
+  }) {
+    return AntecedentesPatologicosPersonales(
+      id: id ?? this.id,
+      enfermedadesGenerales:
+          enfermedadesGenerales ?? this.enfermedadesGenerales,
+      enfermedadesEndocrinas:
+          enfermedadesEndocrinas ?? this.enfermedadesEndocrinas,
+      enfermedadesRespiratorias:
+          enfermedadesRespiratorias ?? this.enfermedadesRespiratorias,
+      enfermedadesCardiovasculares:
+          enfermedadesCardiovasculares ?? this.enfermedadesCardiovasculares,
+      enfermedadesDigestivas:
+          enfermedadesDigestivas ?? this.enfermedadesDigestivas,
+      enfermedadesRenales: enfermedadesRenales ?? this.enfermedadesRenales,
+      enfermedadesNeuronales:
+          enfermedadesNeuronales ?? this.enfermedadesNeuronales,
+      enfermedadesHematologicas:
+          enfermedadesHematologicas ?? this.enfermedadesHematologicas,
+      enfermedadesReumatologicas:
+          enfermedadesReumatologicas ?? this.enfermedadesReumatologicas,
+      enfermedadesTransmisionSexual:
+          enfermedadesTransmisionSexual ?? this.enfermedadesTransmisionSexual,
+      enfermedadesGinecologicas:
+          enfermedadesGinecologicas ?? this.enfermedadesGinecologicas,
+      antecedentesFamiliares:
+          antecedentesFamiliares ?? this.antecedentesFamiliares,
+      antecedentesQuirugicos:
+          antecedentesQuirugicos ?? this.antecedentesQuirugicos,
+      habitosPsicobiologicos:
+          habitosPsicobiologicos ?? this.habitosPsicobiologicos,
+      transfusionesPrevias: transfusionesPrevias ?? this.transfusionesPrevias,
+      inmunizaciones: inmunizaciones ?? this.inmunizaciones,
+    );
+  }
 }
 
 @Entity()
@@ -291,32 +337,85 @@ class AntecedentesGinecologicos {
   bool? barrera;
   bool? diu;
   bool? hormonales;
+  String? observacionesAnticonceptivos;
 
-  // Resultados de la prueba citológica
-  final resultadosCitologicos =
-      ToMany<Citologia>(); // Relación uno a muchos con Citologia
-
-  AntecedentesGinecologicos({this.id = 0});
-}
-
-@Entity()
-class Citologia {
-  int id; // field auto-incremented
   @Property(type: PropertyType.date)
-  DateTime fecha; // Fecha de la prueba citológica
-  String resultado; // Resultado de la prueba (normal, anormal)
-  bool fueraDePrograma; // Indica si es fuera de programa
-  String? observaciones; // Observaciones adicionales
+  DateTime? fechaPruebaCitologica; // Fecha de la prueba citológica
+  String? resultadoPruebaCitologica; // Resultado de la prueba (normal, anormal)
+  bool? fueraDeProgramaPruebaCitologica; // Indica si es fuera de programa
+  String? observacionesPruebaCitologica;
 
-  final antecedente = ToOne<AntecedentesGinecologicos>();
+  AntecedentesGinecologicos(
+      {this.id = 0,
+      this.edadMenopausia,
+      this.caracteristicasMenopausia,
+      this.edadMenarquia,
+      this.caracteristicasMenarquia,
+      this.edadPrimeraRelacion,
+      this.formulaMenstrual,
+      this.fechaUltimaMenstruacion,
+      this.tipoMenstruacion,
+      this.fechaUltimoUso,
+      this.descripcion,
+      this.barrera,
+      this.diu,
+      this.hormonales,
+      this.fechaPruebaCitologica,
+      this.resultadoPruebaCitologica,
+      this.fueraDeProgramaPruebaCitologica,
+      this.observacionesPruebaCitologica,
+      this.observacionesAnticonceptivos,});
 
-  Citologia({
-    this.id = 0,
-    required this.fecha,
-    required this.resultado,
-    required this.fueraDePrograma,
-    this.observaciones,
-  });
+  AntecedentesGinecologicos copyWith({
+    int? id,
+    int? edadMenopausia,
+    String? caracteristicasMenopausia,
+    int? edadMenarquia,
+    String? caracteristicasMenarquia,
+    int? edadPrimeraRelacion,
+    String? formulaMenstrual,
+    DateTime? fechaUltimaMenstruacion,
+    String? tipoMenstruacion,
+    DateTime? fechaUltimoUso,
+    String? descripcion,
+    bool? barrera,
+    bool? diu,
+    bool? hormonales,
+    DateTime? fechaPruebaCitologica,
+    String? resultadoPruebaCitologica,
+    bool? fueraDeProgramaPruebaCitologica,
+    String? observacionesPruebaCitologica,
+    String? observacionesAnticonceptivos,
+  }) {
+    return AntecedentesGinecologicos(
+      id: id ?? this.id,
+      edadMenopausia: edadMenopausia ?? this.edadMenopausia,
+      caracteristicasMenopausia:
+          caracteristicasMenopausia ?? this.caracteristicasMenopausia,
+      edadMenarquia: edadMenarquia ?? this.edadMenarquia,
+      caracteristicasMenarquia:
+          caracteristicasMenarquia ?? this.caracteristicasMenarquia,
+      edadPrimeraRelacion: edadPrimeraRelacion ?? this.edadPrimeraRelacion,
+      formulaMenstrual: formulaMenstrual ?? this.formulaMenstrual,
+      fechaUltimaMenstruacion:
+          fechaUltimaMenstruacion ?? this.fechaUltimaMenstruacion,
+      tipoMenstruacion: tipoMenstruacion ?? this.tipoMenstruacion,
+      fechaUltimoUso: fechaUltimoUso ?? this.fechaUltimoUso,
+      descripcion: descripcion ?? this.descripcion,
+      barrera: barrera ?? this.barrera,
+      diu: diu ?? this.diu,
+      hormonales: hormonales ?? this.hormonales,
+      fechaPruebaCitologica:
+          fechaPruebaCitologica ?? this.fechaPruebaCitologica,
+      resultadoPruebaCitologica:
+          resultadoPruebaCitologica ?? this.resultadoPruebaCitologica,
+      fueraDeProgramaPruebaCitologica: fueraDeProgramaPruebaCitologica ??
+          this.fueraDeProgramaPruebaCitologica,
+      observacionesPruebaCitologica:
+          observacionesPruebaCitologica ?? this.observacionesPruebaCitologica,
+      observacionesAnticonceptivos: observacionesAnticonceptivos ?? this.observacionesAnticonceptivos,
+    );
+  }
 }
 
 @Entity()
@@ -333,15 +432,20 @@ class AntecedentesObstetricos {
 @Entity()
 class Embarazo {
   int id; // field auto-incremented
-  int numeroEmbarazo; // Número de embarazo
+  int? numeroEmbarazo; // Número de embarazo
   @Property(type: PropertyType.date)
-  DateTime fecha; // Fecha del embarazo
-  int semanasGestacion; // Semanas de gestación
-  String? abortoEtiologia; // Etiología del aborto (si aplica)
-  String caracteristicasNacimiento; // Características del nacimiento
-  String tipoParto; // Tipo de parto (natural, cesárea, etc.)
-  String tipoDistocia; // Tipo de distocia (si aplica)
-  String lugarParto; // Lugar del parto
+  DateTime? fecha; // Fecha del embarazo
+  int? semanasGestacion; // Semanas de gestación
+  String? tipoParto; // Tipo de parto (natural, cesárea, etc.)
+  String? tipoDistocia; // Tipo de distocia (si aplica)
+  String? tipoNacimiento;
+  String? lugarParto; // Lugar del parto
+  String? patologiasAsociadas;
+
+  //aborto
+  String? tipoAborto;
+  String? tipoProvocado;
+  String? observacionesAborto;
 
   @Backlink("embarazo")
   final recienNacidos =
@@ -351,38 +455,94 @@ class Embarazo {
 
   Embarazo({
     this.id = 0,
-    required this.numeroEmbarazo,
-    required this.fecha,
-    required this.semanasGestacion,
-    this.abortoEtiologia,
-    required this.caracteristicasNacimiento,
-    required this.tipoParto,
-    required this.tipoDistocia,
-    required this.lugarParto,
+    this.numeroEmbarazo,
+    this.fecha,
+    this.semanasGestacion,
+    this.tipoParto,
+    this.tipoDistocia,
+    this.lugarParto,
+    this.patologiasAsociadas,
+    this.tipoAborto,
+    this.tipoProvocado,
+    this.observacionesAborto,
+    this.tipoNacimiento,
   });
+
+  Embarazo copyWith({
+    int? id,
+    int? numeroEmbarazo,
+    DateTime? fecha,
+    int? semanasGestacion,
+    String? tipoParto,
+    String? tipoDistocia,
+    String? lugarParto,
+    String? patologiasAsociadas,
+    String? tipoAborto,
+    String? tipoProvocado,
+    String? observacionesAborto,
+  }) {
+    return Embarazo(
+      id: id ?? this.id,
+      numeroEmbarazo: numeroEmbarazo ?? this.numeroEmbarazo,
+      fecha: fecha ?? this.fecha,
+      semanasGestacion: semanasGestacion ?? this.semanasGestacion,
+      tipoParto: tipoParto ?? this.tipoParto,
+      tipoDistocia: tipoDistocia ?? this.tipoDistocia,
+      lugarParto: lugarParto ?? this.lugarParto,
+      patologiasAsociadas: patologiasAsociadas ?? this.patologiasAsociadas,
+      tipoAborto: tipoAborto ?? this.tipoAborto,
+      tipoProvocado: tipoProvocado ?? this.tipoProvocado,
+      observacionesAborto: observacionesAborto ?? this.observacionesAborto,
+    );
+  }
 }
 
 @Entity()
 class RecienNacido {
   int id; // field auto-incremented
-  double peso; // Peso del recién nacido
-  String sexo; // Sexo del recién nacido
-  String estado; // Estado del recién nacido (vivo, prematuro, etc.)
+  double? peso; // Peso del recién nacido
+  String? sexo; // Sexo del recién nacido
+  String? estado; // Estado del recién nacido (vivo, prematuro, etc.)
   String? datosInteres; // Datos de interés adicionales
-  int apgar; // Puntuación de Apgar
-  int puntos; // Puntos (sistema de puntuación adicional)
+  int? apgar; // Puntuación de Apgar
+  int? puntos; // Puntos (sistema de puntuación adicional)
   String? ocurrenciaDefuncion;
   String? edadAlFallecer;
 
   final embarazo = ToOne<Embarazo>();
 
-  RecienNacido({
-    this.id = 0,
-    required this.peso,
-    required this.sexo,
-    required this.estado,
-    this.datosInteres,
-    required this.apgar,
-    required this.puntos,
-  });
+  RecienNacido(
+      {this.id = 0,
+      this.peso,
+      this.sexo,
+      this.estado,
+      this.datosInteres,
+      this.apgar,
+      this.puntos,
+      this.ocurrenciaDefuncion,
+      this.edadAlFallecer});
+
+  RecienNacido copyWith({
+    int? id,
+    double? peso,
+    String? sexo,
+    String? estado,
+    String? datosInteres,
+    int? apgar,
+    int? puntos,
+    String? ocurrenciaDefuncion,
+    String? edadAlFallecer,
+  }) {
+    return RecienNacido(
+      id: id ?? this.id,
+      peso: peso ?? this.peso,
+      sexo: sexo ?? this.sexo,
+      estado: estado ?? this.estado,
+      datosInteres: datosInteres ?? this.datosInteres,
+      apgar: apgar ?? this.apgar,
+      puntos: puntos ?? this.puntos,
+      ocurrenciaDefuncion: ocurrenciaDefuncion ?? this.ocurrenciaDefuncion,
+      edadAlFallecer: edadAlFallecer ?? this.edadAlFallecer,
+    );
+  }
 }

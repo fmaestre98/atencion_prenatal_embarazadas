@@ -26,1426 +26,305 @@ export 'package:objectbox/objectbox.dart'; // so that callers only have to impor
 
 final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
-      id: const obx_int.IdUid(2, 2039920815618038356),
-      name: 'Interrogatorio',
-      lastPropertyId: const obx_int.IdUid(86, 8409211551056974565),
-      flags: 0,
-      properties: <obx_int.ModelProperty>[
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(1, 3283002862773472693),
-            name: 'id',
-            type: 6,
-            flags: 1),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(2, 288244551746073971),
-            name: 'pacienteId',
-            type: 11,
-            flags: 520,
-            indexId: const obx_int.IdUid(2, 502127217175195618),
-            relationTarget: 'Paciente'),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(3, 2040052404020008783),
-            name: 'srDisnea',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(4, 5396446009219443373),
-            name: 'srDolor',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(5, 6568034613747416934),
-            name: 'srHermoptisis',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(6, 5290212240748200649),
-            name: 'srExpectoracion',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(7, 4968161020554697048),
-            name: 'srTos',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(8, 8283170431783502530),
-            name: 'srOtros',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(9, 6784685384954465279),
-            name: 'srObservaciones',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(10, 5388388614320073253),
-            name: 'scDisnea',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(11, 3956724560622278979),
-            name: 'scDolor',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(12, 6806552144908941588),
-            name: 'scClaudicacionIntermitente',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(13, 8516407137153206090),
-            name: 'scCianosis',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(14, 3424378900088449323),
-            name: 'scTos',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(15, 560912546797602271),
-            name: 'scPalpitaciones',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(16, 5569562982260190155),
-            name: 'scOtros',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(17, 4542956156164308762),
-            name: 'scObservaciones',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(18, 7346496002497895271),
-            name: 'sdDisfagia',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(19, 7589160006550130414),
-            name: 'sdDolor',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(20, 5810795224105284302),
-            name: 'sdColicos',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(21, 1456163888125888160),
-            name: 'sdHermatemesis',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(22, 2947057343699154403),
-            name: 'sdAcolia',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(23, 7035268152892623605),
-            name: 'sdPirosis',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(24, 601548858261786454),
-            name: 'sdNauseas',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(25, 2428206538545125125),
-            name: 'sdEnterorragia',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(26, 2279504084986548735),
-            name: 'sdConstipacion',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(27, 3611323001338059041),
-            name: 'sdAcidez',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(28, 5570440674310474174),
-            name: 'sdDiarreas',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(29, 1332750805297726085),
-            name: 'sdAerogastrias',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(30, 5032107827731125223),
-            name: 'sdVomitos',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(31, 5817886758638717735),
-            name: 'sdMelena',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(32, 7127017319211556852),
-            name: 'sdOtros',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(33, 5699425193761294195),
-            name: 'sdObservaciones',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(34, 3547139485145267530),
-            name: 'suNicturioas',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(35, 2509937740677600959),
-            name: 'suDolor',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(36, 8414444702389775316),
-            name: 'suOrinasTurbias',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(37, 5982610539700571060),
-            name: 'suExudadoUretral',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(38, 384739864669175990),
-            name: 'suDisuria',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(39, 8362592802644511288),
-            name: 'suRetencionUrinaria',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(40, 2700624191772864261),
-            name: 'suHermaturia',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(41, 3238498322905056047),
-            name: 'suIncontinencia',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(42, 3967853347935001398),
-            name: 'suPolaquiuria',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(43, 9150226651802003774),
-            name: 'suUretorragia',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(44, 5224583956909800184),
-            name: 'suImpotiencia',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(45, 6860352792820781788),
-            name: 'suTumoracion',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(46, 3086924680856923509),
-            name: 'suCalculos',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(47, 2180044394910726151),
-            name: 'suOtros',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(48, 6413688659981496922),
-            name: 'suObservaciones',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(49, 1979013063463950191),
-            name: 'snCefaleas',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(50, 3101922278839707671),
-            name: 'snDolorFacial',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(51, 4137299886585482020),
-            name: 'snVomitos',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(52, 665950956199609323),
-            name: 'snDolorCervical',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(53, 3226310869881100978),
-            name: 'snVertigos',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(54, 2694765650501988915),
-            name: 'snDolorLumbar',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(55, 4529794587201163620),
-            name: 'snConvulsiones',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(56, 3454955923432963330),
-            name: 'snAlteracionMarcha',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(57, 6971888800257167929),
-            name: 'snDefictMotor',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(58, 4291774409502212695),
-            name: 'snAlteracionEquilibrio',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(59, 4519254983000143045),
-            name: 'snDeficitSensitivo',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(60, 9129597357152828410),
-            name: 'snAlteracionVisual',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(61, 6451434834402749841),
-            name: 'snAlteracionConciencia',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(62, 2170014959946722785),
-            name: 'snDificultadHablarEntender',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(63, 8013160307922947503),
-            name: 'snOtros',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(64, 9006509001905429934),
-            name: 'snObservaciones',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(65, 3889572056645025768),
-            name: 'seHipofisis',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(66, 4350195461073055345),
-            name: 'seOvarios',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(67, 4345528158554945122),
-            name: 'sePancreas',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(68, 8030031801634583290),
-            name: 'seSuprarrenal',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(69, 6876428555602642273),
-            name: 'seParatiroideas',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(70, 853567969511843938),
-            name: 'seTiroides',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(71, 850098628574935334),
-            name: 'seTesticulos',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(72, 532052742892426574),
-            name: 'seOtros',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(73, 990989788134360592),
-            name: 'seObservaciones',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(74, 2892668957114967810),
-            name: 'astenia',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(75, 6448169016127627023),
-            name: 'anorexia',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(76, 1385389702704709955),
-            name: 'epistaxis',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(77, 7567034758459879940),
-            name: 'fiebre',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(78, 4413779796195449768),
-            name: 'artralgia',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(79, 4974394618334568933),
-            name: 'polifagia',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(80, 2034967528770849069),
-            name: 'edema',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(81, 2589416108703320217),
-            name: 'prurito',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(82, 8074908678560769049),
-            name: 'perdidaPeso',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(83, 879471134077002930),
-            name: 'gananciaPeso',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(84, 8197447883493453474),
-            name: 'acroparentesias',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(85, 8322679470164056844),
-            name: 'otros',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(86, 8409211551056974565),
-            name: 'observaciones',
-            type: 9,
-            flags: 0)
-      ],
-      relations: <obx_int.ModelRelation>[],
-      backlinks: <obx_int.ModelBacklink>[]),
-  obx_int.ModelEntity(
-      id: const obx_int.IdUid(4, 8411594303202627597),
-      name: 'Antecedente',
-      lastPropertyId: const obx_int.IdUid(5, 2397559045123795297),
-      flags: 0,
-      properties: <obx_int.ModelProperty>[
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(1, 3816908882025309547),
-            name: 'id',
-            type: 6,
-            flags: 1),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(2, 6946298700383009072),
-            name: 'pacienteId',
-            type: 11,
-            flags: 520,
-            indexId: const obx_int.IdUid(4, 7217166825669020857),
-            relationTarget: 'Paciente'),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(3, 6099677868881949995),
-            name: 'tipo',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(4, 8725841013314236900),
-            name: 'descripcion',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(5, 2397559045123795297),
-            name: 'fecha',
-            type: 10,
-            flags: 0)
-      ],
-      relations: <obx_int.ModelRelation>[],
-      backlinks: <obx_int.ModelBacklink>[]),
-  obx_int.ModelEntity(
-      id: const obx_int.IdUid(5, 7066300506379273094),
-      name: 'AntecedentesGinecologicos',
-      lastPropertyId: const obx_int.IdUid(15, 7579944251982521369),
-      flags: 0,
-      properties: <obx_int.ModelProperty>[
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(1, 6873006406621804689),
-            name: 'id',
-            type: 6,
-            flags: 1),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(2, 1131702034902472903),
-            name: 'pacienteId',
-            type: 11,
-            flags: 520,
-            indexId: const obx_int.IdUid(5, 4673826886208878337),
-            relationTarget: 'Paciente'),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(3, 5573122592414387848),
-            name: 'edadMenopausia',
-            type: 6,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(4, 15578828889677499),
-            name: 'caracteristicasMenopausia',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(5, 2886368570308582740),
-            name: 'edadMenarquia',
-            type: 6,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(6, 8939444700213158009),
-            name: 'caracteristicasMenarquia',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(7, 3129004696033345760),
-            name: 'edadPrimeraRelacion',
-            type: 6,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(8, 1833224210884899908),
-            name: 'formulaMenstrual',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(9, 6307867125477447838),
-            name: 'fechaUltimaMenstruacion',
-            type: 10,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(10, 8109860552178038901),
-            name: 'tipoMenstruacion',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(11, 4319897323573016060),
-            name: 'fechaUltimoUso',
-            type: 10,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(12, 6071069589358863920),
-            name: 'descripcion',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(13, 3282540669822285510),
-            name: 'barrera',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(14, 7565772058390091562),
-            name: 'diu',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(15, 7579944251982521369),
-            name: 'hormonales',
-            type: 1,
-            flags: 0)
-      ],
-      relations: <obx_int.ModelRelation>[
-        obx_int.ModelRelation(
-            id: const obx_int.IdUid(3, 6772359203914994911),
-            name: 'resultadosCitologicos',
-            targetId: const obx_int.IdUid(8, 481877359317515240))
-      ],
-      backlinks: <obx_int.ModelBacklink>[]),
-  obx_int.ModelEntity(
-      id: const obx_int.IdUid(6, 1657572938707936780),
-      name: 'AntecedentesObstetricos',
-      lastPropertyId: const obx_int.IdUid(2, 2569798145263887908),
-      flags: 0,
-      properties: <obx_int.ModelProperty>[
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(1, 1417413020368612841),
-            name: 'id',
-            type: 6,
-            flags: 1),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(2, 2569798145263887908),
-            name: 'pacienteId',
-            type: 11,
-            flags: 520,
-            indexId: const obx_int.IdUid(6, 8764369305178925836),
-            relationTarget: 'Paciente')
-      ],
-      relations: <obx_int.ModelRelation>[],
-      backlinks: <obx_int.ModelBacklink>[
-        obx_int.ModelBacklink(
-            name: 'embarazos', srcEntity: 'Embarazo', srcField: 'antecedente')
-      ]),
-  obx_int.ModelEntity(
-      id: const obx_int.IdUid(7, 4114459817740905263),
-      name: 'AntecedentesPatologicosPersonales',
-      lastPropertyId: const obx_int.IdUid(2, 7796862840842859515),
-      flags: 0,
-      properties: <obx_int.ModelProperty>[
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(1, 4447891385762171544),
-            name: 'id',
-            type: 6,
-            flags: 1),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(2, 7796862840842859515),
-            name: 'pacienteId',
-            type: 11,
-            flags: 520,
-            indexId: const obx_int.IdUid(7, 3353095543676520960),
-            relationTarget: 'Paciente')
-      ],
-      relations: <obx_int.ModelRelation>[
-        obx_int.ModelRelation(
-            id: const obx_int.IdUid(4, 5374108844642427757),
-            name: 'enfermedadesGenerales',
-            targetId: const obx_int.IdUid(11, 7089720316066374324)),
-        obx_int.ModelRelation(
-            id: const obx_int.IdUid(5, 8976206580456137568),
-            name: 'enfermedadesEndocrinas',
-            targetId: const obx_int.IdUid(11, 7089720316066374324)),
-        obx_int.ModelRelation(
-            id: const obx_int.IdUid(6, 3132579534341660856),
-            name: 'enfermedadesRespiratorias',
-            targetId: const obx_int.IdUid(11, 7089720316066374324)),
-        obx_int.ModelRelation(
-            id: const obx_int.IdUid(7, 9001800775513223439),
-            name: 'enfermedadesCardiovasculares',
-            targetId: const obx_int.IdUid(11, 7089720316066374324)),
-        obx_int.ModelRelation(
-            id: const obx_int.IdUid(8, 4406262932103991477),
-            name: 'enfermedadesDigestivas',
-            targetId: const obx_int.IdUid(11, 7089720316066374324)),
-        obx_int.ModelRelation(
-            id: const obx_int.IdUid(9, 2379681043930324469),
-            name: 'enfermedadesRenales',
-            targetId: const obx_int.IdUid(11, 7089720316066374324)),
-        obx_int.ModelRelation(
-            id: const obx_int.IdUid(10, 341265251135044910),
-            name: 'enfermedadesNeuronales',
-            targetId: const obx_int.IdUid(11, 7089720316066374324)),
-        obx_int.ModelRelation(
-            id: const obx_int.IdUid(11, 9021303638898101427),
-            name: 'enfermedadesHematologicas',
-            targetId: const obx_int.IdUid(11, 7089720316066374324)),
-        obx_int.ModelRelation(
-            id: const obx_int.IdUid(12, 4865565211692369094),
-            name: 'enfermedadesReumatologicas',
-            targetId: const obx_int.IdUid(11, 7089720316066374324)),
-        obx_int.ModelRelation(
-            id: const obx_int.IdUid(13, 8511458797484966722),
-            name: 'enfermedadesTransmisionSexual',
-            targetId: const obx_int.IdUid(11, 7089720316066374324)),
-        obx_int.ModelRelation(
-            id: const obx_int.IdUid(14, 5431265603138581775),
-            name: 'enfermedadesGinecologicas',
-            targetId: const obx_int.IdUid(11, 7089720316066374324))
-      ],
-      backlinks: <obx_int.ModelBacklink>[]),
-  obx_int.ModelEntity(
-      id: const obx_int.IdUid(8, 481877359317515240),
-      name: 'Citologia',
-      lastPropertyId: const obx_int.IdUid(6, 3899959400123138690),
-      flags: 0,
-      properties: <obx_int.ModelProperty>[
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(1, 5678424343420424006),
-            name: 'id',
-            type: 6,
-            flags: 1),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(2, 7071589064601155813),
-            name: 'fecha',
-            type: 10,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(3, 5999243117047418902),
-            name: 'resultado',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(4, 3081777977847942952),
-            name: 'fueraDePrograma',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(5, 3033260751448151741),
-            name: 'observaciones',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(6, 3899959400123138690),
-            name: 'antecedenteId',
-            type: 11,
-            flags: 520,
-            indexId: const obx_int.IdUid(8, 1564196683658499304),
-            relationTarget: 'AntecedentesGinecologicos')
-      ],
-      relations: <obx_int.ModelRelation>[],
-      backlinks: <obx_int.ModelBacklink>[]),
-  obx_int.ModelEntity(
-      id: const obx_int.IdUid(9, 8963735491338825201),
-      name: 'Embarazo',
-      lastPropertyId: const obx_int.IdUid(10, 4553939452853934538),
-      flags: 0,
-      properties: <obx_int.ModelProperty>[
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(1, 4976000982870638274),
-            name: 'id',
-            type: 6,
-            flags: 1),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(2, 284637894532176300),
-            name: 'numeroEmbarazo',
-            type: 6,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(3, 4135647763745377932),
-            name: 'fecha',
-            type: 10,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(4, 6156727314404464043),
-            name: 'semanasGestacion',
-            type: 6,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(5, 4924597020371366633),
-            name: 'abortoEtiologia',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(6, 8742371177842350079),
-            name: 'caracteristicasNacimiento',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(7, 2033068620117086852),
-            name: 'tipoParto',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(8, 3706295933325343478),
-            name: 'tipoDistocia',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(9, 8675331509041243062),
-            name: 'lugarParto',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(10, 4553939452853934538),
-            name: 'antecedenteId',
-            type: 11,
-            flags: 520,
-            indexId: const obx_int.IdUid(9, 4952087313181750900),
-            relationTarget: 'AntecedentesObstetricos')
-      ],
-      relations: <obx_int.ModelRelation>[],
-      backlinks: <obx_int.ModelBacklink>[
-        obx_int.ModelBacklink(
-            name: 'recienNacidos',
-            srcEntity: 'RecienNacido',
-            srcField: 'embarazo')
-      ]),
-  obx_int.ModelEntity(
-      id: const obx_int.IdUid(10, 6994753854429315169),
-      name: 'EmbarazoActual',
-      lastPropertyId: const obx_int.IdUid(8, 2480313616167909595),
-      flags: 0,
-      properties: <obx_int.ModelProperty>[
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(1, 2289473705598561201),
-            name: 'id',
-            type: 6,
-            flags: 1),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(2, 269903087541201097),
-            name: 'fechaUltimaMenstruacion',
-            type: 10,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(3, 5485375319852938880),
-            name: 'noConfiable',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(4, 976892871061360406),
-            name: 'desconocida',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(5, 7396322892749590010),
-            name: 'fechaPartoEstimado',
-            type: 10,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(6, 8226083003854369966),
-            name: 'captacion',
-            type: 6,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(7, 3145088494317739303),
-            name: 'semanas',
-            type: 6,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(8, 2480313616167909595),
-            name: 'pacienteId',
-            type: 11,
-            flags: 520,
-            indexId: const obx_int.IdUid(10, 2224098582144887869),
-            relationTarget: 'Paciente')
-      ],
-      relations: <obx_int.ModelRelation>[],
-      backlinks: <obx_int.ModelBacklink>[]),
-  obx_int.ModelEntity(
-      id: const obx_int.IdUid(11, 7089720316066374324),
-      name: 'Enfermedad',
-      lastPropertyId: const obx_int.IdUid(6, 8340623301015607575),
-      flags: 0,
-      properties: <obx_int.ModelProperty>[
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(1, 5861855200996886656),
-            name: 'id',
-            type: 6,
-            flags: 1),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(2, 3723269846334473281),
-            name: 'nombre',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(3, 5017688750439591039),
-            name: 'cronica',
-            type: 1,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(4, 336772267005165871),
-            name: 'fecha',
-            type: 10,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(5, 70286265651357390),
-            name: 'descripcion',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(6, 8340623301015607575),
-            name: 'antecedenteId',
-            type: 11,
-            flags: 520,
-            indexId: const obx_int.IdUid(11, 6150895150813013170),
-            relationTarget: 'AntecedentesPatologicosPersonales')
-      ],
-      relations: <obx_int.ModelRelation>[],
-      backlinks: <obx_int.ModelBacklink>[]),
-  obx_int.ModelEntity(
-      id: const obx_int.IdUid(12, 7761614205288077719),
-      name: 'Paciente',
-      lastPropertyId: const obx_int.IdUid(37, 4171410278652026002),
-      flags: 0,
-      properties: <obx_int.ModelProperty>[
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(1, 6645908137672119143),
-            name: 'id',
-            type: 6,
-            flags: 1),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(2, 4153934984931940090),
-            name: 'nombre',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(3, 4138903358659998831),
-            name: 'primerApellido',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(4, 6809138812501845439),
-            name: 'segundoApellido',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(5, 7010769336451265829),
-            name: 'fechaNacimiento',
-            type: 10,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(6, 1437902931996693737),
-            name: 'sexo',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(7, 8250619644147972432),
-            name: 'direccion',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(8, 386823849339154268),
-            name: 'tipoDePaciente',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(9, 6590517229691698969),
-            name: 'noIdentidad',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(10, 6731300692350944303),
-            name: 'aboRh',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(11, 3292015507542328778),
-            name: 'unidadHospitalaria',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(12, 255427572119228785),
-            name: 'policlinico',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(13, 391294667442635865),
-            name: 'estadoCivil',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(14, 3798317399516846472),
-            name: 'escolaridad',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(15, 3753449852418223487),
-            name: 'consultorio',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(16, 421399869648070139),
-            name: 'ocupacion',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(17, 31519700120712879),
-            name: 'noDormitorios',
-            type: 6,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(18, 8566665016071885249),
-            name: 'noPersonasNucleoPersonal',
-            type: 6,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(19, 6505066405161352395),
-            name: 'tipoDeRiesgo',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(20, 756456543361609068),
-            name: 'datosDeInteres',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(21, 5828903731586805718),
-            name: 'tipoDeDiagnostico',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(22, 3867419837382740067),
-            name: 'codigo',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(23, 7235565564391156028),
-            name: 'descripcion',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(24, 4716319074072869736),
-            name: 'estructura',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(25, 2245632216575404706),
-            name: 'conductaSeguida',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(28, 5779527745294701656),
-            name: 'embarazoActualId',
-            type: 11,
-            flags: 520,
-            indexId: const obx_int.IdUid(14, 3417801690771563341),
-            relationTarget: 'EmbarazoActual'),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(29, 8733439380872150914),
-            name: 'interrogatorioId',
-            type: 11,
-            flags: 520,
-            indexId: const obx_int.IdUid(15, 4300594980004109624),
-            relationTarget: 'Interrogatorio'),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(30, 9126572931702301462),
-            name: 'fechaDeRegistro',
-            type: 10,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(31, 5355125049851457999),
-            name: 'fechaDeActualizacion',
-            type: 10,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(32, 3343682868467014237),
-            name: 'edad',
-            type: 6,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(33, 9116442927737983382),
-            name: 'signosVitalesId',
-            type: 11,
-            flags: 520,
-            indexId: const obx_int.IdUid(23, 8201558340184330337),
-            relationTarget: 'SignosVitalesModel'),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(34, 8450042244872535087),
-            name: 'examenFisicoId',
-            type: 11,
-            flags: 520,
-            indexId: const obx_int.IdUid(24, 2190030544975487551),
-            relationTarget: 'ExamenFisicoModel'),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(35, 8006616618205960480),
-            name: 'interconsultasId',
-            type: 11,
-            flags: 520,
-            indexId: const obx_int.IdUid(25, 1686872265094260734),
-            relationTarget: 'InterconsultasModel'),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(36, 7697322776669860200),
-            name: 'geneticaId',
-            type: 11,
-            flags: 520,
-            indexId: const obx_int.IdUid(26, 6955833706687552710),
-            relationTarget: 'GeneticaModel'),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(37, 4171410278652026002),
-            name: 'laboratorioId',
-            type: 11,
-            flags: 520,
-            indexId: const obx_int.IdUid(27, 4154737050510400679),
-            relationTarget: 'LaboratorioMicrobiologiaModel')
-      ],
-      relations: <obx_int.ModelRelation>[],
-      backlinks: <obx_int.ModelBacklink>[
-        obx_int.ModelBacklink(
-            name: 'antecedentes',
-            srcEntity: 'Antecedente',
-            srcField: 'paciente')
-      ]),
-  obx_int.ModelEntity(
-      id: const obx_int.IdUid(13, 6960418874851669987),
-      name: 'RecienNacido',
-      lastPropertyId: const obx_int.IdUid(10, 2906726004146979595),
-      flags: 0,
-      properties: <obx_int.ModelProperty>[
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(1, 7976672240331173612),
-            name: 'id',
-            type: 6,
-            flags: 1),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(2, 3824656945508566701),
-            name: 'peso',
-            type: 8,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(3, 1929070064626367316),
-            name: 'sexo',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(4, 6559535105552477417),
-            name: 'estado',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(5, 9544660455389653),
-            name: 'datosInteres',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(6, 6244678276833832486),
-            name: 'apgar',
-            type: 6,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(7, 2850486851874379276),
-            name: 'puntos',
-            type: 6,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(8, 3188294265347618620),
-            name: 'ocurrenciaDefuncion',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(9, 2734800343283078170),
-            name: 'edadAlFallecer',
-            type: 9,
-            flags: 0),
-        obx_int.ModelProperty(
-            id: const obx_int.IdUid(10, 2906726004146979595),
-            name: 'embarazoId',
-            type: 11,
-            flags: 520,
-            indexId: const obx_int.IdUid(16, 3429999169993845107),
-            relationTarget: 'Embarazo')
-      ],
-      relations: <obx_int.ModelRelation>[],
-      backlinks: <obx_int.ModelBacklink>[]),
-  obx_int.ModelEntity(
-      id: const obx_int.IdUid(14, 5741221267339422420),
+      id: const obx_int.IdUid(1, 5721501224268132907),
       name: 'ExamenFisicoModel',
-      lastPropertyId: const obx_int.IdUid(59, 2147453723864899800),
+      lastPropertyId: const obx_int.IdUid(59, 887560586688466272),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(1, 8688330271867079560),
+            id: const obx_int.IdUid(1, 56767559380649067),
             name: 'id',
             type: 6,
             flags: 1),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(2, 4940379001907952353),
+            id: const obx_int.IdUid(2, 4858045782704963183),
             name: 'pacienteId',
             type: 11,
             flags: 520,
-            indexId: const obx_int.IdUid(17, 704544510088554514),
+            indexId: const obx_int.IdUid(1, 7612850605747851210),
             relationTarget: 'Paciente'),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(3, 7890795162060713921),
+            id: const obx_int.IdUid(3, 6739026915732435933),
             name: 'semanasDeGestacion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(4, 3177665098167231226),
+            id: const obx_int.IdUid(4, 88461488486050397),
             name: 'peso',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(5, 4474610992256222968),
+            id: const obx_int.IdUid(5, 1788105344118610306),
             name: 'alturaUterina',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(6, 5718696735946559933),
+            id: const obx_int.IdUid(6, 6596561000367336239),
             name: 'circunsferenciaAbdominal',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(7, 6346944710292157951),
+            id: const obx_int.IdUid(7, 841248757842499273),
             name: 'presentacion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(8, 1861591247494969526),
+            id: const obx_int.IdUid(8, 7510884595019688754),
             name: 'posicion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(9, 634577009327273944),
+            id: const obx_int.IdUid(9, 3349279957622429845),
             name: 'focoFetal',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(10, 5985613706137303031),
+            id: const obx_int.IdUid(10, 1500953962638529278),
             name: 'movimientoFetal',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(11, 1426849224303413478),
+            id: const obx_int.IdUid(11, 6227843857908524466),
             name: 'tonoUterino',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(12, 8275043006628288651),
+            id: const obx_int.IdUid(12, 390852766976472980),
             name: 'edemas',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(13, 3315544004505515239),
+            id: const obx_int.IdUid(13, 1689006508467909585),
             name: 'dinamicaUterina',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(14, 5421773155683001284),
+            id: const obx_int.IdUid(14, 4955534846487029209),
             name: 'tejidoCelularSubcutaneo',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(15, 6682436749206571759),
+            id: const obx_int.IdUid(15, 2380241172521707867),
             name: 'facies',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(16, 4186611532551426596),
+            id: const obx_int.IdUid(16, 3127411793430393411),
             name: 'piel',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(17, 6732196928722544729),
+            id: const obx_int.IdUid(17, 2145776342185727509),
             name: 'gObservacions',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(18, 7689027552794960819),
+            id: const obx_int.IdUid(18, 8469084739827036938),
             name: 'mucosas',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(19, 7178860477864082232),
+            id: const obx_int.IdUid(19, 3008002090177619018),
             name: 'faneras',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(20, 5646276737792710315),
+            id: const obx_int.IdUid(20, 772060754828992304),
             name: 'rInspeccion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(21, 1421074104826180840),
+            id: const obx_int.IdUid(21, 1019916876285245578),
             name: 'rPalpacion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(22, 5710087683450743780),
+            id: const obx_int.IdUid(22, 5415460969808371469),
             name: 'rPercucion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(23, 948348904837597098),
+            id: const obx_int.IdUid(23, 315142694729268287),
             name: 'rAuscultacion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(24, 1841805659649256861),
+            id: const obx_int.IdUid(24, 6685185637299310935),
             name: 'rObservacions',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(25, 6262386830103969331),
+            id: const obx_int.IdUid(25, 1479048955794781949),
             name: 'acInspeccion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(26, 914399997208292803),
+            id: const obx_int.IdUid(26, 296775174443795457),
             name: 'acPalpacion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(27, 5604274348223698177),
+            id: const obx_int.IdUid(27, 695952976736791937),
             name: 'acAuscultacion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(28, 1246210253807028007),
+            id: const obx_int.IdUid(28, 3095808279514412932),
             name: 'acObservacions',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(29, 2082135501001400669),
+            id: const obx_int.IdUid(29, 6675949749192058780),
             name: 'venosoPeriferico',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(30, 7634679008406445488),
+            id: const obx_int.IdUid(30, 6248321203409460567),
             name: 'linfatico',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(31, 1180181773065726238),
+            id: const obx_int.IdUid(31, 7676962205405503222),
             name: 'vlObservacions',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(32, 8840282273097061154),
+            id: const obx_int.IdUid(32, 1335508927377076060),
             name: 'boca',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(33, 6116049166426954965),
+            id: const obx_int.IdUid(33, 7104298008777781253),
             name: 'lengua',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(34, 5866245399807434792),
+            id: const obx_int.IdUid(34, 2721876935697230618),
             name: 'orofaringe',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(35, 6042253867705316563),
+            id: const obx_int.IdUid(35, 2257363771779996791),
             name: 'dsObservacions',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(36, 470687122533511301),
+            id: const obx_int.IdUid(36, 3701192052493097341),
             name: 'aInspeccion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(37, 4352185094489862423),
+            id: const obx_int.IdUid(37, 2211962581270338785),
             name: 'aPalpacion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(38, 151511879725194698),
+            id: const obx_int.IdUid(38, 3510075370703232655),
             name: 'aPercucion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(39, 618787662223057892),
+            id: const obx_int.IdUid(39, 1791324584496767348),
             name: 'aAuscultacion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(40, 6251568887127485770),
+            id: const obx_int.IdUid(40, 5223516905123322241),
             name: 'aTactoRectal',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(41, 1751043828284157822),
+            id: const obx_int.IdUid(41, 7529368454148982931),
             name: 'aObservacions',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(42, 4557529458853952187),
+            id: const obx_int.IdUid(42, 5955478462511018854),
             name: 'uInspeccion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(43, 975855250958595544),
+            id: const obx_int.IdUid(43, 801149520790426261),
             name: 'uPalpacion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(44, 690290611252295496),
+            id: const obx_int.IdUid(44, 6516380157752478662),
             name: 'uPercucion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(45, 2117253705461585325),
+            id: const obx_int.IdUid(45, 1203006207832316102),
             name: 'uObservacions',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(46, 5803667265878243321),
+            id: const obx_int.IdUid(46, 6369768801183836404),
             name: 'vuelvaPerine',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(47, 3694951316305582939),
+            id: const obx_int.IdUid(47, 9190514554519290155),
             name: 'vObservaciones',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(48, 8542552196116121742),
+            id: const obx_int.IdUid(48, 8002263269237671447),
             name: 'vagina',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(49, 8735917069777603045),
+            id: const obx_int.IdUid(49, 2599428334910475057),
             name: 'vagObservaciones',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(50, 4297910410523489441),
+            id: const obx_int.IdUid(50, 1862933260989459159),
             name: 'cuello',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(51, 353391596446138985),
+            id: const obx_int.IdUid(51, 1952021766338857576),
             name: 'cObservaciones',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(52, 5319265957663311244),
+            id: const obx_int.IdUid(52, 3962075615308440005),
             name: 'utero',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(53, 3571772333653998035),
+            id: const obx_int.IdUid(53, 4682349315076887784),
             name: 'utObservaciones',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(54, 3454116637060313626),
+            id: const obx_int.IdUid(54, 7858312440773115718),
             name: 'anejos',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(55, 8782307850104867108),
+            id: const obx_int.IdUid(55, 5132395697966822384),
             name: 'anObservaciones',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(56, 2487165962218614225),
+            id: const obx_int.IdUid(56, 9095842577408008674),
             name: 'mInspeccion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(57, 3541751772873469832),
+            id: const obx_int.IdUid(57, 6476387940473655308),
             name: 'mPalpacion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(58, 5723635455979407052),
+            id: const obx_int.IdUid(58, 7423840594998334022),
             name: 'aptasLaptar',
             type: 1,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(59, 2147453723864899800),
+            id: const obx_int.IdUid(59, 887560586688466272),
             name: 'mObservaciones',
             type: 9,
             flags: 0)
@@ -1453,412 +332,412 @@ final _entities = <obx_int.ModelEntity>[
       relations: <obx_int.ModelRelation>[],
       backlinks: <obx_int.ModelBacklink>[]),
   obx_int.ModelEntity(
-      id: const obx_int.IdUid(15, 3662604372185394157),
+      id: const obx_int.IdUid(2, 7533413560408603590),
       name: 'FetoUltrasonido1erTrimestre',
-      lastPropertyId: const obx_int.IdUid(16, 1027369132793922077),
+      lastPropertyId: const obx_int.IdUid(16, 6226981165469233025),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(1, 3125946366706916733),
+            id: const obx_int.IdUid(1, 5551651909366113144),
             name: 'id',
             type: 6,
             flags: 1),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(2, 5978819714644387426),
+            id: const obx_int.IdUid(2, 5072964052487141717),
             name: 'lc',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(3, 7293225964262647217),
+            id: const obx_int.IdUid(3, 4888976350916981285),
             name: 'corion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(4, 8517130644830799992),
+            id: const obx_int.IdUid(4, 4679957864633143830),
             name: 'lcr',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(5, 5817401172394981847),
+            id: const obx_int.IdUid(5, 199039580130065465),
             name: 'dbp',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(6, 3439484276179102944),
+            id: const obx_int.IdUid(6, 4666961315458413742),
             name: 'tn',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(7, 4561520246876412711),
+            id: const obx_int.IdUid(7, 7733347537365327581),
             name: 'hn',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(8, 3766962808434350931),
+            id: const obx_int.IdUid(8, 4759918069796187542),
             name: 'cristalinos',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(9, 334208035354213382),
+            id: const obx_int.IdUid(9, 2754628960799541876),
             name: 'estomago',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(10, 4700319859280097862),
+            id: const obx_int.IdUid(10, 4602988057974592840),
             name: 'paa',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(11, 8818730017350044748),
+            id: const obx_int.IdUid(11, 8787219376053032582),
             name: 'cuatroMiembros',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(12, 5148541706448086574),
+            id: const obx_int.IdUid(12, 8268466695020902196),
             name: 'eg',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(13, 8130416207633606399),
+            id: const obx_int.IdUid(13, 3080056523300633566),
             name: 'ip',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(14, 3255566421439409914),
+            id: const obx_int.IdUid(14, 4813668997160669130),
             name: 'ipPercentil',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(15, 8475597562460842413),
+            id: const obx_int.IdUid(15, 7023804397792989110),
             name: 'onda',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(16, 1027369132793922077),
+            id: const obx_int.IdUid(16, 6226981165469233025),
             name: 'geneticaId',
             type: 11,
             flags: 520,
-            indexId: const obx_int.IdUid(18, 4592602352847734047),
+            indexId: const obx_int.IdUid(2, 5226306738753501576),
             relationTarget: 'GeneticaModel')
       ],
       relations: <obx_int.ModelRelation>[],
       backlinks: <obx_int.ModelBacklink>[]),
   obx_int.ModelEntity(
-      id: const obx_int.IdUid(16, 251014534238979815),
+      id: const obx_int.IdUid(3, 7637103729878727690),
       name: 'FetoUltrasonidoSeguimiento',
-      lastPropertyId: const obx_int.IdUid(30, 1563168873480773821),
+      lastPropertyId: const obx_int.IdUid(30, 7494840728389865564),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(1, 8057549421994480848),
+            id: const obx_int.IdUid(1, 8125091633960807087),
             name: 'id',
             type: 6,
             flags: 1),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(2, 6306411711820394489),
+            id: const obx_int.IdUid(2, 7689247043635493708),
             name: 'lc',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(3, 7139575735983327593),
+            id: const obx_int.IdUid(3, 2121880832343577865),
             name: 'cc',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(4, 4754414430149739636),
+            id: const obx_int.IdUid(4, 6899208413909200784),
             name: 'ca',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(5, 7949076784008281895),
+            id: const obx_int.IdUid(5, 697042336060443484),
             name: 'lf',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(6, 1202032701240761724),
+            id: const obx_int.IdUid(6, 5037486609413897781),
             name: 'ila',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(7, 2847471464772980264),
+            id: const obx_int.IdUid(7, 226691354566419542),
             name: 'ts',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(8, 8892162452562973750),
+            id: const obx_int.IdUid(8, 1042528848542427268),
             name: 'threeVasos',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(9, 3027524774471497910),
+            id: const obx_int.IdUid(9, 7667935611945532654),
             name: 'la',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(10, 8719123678407108861),
+            id: const obx_int.IdUid(10, 3079863703106682301),
             name: 'pocision',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(11, 6341271019889664315),
+            id: const obx_int.IdUid(11, 9013598421991064998),
             name: 'signosDeAcretismo',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(12, 8569742419055808378),
+            id: const obx_int.IdUid(12, 5044469511899873404),
             name: 'variedadDeAcretismo',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(13, 8587571896474204837),
+            id: const obx_int.IdUid(13, 2211226635481581566),
             name: 'madurezPlacentaria',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(14, 4403263744325612439),
+            id: const obx_int.IdUid(14, 4012331011250298973),
             name: 'vejiga',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(15, 1929275231911009692),
+            id: const obx_int.IdUid(15, 8675727106511619229),
             name: 'estomago',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(16, 4591934391921557398),
+            id: const obx_int.IdUid(16, 345842646688974029),
             name: 'columna',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(17, 9033633483216298449),
+            id: const obx_int.IdUid(17, 7913691100174237084),
             name: 'riniones',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(18, 5912166084474092363),
+            id: const obx_int.IdUid(18, 3764129788053095776),
             name: 'macisoFacial',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(19, 8105513774057253109),
+            id: const obx_int.IdUid(19, 4638604302786670930),
             name: 'fourMiembros',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(20, 1328620507178648408),
+            id: const obx_int.IdUid(20, 8260032669648112010),
             name: 'paa',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(21, 3963809765986885145),
+            id: const obx_int.IdUid(21, 5447173531892334102),
             name: 'pliegueNucal',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(22, 6599116917334667825),
+            id: const obx_int.IdUid(22, 1115279188755145896),
             name: 'fosaPosteriol',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(23, 2416066946066679624),
+            id: const obx_int.IdUid(23, 4338221777226782319),
             name: 'atrioVentricular',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(24, 6173100428254639403),
+            id: const obx_int.IdUid(24, 5077142863079730229),
             name: 'cerebelo',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(25, 5445241934716663628),
+            id: const obx_int.IdUid(25, 435171450365218803),
             name: 'cordon3Vasos',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(26, 6511409092474064707),
+            id: const obx_int.IdUid(26, 4654683314548765899),
             name: 'eg',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(27, 6203707289614097684),
+            id: const obx_int.IdUid(27, 1346507573147748868),
             name: 'pf',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(28, 1662028972588592085),
+            id: const obx_int.IdUid(28, 7935956372113320872),
             name: 'pfPercentil',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(29, 6873378873597868551),
+            id: const obx_int.IdUid(29, 184198447498704643),
             name: 'datosDeInteres',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(30, 1563168873480773821),
+            id: const obx_int.IdUid(30, 7494840728389865564),
             name: 'geneticaId',
             type: 11,
             flags: 520,
-            indexId: const obx_int.IdUid(19, 6140709056239397922),
+            indexId: const obx_int.IdUid(3, 9139807834926685414),
             relationTarget: 'GeneticaModel')
       ],
       relations: <obx_int.ModelRelation>[],
       backlinks: <obx_int.ModelBacklink>[]),
   obx_int.ModelEntity(
-      id: const obx_int.IdUid(17, 6738869765077871938),
+      id: const obx_int.IdUid(4, 4883402142282404312),
       name: 'GeneticaModel',
-      lastPropertyId: const obx_int.IdUid(30, 9145423353426510466),
+      lastPropertyId: const obx_int.IdUid(30, 3683248013609720281),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(1, 6868762528945526900),
+            id: const obx_int.IdUid(1, 7993494141665182053),
             name: 'id',
             type: 6,
             flags: 1),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(2, 3348647497235402612),
+            id: const obx_int.IdUid(2, 7894166328917071393),
             name: 'pacienteId',
             type: 11,
             flags: 520,
-            indexId: const obx_int.IdUid(20, 5736363076161751233),
+            indexId: const obx_int.IdUid(4, 772915772976255811),
             relationTarget: 'Paciente'),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(3, 106507458029769245),
+            id: const obx_int.IdUid(3, 3949869180286799357),
             name: 'efhb',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(4, 7441357797545844740),
+            id: const obx_int.IdUid(4, 7236505419474435362),
             name: 'afp',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(5, 2521274137684755901),
+            id: const obx_int.IdUid(5, 6781385681637447912),
             name: 'fechaRealizacion',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(6, 5193330369408047568),
+            id: const obx_int.IdUid(6, 7156640031536176063),
             name: 'numFetos',
             type: 6,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(7, 6250560872290918689),
+            id: const obx_int.IdUid(7, 8714843453704730526),
             name: 'datosDeInteres',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(8, 6584880490051681336),
+            id: const obx_int.IdUid(8, 4121235275920894012),
             name: 'usFechaRealizacion',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(9, 742252711457330577),
+            id: const obx_int.IdUid(9, 327642939973936266),
             name: 'usNumFetos',
             type: 6,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(10, 8919640897566972490),
+            id: const obx_int.IdUid(10, 6116371013243206940),
             name: 'longitudDelCuello',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(11, 151523477907093382),
+            id: const obx_int.IdUid(11, 7461119292536930228),
             name: 'oci',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(12, 2860433256649961346),
+            id: const obx_int.IdUid(12, 6080517637747978310),
             name: 'valorOci',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(13, 91603583383567628),
+            id: const obx_int.IdUid(13, 1906300151664386613),
             name: 'maniobrasEsfuerzo',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(14, 755611787974734716),
+            id: const obx_int.IdUid(14, 7775998617361975515),
             name: 'icc',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(15, 1252822012129767092),
+            id: const obx_int.IdUid(15, 7550498330734764151),
             name: 'iccPercentil',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(16, 2929045663357553490),
+            id: const obx_int.IdUid(16, 5953501557194008933),
             name: 'csDatosDeInteres',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(17, 8119347056841073414),
+            id: const obx_int.IdUid(17, 3173502593156840355),
             name: 'ip1',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(18, 8207806876933661457),
+            id: const obx_int.IdUid(18, 5637023570967396903),
             name: 'ipD',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(19, 6578612760844198872),
+            id: const obx_int.IdUid(19, 5431560632143867105),
             name: 'ipM',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(20, 6455495328283809556),
+            id: const obx_int.IdUid(20, 5947506710543227476),
             name: 'ipmPercentil',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(21, 5394843672275240645),
+            id: const obx_int.IdUid(21, 1844256933274502230),
             name: 'dusDatosDeInteres',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(22, 7603274497977678801),
+            id: const obx_int.IdUid(22, 307965898947177343),
             name: 'scfechaRealizacion',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(23, 8050578930135661119),
+            id: const obx_int.IdUid(23, 8746600433543669425),
             name: 'scLongitudCuello',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(24, 37048806778003277),
+            id: const obx_int.IdUid(24, 7804305829707829778),
             name: 'scOci',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(25, 1132550142141951864),
+            id: const obx_int.IdUid(25, 5733012060697263733),
             name: 'scValorOci',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(26, 7218139921966173950),
+            id: const obx_int.IdUid(26, 2690495315905718076),
             name: 'scManiobrasEsfuerzo',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(27, 7445603231039948446),
+            id: const obx_int.IdUid(27, 2503280864629039878),
             name: 'scIcc',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(28, 8999231914683457794),
+            id: const obx_int.IdUid(28, 6431108574866263505),
             name: 'scIccPercentil',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(29, 4404023032317355133),
+            id: const obx_int.IdUid(29, 1811446651965385117),
             name: 'eg',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(30, 9145423353426510466),
+            id: const obx_int.IdUid(30, 3683248013609720281),
             name: 'scDatosDeInteres',
             type: 9,
             flags: 0)
@@ -1875,135 +754,135 @@ final _entities = <obx_int.ModelEntity>[
             srcField: 'genetica')
       ]),
   obx_int.ModelEntity(
-      id: const obx_int.IdUid(18, 701333006210659001),
+      id: const obx_int.IdUid(5, 8708072605131447954),
       name: 'InterconsultasModel',
-      lastPropertyId: const obx_int.IdUid(25, 1362005881937332900),
+      lastPropertyId: const obx_int.IdUid(25, 7577901603828675638),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(1, 6861142600724165663),
+            id: const obx_int.IdUid(1, 6837261996921829503),
             name: 'id',
             type: 6,
             flags: 1),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(2, 7369823130972320210),
+            id: const obx_int.IdUid(2, 4511294998749188636),
             name: 'pacienteId',
             type: 11,
             flags: 520,
-            indexId: const obx_int.IdUid(21, 1688863015651471715),
+            indexId: const obx_int.IdUid(5, 1349532143956846793),
             relationTarget: 'Paciente'),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(3, 465020686379089288),
+            id: const obx_int.IdUid(3, 2266994436756232384),
             name: 'psFechaConsulta',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(4, 7483436663214471967),
+            id: const obx_int.IdUid(4, 2649557641385216574),
             name: 'psEvaluacion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(5, 4577691702803435112),
+            id: const obx_int.IdUid(5, 2394522898258927769),
             name: 'psCodigo',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(6, 6457473762218755446),
+            id: const obx_int.IdUid(6, 150323323977489817),
             name: 'psDescripcion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(7, 5639389772266945375),
+            id: const obx_int.IdUid(7, 5605534518404024800),
             name: 'psEstructura',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(8, 8297809171504285100),
+            id: const obx_int.IdUid(8, 4435833078052836816),
             name: 'psTipoDiagnostico',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(9, 179634100452749180),
+            id: const obx_int.IdUid(9, 5049519056468544017),
             name: 'conductaSeguida',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(10, 4028592540333375075),
+            id: const obx_int.IdUid(10, 2634393529368651330),
             name: 'nFechaConsulta',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(11, 2126145012103346070),
+            id: const obx_int.IdUid(11, 9015812473327614666),
             name: 'nEvaluacion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(12, 7487233330102507856),
+            id: const obx_int.IdUid(12, 6555014051290046362),
             name: 'miFechaConsulta',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(13, 3411359536565201342),
+            id: const obx_int.IdUid(13, 8447733885889642180),
             name: 'miEvaluacion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(14, 5994045353850564314),
+            id: const obx_int.IdUid(14, 7229297337437755753),
             name: 'tsFechaConsulta',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(15, 731632408536578843),
+            id: const obx_int.IdUid(15, 2932786135305367460),
             name: 'tsEvaluacion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(16, 7960342035754081043),
+            id: const obx_int.IdUid(16, 4482810868208581974),
             name: 'dFechaConsulta',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(17, 1405691180407342081),
+            id: const obx_int.IdUid(17, 3882655470287709879),
             name: 'dEvaluacion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(18, 2330917686207398048),
+            id: const obx_int.IdUid(18, 1906894876625268573),
             name: 'examenEstomatologico',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(19, 2199762075422887433),
+            id: const obx_int.IdUid(19, 4954457201499483227),
             name: 'numeroExodoncia',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(20, 1227726692282970969),
+            id: const obx_int.IdUid(20, 5829889315715550448),
             name: 'realizadasExodoncia',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(21, 5384345394006931462),
+            id: const obx_int.IdUid(21, 5352579010500928767),
             name: 'numeroObsturaciones',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(22, 4115443838294278631),
+            id: const obx_int.IdUid(22, 1289708425485925079),
             name: 'realizadasObsturaciones',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(23, 3998801540494521328),
+            id: const obx_int.IdUid(23, 1580972948048357751),
             name: 'remitida',
             type: 1,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(24, 5386765509776316260),
+            id: const obx_int.IdUid(24, 3648064519941440451),
             name: 'noAsistencia',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(25, 1362005881937332900),
+            id: const obx_int.IdUid(25, 7577901603828675638),
             name: 'observaciones',
             type: 9,
             flags: 0)
@@ -2011,300 +890,741 @@ final _entities = <obx_int.ModelEntity>[
       relations: <obx_int.ModelRelation>[],
       backlinks: <obx_int.ModelBacklink>[]),
   obx_int.ModelEntity(
-      id: const obx_int.IdUid(19, 7625648154578817663),
-      name: 'LaboratorioMicrobiologiaModel',
-      lastPropertyId: const obx_int.IdUid(58, 4387549549362868548),
+      id: const obx_int.IdUid(6, 8122314888964987941),
+      name: 'Interrogatorio',
+      lastPropertyId: const obx_int.IdUid(86, 7878314036816305430),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(1, 4960685588553202207),
+            id: const obx_int.IdUid(1, 3133925551944917458),
             name: 'id',
             type: 6,
             flags: 1),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(2, 6786591075011972152),
+            id: const obx_int.IdUid(2, 3320316281229496167),
             name: 'pacienteId',
             type: 11,
             flags: 520,
-            indexId: const obx_int.IdUid(22, 3403228673761836591),
+            indexId: const obx_int.IdUid(6, 4338396989314439181),
             relationTarget: 'Paciente'),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(3, 4371396784873576370),
+            id: const obx_int.IdUid(3, 1816111558564464518),
+            name: 'srDisnea',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(4, 767700117229783549),
+            name: 'srDolor',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(5, 2269024457074589015),
+            name: 'srHermoptisis',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(6, 3397978214101110754),
+            name: 'srExpectoracion',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(7, 7639860609903556430),
+            name: 'srTos',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(8, 7071427593964982975),
+            name: 'srOtros',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(9, 5464879008465405896),
+            name: 'srObservaciones',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(10, 2831523510802951321),
+            name: 'scDisnea',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(11, 5509958087953409591),
+            name: 'scDolor',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(12, 2463041040346413631),
+            name: 'scClaudicacionIntermitente',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(13, 864534338675730593),
+            name: 'scCianosis',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(14, 4370524553390818638),
+            name: 'scTos',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(15, 1078129091413217050),
+            name: 'scPalpitaciones',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(16, 8797982975394271645),
+            name: 'scOtros',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(17, 4807888254427597574),
+            name: 'scObservaciones',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(18, 2123297111988105455),
+            name: 'sdDisfagia',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(19, 8112301932372111164),
+            name: 'sdDolor',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(20, 5377984167650085561),
+            name: 'sdColicos',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(21, 8040822838454174936),
+            name: 'sdHermatemesis',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(22, 8546632422424525690),
+            name: 'sdAcolia',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(23, 5742088544376437098),
+            name: 'sdPirosis',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(24, 3567979556775906550),
+            name: 'sdNauseas',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(25, 8605729315191087290),
+            name: 'sdEnterorragia',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(26, 6847549610408743796),
+            name: 'sdConstipacion',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(27, 7428788967954972035),
+            name: 'sdAcidez',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(28, 5284429749840687191),
+            name: 'sdDiarreas',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(29, 450385112999261580),
+            name: 'sdAerogastrias',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(30, 1477006392893002443),
+            name: 'sdVomitos',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(31, 6435548385449485344),
+            name: 'sdMelena',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(32, 1977152133685317877),
+            name: 'sdOtros',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(33, 9218676069062981461),
+            name: 'sdObservaciones',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(34, 2930026213044740388),
+            name: 'suNicturioas',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(35, 450178340276121388),
+            name: 'suDolor',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(36, 7080348139183473889),
+            name: 'suOrinasTurbias',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(37, 3541355893486775726),
+            name: 'suExudadoUretral',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(38, 2707110756318266007),
+            name: 'suDisuria',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(39, 429682659694631186),
+            name: 'suRetencionUrinaria',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(40, 3989564683774339039),
+            name: 'suHermaturia',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(41, 8356430427200749011),
+            name: 'suIncontinencia',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(42, 6470636514177285580),
+            name: 'suPolaquiuria',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(43, 4967974255297511671),
+            name: 'suUretorragia',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(44, 137458372312547283),
+            name: 'suImpotiencia',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(45, 213043144206436779),
+            name: 'suTumoracion',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(46, 5390085213842460871),
+            name: 'suCalculos',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(47, 7070316055456933536),
+            name: 'suOtros',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(48, 987541530196006764),
+            name: 'suObservaciones',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(49, 7817947982182026143),
+            name: 'snCefaleas',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(50, 5398412171635835966),
+            name: 'snDolorFacial',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(51, 3965822718882079963),
+            name: 'snVomitos',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(52, 7849944067183814105),
+            name: 'snDolorCervical',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(53, 3890767338444067946),
+            name: 'snVertigos',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(54, 5737647253827227845),
+            name: 'snDolorLumbar',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(55, 1021031732456692237),
+            name: 'snConvulsiones',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(56, 2300323126048179451),
+            name: 'snAlteracionMarcha',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(57, 1938151877852042066),
+            name: 'snDefictMotor',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(58, 620754004430713533),
+            name: 'snAlteracionEquilibrio',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(59, 2332572997531641121),
+            name: 'snDeficitSensitivo',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(60, 2827014834659913828),
+            name: 'snAlteracionVisual',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(61, 1585371086291275949),
+            name: 'snAlteracionConciencia',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(62, 162525644102325004),
+            name: 'snDificultadHablarEntender',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(63, 5792489505902217097),
+            name: 'snOtros',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(64, 2514200477185629640),
+            name: 'snObservaciones',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(65, 5297295498540054130),
+            name: 'seHipofisis',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(66, 488422203174947704),
+            name: 'seOvarios',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(67, 4980408508348214855),
+            name: 'sePancreas',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(68, 1950484195945707745),
+            name: 'seSuprarrenal',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(69, 3027505501481650876),
+            name: 'seParatiroideas',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(70, 892680239476777073),
+            name: 'seTiroides',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(71, 2988380346850978844),
+            name: 'seTesticulos',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(72, 4132922628307311861),
+            name: 'seOtros',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(73, 4617599162883795600),
+            name: 'seObservaciones',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(74, 3952159170600428934),
+            name: 'astenia',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(75, 489174223705450632),
+            name: 'anorexia',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(76, 2588268717527895718),
+            name: 'epistaxis',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(77, 1436218296305496457),
+            name: 'fiebre',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(78, 7939003973848557837),
+            name: 'artralgia',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(79, 1464249701331048396),
+            name: 'polifagia',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(80, 6984797025326734952),
+            name: 'edema',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(81, 4223824130290305600),
+            name: 'prurito',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(82, 4985255161267429481),
+            name: 'perdidaPeso',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(83, 8161332211065541159),
+            name: 'gananciaPeso',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(84, 8693132532208516333),
+            name: 'acroparentesias',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(85, 8320681221907983818),
+            name: 'otros',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(86, 7878314036816305430),
+            name: 'observaciones',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <obx_int.ModelRelation>[],
+      backlinks: <obx_int.ModelBacklink>[]),
+  obx_int.ModelEntity(
+      id: const obx_int.IdUid(7, 1676541132215424496),
+      name: 'LaboratorioMicrobiologiaModel',
+      lastPropertyId: const obx_int.IdUid(58, 1417721582687684042),
+      flags: 0,
+      properties: <obx_int.ModelProperty>[
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(1, 5482941500679547877),
+            name: 'id',
+            type: 6,
+            flags: 1),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(2, 7716995976040160575),
+            name: 'pacienteId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(7, 7015638807161768612),
+            relationTarget: 'Paciente'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(3, 889868469785000158),
             name: 'ghResultadoMaterno',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(4, 4833926131427641344),
+            id: const obx_int.IdUid(4, 4444046991774323563),
             name: 'grFechaRealizacionMaterno',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(5, 8846063688202262905),
+            id: const obx_int.IdUid(5, 5857911199664576156),
             name: 'ghResultadoPaterno',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(6, 6566662937549517588),
+            id: const obx_int.IdUid(6, 7903143199736136407),
             name: 'grFechaRealizacionPaterno',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(7, 6215622661927594894),
+            id: const obx_int.IdUid(7, 8156226659746892574),
             name: 'vihResultadoMaterno',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(8, 8388887843492735688),
+            id: const obx_int.IdUid(8, 938589869138899547),
             name: 'vihFechaRealizacionMaterno',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(9, 5735964825236515972),
+            id: const obx_int.IdUid(9, 3926172459123705569),
             name: 'vihResultadoPaterno',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(10, 3302608187943536385),
+            id: const obx_int.IdUid(10, 3083352582889471792),
             name: 'vihFechaRealizacionPaterno',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(11, 6915434656020484835),
+            id: const obx_int.IdUid(11, 8509707546160736952),
             name: 'sResultadoMaterno',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(12, 642338209316877797),
+            id: const obx_int.IdUid(12, 2159798475376677167),
             name: 'sFechaRealizacionMaterno',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(13, 5452209617661244561),
+            id: const obx_int.IdUid(13, 7246167985364524318),
             name: 'sResultadoPaterno',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(14, 2779539092730150295),
+            id: const obx_int.IdUid(14, 4158224707094763942),
             name: 'sFechaRealizacionPaterno',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(15, 2068267759664354013),
+            id: const obx_int.IdUid(15, 487194315697632346),
             name: 'asResultadoMaterno',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(16, 5743320717494979098),
+            id: const obx_int.IdUid(16, 7486866735562099097),
             name: 'asFechaRealizacionMaterno',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(17, 8341270976424983077),
+            id: const obx_int.IdUid(17, 1142789953659187600),
             name: 'asResultadoPaterno',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(18, 8533498262678108779),
+            id: const obx_int.IdUid(18, 7988593255116759206),
             name: 'asFechaRealizacionPaterno',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(19, 4742673532704070448),
+            id: const obx_int.IdUid(19, 2184012205040911312),
             name: 'hbResultadoMaterno',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(20, 2776099310695552872),
+            id: const obx_int.IdUid(20, 3819896122271478016),
             name: 'hbFechaRealizacionMaterno',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(21, 5345760823352045869),
+            id: const obx_int.IdUid(21, 2147424515427772794),
             name: 'htoResultadoMaterno',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(22, 2707428133201756013),
+            id: const obx_int.IdUid(22, 1697067035202911814),
             name: 'htoFechaRealizacionMaterno',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(23, 1931001695894788643),
+            id: const obx_int.IdUid(23, 8728636079442766343),
             name: 'gResultadoMaterno',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(24, 4364155235209527148),
+            id: const obx_int.IdUid(24, 5155310148882072222),
             name: 'gFechaRealizacionMaterno',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(25, 8956387731993778106),
+            id: const obx_int.IdUid(25, 8097490566764552772),
             name: 'ptgaResultadoMaterno',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(26, 7818795656834832715),
+            id: const obx_int.IdUid(26, 6963126581782534775),
             name: 'ptgaFechaRealizacionMaterno',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(27, 839469475374220082),
+            id: const obx_int.IdUid(27, 7411270915067135690),
             name: 'ptg2hResultadoMaterno',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(28, 518874891881476723),
+            id: const obx_int.IdUid(28, 2652631466698698196),
             name: 'ptg2hFechaRealizacionMaterno',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(29, 8955873835111977673),
+            id: const obx_int.IdUid(29, 2524809035920260105),
             name: 'cResultadoMaterno',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(30, 8737740260154030359),
+            id: const obx_int.IdUid(30, 2825698022061478743),
             name: 'cFechaRealizacionMaterno',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(31, 8053266216877622216),
+            id: const obx_int.IdUid(31, 3635462228335698004),
             name: 'auResultadoMaterno',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(32, 3869963371597931220),
+            id: const obx_int.IdUid(32, 5826502314953134722),
             name: 'auFechaRealizacionMaterno',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(33, 1350502546798933509),
+            id: const obx_int.IdUid(33, 4569113311513011724),
             name: 'uResultadoMaterno',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(34, 1689224228046626482),
+            id: const obx_int.IdUid(34, 8745033202882693352),
             name: 'uFechaRealizacionMaterno',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(35, 6684822105443782363),
+            id: const obx_int.IdUid(35, 2592336684464437964),
             name: 'colResultadoMaterno',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(36, 4129111868315252031),
+            id: const obx_int.IdUid(36, 5453078120808927474),
             name: 'colFechaRealizacionMaterno',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(37, 7197458764157444742),
+            id: const obx_int.IdUid(37, 5510699803544680662),
             name: 'tResultadoMaterno',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(38, 7439754062438390069),
+            id: const obx_int.IdUid(38, 464260130247225948),
             name: 'tFechaRealizacionMaterno',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(39, 7399630138108299598),
+            id: const obx_int.IdUid(39, 785049245375157041),
             name: 'bResultadoMaterno',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(40, 3868348738925196331),
+            id: const obx_int.IdUid(40, 925890428277123549),
             name: 'bFechaRealizacionMaterno',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(41, 1859783780192681785),
+            id: const obx_int.IdUid(41, 7493075109728516962),
             name: 'tpgResultadoMaterno',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(42, 3506057299493180023),
+            id: const obx_int.IdUid(42, 7352404094172824382),
             name: 'tpgFechaRealizacionMaterno',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(43, 8820315911981192789),
+            id: const obx_int.IdUid(43, 2196711883757039070),
             name: 'tgoResultadoMaterno',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(44, 5454246626392139320),
+            id: const obx_int.IdUid(44, 4201938363281096271),
             name: 'tgoFechaRealizacionMaterno',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(45, 5219203585294678391),
+            id: const obx_int.IdUid(45, 6329988291855425272),
             name: 'ggtResultadoMaterno',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(46, 4670547379783359533),
+            id: const obx_int.IdUid(46, 2807690846887377203),
             name: 'ggtFechaRealizacionMaterno',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(47, 8237988770648578283),
+            id: const obx_int.IdUid(47, 6205437865101183558),
             name: 'citResultadoMaterno',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(48, 8773477606549102755),
+            id: const obx_int.IdUid(48, 8802556749827202833),
             name: 'citFechaRealizacionMaterno',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(49, 6687077032876381893),
+            id: const obx_int.IdUid(49, 3398164118211287399),
             name: 'uroResultadoMaterno',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(50, 3923895628220387430),
+            id: const obx_int.IdUid(50, 5237484421172176315),
             name: 'uroFechaRealizacionMaterno',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(51, 609843289645012664),
+            id: const obx_int.IdUid(51, 8553968424885788138),
             name: 'hfResultadoMaterno',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(52, 2463654898243192769),
+            id: const obx_int.IdUid(52, 904271970482298488),
             name: 'hfFechaRealizacionMaterno',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(53, 7001870118651702822),
+            id: const obx_int.IdUid(53, 1141350146466995250),
             name: 'evsResultadoMaterno',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(54, 4816822694496079690),
+            id: const obx_int.IdUid(54, 7438646235970505296),
             name: 'evsFechaRealizacionMaterno',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(55, 4802216872219306148),
+            id: const obx_int.IdUid(55, 4857005032420448772),
             name: 'evcResultadoMaterno',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(56, 8281237728964507903),
+            id: const obx_int.IdUid(56, 8323081396352711023),
             name: 'evcFechaRealizacionMaterno',
             type: 10,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(57, 5371891735322641822),
+            id: const obx_int.IdUid(57, 5707925240365519551),
             name: 'pcsultadoMaterno',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(58, 4387549549362868548),
+            id: const obx_int.IdUid(58, 1417721582687684042),
             name: 'pcFechaRealizacionMaterno',
             type: 10,
             flags: 0)
@@ -2312,118 +1632,771 @@ final _entities = <obx_int.ModelEntity>[
       relations: <obx_int.ModelRelation>[],
       backlinks: <obx_int.ModelBacklink>[]),
   obx_int.ModelEntity(
-      id: const obx_int.IdUid(20, 4744735908949802630),
+      id: const obx_int.IdUid(8, 9013067703472179918),
       name: 'SignosVitalesModel',
-      lastPropertyId: const obx_int.IdUid(21, 5052657070569879854),
+      lastPropertyId: const obx_int.IdUid(21, 4616511624472435591),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(1, 888913118658284724),
+            id: const obx_int.IdUid(1, 4984614967598667734),
             name: 'id',
             type: 6,
             flags: 1),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(2, 2527057029857282194),
+            id: const obx_int.IdUid(2, 4496157934412558684),
             name: 'pacienteId',
             type: 11,
             flags: 520,
-            indexId: const obx_int.IdUid(28, 1214914561460118661),
+            indexId: const obx_int.IdUid(8, 2796895008155381605),
             relationTarget: 'Paciente'),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(3, 6976235514380405979),
+            id: const obx_int.IdUid(3, 127033946601538892),
             name: 'peso',
             type: 8,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(4, 5535047770527756050),
+            id: const obx_int.IdUid(4, 5378379294810472919),
             name: 'talla',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(5, 299307616092585758),
+            id: const obx_int.IdUid(5, 1656057503186805871),
             name: 'percentilPeso',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(6, 8406147767071948413),
+            id: const obx_int.IdUid(6, 5233275861172976023),
             name: 'indiceMasaCorporal',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(7, 2811998407402130132),
+            id: const obx_int.IdUid(7, 2717436071020936354),
             name: 'valorNutricional',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(8, 5021741179137947030),
+            id: const obx_int.IdUid(8, 8667929665151158708),
             name: 'circunsferenciaAbdominal',
             type: 8,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(9, 4010706179652445800),
+            id: const obx_int.IdUid(9, 7346147882562065517),
             name: 'sistolica',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(10, 544095999977981224),
+            id: const obx_int.IdUid(10, 8852233489549611781),
             name: 'diastolica',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(11, 3321660472390039466),
+            id: const obx_int.IdUid(11, 7677788085158721740),
             name: 'media',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(12, 1606915355672765596),
+            id: const obx_int.IdUid(12, 5199361932831774573),
             name: 'postura',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(13, 1189789295170296990),
+            id: const obx_int.IdUid(13, 8713659293402164474),
             name: 'ubicacion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(14, 6595917127401857267),
+            id: const obx_int.IdUid(14, 769766739252576544),
             name: 'valor',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(15, 6014268453187644172),
+            id: const obx_int.IdUid(15, 6784919510010250663),
             name: 'caracteristicas',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(16, 3990840188827448116),
+            id: const obx_int.IdUid(16, 2388999808025745755),
             name: 'pulsoUbicacion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(17, 6521026176923761859),
+            id: const obx_int.IdUid(17, 1653253478228435568),
             name: 'frValor',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(18, 1579009564913040207),
+            id: const obx_int.IdUid(18, 5125677851782415585),
             name: 'frCarateristicas',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(19, 4229917485171913527),
+            id: const obx_int.IdUid(19, 7656366574899509680),
             name: 'temperatura',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(20, 5810202213934020960),
+            id: const obx_int.IdUid(20, 5165037625459588472),
             name: 'localizacion',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(21, 5052657070569879854),
+            id: const obx_int.IdUid(21, 4616511624472435591),
             name: 'fcValor',
             type: 9,
             flags: 0)
+      ],
+      relations: <obx_int.ModelRelation>[],
+      backlinks: <obx_int.ModelBacklink>[]),
+  obx_int.ModelEntity(
+      id: const obx_int.IdUid(10, 6265575256744728211),
+      name: 'AntecedentesGinecologicos',
+      lastPropertyId: const obx_int.IdUid(20, 262735448775988304),
+      flags: 0,
+      properties: <obx_int.ModelProperty>[
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(1, 6340620844092128394),
+            name: 'id',
+            type: 6,
+            flags: 1),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(2, 6337076424718218952),
+            name: 'pacienteId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(10, 719517241994446575),
+            relationTarget: 'Paciente'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(3, 496932225044019611),
+            name: 'edadMenopausia',
+            type: 6,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(4, 7332698098405879065),
+            name: 'caracteristicasMenopausia',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(5, 3877602440918025645),
+            name: 'edadMenarquia',
+            type: 6,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(6, 9127667465145601622),
+            name: 'caracteristicasMenarquia',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(7, 4996835195359248777),
+            name: 'edadPrimeraRelacion',
+            type: 6,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(8, 1678384534076800390),
+            name: 'formulaMenstrual',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(9, 4895745313316965039),
+            name: 'fechaUltimaMenstruacion',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(10, 328889848585321488),
+            name: 'tipoMenstruacion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(11, 9068787682781689316),
+            name: 'fechaUltimoUso',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(12, 4502406977430949785),
+            name: 'descripcion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(13, 833336766771507769),
+            name: 'barrera',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(14, 5131025714027851305),
+            name: 'diu',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(15, 294323511258747371),
+            name: 'hormonales',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(16, 4286096479562353190),
+            name: 'fechaPruebaCitologica',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(17, 3498436288539739283),
+            name: 'resultadoPruebaCitologica',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(18, 5590390102038890501),
+            name: 'fueraDeProgramaPruebaCitologica',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(19, 6273744190860635088),
+            name: 'observacionesPruebaCitologica',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(20, 262735448775988304),
+            name: 'observacionesAnticonceptivos',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <obx_int.ModelRelation>[],
+      backlinks: <obx_int.ModelBacklink>[]),
+  obx_int.ModelEntity(
+      id: const obx_int.IdUid(11, 7515282698112778171),
+      name: 'AntecedentesObstetricos',
+      lastPropertyId: const obx_int.IdUid(2, 4324181607154178539),
+      flags: 0,
+      properties: <obx_int.ModelProperty>[
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(1, 4541635125495917171),
+            name: 'id',
+            type: 6,
+            flags: 1),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(2, 4324181607154178539),
+            name: 'pacienteId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(11, 4945938991848942102),
+            relationTarget: 'Paciente')
+      ],
+      relations: <obx_int.ModelRelation>[],
+      backlinks: <obx_int.ModelBacklink>[
+        obx_int.ModelBacklink(
+            name: 'embarazos', srcEntity: 'Embarazo', srcField: 'antecedente')
+      ]),
+  obx_int.ModelEntity(
+      id: const obx_int.IdUid(12, 6841547090256066026),
+      name: 'AntecedentesPatologicosPersonales',
+      lastPropertyId: const obx_int.IdUid(18, 2501996788533306258),
+      flags: 0,
+      properties: <obx_int.ModelProperty>[
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(1, 1546087731680114519),
+            name: 'id',
+            type: 6,
+            flags: 1),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(2, 5086500371646249790),
+            name: 'pacienteId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(12, 2066808792837593203),
+            relationTarget: 'Paciente'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(3, 4674527364876087987),
+            name: 'enfermedadesGenerales',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(4, 8540465277547484408),
+            name: 'enfermedadesEndocrinas',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(5, 1527718408139367666),
+            name: 'enfermedadesRespiratorias',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(6, 1910622935724342727),
+            name: 'enfermedadesCardiovasculares',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(7, 2090715779026664806),
+            name: 'enfermedadesDigestivas',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(8, 8944902116123009225),
+            name: 'enfermedadesRenales',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(9, 1213867974731556944),
+            name: 'enfermedadesNeuronales',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(10, 4760638037735486042),
+            name: 'enfermedadesHematologicas',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(11, 5123732707634050567),
+            name: 'enfermedadesReumatologicas',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(12, 2986491844879110550),
+            name: 'enfermedadesTransmisionSexual',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(13, 670672201162275032),
+            name: 'enfermedadesGinecologicas',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(14, 6260864640335091215),
+            name: 'antecedentesFamiliares',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(15, 202879185287663209),
+            name: 'antecedentesQuirugicos',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(16, 6241620025890198923),
+            name: 'habitosPsicobiologicos',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(17, 6982008057552435857),
+            name: 'transfusionesPrevias',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(18, 2501996788533306258),
+            name: 'inmunizaciones',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <obx_int.ModelRelation>[],
+      backlinks: <obx_int.ModelBacklink>[]),
+  obx_int.ModelEntity(
+      id: const obx_int.IdUid(13, 287259560606766573),
+      name: 'Embarazo',
+      lastPropertyId: const obx_int.IdUid(15, 5187099008928967316),
+      flags: 0,
+      properties: <obx_int.ModelProperty>[
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(1, 5160650427291190398),
+            name: 'id',
+            type: 6,
+            flags: 1),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(2, 1902433955881587912),
+            name: 'numeroEmbarazo',
+            type: 6,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(3, 4900038378175904115),
+            name: 'fecha',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(4, 2851928007086493565),
+            name: 'semanasGestacion',
+            type: 6,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(7, 4284865350876264121),
+            name: 'tipoParto',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(8, 7908579206188175915),
+            name: 'tipoDistocia',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(9, 6968823298149050884),
+            name: 'lugarParto',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(10, 978206337315413943),
+            name: 'patologiasAsociadas',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(11, 7727317431015412136),
+            name: 'tipoAborto',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(12, 4610857261106000445),
+            name: 'tipoProvocado',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(13, 8939084310912666623),
+            name: 'observacionesAborto',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(14, 1593870539053063314),
+            name: 'antecedenteId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(13, 4715142463696717466),
+            relationTarget: 'AntecedentesObstetricos'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(15, 5187099008928967316),
+            name: 'tipoNacimiento',
+            type: 9,
+            flags: 0)
+      ],
+      relations: <obx_int.ModelRelation>[],
+      backlinks: <obx_int.ModelBacklink>[
+        obx_int.ModelBacklink(
+            name: 'recienNacidos',
+            srcEntity: 'RecienNacido',
+            srcField: 'embarazo')
+      ]),
+  obx_int.ModelEntity(
+      id: const obx_int.IdUid(14, 6235463827782746160),
+      name: 'EmbarazoActual',
+      lastPropertyId: const obx_int.IdUid(8, 7511285729094350432),
+      flags: 0,
+      properties: <obx_int.ModelProperty>[
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(1, 2080245851396998490),
+            name: 'id',
+            type: 6,
+            flags: 1),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(2, 4086726715362175334),
+            name: 'fechaUltimaMenstruacion',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(3, 8903853413804972),
+            name: 'noConfiable',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(4, 4854154239984764654),
+            name: 'desconocida',
+            type: 1,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(5, 8083539504589348504),
+            name: 'fechaPartoEstimado',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(6, 1603297315745538657),
+            name: 'captacion',
+            type: 6,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(7, 3496014688395580125),
+            name: 'semanas',
+            type: 6,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(8, 7511285729094350432),
+            name: 'pacienteId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(14, 3876254762243395606),
+            relationTarget: 'Paciente')
+      ],
+      relations: <obx_int.ModelRelation>[],
+      backlinks: <obx_int.ModelBacklink>[]),
+  obx_int.ModelEntity(
+      id: const obx_int.IdUid(15, 7819792788201191823),
+      name: 'Paciente',
+      lastPropertyId: const obx_int.IdUid(39, 8687518481566774608),
+      flags: 0,
+      properties: <obx_int.ModelProperty>[
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(1, 5003310458433193180),
+            name: 'id',
+            type: 6,
+            flags: 1),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(2, 3685992406919139464),
+            name: 'nombre',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(3, 4913872949104313156),
+            name: 'primerApellido',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(4, 5449447902376678691),
+            name: 'segundoApellido',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(5, 1735886001828048),
+            name: 'fechaNacimiento',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(6, 7683826282324256157),
+            name: 'sexo',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(7, 3124435221483074538),
+            name: 'direccion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(8, 2766508771815168519),
+            name: 'tipoDePaciente',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(9, 7210409027197406566),
+            name: 'noIdentidad',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(10, 7202810282711116139),
+            name: 'edad',
+            type: 6,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(11, 6056306970981627334),
+            name: 'aboRh',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(12, 2079362859365626804),
+            name: 'unidadHospitalaria',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(13, 4434675790949902236),
+            name: 'policlinico',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(14, 567865882854593564),
+            name: 'estadoCivil',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(15, 3506403224399319593),
+            name: 'escolaridad',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(16, 1745041602915149099),
+            name: 'consultorio',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(17, 1799086577657064980),
+            name: 'ocupacion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(18, 1708712811142794749),
+            name: 'fechaDeRegistro',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(19, 771152576103031310),
+            name: 'fechaDeActualizacion',
+            type: 10,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(20, 7935215777929040085),
+            name: 'noDormitorios',
+            type: 6,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(21, 7965182904443275984),
+            name: 'noPersonasNucleoPersonal',
+            type: 6,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(22, 2156421535646195896),
+            name: 'tipoDeRiesgo',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(23, 4271805712454420488),
+            name: 'datosDeInteres',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(24, 8410916518825622674),
+            name: 'tipoDeDiagnostico',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(25, 3805597073590718173),
+            name: 'codigo',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(26, 1349887420734024901),
+            name: 'descripcion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(27, 6200163559727514229),
+            name: 'estructura',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(28, 7528925802203605347),
+            name: 'conductaSeguida',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(29, 1022150161040324123),
+            name: 'antecedentesPatologicasPersonalesId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(15, 5922747125499499784),
+            relationTarget: 'AntecedentesPatologicosPersonales'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(30, 7752422213230051873),
+            name: 'embarazoActualId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(16, 5489811246854338976),
+            relationTarget: 'EmbarazoActual'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(31, 87336437445300394),
+            name: 'interrogatorioId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(17, 5362769958513145864),
+            relationTarget: 'Interrogatorio'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(32, 7587276191093045),
+            name: 'signosVitalesId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(18, 1145306280934884395),
+            relationTarget: 'SignosVitalesModel'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(33, 7334625052975835733),
+            name: 'examenFisicoId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(19, 7710697020983658113),
+            relationTarget: 'ExamenFisicoModel'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(34, 130735408396117198),
+            name: 'interconsultasId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(20, 5966339612515707836),
+            relationTarget: 'InterconsultasModel'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(35, 4308397942225263434),
+            name: 'geneticaId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(21, 8091368372721034166),
+            relationTarget: 'GeneticaModel'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(36, 1796240520529020331),
+            name: 'laboratorioId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(22, 5928091109294448098),
+            relationTarget: 'LaboratorioMicrobiologiaModel'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(37, 7176560344217269566),
+            name: 'traumatismoAccidentes',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(38, 6033364301099228043),
+            name: 'antecedentesGinecologicosId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(24, 7241741734946753432),
+            relationTarget: 'AntecedentesGinecologicos'),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(39, 8687518481566774608),
+            name: 'antecedentesObstetricosId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(25, 8559783333958603281),
+            relationTarget: 'AntecedentesObstetricos')
+      ],
+      relations: <obx_int.ModelRelation>[],
+      backlinks: <obx_int.ModelBacklink>[]),
+  obx_int.ModelEntity(
+      id: const obx_int.IdUid(16, 3926236565943512946),
+      name: 'RecienNacido',
+      lastPropertyId: const obx_int.IdUid(10, 2491436019194960302),
+      flags: 0,
+      properties: <obx_int.ModelProperty>[
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(1, 1810268648533227585),
+            name: 'id',
+            type: 6,
+            flags: 1),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(2, 5699819225327229293),
+            name: 'peso',
+            type: 8,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(3, 4275464295734185357),
+            name: 'sexo',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(4, 7872572637823003542),
+            name: 'estado',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(5, 7253380748864174077),
+            name: 'datosInteres',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(6, 1350268673781002167),
+            name: 'apgar',
+            type: 6,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(7, 241988868897107207),
+            name: 'puntos',
+            type: 6,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(8, 8180898083445737289),
+            name: 'ocurrenciaDefuncion',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(9, 329867671139144793),
+            name: 'edadAlFallecer',
+            type: 9,
+            flags: 0),
+        obx_int.ModelProperty(
+            id: const obx_int.IdUid(10, 2491436019194960302),
+            name: 'embarazoId',
+            type: 11,
+            flags: 520,
+            indexId: const obx_int.IdUid(23, 7146683255210309692),
+            relationTarget: 'Embarazo')
       ],
       relations: <obx_int.ModelRelation>[],
       backlinks: <obx_int.ModelBacklink>[])
@@ -2464,1288 +2437,29 @@ Future<obx.Store> openStore(
 obx_int.ModelDefinition getObjectBoxModel() {
   final model = obx_int.ModelInfo(
       entities: _entities,
-      lastEntityId: const obx_int.IdUid(20, 4744735908949802630),
-      lastIndexId: const obx_int.IdUid(28, 1214914561460118661),
-      lastRelationId: const obx_int.IdUid(14, 5431265603138581775),
+      lastEntityId: const obx_int.IdUid(16, 3926236565943512946),
+      lastIndexId: const obx_int.IdUid(25, 8559783333958603281),
+      lastRelationId: const obx_int.IdUid(0, 0),
       lastSequenceId: const obx_int.IdUid(0, 0),
-      retiredEntityUids: const [3996157001370866902, 6473606377810914912],
-      retiredIndexUids: const [8057303325378860992, 3360524346302828976],
+      retiredEntityUids: const [927412057051305507],
+      retiredIndexUids: const [],
       retiredPropertyUids: const [
-        4620656507009253317,
-        8313944828278512612,
-        8192819360287344475,
-        2789899094985484205,
-        7004613500463965696,
-        4031979108904179218,
-        1041392091051900192,
-        4736388164980832843,
-        8396832012455940696,
-        1315203403585535857
+        7296807794567256352,
+        8096645604214935358,
+        7497143060541371806,
+        2386030017791163027,
+        4822483313436385638,
+        6508011883525494388,
+        989350632995913814
       ],
-      retiredRelationUids: const [737123734785742008, 5549541683541151137],
+      retiredRelationUids: const [],
       modelVersion: 5,
       modelVersionParserMinimum: 5,
       version: 1);
 
   final bindings = <Type, obx_int.EntityDefinition>{
-    Interrogatorio: obx_int.EntityDefinition<Interrogatorio>(
-        model: _entities[0],
-        toOneRelations: (Interrogatorio object) => [object.paciente],
-        toManyRelations: (Interrogatorio object) => {},
-        getId: (Interrogatorio object) => object.id,
-        setId: (Interrogatorio object, int id) {
-          object.id = id;
-        },
-        objectToFB: (Interrogatorio object, fb.Builder fbb) {
-          final srObservacionesOffset = object.srObservaciones == null
-              ? null
-              : fbb.writeString(object.srObservaciones!);
-          final scObservacionesOffset = object.scObservaciones == null
-              ? null
-              : fbb.writeString(object.scObservaciones!);
-          final sdObservacionesOffset = object.sdObservaciones == null
-              ? null
-              : fbb.writeString(object.sdObservaciones!);
-          final suObservacionesOffset = object.suObservaciones == null
-              ? null
-              : fbb.writeString(object.suObservaciones!);
-          final snObservacionesOffset = object.snObservaciones == null
-              ? null
-              : fbb.writeString(object.snObservaciones!);
-          final seObservacionesOffset = object.seObservaciones == null
-              ? null
-              : fbb.writeString(object.seObservaciones!);
-          final observacionesOffset = object.observaciones == null
-              ? null
-              : fbb.writeString(object.observaciones!);
-          fbb.startTable(87);
-          fbb.addInt64(0, object.id);
-          fbb.addInt64(1, object.paciente.targetId);
-          fbb.addBool(2, object.srDisnea);
-          fbb.addBool(3, object.srDolor);
-          fbb.addBool(4, object.srHermoptisis);
-          fbb.addBool(5, object.srExpectoracion);
-          fbb.addBool(6, object.srTos);
-          fbb.addBool(7, object.srOtros);
-          fbb.addOffset(8, srObservacionesOffset);
-          fbb.addBool(9, object.scDisnea);
-          fbb.addBool(10, object.scDolor);
-          fbb.addBool(11, object.scClaudicacionIntermitente);
-          fbb.addBool(12, object.scCianosis);
-          fbb.addBool(13, object.scTos);
-          fbb.addBool(14, object.scPalpitaciones);
-          fbb.addBool(15, object.scOtros);
-          fbb.addOffset(16, scObservacionesOffset);
-          fbb.addBool(17, object.sdDisfagia);
-          fbb.addBool(18, object.sdDolor);
-          fbb.addBool(19, object.sdColicos);
-          fbb.addBool(20, object.sdHermatemesis);
-          fbb.addBool(21, object.sdAcolia);
-          fbb.addBool(22, object.sdPirosis);
-          fbb.addBool(23, object.sdNauseas);
-          fbb.addBool(24, object.sdEnterorragia);
-          fbb.addBool(25, object.sdConstipacion);
-          fbb.addBool(26, object.sdAcidez);
-          fbb.addBool(27, object.sdDiarreas);
-          fbb.addBool(28, object.sdAerogastrias);
-          fbb.addBool(29, object.sdVomitos);
-          fbb.addBool(30, object.sdMelena);
-          fbb.addBool(31, object.sdOtros);
-          fbb.addOffset(32, sdObservacionesOffset);
-          fbb.addBool(33, object.suNicturioas);
-          fbb.addBool(34, object.suDolor);
-          fbb.addBool(35, object.suOrinasTurbias);
-          fbb.addBool(36, object.suExudadoUretral);
-          fbb.addBool(37, object.suDisuria);
-          fbb.addBool(38, object.suRetencionUrinaria);
-          fbb.addBool(39, object.suHermaturia);
-          fbb.addBool(40, object.suIncontinencia);
-          fbb.addBool(41, object.suPolaquiuria);
-          fbb.addBool(42, object.suUretorragia);
-          fbb.addBool(43, object.suImpotiencia);
-          fbb.addBool(44, object.suTumoracion);
-          fbb.addBool(45, object.suCalculos);
-          fbb.addBool(46, object.suOtros);
-          fbb.addOffset(47, suObservacionesOffset);
-          fbb.addBool(48, object.snCefaleas);
-          fbb.addBool(49, object.snDolorFacial);
-          fbb.addBool(50, object.snVomitos);
-          fbb.addBool(51, object.snDolorCervical);
-          fbb.addBool(52, object.snVertigos);
-          fbb.addBool(53, object.snDolorLumbar);
-          fbb.addBool(54, object.snConvulsiones);
-          fbb.addBool(55, object.snAlteracionMarcha);
-          fbb.addBool(56, object.snDefictMotor);
-          fbb.addBool(57, object.snAlteracionEquilibrio);
-          fbb.addBool(58, object.snDeficitSensitivo);
-          fbb.addBool(59, object.snAlteracionVisual);
-          fbb.addBool(60, object.snAlteracionConciencia);
-          fbb.addBool(61, object.snDificultadHablarEntender);
-          fbb.addBool(62, object.snOtros);
-          fbb.addOffset(63, snObservacionesOffset);
-          fbb.addBool(64, object.seHipofisis);
-          fbb.addBool(65, object.seOvarios);
-          fbb.addBool(66, object.sePancreas);
-          fbb.addBool(67, object.seSuprarrenal);
-          fbb.addBool(68, object.seParatiroideas);
-          fbb.addBool(69, object.seTiroides);
-          fbb.addBool(70, object.seTesticulos);
-          fbb.addBool(71, object.seOtros);
-          fbb.addOffset(72, seObservacionesOffset);
-          fbb.addBool(73, object.astenia);
-          fbb.addBool(74, object.anorexia);
-          fbb.addBool(75, object.epistaxis);
-          fbb.addBool(76, object.fiebre);
-          fbb.addBool(77, object.artralgia);
-          fbb.addBool(78, object.polifagia);
-          fbb.addBool(79, object.edema);
-          fbb.addBool(80, object.prurito);
-          fbb.addBool(81, object.perdidaPeso);
-          fbb.addBool(82, object.gananciaPeso);
-          fbb.addBool(83, object.acroparentesias);
-          fbb.addBool(84, object.otros);
-          fbb.addOffset(85, observacionesOffset);
-          fbb.finish(fbb.endTable());
-          return object.id;
-        },
-        objectFromFB: (obx.Store store, ByteData fbData) {
-          final buffer = fb.BufferContext(fbData);
-          final rootOffset = buffer.derefObject(0);
-          final idParam =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
-          final srDisneaParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 8);
-          final srDolorParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 10);
-          final srHermoptisisParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 12);
-          final srExpectoracionParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 14);
-          final srTosParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 16);
-          final srOtrosParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 18);
-          final srObservacionesParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 20);
-          final scDisneaParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 22);
-          final scDolorParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 24);
-          final scClaudicacionIntermitenteParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 26);
-          final scCianosisParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 28);
-          final scTosParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 30);
-          final scPalpitacionesParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 32);
-          final scOtrosParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 34);
-          final scObservacionesParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 36);
-          final sdDisfagiaParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 38);
-          final sdDolorParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 40);
-          final sdColicosParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 42);
-          final sdHermatemesisParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 44);
-          final sdAcoliaParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 46);
-          final sdPirosisParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 48);
-          final sdNauseasParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 50);
-          final sdEnterorragiaParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 52);
-          final sdConstipacionParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 54);
-          final sdAcidezParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 56);
-          final sdDiarreasParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 58);
-          final sdAerogastriasParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 60);
-          final sdVomitosParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 62);
-          final sdMelenaParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 64);
-          final sdOtrosParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 66);
-          final sdObservacionesParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 68);
-          final suNicturioasParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 70);
-          final suDolorParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 72);
-          final suOrinasTurbiasParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 74);
-          final suExudadoUretralParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 76);
-          final suDisuriaParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 78);
-          final suRetencionUrinariaParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 80);
-          final suHermaturiaParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 82);
-          final suIncontinenciaParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 84);
-          final suPolaquiuriaParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 86);
-          final suUretorragiaParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 88);
-          final suImpotienciaParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 90);
-          final suTumoracionParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 92);
-          final suCalculosParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 94);
-          final suOtrosParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 96);
-          final suObservacionesParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 98);
-          final snCefaleasParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 100);
-          final snDolorFacialParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 102);
-          final snVomitosParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 104);
-          final snDolorCervicalParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 106);
-          final snVertigosParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 108);
-          final snDolorLumbarParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 110);
-          final snConvulsionesParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 112);
-          final snAlteracionMarchaParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 114);
-          final snDefictMotorParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 116);
-          final snAlteracionEquilibrioParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 118);
-          final snDeficitSensitivoParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 120);
-          final snAlteracionVisualParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 122);
-          final snAlteracionConcienciaParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 124);
-          final snDificultadHablarEntenderParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 126);
-          final snOtrosParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 128);
-          final snObservacionesParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 130);
-          final seHipofisisParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 132);
-          final seOvariosParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 134);
-          final sePancreasParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 136);
-          final seSuprarrenalParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 138);
-          final seParatiroideasParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 140);
-          final seTiroidesParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 142);
-          final seTesticulosParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 144);
-          final seOtrosParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 146);
-          final seObservacionesParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 148);
-          final asteniaParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 150);
-          final anorexiaParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 152);
-          final epistaxisParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 154);
-          final fiebreParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 156);
-          final artralgiaParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 158);
-          final polifagiaParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 160);
-          final edemaParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 162);
-          final pruritoParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 164);
-          final perdidaPesoParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 166);
-          final gananciaPesoParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 168);
-          final acroparentesiasParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 170);
-          final otrosParam =
-              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 172);
-          final observacionesParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 174);
-          final object = Interrogatorio(
-              id: idParam,
-              srDisnea: srDisneaParam,
-              srDolor: srDolorParam,
-              srHermoptisis: srHermoptisisParam,
-              srExpectoracion: srExpectoracionParam,
-              srTos: srTosParam,
-              srOtros: srOtrosParam,
-              srObservaciones: srObservacionesParam,
-              scDisnea: scDisneaParam,
-              scDolor: scDolorParam,
-              scClaudicacionIntermitente: scClaudicacionIntermitenteParam,
-              scCianosis: scCianosisParam,
-              scTos: scTosParam,
-              scPalpitaciones: scPalpitacionesParam,
-              scOtros: scOtrosParam,
-              scObservaciones: scObservacionesParam,
-              sdDisfagia: sdDisfagiaParam,
-              sdDolor: sdDolorParam,
-              sdColicos: sdColicosParam,
-              sdHermatemesis: sdHermatemesisParam,
-              sdAcolia: sdAcoliaParam,
-              sdPirosis: sdPirosisParam,
-              sdNauseas: sdNauseasParam,
-              sdEnterorragia: sdEnterorragiaParam,
-              sdConstipacion: sdConstipacionParam,
-              sdAcidez: sdAcidezParam,
-              sdDiarreas: sdDiarreasParam,
-              sdAerogastrias: sdAerogastriasParam,
-              sdVomitos: sdVomitosParam,
-              sdMelena: sdMelenaParam,
-              sdOtros: sdOtrosParam,
-              sdObservaciones: sdObservacionesParam,
-              suNicturioas: suNicturioasParam,
-              suDolor: suDolorParam,
-              suOrinasTurbias: suOrinasTurbiasParam,
-              suExudadoUretral: suExudadoUretralParam,
-              suDisuria: suDisuriaParam,
-              suRetencionUrinaria: suRetencionUrinariaParam,
-              suHermaturia: suHermaturiaParam,
-              suIncontinencia: suIncontinenciaParam,
-              suPolaquiuria: suPolaquiuriaParam,
-              suUretorragia: suUretorragiaParam,
-              suImpotiencia: suImpotienciaParam,
-              suTumoracion: suTumoracionParam,
-              suCalculos: suCalculosParam,
-              suOtros: suOtrosParam,
-              suObservaciones: suObservacionesParam,
-              snCefaleas: snCefaleasParam,
-              snDolorFacial: snDolorFacialParam,
-              snVomitos: snVomitosParam,
-              snDolorCervical: snDolorCervicalParam,
-              snVertigos: snVertigosParam,
-              snDolorLumbar: snDolorLumbarParam,
-              snConvulsiones: snConvulsionesParam,
-              snAlteracionMarcha: snAlteracionMarchaParam,
-              snDefictMotor: snDefictMotorParam,
-              snAlteracionEquilibrio: snAlteracionEquilibrioParam,
-              snDeficitSensitivo: snDeficitSensitivoParam,
-              snAlteracionVisual: snAlteracionVisualParam,
-              snAlteracionConciencia: snAlteracionConcienciaParam,
-              snDificultadHablarEntender: snDificultadHablarEntenderParam,
-              snOtros: snOtrosParam,
-              snObservaciones: snObservacionesParam,
-              seHipofisis: seHipofisisParam,
-              seOvarios: seOvariosParam,
-              sePancreas: sePancreasParam,
-              seSuprarrenal: seSuprarrenalParam,
-              seParatiroideas: seParatiroideasParam,
-              seTiroides: seTiroidesParam,
-              seTesticulos: seTesticulosParam,
-              seOtros: seOtrosParam,
-              seObservaciones: seObservacionesParam,
-              astenia: asteniaParam,
-              anorexia: anorexiaParam,
-              epistaxis: epistaxisParam,
-              fiebre: fiebreParam,
-              artralgia: artralgiaParam,
-              polifagia: polifagiaParam,
-              edema: edemaParam,
-              prurito: pruritoParam,
-              perdidaPeso: perdidaPesoParam,
-              gananciaPeso: gananciaPesoParam,
-              acroparentesias: acroparentesiasParam,
-              otros: otrosParam,
-              observaciones: observacionesParam);
-          object.paciente.targetId =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0);
-          object.paciente.attach(store);
-          return object;
-        }),
-    Antecedente: obx_int.EntityDefinition<Antecedente>(
-        model: _entities[1],
-        toOneRelations: (Antecedente object) => [object.paciente],
-        toManyRelations: (Antecedente object) => {},
-        getId: (Antecedente object) => object.id,
-        setId: (Antecedente object, int id) {
-          object.id = id;
-        },
-        objectToFB: (Antecedente object, fb.Builder fbb) {
-          final tipoOffset =
-              object.tipo == null ? null : fbb.writeString(object.tipo!);
-          final descripcionOffset = object.descripcion == null
-              ? null
-              : fbb.writeString(object.descripcion!);
-          fbb.startTable(6);
-          fbb.addInt64(0, object.id);
-          fbb.addInt64(1, object.paciente.targetId);
-          fbb.addOffset(2, tipoOffset);
-          fbb.addOffset(3, descripcionOffset);
-          fbb.addInt64(4, object.fecha?.millisecondsSinceEpoch);
-          fbb.finish(fbb.endTable());
-          return object.id;
-        },
-        objectFromFB: (obx.Store store, ByteData fbData) {
-          final buffer = fb.BufferContext(fbData);
-          final rootOffset = buffer.derefObject(0);
-          final fechaValue =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 12);
-          final tipoParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 8);
-          final descripcionParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 10);
-          final fechaParam = fechaValue == null
-              ? null
-              : DateTime.fromMillisecondsSinceEpoch(fechaValue);
-          final idParam =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
-          final object = Antecedente(
-              tipo: tipoParam,
-              descripcion: descripcionParam,
-              fecha: fechaParam,
-              id: idParam);
-          object.paciente.targetId =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0);
-          object.paciente.attach(store);
-          return object;
-        }),
-    AntecedentesGinecologicos: obx_int.EntityDefinition<
-            AntecedentesGinecologicos>(
-        model: _entities[2],
-        toOneRelations: (AntecedentesGinecologicos object) => [object.paciente],
-        toManyRelations: (AntecedentesGinecologicos object) => {
-              obx_int.RelInfo<AntecedentesGinecologicos>.toMany(3, object.id):
-                  object.resultadosCitologicos
-            },
-        getId: (AntecedentesGinecologicos object) => object.id,
-        setId: (AntecedentesGinecologicos object, int id) {
-          object.id = id;
-        },
-        objectToFB: (AntecedentesGinecologicos object, fb.Builder fbb) {
-          final caracteristicasMenopausiaOffset =
-              object.caracteristicasMenopausia == null
-                  ? null
-                  : fbb.writeString(object.caracteristicasMenopausia!);
-          final caracteristicasMenarquiaOffset =
-              object.caracteristicasMenarquia == null
-                  ? null
-                  : fbb.writeString(object.caracteristicasMenarquia!);
-          final formulaMenstrualOffset = object.formulaMenstrual == null
-              ? null
-              : fbb.writeString(object.formulaMenstrual!);
-          final tipoMenstruacionOffset = object.tipoMenstruacion == null
-              ? null
-              : fbb.writeString(object.tipoMenstruacion!);
-          final descripcionOffset = object.descripcion == null
-              ? null
-              : fbb.writeString(object.descripcion!);
-          fbb.startTable(16);
-          fbb.addInt64(0, object.id);
-          fbb.addInt64(1, object.paciente.targetId);
-          fbb.addInt64(2, object.edadMenopausia);
-          fbb.addOffset(3, caracteristicasMenopausiaOffset);
-          fbb.addInt64(4, object.edadMenarquia);
-          fbb.addOffset(5, caracteristicasMenarquiaOffset);
-          fbb.addInt64(6, object.edadPrimeraRelacion);
-          fbb.addOffset(7, formulaMenstrualOffset);
-          fbb.addInt64(
-              8, object.fechaUltimaMenstruacion?.millisecondsSinceEpoch);
-          fbb.addOffset(9, tipoMenstruacionOffset);
-          fbb.addInt64(10, object.fechaUltimoUso?.millisecondsSinceEpoch);
-          fbb.addOffset(11, descripcionOffset);
-          fbb.addBool(12, object.barrera);
-          fbb.addBool(13, object.diu);
-          fbb.addBool(14, object.hormonales);
-          fbb.finish(fbb.endTable());
-          return object.id;
-        },
-        objectFromFB: (obx.Store store, ByteData fbData) {
-          final buffer = fb.BufferContext(fbData);
-          final rootOffset = buffer.derefObject(0);
-          final fechaUltimaMenstruacionValue =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 20);
-          final fechaUltimoUsoValue =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 24);
-          final idParam =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
-          final object = AntecedentesGinecologicos(id: idParam)
-            ..edadMenopausia =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 8)
-            ..caracteristicasMenopausia =
-                const fb.StringReader(asciiOptimization: true)
-                    .vTableGetNullable(buffer, rootOffset, 10)
-            ..edadMenarquia =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 12)
-            ..caracteristicasMenarquia =
-                const fb.StringReader(asciiOptimization: true)
-                    .vTableGetNullable(buffer, rootOffset, 14)
-            ..edadPrimeraRelacion =
-                const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 16)
-            ..formulaMenstrual = const fb.StringReader(asciiOptimization: true)
-                .vTableGetNullable(buffer, rootOffset, 18)
-            ..fechaUltimaMenstruacion = fechaUltimaMenstruacionValue == null
-                ? null
-                : DateTime.fromMillisecondsSinceEpoch(
-                    fechaUltimaMenstruacionValue)
-            ..tipoMenstruacion = const fb.StringReader(asciiOptimization: true)
-                .vTableGetNullable(buffer, rootOffset, 22)
-            ..fechaUltimoUso = fechaUltimoUsoValue == null
-                ? null
-                : DateTime.fromMillisecondsSinceEpoch(fechaUltimoUsoValue)
-            ..descripcion = const fb.StringReader(asciiOptimization: true)
-                .vTableGetNullable(buffer, rootOffset, 26)
-            ..barrera =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 28)
-            ..diu =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 30)
-            ..hormonales =
-                const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 32);
-          object.paciente.targetId =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0);
-          object.paciente.attach(store);
-          obx_int.InternalToManyAccess.setRelInfo<AntecedentesGinecologicos>(
-              object.resultadosCitologicos,
-              store,
-              obx_int.RelInfo<AntecedentesGinecologicos>.toMany(3, object.id));
-          return object;
-        }),
-    AntecedentesObstetricos: obx_int.EntityDefinition<AntecedentesObstetricos>(
-        model: _entities[3],
-        toOneRelations: (AntecedentesObstetricos object) => [object.paciente],
-        toManyRelations: (AntecedentesObstetricos object) => {
-              obx_int.RelInfo<Embarazo>.toOneBacklink(10, object.id,
-                      (Embarazo srcObject) => srcObject.antecedente):
-                  object.embarazos
-            },
-        getId: (AntecedentesObstetricos object) => object.id,
-        setId: (AntecedentesObstetricos object, int id) {
-          object.id = id;
-        },
-        objectToFB: (AntecedentesObstetricos object, fb.Builder fbb) {
-          fbb.startTable(3);
-          fbb.addInt64(0, object.id);
-          fbb.addInt64(1, object.paciente.targetId);
-          fbb.finish(fbb.endTable());
-          return object.id;
-        },
-        objectFromFB: (obx.Store store, ByteData fbData) {
-          final buffer = fb.BufferContext(fbData);
-          final rootOffset = buffer.derefObject(0);
-          final idParam =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
-          final object = AntecedentesObstetricos(id: idParam);
-          object.paciente.targetId =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0);
-          object.paciente.attach(store);
-          obx_int.InternalToManyAccess.setRelInfo<AntecedentesObstetricos>(
-              object.embarazos,
-              store,
-              obx_int.RelInfo<Embarazo>.toOneBacklink(10, object.id,
-                  (Embarazo srcObject) => srcObject.antecedente));
-          return object;
-        }),
-    AntecedentesPatologicosPersonales:
-        obx_int.EntityDefinition<AntecedentesPatologicosPersonales>(
-            model: _entities[4],
-            toOneRelations: (AntecedentesPatologicosPersonales object) =>
-                [object.paciente],
-            toManyRelations: (AntecedentesPatologicosPersonales object) => {
-                  obx_int.RelInfo<AntecedentesPatologicosPersonales>.toMany(
-                      4, object.id): object.enfermedadesGenerales,
-                  obx_int.RelInfo<AntecedentesPatologicosPersonales>.toMany(
-                      5, object.id): object.enfermedadesEndocrinas,
-                  obx_int.RelInfo<AntecedentesPatologicosPersonales>.toMany(
-                      6, object.id): object.enfermedadesRespiratorias,
-                  obx_int.RelInfo<AntecedentesPatologicosPersonales>.toMany(
-                      7, object.id): object.enfermedadesCardiovasculares,
-                  obx_int.RelInfo<AntecedentesPatologicosPersonales>.toMany(
-                      8, object.id): object.enfermedadesDigestivas,
-                  obx_int.RelInfo<AntecedentesPatologicosPersonales>.toMany(
-                      9, object.id): object.enfermedadesRenales,
-                  obx_int.RelInfo<AntecedentesPatologicosPersonales>.toMany(
-                      10, object.id): object.enfermedadesNeuronales,
-                  obx_int.RelInfo<AntecedentesPatologicosPersonales>.toMany(
-                      11, object.id): object.enfermedadesHematologicas,
-                  obx_int.RelInfo<AntecedentesPatologicosPersonales>.toMany(
-                      12, object.id): object.enfermedadesReumatologicas,
-                  obx_int.RelInfo<AntecedentesPatologicosPersonales>.toMany(
-                      13, object.id): object.enfermedadesTransmisionSexual,
-                  obx_int.RelInfo<AntecedentesPatologicosPersonales>.toMany(
-                      14, object.id): object.enfermedadesGinecologicas
-                },
-            getId: (AntecedentesPatologicosPersonales object) => object.id,
-            setId: (AntecedentesPatologicosPersonales object, int id) {
-              object.id = id;
-            },
-            objectToFB:
-                (AntecedentesPatologicosPersonales object, fb.Builder fbb) {
-              fbb.startTable(3);
-              fbb.addInt64(0, object.id);
-              fbb.addInt64(1, object.paciente.targetId);
-              fbb.finish(fbb.endTable());
-              return object.id;
-            },
-            objectFromFB: (obx.Store store, ByteData fbData) {
-              final buffer = fb.BufferContext(fbData);
-              final rootOffset = buffer.derefObject(0);
-              final idParam =
-                  const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
-              final object = AntecedentesPatologicosPersonales(id: idParam);
-              object.paciente.targetId =
-                  const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0);
-              object.paciente.attach(store);
-              obx_int.InternalToManyAccess.setRelInfo<
-                      AntecedentesPatologicosPersonales>(
-                  object.enfermedadesGenerales,
-                  store,
-                  obx_int.RelInfo<AntecedentesPatologicosPersonales>.toMany(
-                      4, object.id));
-              obx_int.InternalToManyAccess.setRelInfo<
-                      AntecedentesPatologicosPersonales>(
-                  object.enfermedadesEndocrinas,
-                  store,
-                  obx_int.RelInfo<AntecedentesPatologicosPersonales>.toMany(
-                      5, object.id));
-              obx_int.InternalToManyAccess.setRelInfo<
-                      AntecedentesPatologicosPersonales>(
-                  object.enfermedadesRespiratorias,
-                  store,
-                  obx_int.RelInfo<AntecedentesPatologicosPersonales>.toMany(
-                      6, object.id));
-              obx_int.InternalToManyAccess.setRelInfo<
-                      AntecedentesPatologicosPersonales>(
-                  object.enfermedadesCardiovasculares,
-                  store,
-                  obx_int.RelInfo<AntecedentesPatologicosPersonales>.toMany(
-                      7, object.id));
-              obx_int.InternalToManyAccess.setRelInfo<
-                      AntecedentesPatologicosPersonales>(
-                  object.enfermedadesDigestivas,
-                  store,
-                  obx_int.RelInfo<AntecedentesPatologicosPersonales>.toMany(
-                      8, object.id));
-              obx_int.InternalToManyAccess.setRelInfo<
-                      AntecedentesPatologicosPersonales>(
-                  object.enfermedadesRenales,
-                  store,
-                  obx_int.RelInfo<AntecedentesPatologicosPersonales>.toMany(
-                      9, object.id));
-              obx_int.InternalToManyAccess.setRelInfo<
-                      AntecedentesPatologicosPersonales>(
-                  object.enfermedadesNeuronales,
-                  store,
-                  obx_int.RelInfo<AntecedentesPatologicosPersonales>.toMany(
-                      10, object.id));
-              obx_int.InternalToManyAccess.setRelInfo<
-                      AntecedentesPatologicosPersonales>(
-                  object.enfermedadesHematologicas,
-                  store,
-                  obx_int.RelInfo<AntecedentesPatologicosPersonales>.toMany(
-                      11, object.id));
-              obx_int.InternalToManyAccess.setRelInfo<
-                      AntecedentesPatologicosPersonales>(
-                  object.enfermedadesReumatologicas,
-                  store,
-                  obx_int.RelInfo<AntecedentesPatologicosPersonales>.toMany(
-                      12, object.id));
-              obx_int.InternalToManyAccess.setRelInfo<
-                      AntecedentesPatologicosPersonales>(
-                  object.enfermedadesTransmisionSexual,
-                  store,
-                  obx_int.RelInfo<AntecedentesPatologicosPersonales>.toMany(
-                      13, object.id));
-              obx_int.InternalToManyAccess.setRelInfo<
-                      AntecedentesPatologicosPersonales>(
-                  object.enfermedadesGinecologicas,
-                  store,
-                  obx_int.RelInfo<AntecedentesPatologicosPersonales>.toMany(
-                      14, object.id));
-              return object;
-            }),
-    Citologia: obx_int.EntityDefinition<Citologia>(
-        model: _entities[5],
-        toOneRelations: (Citologia object) => [object.antecedente],
-        toManyRelations: (Citologia object) => {},
-        getId: (Citologia object) => object.id,
-        setId: (Citologia object, int id) {
-          object.id = id;
-        },
-        objectToFB: (Citologia object, fb.Builder fbb) {
-          final resultadoOffset = fbb.writeString(object.resultado);
-          final observacionesOffset = object.observaciones == null
-              ? null
-              : fbb.writeString(object.observaciones!);
-          fbb.startTable(7);
-          fbb.addInt64(0, object.id);
-          fbb.addInt64(1, object.fecha.millisecondsSinceEpoch);
-          fbb.addOffset(2, resultadoOffset);
-          fbb.addBool(3, object.fueraDePrograma);
-          fbb.addOffset(4, observacionesOffset);
-          fbb.addInt64(5, object.antecedente.targetId);
-          fbb.finish(fbb.endTable());
-          return object.id;
-        },
-        objectFromFB: (obx.Store store, ByteData fbData) {
-          final buffer = fb.BufferContext(fbData);
-          final rootOffset = buffer.derefObject(0);
-          final idParam =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
-          final fechaParam = DateTime.fromMillisecondsSinceEpoch(
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0));
-          final resultadoParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGet(buffer, rootOffset, 8, '');
-          final fueraDeProgramaParam =
-              const fb.BoolReader().vTableGet(buffer, rootOffset, 10, false);
-          final observacionesParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 12);
-          final object = Citologia(
-              id: idParam,
-              fecha: fechaParam,
-              resultado: resultadoParam,
-              fueraDePrograma: fueraDeProgramaParam,
-              observaciones: observacionesParam);
-          object.antecedente.targetId =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 14, 0);
-          object.antecedente.attach(store);
-          return object;
-        }),
-    Embarazo: obx_int.EntityDefinition<Embarazo>(
-        model: _entities[6],
-        toOneRelations: (Embarazo object) => [object.antecedente],
-        toManyRelations: (Embarazo object) => {
-              obx_int.RelInfo<RecienNacido>.toOneBacklink(10, object.id,
-                      (RecienNacido srcObject) => srcObject.embarazo):
-                  object.recienNacidos
-            },
-        getId: (Embarazo object) => object.id,
-        setId: (Embarazo object, int id) {
-          object.id = id;
-        },
-        objectToFB: (Embarazo object, fb.Builder fbb) {
-          final abortoEtiologiaOffset = object.abortoEtiologia == null
-              ? null
-              : fbb.writeString(object.abortoEtiologia!);
-          final caracteristicasNacimientoOffset =
-              fbb.writeString(object.caracteristicasNacimiento);
-          final tipoPartoOffset = fbb.writeString(object.tipoParto);
-          final tipoDistociaOffset = fbb.writeString(object.tipoDistocia);
-          final lugarPartoOffset = fbb.writeString(object.lugarParto);
-          fbb.startTable(11);
-          fbb.addInt64(0, object.id);
-          fbb.addInt64(1, object.numeroEmbarazo);
-          fbb.addInt64(2, object.fecha.millisecondsSinceEpoch);
-          fbb.addInt64(3, object.semanasGestacion);
-          fbb.addOffset(4, abortoEtiologiaOffset);
-          fbb.addOffset(5, caracteristicasNacimientoOffset);
-          fbb.addOffset(6, tipoPartoOffset);
-          fbb.addOffset(7, tipoDistociaOffset);
-          fbb.addOffset(8, lugarPartoOffset);
-          fbb.addInt64(9, object.antecedente.targetId);
-          fbb.finish(fbb.endTable());
-          return object.id;
-        },
-        objectFromFB: (obx.Store store, ByteData fbData) {
-          final buffer = fb.BufferContext(fbData);
-          final rootOffset = buffer.derefObject(0);
-          final idParam =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
-          final numeroEmbarazoParam =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0);
-          final fechaParam = DateTime.fromMillisecondsSinceEpoch(
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 8, 0));
-          final semanasGestacionParam =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 10, 0);
-          final abortoEtiologiaParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 12);
-          final caracteristicasNacimientoParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGet(buffer, rootOffset, 14, '');
-          final tipoPartoParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGet(buffer, rootOffset, 16, '');
-          final tipoDistociaParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGet(buffer, rootOffset, 18, '');
-          final lugarPartoParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGet(buffer, rootOffset, 20, '');
-          final object = Embarazo(
-              id: idParam,
-              numeroEmbarazo: numeroEmbarazoParam,
-              fecha: fechaParam,
-              semanasGestacion: semanasGestacionParam,
-              abortoEtiologia: abortoEtiologiaParam,
-              caracteristicasNacimiento: caracteristicasNacimientoParam,
-              tipoParto: tipoPartoParam,
-              tipoDistocia: tipoDistociaParam,
-              lugarParto: lugarPartoParam);
-          object.antecedente.targetId =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 22, 0);
-          object.antecedente.attach(store);
-          obx_int.InternalToManyAccess.setRelInfo<Embarazo>(
-              object.recienNacidos,
-              store,
-              obx_int.RelInfo<RecienNacido>.toOneBacklink(10, object.id,
-                  (RecienNacido srcObject) => srcObject.embarazo));
-          return object;
-        }),
-    EmbarazoActual: obx_int.EntityDefinition<EmbarazoActual>(
-        model: _entities[7],
-        toOneRelations: (EmbarazoActual object) => [object.paciente],
-        toManyRelations: (EmbarazoActual object) => {},
-        getId: (EmbarazoActual object) => object.id,
-        setId: (EmbarazoActual object, int id) {
-          object.id = id;
-        },
-        objectToFB: (EmbarazoActual object, fb.Builder fbb) {
-          fbb.startTable(9);
-          fbb.addInt64(0, object.id);
-          fbb.addInt64(
-              1, object.fechaUltimaMenstruacion?.millisecondsSinceEpoch);
-          fbb.addBool(2, object.noConfiable);
-          fbb.addBool(3, object.desconocida);
-          fbb.addInt64(4, object.fechaPartoEstimado?.millisecondsSinceEpoch);
-          fbb.addInt64(5, object.captacion);
-          fbb.addInt64(6, object.semanas);
-          fbb.addInt64(7, object.paciente.targetId);
-          fbb.finish(fbb.endTable());
-          return object.id;
-        },
-        objectFromFB: (obx.Store store, ByteData fbData) {
-          final buffer = fb.BufferContext(fbData);
-          final rootOffset = buffer.derefObject(0);
-          final fechaUltimaMenstruacionValue =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 6);
-          final fechaPartoEstimadoValue =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 12);
-          final idParam =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
-          final fechaUltimaMenstruacionParam =
-              fechaUltimaMenstruacionValue == null
-                  ? null
-                  : DateTime.fromMillisecondsSinceEpoch(
-                      fechaUltimaMenstruacionValue);
-          final noConfiableParam =
-              const fb.BoolReader().vTableGet(buffer, rootOffset, 8, false);
-          final desconocidaParam =
-              const fb.BoolReader().vTableGet(buffer, rootOffset, 10, false);
-          final fechaPartoEstimadoParam = fechaPartoEstimadoValue == null
-              ? null
-              : DateTime.fromMillisecondsSinceEpoch(fechaPartoEstimadoValue);
-          final captacionParam =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 14);
-          final semanasParam =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 16);
-          final object = EmbarazoActual(
-              id: idParam,
-              fechaUltimaMenstruacion: fechaUltimaMenstruacionParam,
-              noConfiable: noConfiableParam,
-              desconocida: desconocidaParam,
-              fechaPartoEstimado: fechaPartoEstimadoParam,
-              captacion: captacionParam,
-              semanas: semanasParam);
-          object.paciente.targetId =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 18, 0);
-          object.paciente.attach(store);
-          return object;
-        }),
-    Enfermedad: obx_int.EntityDefinition<Enfermedad>(
-        model: _entities[8],
-        toOneRelations: (Enfermedad object) => [object.antecedente],
-        toManyRelations: (Enfermedad object) => {},
-        getId: (Enfermedad object) => object.id,
-        setId: (Enfermedad object, int id) {
-          object.id = id;
-        },
-        objectToFB: (Enfermedad object, fb.Builder fbb) {
-          final nombreOffset = fbb.writeString(object.nombre);
-          final descripcionOffset = fbb.writeString(object.descripcion);
-          fbb.startTable(7);
-          fbb.addInt64(0, object.id);
-          fbb.addOffset(1, nombreOffset);
-          fbb.addBool(2, object.cronica);
-          fbb.addInt64(3, object.fecha?.millisecondsSinceEpoch);
-          fbb.addOffset(4, descripcionOffset);
-          fbb.addInt64(5, object.antecedente.targetId);
-          fbb.finish(fbb.endTable());
-          return object.id;
-        },
-        objectFromFB: (obx.Store store, ByteData fbData) {
-          final buffer = fb.BufferContext(fbData);
-          final rootOffset = buffer.derefObject(0);
-          final fechaValue =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 10);
-          final idParam =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
-          final nombreParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGet(buffer, rootOffset, 6, '');
-          final cronicaParam =
-              const fb.BoolReader().vTableGet(buffer, rootOffset, 8, false);
-          final fechaParam = fechaValue == null
-              ? null
-              : DateTime.fromMillisecondsSinceEpoch(fechaValue);
-          final descripcionParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGet(buffer, rootOffset, 12, '');
-          final object = Enfermedad(
-              id: idParam,
-              nombre: nombreParam,
-              cronica: cronicaParam,
-              fecha: fechaParam,
-              descripcion: descripcionParam);
-          object.antecedente.targetId =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 14, 0);
-          object.antecedente.attach(store);
-          return object;
-        }),
-    Paciente: obx_int.EntityDefinition<Paciente>(
-        model: _entities[9],
-        toOneRelations: (Paciente object) => [
-              object.embarazoActual,
-              object.interrogatorio,
-              object.signosVitales,
-              object.examenFisico,
-              object.interconsultas,
-              object.genetica,
-              object.laboratorio
-            ],
-        toManyRelations: (Paciente object) => {
-              obx_int.RelInfo<Antecedente>.toOneBacklink(2, object.id,
-                      (Antecedente srcObject) => srcObject.paciente):
-                  object.antecedentes
-            },
-        getId: (Paciente object) => object.id,
-        setId: (Paciente object, int id) {
-          object.id = id;
-        },
-        objectToFB: (Paciente object, fb.Builder fbb) {
-          final nombreOffset =
-              object.nombre == null ? null : fbb.writeString(object.nombre!);
-          final primerApellidoOffset = object.primerApellido == null
-              ? null
-              : fbb.writeString(object.primerApellido!);
-          final segundoApellidoOffset = object.segundoApellido == null
-              ? null
-              : fbb.writeString(object.segundoApellido!);
-          final sexoOffset =
-              object.sexo == null ? null : fbb.writeString(object.sexo!);
-          final direccionOffset = object.direccion == null
-              ? null
-              : fbb.writeString(object.direccion!);
-          final tipoDePacienteOffset = object.tipoDePaciente == null
-              ? null
-              : fbb.writeString(object.tipoDePaciente!);
-          final noIdentidadOffset = object.noIdentidad == null
-              ? null
-              : fbb.writeString(object.noIdentidad!);
-          final aboRhOffset =
-              object.aboRh == null ? null : fbb.writeString(object.aboRh!);
-          final unidadHospitalariaOffset = object.unidadHospitalaria == null
-              ? null
-              : fbb.writeString(object.unidadHospitalaria!);
-          final policlinicoOffset = object.policlinico == null
-              ? null
-              : fbb.writeString(object.policlinico!);
-          final estadoCivilOffset = object.estadoCivil == null
-              ? null
-              : fbb.writeString(object.estadoCivil!);
-          final escolaridadOffset = object.escolaridad == null
-              ? null
-              : fbb.writeString(object.escolaridad!);
-          final consultorioOffset = object.consultorio == null
-              ? null
-              : fbb.writeString(object.consultorio!);
-          final ocupacionOffset = object.ocupacion == null
-              ? null
-              : fbb.writeString(object.ocupacion!);
-          final tipoDeRiesgoOffset = object.tipoDeRiesgo == null
-              ? null
-              : fbb.writeString(object.tipoDeRiesgo!);
-          final datosDeInteresOffset = object.datosDeInteres == null
-              ? null
-              : fbb.writeString(object.datosDeInteres!);
-          final tipoDeDiagnosticoOffset = object.tipoDeDiagnostico == null
-              ? null
-              : fbb.writeString(object.tipoDeDiagnostico!);
-          final codigoOffset =
-              object.codigo == null ? null : fbb.writeString(object.codigo!);
-          final descripcionOffset = object.descripcion == null
-              ? null
-              : fbb.writeString(object.descripcion!);
-          final estructuraOffset = object.estructura == null
-              ? null
-              : fbb.writeString(object.estructura!);
-          final conductaSeguidaOffset = object.conductaSeguida == null
-              ? null
-              : fbb.writeString(object.conductaSeguida!);
-          fbb.startTable(38);
-          fbb.addInt64(0, object.id);
-          fbb.addOffset(1, nombreOffset);
-          fbb.addOffset(2, primerApellidoOffset);
-          fbb.addOffset(3, segundoApellidoOffset);
-          fbb.addInt64(4, object.fechaNacimiento?.millisecondsSinceEpoch);
-          fbb.addOffset(5, sexoOffset);
-          fbb.addOffset(6, direccionOffset);
-          fbb.addOffset(7, tipoDePacienteOffset);
-          fbb.addOffset(8, noIdentidadOffset);
-          fbb.addOffset(9, aboRhOffset);
-          fbb.addOffset(10, unidadHospitalariaOffset);
-          fbb.addOffset(11, policlinicoOffset);
-          fbb.addOffset(12, estadoCivilOffset);
-          fbb.addOffset(13, escolaridadOffset);
-          fbb.addOffset(14, consultorioOffset);
-          fbb.addOffset(15, ocupacionOffset);
-          fbb.addInt64(16, object.noDormitorios);
-          fbb.addInt64(17, object.noPersonasNucleoPersonal);
-          fbb.addOffset(18, tipoDeRiesgoOffset);
-          fbb.addOffset(19, datosDeInteresOffset);
-          fbb.addOffset(20, tipoDeDiagnosticoOffset);
-          fbb.addOffset(21, codigoOffset);
-          fbb.addOffset(22, descripcionOffset);
-          fbb.addOffset(23, estructuraOffset);
-          fbb.addOffset(24, conductaSeguidaOffset);
-          fbb.addInt64(27, object.embarazoActual.targetId);
-          fbb.addInt64(28, object.interrogatorio.targetId);
-          fbb.addInt64(29, object.fechaDeRegistro?.millisecondsSinceEpoch);
-          fbb.addInt64(30, object.fechaDeActualizacion?.millisecondsSinceEpoch);
-          fbb.addInt64(31, object.edad);
-          fbb.addInt64(32, object.signosVitales.targetId);
-          fbb.addInt64(33, object.examenFisico.targetId);
-          fbb.addInt64(34, object.interconsultas.targetId);
-          fbb.addInt64(35, object.genetica.targetId);
-          fbb.addInt64(36, object.laboratorio.targetId);
-          fbb.finish(fbb.endTable());
-          return object.id;
-        },
-        objectFromFB: (obx.Store store, ByteData fbData) {
-          final buffer = fb.BufferContext(fbData);
-          final rootOffset = buffer.derefObject(0);
-          final fechaNacimientoValue =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 12);
-          final fechaDeRegistroValue =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 62);
-          final fechaDeActualizacionValue =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 64);
-          final idParam =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
-          final nombreParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 6);
-          final primerApellidoParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 8);
-          final segundoApellidoParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 10);
-          final fechaNacimientoParam = fechaNacimientoValue == null
-              ? null
-              : DateTime.fromMillisecondsSinceEpoch(fechaNacimientoValue);
-          final sexoParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 14);
-          final direccionParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 16);
-          final tipoDePacienteParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 18);
-          final noIdentidadParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 20);
-          final aboRhParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 22);
-          final unidadHospitalariaParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 24);
-          final policlinicoParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 26);
-          final estadoCivilParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 28);
-          final escolaridadParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 30);
-          final consultorioParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 32);
-          final ocupacionParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 34);
-          final noDormitoriosParam =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 36);
-          final noPersonasNucleoPersonalParam =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 38);
-          final codigoParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 46);
-          final datosDeInteresParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 42);
-          final descripcionParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 48);
-          final estructuraParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGetNullable(buffer, rootOffset, 50);
-          final tipoDeDiagnosticoParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 44);
-          final tipoDeRiesgoParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 40);
-          final conductaSeguidaParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 52);
-          final fechaDeRegistroParam = fechaDeRegistroValue == null
-              ? null
-              : DateTime.fromMillisecondsSinceEpoch(fechaDeRegistroValue);
-          final fechaDeActualizacionParam = fechaDeActualizacionValue == null
-              ? null
-              : DateTime.fromMillisecondsSinceEpoch(fechaDeActualizacionValue);
-          final edadParam =
-              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 66);
-          final object = Paciente(
-              id: idParam,
-              nombre: nombreParam,
-              primerApellido: primerApellidoParam,
-              segundoApellido: segundoApellidoParam,
-              fechaNacimiento: fechaNacimientoParam,
-              sexo: sexoParam,
-              direccion: direccionParam,
-              tipoDePaciente: tipoDePacienteParam,
-              noIdentidad: noIdentidadParam,
-              aboRh: aboRhParam,
-              unidadHospitalaria: unidadHospitalariaParam,
-              policlinico: policlinicoParam,
-              estadoCivil: estadoCivilParam,
-              escolaridad: escolaridadParam,
-              consultorio: consultorioParam,
-              ocupacion: ocupacionParam,
-              noDormitorios: noDormitoriosParam,
-              noPersonasNucleoPersonal: noPersonasNucleoPersonalParam,
-              codigo: codigoParam,
-              datosDeInteres: datosDeInteresParam,
-              descripcion: descripcionParam,
-              estructura: estructuraParam,
-              tipoDeDiagnostico: tipoDeDiagnosticoParam,
-              tipoDeRiesgo: tipoDeRiesgoParam,
-              conductaSeguida: conductaSeguidaParam,
-              fechaDeRegistro: fechaDeRegistroParam,
-              fechaDeActualizacion: fechaDeActualizacionParam,
-              edad: edadParam);
-          object.embarazoActual.targetId =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 58, 0);
-          object.embarazoActual.attach(store);
-          object.interrogatorio.targetId =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 60, 0);
-          object.interrogatorio.attach(store);
-          object.signosVitales.targetId =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 68, 0);
-          object.signosVitales.attach(store);
-          object.examenFisico.targetId =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 70, 0);
-          object.examenFisico.attach(store);
-          object.interconsultas.targetId =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 72, 0);
-          object.interconsultas.attach(store);
-          object.genetica.targetId =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 74, 0);
-          object.genetica.attach(store);
-          object.laboratorio.targetId =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 76, 0);
-          object.laboratorio.attach(store);
-          obx_int.InternalToManyAccess.setRelInfo<Paciente>(
-              object.antecedentes,
-              store,
-              obx_int.RelInfo<Antecedente>.toOneBacklink(
-                  2, object.id, (Antecedente srcObject) => srcObject.paciente));
-          return object;
-        }),
-    RecienNacido: obx_int.EntityDefinition<RecienNacido>(
-        model: _entities[10],
-        toOneRelations: (RecienNacido object) => [object.embarazo],
-        toManyRelations: (RecienNacido object) => {},
-        getId: (RecienNacido object) => object.id,
-        setId: (RecienNacido object, int id) {
-          object.id = id;
-        },
-        objectToFB: (RecienNacido object, fb.Builder fbb) {
-          final sexoOffset = fbb.writeString(object.sexo);
-          final estadoOffset = fbb.writeString(object.estado);
-          final datosInteresOffset = object.datosInteres == null
-              ? null
-              : fbb.writeString(object.datosInteres!);
-          final ocurrenciaDefuncionOffset = object.ocurrenciaDefuncion == null
-              ? null
-              : fbb.writeString(object.ocurrenciaDefuncion!);
-          final edadAlFallecerOffset = object.edadAlFallecer == null
-              ? null
-              : fbb.writeString(object.edadAlFallecer!);
-          fbb.startTable(11);
-          fbb.addInt64(0, object.id);
-          fbb.addFloat64(1, object.peso);
-          fbb.addOffset(2, sexoOffset);
-          fbb.addOffset(3, estadoOffset);
-          fbb.addOffset(4, datosInteresOffset);
-          fbb.addInt64(5, object.apgar);
-          fbb.addInt64(6, object.puntos);
-          fbb.addOffset(7, ocurrenciaDefuncionOffset);
-          fbb.addOffset(8, edadAlFallecerOffset);
-          fbb.addInt64(9, object.embarazo.targetId);
-          fbb.finish(fbb.endTable());
-          return object.id;
-        },
-        objectFromFB: (obx.Store store, ByteData fbData) {
-          final buffer = fb.BufferContext(fbData);
-          final rootOffset = buffer.derefObject(0);
-          final idParam =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
-          final pesoParam =
-              const fb.Float64Reader().vTableGet(buffer, rootOffset, 6, 0);
-          final sexoParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGet(buffer, rootOffset, 8, '');
-          final estadoParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGet(buffer, rootOffset, 10, '');
-          final datosInteresParam =
-              const fb.StringReader(asciiOptimization: true)
-                  .vTableGetNullable(buffer, rootOffset, 12);
-          final apgarParam =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 14, 0);
-          final puntosParam =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 16, 0);
-          final object = RecienNacido(
-              id: idParam,
-              peso: pesoParam,
-              sexo: sexoParam,
-              estado: estadoParam,
-              datosInteres: datosInteresParam,
-              apgar: apgarParam,
-              puntos: puntosParam)
-            ..ocurrenciaDefuncion =
-                const fb.StringReader(asciiOptimization: true)
-                    .vTableGetNullable(buffer, rootOffset, 18)
-            ..edadAlFallecer = const fb.StringReader(asciiOptimization: true)
-                .vTableGetNullable(buffer, rootOffset, 20);
-          object.embarazo.targetId =
-              const fb.Int64Reader().vTableGet(buffer, rootOffset, 22, 0);
-          object.embarazo.attach(store);
-          return object;
-        }),
     ExamenFisicoModel: obx_int.EntityDefinition<ExamenFisicoModel>(
-        model: _entities[11],
+        model: _entities[0],
         toOneRelations: (ExamenFisicoModel object) => [object.paciente],
         toManyRelations: (ExamenFisicoModel object) => {},
         getId: (ExamenFisicoModel object) => object.id,
@@ -4192,7 +2906,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
         }),
     FetoUltrasonido1erTrimestre:
         obx_int.EntityDefinition<FetoUltrasonido1erTrimestre>(
-            model: _entities[12],
+            model: _entities[1],
             toOneRelations: (FetoUltrasonido1erTrimestre object) =>
                 [object.genetica],
             toManyRelations: (FetoUltrasonido1erTrimestre object) => {},
@@ -4314,7 +3028,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
             }),
     FetoUltrasonidoSeguimiento: obx_int.EntityDefinition<
             FetoUltrasonidoSeguimiento>(
-        model: _entities[13],
+        model: _entities[2],
         toOneRelations: (FetoUltrasonidoSeguimiento object) =>
             [object.genetica],
         toManyRelations: (FetoUltrasonidoSeguimiento object) => {},
@@ -4537,7 +3251,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
           return object;
         }),
     GeneticaModel: obx_int.EntityDefinition<GeneticaModel>(
-        model: _entities[14],
+        model: _entities[3],
         toOneRelations: (GeneticaModel object) => [object.paciente],
         toManyRelations: (GeneticaModel object) => {
               obx_int.RelInfo<FetoUltrasonido1erTrimestre>.toOneBacklink(
@@ -4782,7 +3496,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
           return object;
         }),
     InterconsultasModel: obx_int.EntityDefinition<InterconsultasModel>(
-        model: _entities[15],
+        model: _entities[4],
         toOneRelations: (InterconsultasModel object) => [object.paciente],
         toManyRelations: (InterconsultasModel object) => {},
         getId: (InterconsultasModel object) => object.id,
@@ -4983,9 +3697,400 @@ obx_int.ModelDefinition getObjectBoxModel() {
           object.paciente.attach(store);
           return object;
         }),
+    Interrogatorio: obx_int.EntityDefinition<Interrogatorio>(
+        model: _entities[5],
+        toOneRelations: (Interrogatorio object) => [object.paciente],
+        toManyRelations: (Interrogatorio object) => {},
+        getId: (Interrogatorio object) => object.id,
+        setId: (Interrogatorio object, int id) {
+          object.id = id;
+        },
+        objectToFB: (Interrogatorio object, fb.Builder fbb) {
+          final srObservacionesOffset = object.srObservaciones == null
+              ? null
+              : fbb.writeString(object.srObservaciones!);
+          final scObservacionesOffset = object.scObservaciones == null
+              ? null
+              : fbb.writeString(object.scObservaciones!);
+          final sdObservacionesOffset = object.sdObservaciones == null
+              ? null
+              : fbb.writeString(object.sdObservaciones!);
+          final suObservacionesOffset = object.suObservaciones == null
+              ? null
+              : fbb.writeString(object.suObservaciones!);
+          final snObservacionesOffset = object.snObservaciones == null
+              ? null
+              : fbb.writeString(object.snObservaciones!);
+          final seObservacionesOffset = object.seObservaciones == null
+              ? null
+              : fbb.writeString(object.seObservaciones!);
+          final observacionesOffset = object.observaciones == null
+              ? null
+              : fbb.writeString(object.observaciones!);
+          fbb.startTable(87);
+          fbb.addInt64(0, object.id);
+          fbb.addInt64(1, object.paciente.targetId);
+          fbb.addBool(2, object.srDisnea);
+          fbb.addBool(3, object.srDolor);
+          fbb.addBool(4, object.srHermoptisis);
+          fbb.addBool(5, object.srExpectoracion);
+          fbb.addBool(6, object.srTos);
+          fbb.addBool(7, object.srOtros);
+          fbb.addOffset(8, srObservacionesOffset);
+          fbb.addBool(9, object.scDisnea);
+          fbb.addBool(10, object.scDolor);
+          fbb.addBool(11, object.scClaudicacionIntermitente);
+          fbb.addBool(12, object.scCianosis);
+          fbb.addBool(13, object.scTos);
+          fbb.addBool(14, object.scPalpitaciones);
+          fbb.addBool(15, object.scOtros);
+          fbb.addOffset(16, scObservacionesOffset);
+          fbb.addBool(17, object.sdDisfagia);
+          fbb.addBool(18, object.sdDolor);
+          fbb.addBool(19, object.sdColicos);
+          fbb.addBool(20, object.sdHermatemesis);
+          fbb.addBool(21, object.sdAcolia);
+          fbb.addBool(22, object.sdPirosis);
+          fbb.addBool(23, object.sdNauseas);
+          fbb.addBool(24, object.sdEnterorragia);
+          fbb.addBool(25, object.sdConstipacion);
+          fbb.addBool(26, object.sdAcidez);
+          fbb.addBool(27, object.sdDiarreas);
+          fbb.addBool(28, object.sdAerogastrias);
+          fbb.addBool(29, object.sdVomitos);
+          fbb.addBool(30, object.sdMelena);
+          fbb.addBool(31, object.sdOtros);
+          fbb.addOffset(32, sdObservacionesOffset);
+          fbb.addBool(33, object.suNicturioas);
+          fbb.addBool(34, object.suDolor);
+          fbb.addBool(35, object.suOrinasTurbias);
+          fbb.addBool(36, object.suExudadoUretral);
+          fbb.addBool(37, object.suDisuria);
+          fbb.addBool(38, object.suRetencionUrinaria);
+          fbb.addBool(39, object.suHermaturia);
+          fbb.addBool(40, object.suIncontinencia);
+          fbb.addBool(41, object.suPolaquiuria);
+          fbb.addBool(42, object.suUretorragia);
+          fbb.addBool(43, object.suImpotiencia);
+          fbb.addBool(44, object.suTumoracion);
+          fbb.addBool(45, object.suCalculos);
+          fbb.addBool(46, object.suOtros);
+          fbb.addOffset(47, suObservacionesOffset);
+          fbb.addBool(48, object.snCefaleas);
+          fbb.addBool(49, object.snDolorFacial);
+          fbb.addBool(50, object.snVomitos);
+          fbb.addBool(51, object.snDolorCervical);
+          fbb.addBool(52, object.snVertigos);
+          fbb.addBool(53, object.snDolorLumbar);
+          fbb.addBool(54, object.snConvulsiones);
+          fbb.addBool(55, object.snAlteracionMarcha);
+          fbb.addBool(56, object.snDefictMotor);
+          fbb.addBool(57, object.snAlteracionEquilibrio);
+          fbb.addBool(58, object.snDeficitSensitivo);
+          fbb.addBool(59, object.snAlteracionVisual);
+          fbb.addBool(60, object.snAlteracionConciencia);
+          fbb.addBool(61, object.snDificultadHablarEntender);
+          fbb.addBool(62, object.snOtros);
+          fbb.addOffset(63, snObservacionesOffset);
+          fbb.addBool(64, object.seHipofisis);
+          fbb.addBool(65, object.seOvarios);
+          fbb.addBool(66, object.sePancreas);
+          fbb.addBool(67, object.seSuprarrenal);
+          fbb.addBool(68, object.seParatiroideas);
+          fbb.addBool(69, object.seTiroides);
+          fbb.addBool(70, object.seTesticulos);
+          fbb.addBool(71, object.seOtros);
+          fbb.addOffset(72, seObservacionesOffset);
+          fbb.addBool(73, object.astenia);
+          fbb.addBool(74, object.anorexia);
+          fbb.addBool(75, object.epistaxis);
+          fbb.addBool(76, object.fiebre);
+          fbb.addBool(77, object.artralgia);
+          fbb.addBool(78, object.polifagia);
+          fbb.addBool(79, object.edema);
+          fbb.addBool(80, object.prurito);
+          fbb.addBool(81, object.perdidaPeso);
+          fbb.addBool(82, object.gananciaPeso);
+          fbb.addBool(83, object.acroparentesias);
+          fbb.addBool(84, object.otros);
+          fbb.addOffset(85, observacionesOffset);
+          fbb.finish(fbb.endTable());
+          return object.id;
+        },
+        objectFromFB: (obx.Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final idParam =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
+          final srDisneaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 8);
+          final srDolorParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 10);
+          final srHermoptisisParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 12);
+          final srExpectoracionParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 14);
+          final srTosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 16);
+          final srOtrosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 18);
+          final srObservacionesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 20);
+          final scDisneaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 22);
+          final scDolorParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 24);
+          final scClaudicacionIntermitenteParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 26);
+          final scCianosisParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 28);
+          final scTosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 30);
+          final scPalpitacionesParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 32);
+          final scOtrosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 34);
+          final scObservacionesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 36);
+          final sdDisfagiaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 38);
+          final sdDolorParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 40);
+          final sdColicosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 42);
+          final sdHermatemesisParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 44);
+          final sdAcoliaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 46);
+          final sdPirosisParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 48);
+          final sdNauseasParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 50);
+          final sdEnterorragiaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 52);
+          final sdConstipacionParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 54);
+          final sdAcidezParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 56);
+          final sdDiarreasParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 58);
+          final sdAerogastriasParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 60);
+          final sdVomitosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 62);
+          final sdMelenaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 64);
+          final sdOtrosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 66);
+          final sdObservacionesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 68);
+          final suNicturioasParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 70);
+          final suDolorParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 72);
+          final suOrinasTurbiasParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 74);
+          final suExudadoUretralParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 76);
+          final suDisuriaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 78);
+          final suRetencionUrinariaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 80);
+          final suHermaturiaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 82);
+          final suIncontinenciaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 84);
+          final suPolaquiuriaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 86);
+          final suUretorragiaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 88);
+          final suImpotienciaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 90);
+          final suTumoracionParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 92);
+          final suCalculosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 94);
+          final suOtrosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 96);
+          final suObservacionesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 98);
+          final snCefaleasParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 100);
+          final snDolorFacialParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 102);
+          final snVomitosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 104);
+          final snDolorCervicalParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 106);
+          final snVertigosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 108);
+          final snDolorLumbarParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 110);
+          final snConvulsionesParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 112);
+          final snAlteracionMarchaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 114);
+          final snDefictMotorParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 116);
+          final snAlteracionEquilibrioParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 118);
+          final snDeficitSensitivoParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 120);
+          final snAlteracionVisualParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 122);
+          final snAlteracionConcienciaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 124);
+          final snDificultadHablarEntenderParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 126);
+          final snOtrosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 128);
+          final snObservacionesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 130);
+          final seHipofisisParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 132);
+          final seOvariosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 134);
+          final sePancreasParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 136);
+          final seSuprarrenalParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 138);
+          final seParatiroideasParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 140);
+          final seTiroidesParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 142);
+          final seTesticulosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 144);
+          final seOtrosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 146);
+          final seObservacionesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 148);
+          final asteniaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 150);
+          final anorexiaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 152);
+          final epistaxisParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 154);
+          final fiebreParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 156);
+          final artralgiaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 158);
+          final polifagiaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 160);
+          final edemaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 162);
+          final pruritoParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 164);
+          final perdidaPesoParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 166);
+          final gananciaPesoParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 168);
+          final acroparentesiasParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 170);
+          final otrosParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 172);
+          final observacionesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 174);
+          final object = Interrogatorio(
+              id: idParam,
+              srDisnea: srDisneaParam,
+              srDolor: srDolorParam,
+              srHermoptisis: srHermoptisisParam,
+              srExpectoracion: srExpectoracionParam,
+              srTos: srTosParam,
+              srOtros: srOtrosParam,
+              srObservaciones: srObservacionesParam,
+              scDisnea: scDisneaParam,
+              scDolor: scDolorParam,
+              scClaudicacionIntermitente: scClaudicacionIntermitenteParam,
+              scCianosis: scCianosisParam,
+              scTos: scTosParam,
+              scPalpitaciones: scPalpitacionesParam,
+              scOtros: scOtrosParam,
+              scObservaciones: scObservacionesParam,
+              sdDisfagia: sdDisfagiaParam,
+              sdDolor: sdDolorParam,
+              sdColicos: sdColicosParam,
+              sdHermatemesis: sdHermatemesisParam,
+              sdAcolia: sdAcoliaParam,
+              sdPirosis: sdPirosisParam,
+              sdNauseas: sdNauseasParam,
+              sdEnterorragia: sdEnterorragiaParam,
+              sdConstipacion: sdConstipacionParam,
+              sdAcidez: sdAcidezParam,
+              sdDiarreas: sdDiarreasParam,
+              sdAerogastrias: sdAerogastriasParam,
+              sdVomitos: sdVomitosParam,
+              sdMelena: sdMelenaParam,
+              sdOtros: sdOtrosParam,
+              sdObservaciones: sdObservacionesParam,
+              suNicturioas: suNicturioasParam,
+              suDolor: suDolorParam,
+              suOrinasTurbias: suOrinasTurbiasParam,
+              suExudadoUretral: suExudadoUretralParam,
+              suDisuria: suDisuriaParam,
+              suRetencionUrinaria: suRetencionUrinariaParam,
+              suHermaturia: suHermaturiaParam,
+              suIncontinencia: suIncontinenciaParam,
+              suPolaquiuria: suPolaquiuriaParam,
+              suUretorragia: suUretorragiaParam,
+              suImpotiencia: suImpotienciaParam,
+              suTumoracion: suTumoracionParam,
+              suCalculos: suCalculosParam,
+              suOtros: suOtrosParam,
+              suObservaciones: suObservacionesParam,
+              snCefaleas: snCefaleasParam,
+              snDolorFacial: snDolorFacialParam,
+              snVomitos: snVomitosParam,
+              snDolorCervical: snDolorCervicalParam,
+              snVertigos: snVertigosParam,
+              snDolorLumbar: snDolorLumbarParam,
+              snConvulsiones: snConvulsionesParam,
+              snAlteracionMarcha: snAlteracionMarchaParam,
+              snDefictMotor: snDefictMotorParam,
+              snAlteracionEquilibrio: snAlteracionEquilibrioParam,
+              snDeficitSensitivo: snDeficitSensitivoParam,
+              snAlteracionVisual: snAlteracionVisualParam,
+              snAlteracionConciencia: snAlteracionConcienciaParam,
+              snDificultadHablarEntender: snDificultadHablarEntenderParam,
+              snOtros: snOtrosParam,
+              snObservaciones: snObservacionesParam,
+              seHipofisis: seHipofisisParam,
+              seOvarios: seOvariosParam,
+              sePancreas: sePancreasParam,
+              seSuprarrenal: seSuprarrenalParam,
+              seParatiroideas: seParatiroideasParam,
+              seTiroides: seTiroidesParam,
+              seTesticulos: seTesticulosParam,
+              seOtros: seOtrosParam,
+              seObservaciones: seObservacionesParam,
+              astenia: asteniaParam,
+              anorexia: anorexiaParam,
+              epistaxis: epistaxisParam,
+              fiebre: fiebreParam,
+              artralgia: artralgiaParam,
+              polifagia: polifagiaParam,
+              edema: edemaParam,
+              prurito: pruritoParam,
+              perdidaPeso: perdidaPesoParam,
+              gananciaPeso: gananciaPesoParam,
+              acroparentesias: acroparentesiasParam,
+              otros: otrosParam,
+              observaciones: observacionesParam);
+          object.paciente.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0);
+          object.paciente.attach(store);
+          return object;
+        }),
     LaboratorioMicrobiologiaModel: obx_int.EntityDefinition<
             LaboratorioMicrobiologiaModel>(
-        model: _entities[16],
+        model: _entities[6],
         toOneRelations: (LaboratorioMicrobiologiaModel object) =>
             [object.paciente],
         toManyRelations: (LaboratorioMicrobiologiaModel object) => {},
@@ -5518,7 +4623,7 @@ obx_int.ModelDefinition getObjectBoxModel() {
           return object;
         }),
     SignosVitalesModel: obx_int.EntityDefinition<SignosVitalesModel>(
-        model: _entities[17],
+        model: _entities[7],
         toOneRelations: (SignosVitalesModel object) => [object.paciente],
         toManyRelations: (SignosVitalesModel object) => {},
         getId: (SignosVitalesModel object) => object.id,
@@ -5672,1445 +4777,1454 @@ obx_int.ModelDefinition getObjectBoxModel() {
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0);
           object.paciente.attach(store);
           return object;
+        }),
+    AntecedentesGinecologicos: obx_int.EntityDefinition<
+            AntecedentesGinecologicos>(
+        model: _entities[8],
+        toOneRelations: (AntecedentesGinecologicos object) => [object.paciente],
+        toManyRelations: (AntecedentesGinecologicos object) => {},
+        getId: (AntecedentesGinecologicos object) => object.id,
+        setId: (AntecedentesGinecologicos object, int id) {
+          object.id = id;
+        },
+        objectToFB: (AntecedentesGinecologicos object, fb.Builder fbb) {
+          final caracteristicasMenopausiaOffset =
+              object.caracteristicasMenopausia == null
+                  ? null
+                  : fbb.writeString(object.caracteristicasMenopausia!);
+          final caracteristicasMenarquiaOffset =
+              object.caracteristicasMenarquia == null
+                  ? null
+                  : fbb.writeString(object.caracteristicasMenarquia!);
+          final formulaMenstrualOffset = object.formulaMenstrual == null
+              ? null
+              : fbb.writeString(object.formulaMenstrual!);
+          final tipoMenstruacionOffset = object.tipoMenstruacion == null
+              ? null
+              : fbb.writeString(object.tipoMenstruacion!);
+          final descripcionOffset = object.descripcion == null
+              ? null
+              : fbb.writeString(object.descripcion!);
+          final resultadoPruebaCitologicaOffset =
+              object.resultadoPruebaCitologica == null
+                  ? null
+                  : fbb.writeString(object.resultadoPruebaCitologica!);
+          final observacionesPruebaCitologicaOffset =
+              object.observacionesPruebaCitologica == null
+                  ? null
+                  : fbb.writeString(object.observacionesPruebaCitologica!);
+          final observacionesAnticonceptivosOffset =
+              object.observacionesAnticonceptivos == null
+                  ? null
+                  : fbb.writeString(object.observacionesAnticonceptivos!);
+          fbb.startTable(21);
+          fbb.addInt64(0, object.id);
+          fbb.addInt64(1, object.paciente.targetId);
+          fbb.addInt64(2, object.edadMenopausia);
+          fbb.addOffset(3, caracteristicasMenopausiaOffset);
+          fbb.addInt64(4, object.edadMenarquia);
+          fbb.addOffset(5, caracteristicasMenarquiaOffset);
+          fbb.addInt64(6, object.edadPrimeraRelacion);
+          fbb.addOffset(7, formulaMenstrualOffset);
+          fbb.addInt64(
+              8, object.fechaUltimaMenstruacion?.millisecondsSinceEpoch);
+          fbb.addOffset(9, tipoMenstruacionOffset);
+          fbb.addInt64(10, object.fechaUltimoUso?.millisecondsSinceEpoch);
+          fbb.addOffset(11, descripcionOffset);
+          fbb.addBool(12, object.barrera);
+          fbb.addBool(13, object.diu);
+          fbb.addBool(14, object.hormonales);
+          fbb.addInt64(
+              15, object.fechaPruebaCitologica?.millisecondsSinceEpoch);
+          fbb.addOffset(16, resultadoPruebaCitologicaOffset);
+          fbb.addBool(17, object.fueraDeProgramaPruebaCitologica);
+          fbb.addOffset(18, observacionesPruebaCitologicaOffset);
+          fbb.addOffset(19, observacionesAnticonceptivosOffset);
+          fbb.finish(fbb.endTable());
+          return object.id;
+        },
+        objectFromFB: (obx.Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final fechaUltimaMenstruacionValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 20);
+          final fechaUltimoUsoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 24);
+          final fechaPruebaCitologicaValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 34);
+          final idParam =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
+          final edadMenopausiaParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 8);
+          final caracteristicasMenopausiaParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 10);
+          final edadMenarquiaParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 12);
+          final caracteristicasMenarquiaParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 14);
+          final edadPrimeraRelacionParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 16);
+          final formulaMenstrualParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 18);
+          final fechaUltimaMenstruacionParam =
+              fechaUltimaMenstruacionValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      fechaUltimaMenstruacionValue);
+          final tipoMenstruacionParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 22);
+          final fechaUltimoUsoParam = fechaUltimoUsoValue == null
+              ? null
+              : DateTime.fromMillisecondsSinceEpoch(fechaUltimoUsoValue);
+          final descripcionParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 26);
+          final barreraParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 28);
+          final diuParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 30);
+          final hormonalesParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 32);
+          final fechaPruebaCitologicaParam = fechaPruebaCitologicaValue == null
+              ? null
+              : DateTime.fromMillisecondsSinceEpoch(fechaPruebaCitologicaValue);
+          final resultadoPruebaCitologicaParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 36);
+          final fueraDeProgramaPruebaCitologicaParam =
+              const fb.BoolReader().vTableGetNullable(buffer, rootOffset, 38);
+          final observacionesPruebaCitologicaParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 40);
+          final observacionesAnticonceptivosParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 42);
+          final object = AntecedentesGinecologicos(
+              id: idParam,
+              edadMenopausia: edadMenopausiaParam,
+              caracteristicasMenopausia: caracteristicasMenopausiaParam,
+              edadMenarquia: edadMenarquiaParam,
+              caracteristicasMenarquia: caracteristicasMenarquiaParam,
+              edadPrimeraRelacion: edadPrimeraRelacionParam,
+              formulaMenstrual: formulaMenstrualParam,
+              fechaUltimaMenstruacion: fechaUltimaMenstruacionParam,
+              tipoMenstruacion: tipoMenstruacionParam,
+              fechaUltimoUso: fechaUltimoUsoParam,
+              descripcion: descripcionParam,
+              barrera: barreraParam,
+              diu: diuParam,
+              hormonales: hormonalesParam,
+              fechaPruebaCitologica: fechaPruebaCitologicaParam,
+              resultadoPruebaCitologica: resultadoPruebaCitologicaParam,
+              fueraDeProgramaPruebaCitologica:
+                  fueraDeProgramaPruebaCitologicaParam,
+              observacionesPruebaCitologica: observacionesPruebaCitologicaParam,
+              observacionesAnticonceptivos: observacionesAnticonceptivosParam);
+          object.paciente.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0);
+          object.paciente.attach(store);
+          return object;
+        }),
+    AntecedentesObstetricos: obx_int.EntityDefinition<AntecedentesObstetricos>(
+        model: _entities[9],
+        toOneRelations: (AntecedentesObstetricos object) => [object.paciente],
+        toManyRelations: (AntecedentesObstetricos object) => {
+              obx_int.RelInfo<Embarazo>.toOneBacklink(14, object.id,
+                      (Embarazo srcObject) => srcObject.antecedente):
+                  object.embarazos
+            },
+        getId: (AntecedentesObstetricos object) => object.id,
+        setId: (AntecedentesObstetricos object, int id) {
+          object.id = id;
+        },
+        objectToFB: (AntecedentesObstetricos object, fb.Builder fbb) {
+          fbb.startTable(3);
+          fbb.addInt64(0, object.id);
+          fbb.addInt64(1, object.paciente.targetId);
+          fbb.finish(fbb.endTable());
+          return object.id;
+        },
+        objectFromFB: (obx.Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final idParam =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
+          final object = AntecedentesObstetricos(id: idParam);
+          object.paciente.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0);
+          object.paciente.attach(store);
+          obx_int.InternalToManyAccess.setRelInfo<AntecedentesObstetricos>(
+              object.embarazos,
+              store,
+              obx_int.RelInfo<Embarazo>.toOneBacklink(14, object.id,
+                  (Embarazo srcObject) => srcObject.antecedente));
+          return object;
+        }),
+    AntecedentesPatologicosPersonales: obx_int.EntityDefinition<
+            AntecedentesPatologicosPersonales>(
+        model: _entities[10],
+        toOneRelations: (AntecedentesPatologicosPersonales object) =>
+            [object.paciente],
+        toManyRelations: (AntecedentesPatologicosPersonales object) => {},
+        getId: (AntecedentesPatologicosPersonales object) => object.id,
+        setId: (AntecedentesPatologicosPersonales object, int id) {
+          object.id = id;
+        },
+        objectToFB: (AntecedentesPatologicosPersonales object, fb.Builder fbb) {
+          final enfermedadesGeneralesOffset =
+              object.enfermedadesGenerales == null
+                  ? null
+                  : fbb.writeString(object.enfermedadesGenerales!);
+          final enfermedadesEndocrinasOffset =
+              object.enfermedadesEndocrinas == null
+                  ? null
+                  : fbb.writeString(object.enfermedadesEndocrinas!);
+          final enfermedadesRespiratoriasOffset =
+              object.enfermedadesRespiratorias == null
+                  ? null
+                  : fbb.writeString(object.enfermedadesRespiratorias!);
+          final enfermedadesCardiovascularesOffset =
+              object.enfermedadesCardiovasculares == null
+                  ? null
+                  : fbb.writeString(object.enfermedadesCardiovasculares!);
+          final enfermedadesDigestivasOffset =
+              object.enfermedadesDigestivas == null
+                  ? null
+                  : fbb.writeString(object.enfermedadesDigestivas!);
+          final enfermedadesRenalesOffset = object.enfermedadesRenales == null
+              ? null
+              : fbb.writeString(object.enfermedadesRenales!);
+          final enfermedadesNeuronalesOffset =
+              object.enfermedadesNeuronales == null
+                  ? null
+                  : fbb.writeString(object.enfermedadesNeuronales!);
+          final enfermedadesHematologicasOffset =
+              object.enfermedadesHematologicas == null
+                  ? null
+                  : fbb.writeString(object.enfermedadesHematologicas!);
+          final enfermedadesReumatologicasOffset =
+              object.enfermedadesReumatologicas == null
+                  ? null
+                  : fbb.writeString(object.enfermedadesReumatologicas!);
+          final enfermedadesTransmisionSexualOffset =
+              object.enfermedadesTransmisionSexual == null
+                  ? null
+                  : fbb.writeString(object.enfermedadesTransmisionSexual!);
+          final enfermedadesGinecologicasOffset =
+              object.enfermedadesGinecologicas == null
+                  ? null
+                  : fbb.writeString(object.enfermedadesGinecologicas!);
+          final antecedentesFamiliaresOffset =
+              object.antecedentesFamiliares == null
+                  ? null
+                  : fbb.writeString(object.antecedentesFamiliares!);
+          final antecedentesQuirugicosOffset =
+              object.antecedentesQuirugicos == null
+                  ? null
+                  : fbb.writeString(object.antecedentesQuirugicos!);
+          final habitosPsicobiologicosOffset =
+              object.habitosPsicobiologicos == null
+                  ? null
+                  : fbb.writeString(object.habitosPsicobiologicos!);
+          final transfusionesPreviasOffset = object.transfusionesPrevias == null
+              ? null
+              : fbb.writeString(object.transfusionesPrevias!);
+          final inmunizacionesOffset = object.inmunizaciones == null
+              ? null
+              : fbb.writeString(object.inmunizaciones!);
+          fbb.startTable(19);
+          fbb.addInt64(0, object.id);
+          fbb.addInt64(1, object.paciente.targetId);
+          fbb.addOffset(2, enfermedadesGeneralesOffset);
+          fbb.addOffset(3, enfermedadesEndocrinasOffset);
+          fbb.addOffset(4, enfermedadesRespiratoriasOffset);
+          fbb.addOffset(5, enfermedadesCardiovascularesOffset);
+          fbb.addOffset(6, enfermedadesDigestivasOffset);
+          fbb.addOffset(7, enfermedadesRenalesOffset);
+          fbb.addOffset(8, enfermedadesNeuronalesOffset);
+          fbb.addOffset(9, enfermedadesHematologicasOffset);
+          fbb.addOffset(10, enfermedadesReumatologicasOffset);
+          fbb.addOffset(11, enfermedadesTransmisionSexualOffset);
+          fbb.addOffset(12, enfermedadesGinecologicasOffset);
+          fbb.addOffset(13, antecedentesFamiliaresOffset);
+          fbb.addOffset(14, antecedentesQuirugicosOffset);
+          fbb.addOffset(15, habitosPsicobiologicosOffset);
+          fbb.addOffset(16, transfusionesPreviasOffset);
+          fbb.addOffset(17, inmunizacionesOffset);
+          fbb.finish(fbb.endTable());
+          return object.id;
+        },
+        objectFromFB: (obx.Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final idParam =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
+          final enfermedadesGeneralesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 8);
+          final enfermedadesEndocrinasParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 10);
+          final enfermedadesRespiratoriasParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 12);
+          final enfermedadesCardiovascularesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 14);
+          final enfermedadesDigestivasParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 16);
+          final enfermedadesRenalesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 18);
+          final enfermedadesNeuronalesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 20);
+          final enfermedadesHematologicasParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 22);
+          final enfermedadesReumatologicasParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 24);
+          final enfermedadesTransmisionSexualParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 26);
+          final enfermedadesGinecologicasParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 28);
+          final antecedentesFamiliaresParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 30);
+          final antecedentesQuirugicosParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 32);
+          final habitosPsicobiologicosParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 34);
+          final transfusionesPreviasParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 36);
+          final inmunizacionesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 38);
+          final object = AntecedentesPatologicosPersonales(
+              id: idParam,
+              enfermedadesGenerales: enfermedadesGeneralesParam,
+              enfermedadesEndocrinas: enfermedadesEndocrinasParam,
+              enfermedadesRespiratorias: enfermedadesRespiratoriasParam,
+              enfermedadesCardiovasculares: enfermedadesCardiovascularesParam,
+              enfermedadesDigestivas: enfermedadesDigestivasParam,
+              enfermedadesRenales: enfermedadesRenalesParam,
+              enfermedadesNeuronales: enfermedadesNeuronalesParam,
+              enfermedadesHematologicas: enfermedadesHematologicasParam,
+              enfermedadesReumatologicas: enfermedadesReumatologicasParam,
+              enfermedadesTransmisionSexual: enfermedadesTransmisionSexualParam,
+              enfermedadesGinecologicas: enfermedadesGinecologicasParam,
+              antecedentesFamiliares: antecedentesFamiliaresParam,
+              antecedentesQuirugicos: antecedentesQuirugicosParam,
+              habitosPsicobiologicos: habitosPsicobiologicosParam,
+              transfusionesPrevias: transfusionesPreviasParam,
+              inmunizaciones: inmunizacionesParam);
+          object.paciente.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 6, 0);
+          object.paciente.attach(store);
+          return object;
+        }),
+    Embarazo: obx_int.EntityDefinition<Embarazo>(
+        model: _entities[11],
+        toOneRelations: (Embarazo object) => [object.antecedente],
+        toManyRelations: (Embarazo object) => {
+              obx_int.RelInfo<RecienNacido>.toOneBacklink(10, object.id,
+                      (RecienNacido srcObject) => srcObject.embarazo):
+                  object.recienNacidos
+            },
+        getId: (Embarazo object) => object.id,
+        setId: (Embarazo object, int id) {
+          object.id = id;
+        },
+        objectToFB: (Embarazo object, fb.Builder fbb) {
+          final tipoPartoOffset = object.tipoParto == null
+              ? null
+              : fbb.writeString(object.tipoParto!);
+          final tipoDistociaOffset = object.tipoDistocia == null
+              ? null
+              : fbb.writeString(object.tipoDistocia!);
+          final lugarPartoOffset = object.lugarParto == null
+              ? null
+              : fbb.writeString(object.lugarParto!);
+          final patologiasAsociadasOffset = object.patologiasAsociadas == null
+              ? null
+              : fbb.writeString(object.patologiasAsociadas!);
+          final tipoAbortoOffset = object.tipoAborto == null
+              ? null
+              : fbb.writeString(object.tipoAborto!);
+          final tipoProvocadoOffset = object.tipoProvocado == null
+              ? null
+              : fbb.writeString(object.tipoProvocado!);
+          final observacionesAbortoOffset = object.observacionesAborto == null
+              ? null
+              : fbb.writeString(object.observacionesAborto!);
+          final tipoNacimientoOffset = object.tipoNacimiento == null
+              ? null
+              : fbb.writeString(object.tipoNacimiento!);
+          fbb.startTable(16);
+          fbb.addInt64(0, object.id);
+          fbb.addInt64(1, object.numeroEmbarazo);
+          fbb.addInt64(2, object.fecha?.millisecondsSinceEpoch);
+          fbb.addInt64(3, object.semanasGestacion);
+          fbb.addOffset(6, tipoPartoOffset);
+          fbb.addOffset(7, tipoDistociaOffset);
+          fbb.addOffset(8, lugarPartoOffset);
+          fbb.addOffset(9, patologiasAsociadasOffset);
+          fbb.addOffset(10, tipoAbortoOffset);
+          fbb.addOffset(11, tipoProvocadoOffset);
+          fbb.addOffset(12, observacionesAbortoOffset);
+          fbb.addInt64(13, object.antecedente.targetId);
+          fbb.addOffset(14, tipoNacimientoOffset);
+          fbb.finish(fbb.endTable());
+          return object.id;
+        },
+        objectFromFB: (obx.Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final fechaValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 8);
+          final idParam =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
+          final numeroEmbarazoParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 6);
+          final fechaParam = fechaValue == null
+              ? null
+              : DateTime.fromMillisecondsSinceEpoch(fechaValue);
+          final semanasGestacionParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 10);
+          final tipoPartoParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 16);
+          final tipoDistociaParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 18);
+          final lugarPartoParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 20);
+          final patologiasAsociadasParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 22);
+          final tipoAbortoParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 24);
+          final tipoProvocadoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 26);
+          final observacionesAbortoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 28);
+          final tipoNacimientoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 32);
+          final object = Embarazo(
+              id: idParam,
+              numeroEmbarazo: numeroEmbarazoParam,
+              fecha: fechaParam,
+              semanasGestacion: semanasGestacionParam,
+              tipoParto: tipoPartoParam,
+              tipoDistocia: tipoDistociaParam,
+              lugarParto: lugarPartoParam,
+              patologiasAsociadas: patologiasAsociadasParam,
+              tipoAborto: tipoAbortoParam,
+              tipoProvocado: tipoProvocadoParam,
+              observacionesAborto: observacionesAbortoParam,
+              tipoNacimiento: tipoNacimientoParam);
+          object.antecedente.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 30, 0);
+          object.antecedente.attach(store);
+          obx_int.InternalToManyAccess.setRelInfo<Embarazo>(
+              object.recienNacidos,
+              store,
+              obx_int.RelInfo<RecienNacido>.toOneBacklink(10, object.id,
+                  (RecienNacido srcObject) => srcObject.embarazo));
+          return object;
+        }),
+    EmbarazoActual: obx_int.EntityDefinition<EmbarazoActual>(
+        model: _entities[12],
+        toOneRelations: (EmbarazoActual object) => [object.paciente],
+        toManyRelations: (EmbarazoActual object) => {},
+        getId: (EmbarazoActual object) => object.id,
+        setId: (EmbarazoActual object, int id) {
+          object.id = id;
+        },
+        objectToFB: (EmbarazoActual object, fb.Builder fbb) {
+          fbb.startTable(9);
+          fbb.addInt64(0, object.id);
+          fbb.addInt64(
+              1, object.fechaUltimaMenstruacion?.millisecondsSinceEpoch);
+          fbb.addBool(2, object.noConfiable);
+          fbb.addBool(3, object.desconocida);
+          fbb.addInt64(4, object.fechaPartoEstimado?.millisecondsSinceEpoch);
+          fbb.addInt64(5, object.captacion);
+          fbb.addInt64(6, object.semanas);
+          fbb.addInt64(7, object.paciente.targetId);
+          fbb.finish(fbb.endTable());
+          return object.id;
+        },
+        objectFromFB: (obx.Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final fechaUltimaMenstruacionValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 6);
+          final fechaPartoEstimadoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 12);
+          final idParam =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
+          final fechaUltimaMenstruacionParam =
+              fechaUltimaMenstruacionValue == null
+                  ? null
+                  : DateTime.fromMillisecondsSinceEpoch(
+                      fechaUltimaMenstruacionValue);
+          final noConfiableParam =
+              const fb.BoolReader().vTableGet(buffer, rootOffset, 8, false);
+          final desconocidaParam =
+              const fb.BoolReader().vTableGet(buffer, rootOffset, 10, false);
+          final fechaPartoEstimadoParam = fechaPartoEstimadoValue == null
+              ? null
+              : DateTime.fromMillisecondsSinceEpoch(fechaPartoEstimadoValue);
+          final captacionParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 14);
+          final semanasParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 16);
+          final object = EmbarazoActual(
+              id: idParam,
+              fechaUltimaMenstruacion: fechaUltimaMenstruacionParam,
+              noConfiable: noConfiableParam,
+              desconocida: desconocidaParam,
+              fechaPartoEstimado: fechaPartoEstimadoParam,
+              captacion: captacionParam,
+              semanas: semanasParam);
+          object.paciente.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 18, 0);
+          object.paciente.attach(store);
+          return object;
+        }),
+    Paciente: obx_int.EntityDefinition<Paciente>(
+        model: _entities[13],
+        toOneRelations: (Paciente object) => [
+              object.antecedentesPatologicasPersonales,
+              object.embarazoActual,
+              object.interrogatorio,
+              object.signosVitales,
+              object.examenFisico,
+              object.interconsultas,
+              object.genetica,
+              object.laboratorio,
+              object.antecedentesGinecologicos,
+              object.antecedentesObstetricos
+            ],
+        toManyRelations: (Paciente object) => {},
+        getId: (Paciente object) => object.id,
+        setId: (Paciente object, int id) {
+          object.id = id;
+        },
+        objectToFB: (Paciente object, fb.Builder fbb) {
+          final nombreOffset =
+              object.nombre == null ? null : fbb.writeString(object.nombre!);
+          final primerApellidoOffset = object.primerApellido == null
+              ? null
+              : fbb.writeString(object.primerApellido!);
+          final segundoApellidoOffset = object.segundoApellido == null
+              ? null
+              : fbb.writeString(object.segundoApellido!);
+          final sexoOffset =
+              object.sexo == null ? null : fbb.writeString(object.sexo!);
+          final direccionOffset = object.direccion == null
+              ? null
+              : fbb.writeString(object.direccion!);
+          final tipoDePacienteOffset = object.tipoDePaciente == null
+              ? null
+              : fbb.writeString(object.tipoDePaciente!);
+          final noIdentidadOffset = object.noIdentidad == null
+              ? null
+              : fbb.writeString(object.noIdentidad!);
+          final aboRhOffset =
+              object.aboRh == null ? null : fbb.writeString(object.aboRh!);
+          final unidadHospitalariaOffset = object.unidadHospitalaria == null
+              ? null
+              : fbb.writeString(object.unidadHospitalaria!);
+          final policlinicoOffset = object.policlinico == null
+              ? null
+              : fbb.writeString(object.policlinico!);
+          final estadoCivilOffset = object.estadoCivil == null
+              ? null
+              : fbb.writeString(object.estadoCivil!);
+          final escolaridadOffset = object.escolaridad == null
+              ? null
+              : fbb.writeString(object.escolaridad!);
+          final consultorioOffset = object.consultorio == null
+              ? null
+              : fbb.writeString(object.consultorio!);
+          final ocupacionOffset = object.ocupacion == null
+              ? null
+              : fbb.writeString(object.ocupacion!);
+          final tipoDeRiesgoOffset = object.tipoDeRiesgo == null
+              ? null
+              : fbb.writeString(object.tipoDeRiesgo!);
+          final datosDeInteresOffset = object.datosDeInteres == null
+              ? null
+              : fbb.writeString(object.datosDeInteres!);
+          final tipoDeDiagnosticoOffset = object.tipoDeDiagnostico == null
+              ? null
+              : fbb.writeString(object.tipoDeDiagnostico!);
+          final codigoOffset =
+              object.codigo == null ? null : fbb.writeString(object.codigo!);
+          final descripcionOffset = object.descripcion == null
+              ? null
+              : fbb.writeString(object.descripcion!);
+          final estructuraOffset = object.estructura == null
+              ? null
+              : fbb.writeString(object.estructura!);
+          final conductaSeguidaOffset = object.conductaSeguida == null
+              ? null
+              : fbb.writeString(object.conductaSeguida!);
+          final traumatismoAccidentesOffset =
+              object.traumatismoAccidentes == null
+                  ? null
+                  : fbb.writeString(object.traumatismoAccidentes!);
+          fbb.startTable(40);
+          fbb.addInt64(0, object.id);
+          fbb.addOffset(1, nombreOffset);
+          fbb.addOffset(2, primerApellidoOffset);
+          fbb.addOffset(3, segundoApellidoOffset);
+          fbb.addInt64(4, object.fechaNacimiento?.millisecondsSinceEpoch);
+          fbb.addOffset(5, sexoOffset);
+          fbb.addOffset(6, direccionOffset);
+          fbb.addOffset(7, tipoDePacienteOffset);
+          fbb.addOffset(8, noIdentidadOffset);
+          fbb.addInt64(9, object.edad);
+          fbb.addOffset(10, aboRhOffset);
+          fbb.addOffset(11, unidadHospitalariaOffset);
+          fbb.addOffset(12, policlinicoOffset);
+          fbb.addOffset(13, estadoCivilOffset);
+          fbb.addOffset(14, escolaridadOffset);
+          fbb.addOffset(15, consultorioOffset);
+          fbb.addOffset(16, ocupacionOffset);
+          fbb.addInt64(17, object.fechaDeRegistro?.millisecondsSinceEpoch);
+          fbb.addInt64(18, object.fechaDeActualizacion?.millisecondsSinceEpoch);
+          fbb.addInt64(19, object.noDormitorios);
+          fbb.addInt64(20, object.noPersonasNucleoPersonal);
+          fbb.addOffset(21, tipoDeRiesgoOffset);
+          fbb.addOffset(22, datosDeInteresOffset);
+          fbb.addOffset(23, tipoDeDiagnosticoOffset);
+          fbb.addOffset(24, codigoOffset);
+          fbb.addOffset(25, descripcionOffset);
+          fbb.addOffset(26, estructuraOffset);
+          fbb.addOffset(27, conductaSeguidaOffset);
+          fbb.addInt64(28, object.antecedentesPatologicasPersonales.targetId);
+          fbb.addInt64(29, object.embarazoActual.targetId);
+          fbb.addInt64(30, object.interrogatorio.targetId);
+          fbb.addInt64(31, object.signosVitales.targetId);
+          fbb.addInt64(32, object.examenFisico.targetId);
+          fbb.addInt64(33, object.interconsultas.targetId);
+          fbb.addInt64(34, object.genetica.targetId);
+          fbb.addInt64(35, object.laboratorio.targetId);
+          fbb.addOffset(36, traumatismoAccidentesOffset);
+          fbb.addInt64(37, object.antecedentesGinecologicos.targetId);
+          fbb.addInt64(38, object.antecedentesObstetricos.targetId);
+          fbb.finish(fbb.endTable());
+          return object.id;
+        },
+        objectFromFB: (obx.Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final fechaNacimientoValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 12);
+          final fechaDeRegistroValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 38);
+          final fechaDeActualizacionValue =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 40);
+          final idParam =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
+          final nombreParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 6);
+          final primerApellidoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 8);
+          final segundoApellidoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 10);
+          final fechaNacimientoParam = fechaNacimientoValue == null
+              ? null
+              : DateTime.fromMillisecondsSinceEpoch(fechaNacimientoValue);
+          final sexoParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 14);
+          final direccionParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 16);
+          final tipoDePacienteParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 18);
+          final noIdentidadParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 20);
+          final aboRhParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 24);
+          final unidadHospitalariaParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 26);
+          final policlinicoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 28);
+          final estadoCivilParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 30);
+          final escolaridadParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 32);
+          final consultorioParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 34);
+          final ocupacionParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 36);
+          final noDormitoriosParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 42);
+          final noPersonasNucleoPersonalParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 44);
+          final codigoParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 52);
+          final datosDeInteresParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 48);
+          final descripcionParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 54);
+          final estructuraParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 56);
+          final tipoDeDiagnosticoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 50);
+          final tipoDeRiesgoParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 46);
+          final conductaSeguidaParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 58);
+          final fechaDeRegistroParam = fechaDeRegistroValue == null
+              ? null
+              : DateTime.fromMillisecondsSinceEpoch(fechaDeRegistroValue);
+          final fechaDeActualizacionParam = fechaDeActualizacionValue == null
+              ? null
+              : DateTime.fromMillisecondsSinceEpoch(fechaDeActualizacionValue);
+          final edadParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 22);
+          final traumatismoAccidentesParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 76);
+          final object = Paciente(
+              id: idParam,
+              nombre: nombreParam,
+              primerApellido: primerApellidoParam,
+              segundoApellido: segundoApellidoParam,
+              fechaNacimiento: fechaNacimientoParam,
+              sexo: sexoParam,
+              direccion: direccionParam,
+              tipoDePaciente: tipoDePacienteParam,
+              noIdentidad: noIdentidadParam,
+              aboRh: aboRhParam,
+              unidadHospitalaria: unidadHospitalariaParam,
+              policlinico: policlinicoParam,
+              estadoCivil: estadoCivilParam,
+              escolaridad: escolaridadParam,
+              consultorio: consultorioParam,
+              ocupacion: ocupacionParam,
+              noDormitorios: noDormitoriosParam,
+              noPersonasNucleoPersonal: noPersonasNucleoPersonalParam,
+              codigo: codigoParam,
+              datosDeInteres: datosDeInteresParam,
+              descripcion: descripcionParam,
+              estructura: estructuraParam,
+              tipoDeDiagnostico: tipoDeDiagnosticoParam,
+              tipoDeRiesgo: tipoDeRiesgoParam,
+              conductaSeguida: conductaSeguidaParam,
+              fechaDeRegistro: fechaDeRegistroParam,
+              fechaDeActualizacion: fechaDeActualizacionParam,
+              edad: edadParam,
+              traumatismoAccidentes: traumatismoAccidentesParam);
+          object.antecedentesPatologicasPersonales.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 60, 0);
+          object.antecedentesPatologicasPersonales.attach(store);
+          object.embarazoActual.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 62, 0);
+          object.embarazoActual.attach(store);
+          object.interrogatorio.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 64, 0);
+          object.interrogatorio.attach(store);
+          object.signosVitales.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 66, 0);
+          object.signosVitales.attach(store);
+          object.examenFisico.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 68, 0);
+          object.examenFisico.attach(store);
+          object.interconsultas.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 70, 0);
+          object.interconsultas.attach(store);
+          object.genetica.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 72, 0);
+          object.genetica.attach(store);
+          object.laboratorio.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 74, 0);
+          object.laboratorio.attach(store);
+          object.antecedentesGinecologicos.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 78, 0);
+          object.antecedentesGinecologicos.attach(store);
+          object.antecedentesObstetricos.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 80, 0);
+          object.antecedentesObstetricos.attach(store);
+          return object;
+        }),
+    RecienNacido: obx_int.EntityDefinition<RecienNacido>(
+        model: _entities[14],
+        toOneRelations: (RecienNacido object) => [object.embarazo],
+        toManyRelations: (RecienNacido object) => {},
+        getId: (RecienNacido object) => object.id,
+        setId: (RecienNacido object, int id) {
+          object.id = id;
+        },
+        objectToFB: (RecienNacido object, fb.Builder fbb) {
+          final sexoOffset =
+              object.sexo == null ? null : fbb.writeString(object.sexo!);
+          final estadoOffset =
+              object.estado == null ? null : fbb.writeString(object.estado!);
+          final datosInteresOffset = object.datosInteres == null
+              ? null
+              : fbb.writeString(object.datosInteres!);
+          final ocurrenciaDefuncionOffset = object.ocurrenciaDefuncion == null
+              ? null
+              : fbb.writeString(object.ocurrenciaDefuncion!);
+          final edadAlFallecerOffset = object.edadAlFallecer == null
+              ? null
+              : fbb.writeString(object.edadAlFallecer!);
+          fbb.startTable(11);
+          fbb.addInt64(0, object.id);
+          fbb.addFloat64(1, object.peso);
+          fbb.addOffset(2, sexoOffset);
+          fbb.addOffset(3, estadoOffset);
+          fbb.addOffset(4, datosInteresOffset);
+          fbb.addInt64(5, object.apgar);
+          fbb.addInt64(6, object.puntos);
+          fbb.addOffset(7, ocurrenciaDefuncionOffset);
+          fbb.addOffset(8, edadAlFallecerOffset);
+          fbb.addInt64(9, object.embarazo.targetId);
+          fbb.finish(fbb.endTable());
+          return object.id;
+        },
+        objectFromFB: (obx.Store store, ByteData fbData) {
+          final buffer = fb.BufferContext(fbData);
+          final rootOffset = buffer.derefObject(0);
+          final idParam =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 4, 0);
+          final pesoParam =
+              const fb.Float64Reader().vTableGetNullable(buffer, rootOffset, 6);
+          final sexoParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 8);
+          final estadoParam = const fb.StringReader(asciiOptimization: true)
+              .vTableGetNullable(buffer, rootOffset, 10);
+          final datosInteresParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 12);
+          final apgarParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 14);
+          final puntosParam =
+              const fb.Int64Reader().vTableGetNullable(buffer, rootOffset, 16);
+          final ocurrenciaDefuncionParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 18);
+          final edadAlFallecerParam =
+              const fb.StringReader(asciiOptimization: true)
+                  .vTableGetNullable(buffer, rootOffset, 20);
+          final object = RecienNacido(
+              id: idParam,
+              peso: pesoParam,
+              sexo: sexoParam,
+              estado: estadoParam,
+              datosInteres: datosInteresParam,
+              apgar: apgarParam,
+              puntos: puntosParam,
+              ocurrenciaDefuncion: ocurrenciaDefuncionParam,
+              edadAlFallecer: edadAlFallecerParam);
+          object.embarazo.targetId =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 22, 0);
+          object.embarazo.attach(store);
+          return object;
         })
   };
 
   return obx_int.ModelDefinition(model, bindings);
 }
 
-/// [Interrogatorio] entity fields to define ObjectBox queries.
-class Interrogatorio_ {
-  /// See [Interrogatorio.id].
-  static final id =
-      obx.QueryIntegerProperty<Interrogatorio>(_entities[0].properties[0]);
-
-  /// See [Interrogatorio.paciente].
-  static final paciente = obx.QueryRelationToOne<Interrogatorio, Paciente>(
-      _entities[0].properties[1]);
-
-  /// See [Interrogatorio.srDisnea].
-  static final srDisnea =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[2]);
-
-  /// See [Interrogatorio.srDolor].
-  static final srDolor =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[3]);
-
-  /// See [Interrogatorio.srHermoptisis].
-  static final srHermoptisis =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[4]);
-
-  /// See [Interrogatorio.srExpectoracion].
-  static final srExpectoracion =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[5]);
-
-  /// See [Interrogatorio.srTos].
-  static final srTos =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[6]);
-
-  /// See [Interrogatorio.srOtros].
-  static final srOtros =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[7]);
-
-  /// See [Interrogatorio.srObservaciones].
-  static final srObservaciones =
-      obx.QueryStringProperty<Interrogatorio>(_entities[0].properties[8]);
-
-  /// See [Interrogatorio.scDisnea].
-  static final scDisnea =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[9]);
-
-  /// See [Interrogatorio.scDolor].
-  static final scDolor =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[10]);
-
-  /// See [Interrogatorio.scClaudicacionIntermitente].
-  static final scClaudicacionIntermitente =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[11]);
-
-  /// See [Interrogatorio.scCianosis].
-  static final scCianosis =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[12]);
-
-  /// See [Interrogatorio.scTos].
-  static final scTos =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[13]);
-
-  /// See [Interrogatorio.scPalpitaciones].
-  static final scPalpitaciones =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[14]);
-
-  /// See [Interrogatorio.scOtros].
-  static final scOtros =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[15]);
-
-  /// See [Interrogatorio.scObservaciones].
-  static final scObservaciones =
-      obx.QueryStringProperty<Interrogatorio>(_entities[0].properties[16]);
-
-  /// See [Interrogatorio.sdDisfagia].
-  static final sdDisfagia =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[17]);
-
-  /// See [Interrogatorio.sdDolor].
-  static final sdDolor =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[18]);
-
-  /// See [Interrogatorio.sdColicos].
-  static final sdColicos =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[19]);
-
-  /// See [Interrogatorio.sdHermatemesis].
-  static final sdHermatemesis =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[20]);
-
-  /// See [Interrogatorio.sdAcolia].
-  static final sdAcolia =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[21]);
-
-  /// See [Interrogatorio.sdPirosis].
-  static final sdPirosis =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[22]);
-
-  /// See [Interrogatorio.sdNauseas].
-  static final sdNauseas =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[23]);
-
-  /// See [Interrogatorio.sdEnterorragia].
-  static final sdEnterorragia =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[24]);
-
-  /// See [Interrogatorio.sdConstipacion].
-  static final sdConstipacion =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[25]);
-
-  /// See [Interrogatorio.sdAcidez].
-  static final sdAcidez =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[26]);
-
-  /// See [Interrogatorio.sdDiarreas].
-  static final sdDiarreas =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[27]);
-
-  /// See [Interrogatorio.sdAerogastrias].
-  static final sdAerogastrias =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[28]);
-
-  /// See [Interrogatorio.sdVomitos].
-  static final sdVomitos =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[29]);
-
-  /// See [Interrogatorio.sdMelena].
-  static final sdMelena =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[30]);
-
-  /// See [Interrogatorio.sdOtros].
-  static final sdOtros =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[31]);
-
-  /// See [Interrogatorio.sdObservaciones].
-  static final sdObservaciones =
-      obx.QueryStringProperty<Interrogatorio>(_entities[0].properties[32]);
-
-  /// See [Interrogatorio.suNicturioas].
-  static final suNicturioas =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[33]);
-
-  /// See [Interrogatorio.suDolor].
-  static final suDolor =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[34]);
-
-  /// See [Interrogatorio.suOrinasTurbias].
-  static final suOrinasTurbias =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[35]);
-
-  /// See [Interrogatorio.suExudadoUretral].
-  static final suExudadoUretral =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[36]);
-
-  /// See [Interrogatorio.suDisuria].
-  static final suDisuria =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[37]);
-
-  /// See [Interrogatorio.suRetencionUrinaria].
-  static final suRetencionUrinaria =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[38]);
-
-  /// See [Interrogatorio.suHermaturia].
-  static final suHermaturia =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[39]);
-
-  /// See [Interrogatorio.suIncontinencia].
-  static final suIncontinencia =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[40]);
-
-  /// See [Interrogatorio.suPolaquiuria].
-  static final suPolaquiuria =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[41]);
-
-  /// See [Interrogatorio.suUretorragia].
-  static final suUretorragia =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[42]);
-
-  /// See [Interrogatorio.suImpotiencia].
-  static final suImpotiencia =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[43]);
-
-  /// See [Interrogatorio.suTumoracion].
-  static final suTumoracion =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[44]);
-
-  /// See [Interrogatorio.suCalculos].
-  static final suCalculos =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[45]);
-
-  /// See [Interrogatorio.suOtros].
-  static final suOtros =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[46]);
-
-  /// See [Interrogatorio.suObservaciones].
-  static final suObservaciones =
-      obx.QueryStringProperty<Interrogatorio>(_entities[0].properties[47]);
-
-  /// See [Interrogatorio.snCefaleas].
-  static final snCefaleas =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[48]);
-
-  /// See [Interrogatorio.snDolorFacial].
-  static final snDolorFacial =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[49]);
-
-  /// See [Interrogatorio.snVomitos].
-  static final snVomitos =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[50]);
-
-  /// See [Interrogatorio.snDolorCervical].
-  static final snDolorCervical =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[51]);
-
-  /// See [Interrogatorio.snVertigos].
-  static final snVertigos =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[52]);
-
-  /// See [Interrogatorio.snDolorLumbar].
-  static final snDolorLumbar =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[53]);
-
-  /// See [Interrogatorio.snConvulsiones].
-  static final snConvulsiones =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[54]);
-
-  /// See [Interrogatorio.snAlteracionMarcha].
-  static final snAlteracionMarcha =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[55]);
-
-  /// See [Interrogatorio.snDefictMotor].
-  static final snDefictMotor =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[56]);
-
-  /// See [Interrogatorio.snAlteracionEquilibrio].
-  static final snAlteracionEquilibrio =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[57]);
-
-  /// See [Interrogatorio.snDeficitSensitivo].
-  static final snDeficitSensitivo =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[58]);
-
-  /// See [Interrogatorio.snAlteracionVisual].
-  static final snAlteracionVisual =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[59]);
-
-  /// See [Interrogatorio.snAlteracionConciencia].
-  static final snAlteracionConciencia =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[60]);
-
-  /// See [Interrogatorio.snDificultadHablarEntender].
-  static final snDificultadHablarEntender =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[61]);
-
-  /// See [Interrogatorio.snOtros].
-  static final snOtros =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[62]);
-
-  /// See [Interrogatorio.snObservaciones].
-  static final snObservaciones =
-      obx.QueryStringProperty<Interrogatorio>(_entities[0].properties[63]);
-
-  /// See [Interrogatorio.seHipofisis].
-  static final seHipofisis =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[64]);
-
-  /// See [Interrogatorio.seOvarios].
-  static final seOvarios =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[65]);
-
-  /// See [Interrogatorio.sePancreas].
-  static final sePancreas =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[66]);
-
-  /// See [Interrogatorio.seSuprarrenal].
-  static final seSuprarrenal =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[67]);
-
-  /// See [Interrogatorio.seParatiroideas].
-  static final seParatiroideas =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[68]);
-
-  /// See [Interrogatorio.seTiroides].
-  static final seTiroides =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[69]);
-
-  /// See [Interrogatorio.seTesticulos].
-  static final seTesticulos =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[70]);
-
-  /// See [Interrogatorio.seOtros].
-  static final seOtros =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[71]);
-
-  /// See [Interrogatorio.seObservaciones].
-  static final seObservaciones =
-      obx.QueryStringProperty<Interrogatorio>(_entities[0].properties[72]);
-
-  /// See [Interrogatorio.astenia].
-  static final astenia =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[73]);
-
-  /// See [Interrogatorio.anorexia].
-  static final anorexia =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[74]);
-
-  /// See [Interrogatorio.epistaxis].
-  static final epistaxis =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[75]);
-
-  /// See [Interrogatorio.fiebre].
-  static final fiebre =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[76]);
-
-  /// See [Interrogatorio.artralgia].
-  static final artralgia =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[77]);
-
-  /// See [Interrogatorio.polifagia].
-  static final polifagia =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[78]);
-
-  /// See [Interrogatorio.edema].
-  static final edema =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[79]);
-
-  /// See [Interrogatorio.prurito].
-  static final prurito =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[80]);
-
-  /// See [Interrogatorio.perdidaPeso].
-  static final perdidaPeso =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[81]);
-
-  /// See [Interrogatorio.gananciaPeso].
-  static final gananciaPeso =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[82]);
-
-  /// See [Interrogatorio.acroparentesias].
-  static final acroparentesias =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[83]);
-
-  /// See [Interrogatorio.otros].
-  static final otros =
-      obx.QueryBooleanProperty<Interrogatorio>(_entities[0].properties[84]);
-
-  /// See [Interrogatorio.observaciones].
-  static final observaciones =
-      obx.QueryStringProperty<Interrogatorio>(_entities[0].properties[85]);
-}
-
-/// [Antecedente] entity fields to define ObjectBox queries.
-class Antecedente_ {
-  /// See [Antecedente.id].
-  static final id =
-      obx.QueryIntegerProperty<Antecedente>(_entities[1].properties[0]);
-
-  /// See [Antecedente.paciente].
-  static final paciente =
-      obx.QueryRelationToOne<Antecedente, Paciente>(_entities[1].properties[1]);
-
-  /// See [Antecedente.tipo].
-  static final tipo =
-      obx.QueryStringProperty<Antecedente>(_entities[1].properties[2]);
-
-  /// See [Antecedente.descripcion].
-  static final descripcion =
-      obx.QueryStringProperty<Antecedente>(_entities[1].properties[3]);
-
-  /// See [Antecedente.fecha].
-  static final fecha =
-      obx.QueryDateProperty<Antecedente>(_entities[1].properties[4]);
-}
-
-/// [AntecedentesGinecologicos] entity fields to define ObjectBox queries.
-class AntecedentesGinecologicos_ {
-  /// See [AntecedentesGinecologicos.id].
-  static final id = obx.QueryIntegerProperty<AntecedentesGinecologicos>(
-      _entities[2].properties[0]);
-
-  /// See [AntecedentesGinecologicos.paciente].
-  static final paciente =
-      obx.QueryRelationToOne<AntecedentesGinecologicos, Paciente>(
-          _entities[2].properties[1]);
-
-  /// See [AntecedentesGinecologicos.edadMenopausia].
-  static final edadMenopausia =
-      obx.QueryIntegerProperty<AntecedentesGinecologicos>(
-          _entities[2].properties[2]);
-
-  /// See [AntecedentesGinecologicos.caracteristicasMenopausia].
-  static final caracteristicasMenopausia =
-      obx.QueryStringProperty<AntecedentesGinecologicos>(
-          _entities[2].properties[3]);
-
-  /// See [AntecedentesGinecologicos.edadMenarquia].
-  static final edadMenarquia =
-      obx.QueryIntegerProperty<AntecedentesGinecologicos>(
-          _entities[2].properties[4]);
-
-  /// See [AntecedentesGinecologicos.caracteristicasMenarquia].
-  static final caracteristicasMenarquia =
-      obx.QueryStringProperty<AntecedentesGinecologicos>(
-          _entities[2].properties[5]);
-
-  /// See [AntecedentesGinecologicos.edadPrimeraRelacion].
-  static final edadPrimeraRelacion =
-      obx.QueryIntegerProperty<AntecedentesGinecologicos>(
-          _entities[2].properties[6]);
-
-  /// See [AntecedentesGinecologicos.formulaMenstrual].
-  static final formulaMenstrual =
-      obx.QueryStringProperty<AntecedentesGinecologicos>(
-          _entities[2].properties[7]);
-
-  /// See [AntecedentesGinecologicos.fechaUltimaMenstruacion].
-  static final fechaUltimaMenstruacion =
-      obx.QueryDateProperty<AntecedentesGinecologicos>(
-          _entities[2].properties[8]);
-
-  /// See [AntecedentesGinecologicos.tipoMenstruacion].
-  static final tipoMenstruacion =
-      obx.QueryStringProperty<AntecedentesGinecologicos>(
-          _entities[2].properties[9]);
-
-  /// See [AntecedentesGinecologicos.fechaUltimoUso].
-  static final fechaUltimoUso =
-      obx.QueryDateProperty<AntecedentesGinecologicos>(
-          _entities[2].properties[10]);
-
-  /// See [AntecedentesGinecologicos.descripcion].
-  static final descripcion = obx.QueryStringProperty<AntecedentesGinecologicos>(
-      _entities[2].properties[11]);
-
-  /// See [AntecedentesGinecologicos.barrera].
-  static final barrera = obx.QueryBooleanProperty<AntecedentesGinecologicos>(
-      _entities[2].properties[12]);
-
-  /// See [AntecedentesGinecologicos.diu].
-  static final diu = obx.QueryBooleanProperty<AntecedentesGinecologicos>(
-      _entities[2].properties[13]);
-
-  /// See [AntecedentesGinecologicos.hormonales].
-  static final hormonales = obx.QueryBooleanProperty<AntecedentesGinecologicos>(
-      _entities[2].properties[14]);
-
-  /// see [AntecedentesGinecologicos.resultadosCitologicos]
-  static final resultadosCitologicos =
-      obx.QueryRelationToMany<AntecedentesGinecologicos, Citologia>(
-          _entities[2].relations[0]);
-}
-
-/// [AntecedentesObstetricos] entity fields to define ObjectBox queries.
-class AntecedentesObstetricos_ {
-  /// See [AntecedentesObstetricos.id].
-  static final id = obx.QueryIntegerProperty<AntecedentesObstetricos>(
-      _entities[3].properties[0]);
-
-  /// See [AntecedentesObstetricos.paciente].
-  static final paciente =
-      obx.QueryRelationToOne<AntecedentesObstetricos, Paciente>(
-          _entities[3].properties[1]);
-
-  /// see [AntecedentesObstetricos.embarazos]
-  static final embarazos =
-      obx.QueryBacklinkToMany<Embarazo, AntecedentesObstetricos>(
-          Embarazo_.antecedente);
-}
-
-/// [AntecedentesPatologicosPersonales] entity fields to define ObjectBox queries.
-class AntecedentesPatologicosPersonales_ {
-  /// See [AntecedentesPatologicosPersonales.id].
-  static final id = obx.QueryIntegerProperty<AntecedentesPatologicosPersonales>(
-      _entities[4].properties[0]);
-
-  /// See [AntecedentesPatologicosPersonales.paciente].
-  static final paciente =
-      obx.QueryRelationToOne<AntecedentesPatologicosPersonales, Paciente>(
-          _entities[4].properties[1]);
-
-  /// see [AntecedentesPatologicosPersonales.enfermedadesGenerales]
-  static final enfermedadesGenerales =
-      obx.QueryRelationToMany<AntecedentesPatologicosPersonales, Enfermedad>(
-          _entities[4].relations[0]);
-
-  /// see [AntecedentesPatologicosPersonales.enfermedadesEndocrinas]
-  static final enfermedadesEndocrinas =
-      obx.QueryRelationToMany<AntecedentesPatologicosPersonales, Enfermedad>(
-          _entities[4].relations[1]);
-
-  /// see [AntecedentesPatologicosPersonales.enfermedadesRespiratorias]
-  static final enfermedadesRespiratorias =
-      obx.QueryRelationToMany<AntecedentesPatologicosPersonales, Enfermedad>(
-          _entities[4].relations[2]);
-
-  /// see [AntecedentesPatologicosPersonales.enfermedadesCardiovasculares]
-  static final enfermedadesCardiovasculares =
-      obx.QueryRelationToMany<AntecedentesPatologicosPersonales, Enfermedad>(
-          _entities[4].relations[3]);
-
-  /// see [AntecedentesPatologicosPersonales.enfermedadesDigestivas]
-  static final enfermedadesDigestivas =
-      obx.QueryRelationToMany<AntecedentesPatologicosPersonales, Enfermedad>(
-          _entities[4].relations[4]);
-
-  /// see [AntecedentesPatologicosPersonales.enfermedadesRenales]
-  static final enfermedadesRenales =
-      obx.QueryRelationToMany<AntecedentesPatologicosPersonales, Enfermedad>(
-          _entities[4].relations[5]);
-
-  /// see [AntecedentesPatologicosPersonales.enfermedadesNeuronales]
-  static final enfermedadesNeuronales =
-      obx.QueryRelationToMany<AntecedentesPatologicosPersonales, Enfermedad>(
-          _entities[4].relations[6]);
-
-  /// see [AntecedentesPatologicosPersonales.enfermedadesHematologicas]
-  static final enfermedadesHematologicas =
-      obx.QueryRelationToMany<AntecedentesPatologicosPersonales, Enfermedad>(
-          _entities[4].relations[7]);
-
-  /// see [AntecedentesPatologicosPersonales.enfermedadesReumatologicas]
-  static final enfermedadesReumatologicas =
-      obx.QueryRelationToMany<AntecedentesPatologicosPersonales, Enfermedad>(
-          _entities[4].relations[8]);
-
-  /// see [AntecedentesPatologicosPersonales.enfermedadesTransmisionSexual]
-  static final enfermedadesTransmisionSexual =
-      obx.QueryRelationToMany<AntecedentesPatologicosPersonales, Enfermedad>(
-          _entities[4].relations[9]);
-
-  /// see [AntecedentesPatologicosPersonales.enfermedadesGinecologicas]
-  static final enfermedadesGinecologicas =
-      obx.QueryRelationToMany<AntecedentesPatologicosPersonales, Enfermedad>(
-          _entities[4].relations[10]);
-}
-
-/// [Citologia] entity fields to define ObjectBox queries.
-class Citologia_ {
-  /// See [Citologia.id].
-  static final id =
-      obx.QueryIntegerProperty<Citologia>(_entities[5].properties[0]);
-
-  /// See [Citologia.fecha].
-  static final fecha =
-      obx.QueryDateProperty<Citologia>(_entities[5].properties[1]);
-
-  /// See [Citologia.resultado].
-  static final resultado =
-      obx.QueryStringProperty<Citologia>(_entities[5].properties[2]);
-
-  /// See [Citologia.fueraDePrograma].
-  static final fueraDePrograma =
-      obx.QueryBooleanProperty<Citologia>(_entities[5].properties[3]);
-
-  /// See [Citologia.observaciones].
-  static final observaciones =
-      obx.QueryStringProperty<Citologia>(_entities[5].properties[4]);
-
-  /// See [Citologia.antecedente].
-  static final antecedente =
-      obx.QueryRelationToOne<Citologia, AntecedentesGinecologicos>(
-          _entities[5].properties[5]);
-}
-
-/// [Embarazo] entity fields to define ObjectBox queries.
-class Embarazo_ {
-  /// See [Embarazo.id].
-  static final id =
-      obx.QueryIntegerProperty<Embarazo>(_entities[6].properties[0]);
-
-  /// See [Embarazo.numeroEmbarazo].
-  static final numeroEmbarazo =
-      obx.QueryIntegerProperty<Embarazo>(_entities[6].properties[1]);
-
-  /// See [Embarazo.fecha].
-  static final fecha =
-      obx.QueryDateProperty<Embarazo>(_entities[6].properties[2]);
-
-  /// See [Embarazo.semanasGestacion].
-  static final semanasGestacion =
-      obx.QueryIntegerProperty<Embarazo>(_entities[6].properties[3]);
-
-  /// See [Embarazo.abortoEtiologia].
-  static final abortoEtiologia =
-      obx.QueryStringProperty<Embarazo>(_entities[6].properties[4]);
-
-  /// See [Embarazo.caracteristicasNacimiento].
-  static final caracteristicasNacimiento =
-      obx.QueryStringProperty<Embarazo>(_entities[6].properties[5]);
-
-  /// See [Embarazo.tipoParto].
-  static final tipoParto =
-      obx.QueryStringProperty<Embarazo>(_entities[6].properties[6]);
-
-  /// See [Embarazo.tipoDistocia].
-  static final tipoDistocia =
-      obx.QueryStringProperty<Embarazo>(_entities[6].properties[7]);
-
-  /// See [Embarazo.lugarParto].
-  static final lugarParto =
-      obx.QueryStringProperty<Embarazo>(_entities[6].properties[8]);
-
-  /// See [Embarazo.antecedente].
-  static final antecedente =
-      obx.QueryRelationToOne<Embarazo, AntecedentesObstetricos>(
-          _entities[6].properties[9]);
-
-  /// see [Embarazo.recienNacidos]
-  static final recienNacidos =
-      obx.QueryBacklinkToMany<RecienNacido, Embarazo>(RecienNacido_.embarazo);
-}
-
-/// [EmbarazoActual] entity fields to define ObjectBox queries.
-class EmbarazoActual_ {
-  /// See [EmbarazoActual.id].
-  static final id =
-      obx.QueryIntegerProperty<EmbarazoActual>(_entities[7].properties[0]);
-
-  /// See [EmbarazoActual.fechaUltimaMenstruacion].
-  static final fechaUltimaMenstruacion =
-      obx.QueryDateProperty<EmbarazoActual>(_entities[7].properties[1]);
-
-  /// See [EmbarazoActual.noConfiable].
-  static final noConfiable =
-      obx.QueryBooleanProperty<EmbarazoActual>(_entities[7].properties[2]);
-
-  /// See [EmbarazoActual.desconocida].
-  static final desconocida =
-      obx.QueryBooleanProperty<EmbarazoActual>(_entities[7].properties[3]);
-
-  /// See [EmbarazoActual.fechaPartoEstimado].
-  static final fechaPartoEstimado =
-      obx.QueryDateProperty<EmbarazoActual>(_entities[7].properties[4]);
-
-  /// See [EmbarazoActual.captacion].
-  static final captacion =
-      obx.QueryIntegerProperty<EmbarazoActual>(_entities[7].properties[5]);
-
-  /// See [EmbarazoActual.semanas].
-  static final semanas =
-      obx.QueryIntegerProperty<EmbarazoActual>(_entities[7].properties[6]);
-
-  /// See [EmbarazoActual.paciente].
-  static final paciente = obx.QueryRelationToOne<EmbarazoActual, Paciente>(
-      _entities[7].properties[7]);
-}
-
-/// [Enfermedad] entity fields to define ObjectBox queries.
-class Enfermedad_ {
-  /// See [Enfermedad.id].
-  static final id =
-      obx.QueryIntegerProperty<Enfermedad>(_entities[8].properties[0]);
-
-  /// See [Enfermedad.nombre].
-  static final nombre =
-      obx.QueryStringProperty<Enfermedad>(_entities[8].properties[1]);
-
-  /// See [Enfermedad.cronica].
-  static final cronica =
-      obx.QueryBooleanProperty<Enfermedad>(_entities[8].properties[2]);
-
-  /// See [Enfermedad.fecha].
-  static final fecha =
-      obx.QueryDateProperty<Enfermedad>(_entities[8].properties[3]);
-
-  /// See [Enfermedad.descripcion].
-  static final descripcion =
-      obx.QueryStringProperty<Enfermedad>(_entities[8].properties[4]);
-
-  /// See [Enfermedad.antecedente].
-  static final antecedente =
-      obx.QueryRelationToOne<Enfermedad, AntecedentesPatologicosPersonales>(
-          _entities[8].properties[5]);
-}
-
-/// [Paciente] entity fields to define ObjectBox queries.
-class Paciente_ {
-  /// See [Paciente.id].
-  static final id =
-      obx.QueryIntegerProperty<Paciente>(_entities[9].properties[0]);
-
-  /// See [Paciente.nombre].
-  static final nombre =
-      obx.QueryStringProperty<Paciente>(_entities[9].properties[1]);
-
-  /// See [Paciente.primerApellido].
-  static final primerApellido =
-      obx.QueryStringProperty<Paciente>(_entities[9].properties[2]);
-
-  /// See [Paciente.segundoApellido].
-  static final segundoApellido =
-      obx.QueryStringProperty<Paciente>(_entities[9].properties[3]);
-
-  /// See [Paciente.fechaNacimiento].
-  static final fechaNacimiento =
-      obx.QueryDateProperty<Paciente>(_entities[9].properties[4]);
-
-  /// See [Paciente.sexo].
-  static final sexo =
-      obx.QueryStringProperty<Paciente>(_entities[9].properties[5]);
-
-  /// See [Paciente.direccion].
-  static final direccion =
-      obx.QueryStringProperty<Paciente>(_entities[9].properties[6]);
-
-  /// See [Paciente.tipoDePaciente].
-  static final tipoDePaciente =
-      obx.QueryStringProperty<Paciente>(_entities[9].properties[7]);
-
-  /// See [Paciente.noIdentidad].
-  static final noIdentidad =
-      obx.QueryStringProperty<Paciente>(_entities[9].properties[8]);
-
-  /// See [Paciente.aboRh].
-  static final aboRh =
-      obx.QueryStringProperty<Paciente>(_entities[9].properties[9]);
-
-  /// See [Paciente.unidadHospitalaria].
-  static final unidadHospitalaria =
-      obx.QueryStringProperty<Paciente>(_entities[9].properties[10]);
-
-  /// See [Paciente.policlinico].
-  static final policlinico =
-      obx.QueryStringProperty<Paciente>(_entities[9].properties[11]);
-
-  /// See [Paciente.estadoCivil].
-  static final estadoCivil =
-      obx.QueryStringProperty<Paciente>(_entities[9].properties[12]);
-
-  /// See [Paciente.escolaridad].
-  static final escolaridad =
-      obx.QueryStringProperty<Paciente>(_entities[9].properties[13]);
-
-  /// See [Paciente.consultorio].
-  static final consultorio =
-      obx.QueryStringProperty<Paciente>(_entities[9].properties[14]);
-
-  /// See [Paciente.ocupacion].
-  static final ocupacion =
-      obx.QueryStringProperty<Paciente>(_entities[9].properties[15]);
-
-  /// See [Paciente.noDormitorios].
-  static final noDormitorios =
-      obx.QueryIntegerProperty<Paciente>(_entities[9].properties[16]);
-
-  /// See [Paciente.noPersonasNucleoPersonal].
-  static final noPersonasNucleoPersonal =
-      obx.QueryIntegerProperty<Paciente>(_entities[9].properties[17]);
-
-  /// See [Paciente.tipoDeRiesgo].
-  static final tipoDeRiesgo =
-      obx.QueryStringProperty<Paciente>(_entities[9].properties[18]);
-
-  /// See [Paciente.datosDeInteres].
-  static final datosDeInteres =
-      obx.QueryStringProperty<Paciente>(_entities[9].properties[19]);
-
-  /// See [Paciente.tipoDeDiagnostico].
-  static final tipoDeDiagnostico =
-      obx.QueryStringProperty<Paciente>(_entities[9].properties[20]);
-
-  /// See [Paciente.codigo].
-  static final codigo =
-      obx.QueryStringProperty<Paciente>(_entities[9].properties[21]);
-
-  /// See [Paciente.descripcion].
-  static final descripcion =
-      obx.QueryStringProperty<Paciente>(_entities[9].properties[22]);
-
-  /// See [Paciente.estructura].
-  static final estructura =
-      obx.QueryStringProperty<Paciente>(_entities[9].properties[23]);
-
-  /// See [Paciente.conductaSeguida].
-  static final conductaSeguida =
-      obx.QueryStringProperty<Paciente>(_entities[9].properties[24]);
-
-  /// See [Paciente.embarazoActual].
-  static final embarazoActual =
-      obx.QueryRelationToOne<Paciente, EmbarazoActual>(
-          _entities[9].properties[25]);
-
-  /// See [Paciente.interrogatorio].
-  static final interrogatorio =
-      obx.QueryRelationToOne<Paciente, Interrogatorio>(
-          _entities[9].properties[26]);
-
-  /// See [Paciente.fechaDeRegistro].
-  static final fechaDeRegistro =
-      obx.QueryDateProperty<Paciente>(_entities[9].properties[27]);
-
-  /// See [Paciente.fechaDeActualizacion].
-  static final fechaDeActualizacion =
-      obx.QueryDateProperty<Paciente>(_entities[9].properties[28]);
-
-  /// See [Paciente.edad].
-  static final edad =
-      obx.QueryIntegerProperty<Paciente>(_entities[9].properties[29]);
-
-  /// See [Paciente.signosVitales].
-  static final signosVitales =
-      obx.QueryRelationToOne<Paciente, SignosVitalesModel>(
-          _entities[9].properties[30]);
-
-  /// See [Paciente.examenFisico].
-  static final examenFisico =
-      obx.QueryRelationToOne<Paciente, ExamenFisicoModel>(
-          _entities[9].properties[31]);
-
-  /// See [Paciente.interconsultas].
-  static final interconsultas =
-      obx.QueryRelationToOne<Paciente, InterconsultasModel>(
-          _entities[9].properties[32]);
-
-  /// See [Paciente.genetica].
-  static final genetica = obx.QueryRelationToOne<Paciente, GeneticaModel>(
-      _entities[9].properties[33]);
-
-  /// See [Paciente.laboratorio].
-  static final laboratorio =
-      obx.QueryRelationToOne<Paciente, LaboratorioMicrobiologiaModel>(
-          _entities[9].properties[34]);
-
-  /// see [Paciente.antecedentes]
-  static final antecedentes =
-      obx.QueryBacklinkToMany<Antecedente, Paciente>(Antecedente_.paciente);
-}
-
-/// [RecienNacido] entity fields to define ObjectBox queries.
-class RecienNacido_ {
-  /// See [RecienNacido.id].
-  static final id =
-      obx.QueryIntegerProperty<RecienNacido>(_entities[10].properties[0]);
-
-  /// See [RecienNacido.peso].
-  static final peso =
-      obx.QueryDoubleProperty<RecienNacido>(_entities[10].properties[1]);
-
-  /// See [RecienNacido.sexo].
-  static final sexo =
-      obx.QueryStringProperty<RecienNacido>(_entities[10].properties[2]);
-
-  /// See [RecienNacido.estado].
-  static final estado =
-      obx.QueryStringProperty<RecienNacido>(_entities[10].properties[3]);
-
-  /// See [RecienNacido.datosInteres].
-  static final datosInteres =
-      obx.QueryStringProperty<RecienNacido>(_entities[10].properties[4]);
-
-  /// See [RecienNacido.apgar].
-  static final apgar =
-      obx.QueryIntegerProperty<RecienNacido>(_entities[10].properties[5]);
-
-  /// See [RecienNacido.puntos].
-  static final puntos =
-      obx.QueryIntegerProperty<RecienNacido>(_entities[10].properties[6]);
-
-  /// See [RecienNacido.ocurrenciaDefuncion].
-  static final ocurrenciaDefuncion =
-      obx.QueryStringProperty<RecienNacido>(_entities[10].properties[7]);
-
-  /// See [RecienNacido.edadAlFallecer].
-  static final edadAlFallecer =
-      obx.QueryStringProperty<RecienNacido>(_entities[10].properties[8]);
-
-  /// See [RecienNacido.embarazo].
-  static final embarazo = obx.QueryRelationToOne<RecienNacido, Embarazo>(
-      _entities[10].properties[9]);
-}
-
 /// [ExamenFisicoModel] entity fields to define ObjectBox queries.
 class ExamenFisicoModel_ {
   /// See [ExamenFisicoModel.id].
   static final id =
-      obx.QueryIntegerProperty<ExamenFisicoModel>(_entities[11].properties[0]);
+      obx.QueryIntegerProperty<ExamenFisicoModel>(_entities[0].properties[0]);
 
   /// See [ExamenFisicoModel.paciente].
   static final paciente = obx.QueryRelationToOne<ExamenFisicoModel, Paciente>(
-      _entities[11].properties[1]);
+      _entities[0].properties[1]);
 
   /// See [ExamenFisicoModel.semanasDeGestacion].
   static final semanasDeGestacion =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[2]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[2]);
 
   /// See [ExamenFisicoModel.peso].
   static final peso =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[3]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[3]);
 
   /// See [ExamenFisicoModel.alturaUterina].
   static final alturaUterina =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[4]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[4]);
 
   /// See [ExamenFisicoModel.circunsferenciaAbdominal].
   static final circunsferenciaAbdominal =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[5]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[5]);
 
   /// See [ExamenFisicoModel.presentacion].
   static final presentacion =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[6]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[6]);
 
   /// See [ExamenFisicoModel.posicion].
   static final posicion =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[7]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[7]);
 
   /// See [ExamenFisicoModel.focoFetal].
   static final focoFetal =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[8]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[8]);
 
   /// See [ExamenFisicoModel.movimientoFetal].
   static final movimientoFetal =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[9]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[9]);
 
   /// See [ExamenFisicoModel.tonoUterino].
   static final tonoUterino =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[10]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[10]);
 
   /// See [ExamenFisicoModel.edemas].
   static final edemas =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[11]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[11]);
 
   /// See [ExamenFisicoModel.dinamicaUterina].
   static final dinamicaUterina =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[12]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[12]);
 
   /// See [ExamenFisicoModel.tejidoCelularSubcutaneo].
   static final tejidoCelularSubcutaneo =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[13]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[13]);
 
   /// See [ExamenFisicoModel.facies].
   static final facies =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[14]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[14]);
 
   /// See [ExamenFisicoModel.piel].
   static final piel =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[15]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[15]);
 
   /// See [ExamenFisicoModel.gObservacions].
   static final gObservacions =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[16]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[16]);
 
   /// See [ExamenFisicoModel.mucosas].
   static final mucosas =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[17]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[17]);
 
   /// See [ExamenFisicoModel.faneras].
   static final faneras =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[18]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[18]);
 
   /// See [ExamenFisicoModel.rInspeccion].
   static final rInspeccion =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[19]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[19]);
 
   /// See [ExamenFisicoModel.rPalpacion].
   static final rPalpacion =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[20]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[20]);
 
   /// See [ExamenFisicoModel.rPercucion].
   static final rPercucion =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[21]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[21]);
 
   /// See [ExamenFisicoModel.rAuscultacion].
   static final rAuscultacion =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[22]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[22]);
 
   /// See [ExamenFisicoModel.rObservacions].
   static final rObservacions =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[23]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[23]);
 
   /// See [ExamenFisicoModel.acInspeccion].
   static final acInspeccion =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[24]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[24]);
 
   /// See [ExamenFisicoModel.acPalpacion].
   static final acPalpacion =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[25]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[25]);
 
   /// See [ExamenFisicoModel.acAuscultacion].
   static final acAuscultacion =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[26]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[26]);
 
   /// See [ExamenFisicoModel.acObservacions].
   static final acObservacions =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[27]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[27]);
 
   /// See [ExamenFisicoModel.venosoPeriferico].
   static final venosoPeriferico =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[28]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[28]);
 
   /// See [ExamenFisicoModel.linfatico].
   static final linfatico =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[29]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[29]);
 
   /// See [ExamenFisicoModel.vlObservacions].
   static final vlObservacions =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[30]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[30]);
 
   /// See [ExamenFisicoModel.boca].
   static final boca =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[31]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[31]);
 
   /// See [ExamenFisicoModel.lengua].
   static final lengua =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[32]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[32]);
 
   /// See [ExamenFisicoModel.orofaringe].
   static final orofaringe =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[33]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[33]);
 
   /// See [ExamenFisicoModel.dsObservacions].
   static final dsObservacions =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[34]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[34]);
 
   /// See [ExamenFisicoModel.aInspeccion].
   static final aInspeccion =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[35]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[35]);
 
   /// See [ExamenFisicoModel.aPalpacion].
   static final aPalpacion =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[36]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[36]);
 
   /// See [ExamenFisicoModel.aPercucion].
   static final aPercucion =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[37]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[37]);
 
   /// See [ExamenFisicoModel.aAuscultacion].
   static final aAuscultacion =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[38]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[38]);
 
   /// See [ExamenFisicoModel.aTactoRectal].
   static final aTactoRectal =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[39]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[39]);
 
   /// See [ExamenFisicoModel.aObservacions].
   static final aObservacions =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[40]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[40]);
 
   /// See [ExamenFisicoModel.uInspeccion].
   static final uInspeccion =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[41]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[41]);
 
   /// See [ExamenFisicoModel.uPalpacion].
   static final uPalpacion =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[42]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[42]);
 
   /// See [ExamenFisicoModel.uPercucion].
   static final uPercucion =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[43]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[43]);
 
   /// See [ExamenFisicoModel.uObservacions].
   static final uObservacions =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[44]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[44]);
 
   /// See [ExamenFisicoModel.vuelvaPerine].
   static final vuelvaPerine =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[45]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[45]);
 
   /// See [ExamenFisicoModel.vObservaciones].
   static final vObservaciones =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[46]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[46]);
 
   /// See [ExamenFisicoModel.vagina].
   static final vagina =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[47]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[47]);
 
   /// See [ExamenFisicoModel.vagObservaciones].
   static final vagObservaciones =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[48]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[48]);
 
   /// See [ExamenFisicoModel.cuello].
   static final cuello =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[49]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[49]);
 
   /// See [ExamenFisicoModel.cObservaciones].
   static final cObservaciones =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[50]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[50]);
 
   /// See [ExamenFisicoModel.utero].
   static final utero =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[51]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[51]);
 
   /// See [ExamenFisicoModel.utObservaciones].
   static final utObservaciones =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[52]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[52]);
 
   /// See [ExamenFisicoModel.anejos].
   static final anejos =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[53]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[53]);
 
   /// See [ExamenFisicoModel.anObservaciones].
   static final anObservaciones =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[54]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[54]);
 
   /// See [ExamenFisicoModel.mInspeccion].
   static final mInspeccion =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[55]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[55]);
 
   /// See [ExamenFisicoModel.mPalpacion].
   static final mPalpacion =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[56]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[56]);
 
   /// See [ExamenFisicoModel.aptasLaptar].
   static final aptasLaptar =
-      obx.QueryBooleanProperty<ExamenFisicoModel>(_entities[11].properties[57]);
+      obx.QueryBooleanProperty<ExamenFisicoModel>(_entities[0].properties[57]);
 
   /// See [ExamenFisicoModel.mObservaciones].
   static final mObservaciones =
-      obx.QueryStringProperty<ExamenFisicoModel>(_entities[11].properties[58]);
+      obx.QueryStringProperty<ExamenFisicoModel>(_entities[0].properties[58]);
 }
 
 /// [FetoUltrasonido1erTrimestre] entity fields to define ObjectBox queries.
 class FetoUltrasonido1erTrimestre_ {
   /// See [FetoUltrasonido1erTrimestre.id].
   static final id = obx.QueryIntegerProperty<FetoUltrasonido1erTrimestre>(
-      _entities[12].properties[0]);
+      _entities[1].properties[0]);
 
   /// See [FetoUltrasonido1erTrimestre.lc].
   static final lc = obx.QueryStringProperty<FetoUltrasonido1erTrimestre>(
-      _entities[12].properties[1]);
+      _entities[1].properties[1]);
 
   /// See [FetoUltrasonido1erTrimestre.corion].
   static final corion = obx.QueryStringProperty<FetoUltrasonido1erTrimestre>(
-      _entities[12].properties[2]);
+      _entities[1].properties[2]);
 
   /// See [FetoUltrasonido1erTrimestre.lcr].
   static final lcr = obx.QueryStringProperty<FetoUltrasonido1erTrimestre>(
-      _entities[12].properties[3]);
+      _entities[1].properties[3]);
 
   /// See [FetoUltrasonido1erTrimestre.dbp].
   static final dbp = obx.QueryStringProperty<FetoUltrasonido1erTrimestre>(
-      _entities[12].properties[4]);
+      _entities[1].properties[4]);
 
   /// See [FetoUltrasonido1erTrimestre.tn].
   static final tn = obx.QueryStringProperty<FetoUltrasonido1erTrimestre>(
-      _entities[12].properties[5]);
+      _entities[1].properties[5]);
 
   /// See [FetoUltrasonido1erTrimestre.hn].
   static final hn = obx.QueryStringProperty<FetoUltrasonido1erTrimestre>(
-      _entities[12].properties[6]);
+      _entities[1].properties[6]);
 
   /// See [FetoUltrasonido1erTrimestre.cristalinos].
   static final cristalinos =
       obx.QueryStringProperty<FetoUltrasonido1erTrimestre>(
-          _entities[12].properties[7]);
+          _entities[1].properties[7]);
 
   /// See [FetoUltrasonido1erTrimestre.estomago].
   static final estomago = obx.QueryStringProperty<FetoUltrasonido1erTrimestre>(
-      _entities[12].properties[8]);
+      _entities[1].properties[8]);
 
   /// See [FetoUltrasonido1erTrimestre.paa].
   static final paa = obx.QueryStringProperty<FetoUltrasonido1erTrimestre>(
-      _entities[12].properties[9]);
+      _entities[1].properties[9]);
 
   /// See [FetoUltrasonido1erTrimestre.cuatroMiembros].
   static final cuatroMiembros =
       obx.QueryStringProperty<FetoUltrasonido1erTrimestre>(
-          _entities[12].properties[10]);
+          _entities[1].properties[10]);
 
   /// See [FetoUltrasonido1erTrimestre.eg].
   static final eg = obx.QueryStringProperty<FetoUltrasonido1erTrimestre>(
-      _entities[12].properties[11]);
+      _entities[1].properties[11]);
 
   /// See [FetoUltrasonido1erTrimestre.ip].
   static final ip = obx.QueryStringProperty<FetoUltrasonido1erTrimestre>(
-      _entities[12].properties[12]);
+      _entities[1].properties[12]);
 
   /// See [FetoUltrasonido1erTrimestre.ipPercentil].
   static final ipPercentil =
       obx.QueryStringProperty<FetoUltrasonido1erTrimestre>(
-          _entities[12].properties[13]);
+          _entities[1].properties[13]);
 
   /// See [FetoUltrasonido1erTrimestre.onda].
   static final onda = obx.QueryStringProperty<FetoUltrasonido1erTrimestre>(
-      _entities[12].properties[14]);
+      _entities[1].properties[14]);
 
   /// See [FetoUltrasonido1erTrimestre.genetica].
   static final genetica =
       obx.QueryRelationToOne<FetoUltrasonido1erTrimestre, GeneticaModel>(
-          _entities[12].properties[15]);
+          _entities[1].properties[15]);
 }
 
 /// [FetoUltrasonidoSeguimiento] entity fields to define ObjectBox queries.
 class FetoUltrasonidoSeguimiento_ {
   /// See [FetoUltrasonidoSeguimiento.id].
   static final id = obx.QueryIntegerProperty<FetoUltrasonidoSeguimiento>(
-      _entities[13].properties[0]);
+      _entities[2].properties[0]);
 
   /// See [FetoUltrasonidoSeguimiento.lc].
   static final lc = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
-      _entities[13].properties[1]);
+      _entities[2].properties[1]);
 
   /// See [FetoUltrasonidoSeguimiento.cc].
   static final cc = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
-      _entities[13].properties[2]);
+      _entities[2].properties[2]);
 
   /// See [FetoUltrasonidoSeguimiento.ca].
   static final ca = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
-      _entities[13].properties[3]);
+      _entities[2].properties[3]);
 
   /// See [FetoUltrasonidoSeguimiento.lf].
   static final lf = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
-      _entities[13].properties[4]);
+      _entities[2].properties[4]);
 
   /// See [FetoUltrasonidoSeguimiento.ila].
   static final ila = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
-      _entities[13].properties[5]);
+      _entities[2].properties[5]);
 
   /// See [FetoUltrasonidoSeguimiento.ts].
   static final ts = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
-      _entities[13].properties[6]);
+      _entities[2].properties[6]);
 
   /// See [FetoUltrasonidoSeguimiento.threeVasos].
   static final threeVasos = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
-      _entities[13].properties[7]);
+      _entities[2].properties[7]);
 
   /// See [FetoUltrasonidoSeguimiento.la].
   static final la = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
-      _entities[13].properties[8]);
+      _entities[2].properties[8]);
 
   /// See [FetoUltrasonidoSeguimiento.pocision].
   static final pocision = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
-      _entities[13].properties[9]);
+      _entities[2].properties[9]);
 
   /// See [FetoUltrasonidoSeguimiento.signosDeAcretismo].
   static final signosDeAcretismo =
       obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
-          _entities[13].properties[10]);
+          _entities[2].properties[10]);
 
   /// See [FetoUltrasonidoSeguimiento.variedadDeAcretismo].
   static final variedadDeAcretismo =
       obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
-          _entities[13].properties[11]);
+          _entities[2].properties[11]);
 
   /// See [FetoUltrasonidoSeguimiento.madurezPlacentaria].
   static final madurezPlacentaria =
       obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
-          _entities[13].properties[12]);
+          _entities[2].properties[12]);
 
   /// See [FetoUltrasonidoSeguimiento.vejiga].
   static final vejiga = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
-      _entities[13].properties[13]);
+      _entities[2].properties[13]);
 
   /// See [FetoUltrasonidoSeguimiento.estomago].
   static final estomago = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
-      _entities[13].properties[14]);
+      _entities[2].properties[14]);
 
   /// See [FetoUltrasonidoSeguimiento.columna].
   static final columna = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
-      _entities[13].properties[15]);
+      _entities[2].properties[15]);
 
   /// See [FetoUltrasonidoSeguimiento.riniones].
   static final riniones = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
-      _entities[13].properties[16]);
+      _entities[2].properties[16]);
 
   /// See [FetoUltrasonidoSeguimiento.macisoFacial].
   static final macisoFacial =
       obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
-          _entities[13].properties[17]);
+          _entities[2].properties[17]);
 
   /// See [FetoUltrasonidoSeguimiento.fourMiembros].
   static final fourMiembros =
       obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
-          _entities[13].properties[18]);
+          _entities[2].properties[18]);
 
   /// See [FetoUltrasonidoSeguimiento.paa].
   static final paa = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
-      _entities[13].properties[19]);
+      _entities[2].properties[19]);
 
   /// See [FetoUltrasonidoSeguimiento.pliegueNucal].
   static final pliegueNucal =
       obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
-          _entities[13].properties[20]);
+          _entities[2].properties[20]);
 
   /// See [FetoUltrasonidoSeguimiento.fosaPosteriol].
   static final fosaPosteriol =
       obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
-          _entities[13].properties[21]);
+          _entities[2].properties[21]);
 
   /// See [FetoUltrasonidoSeguimiento.atrioVentricular].
   static final atrioVentricular =
       obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
-          _entities[13].properties[22]);
+          _entities[2].properties[22]);
 
   /// See [FetoUltrasonidoSeguimiento.cerebelo].
   static final cerebelo = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
-      _entities[13].properties[23]);
+      _entities[2].properties[23]);
 
   /// See [FetoUltrasonidoSeguimiento.cordon3Vasos].
   static final cordon3Vasos =
       obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
-          _entities[13].properties[24]);
+          _entities[2].properties[24]);
 
   /// See [FetoUltrasonidoSeguimiento.eg].
   static final eg = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
-      _entities[13].properties[25]);
+      _entities[2].properties[25]);
 
   /// See [FetoUltrasonidoSeguimiento.pf].
   static final pf = obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
-      _entities[13].properties[26]);
+      _entities[2].properties[26]);
 
   /// See [FetoUltrasonidoSeguimiento.pfPercentil].
   static final pfPercentil =
       obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
-          _entities[13].properties[27]);
+          _entities[2].properties[27]);
 
   /// See [FetoUltrasonidoSeguimiento.datosDeInteres].
   static final datosDeInteres =
       obx.QueryStringProperty<FetoUltrasonidoSeguimiento>(
-          _entities[13].properties[28]);
+          _entities[2].properties[28]);
 
   /// See [FetoUltrasonidoSeguimiento.genetica].
   static final genetica =
       obx.QueryRelationToOne<FetoUltrasonidoSeguimiento, GeneticaModel>(
-          _entities[13].properties[29]);
+          _entities[2].properties[29]);
 }
 
 /// [GeneticaModel] entity fields to define ObjectBox queries.
 class GeneticaModel_ {
   /// See [GeneticaModel.id].
   static final id =
-      obx.QueryIntegerProperty<GeneticaModel>(_entities[14].properties[0]);
+      obx.QueryIntegerProperty<GeneticaModel>(_entities[3].properties[0]);
 
   /// See [GeneticaModel.paciente].
   static final paciente = obx.QueryRelationToOne<GeneticaModel, Paciente>(
-      _entities[14].properties[1]);
+      _entities[3].properties[1]);
 
   /// See [GeneticaModel.efhb].
   static final efhb =
-      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[2]);
+      obx.QueryStringProperty<GeneticaModel>(_entities[3].properties[2]);
 
   /// See [GeneticaModel.afp].
   static final afp =
-      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[3]);
+      obx.QueryStringProperty<GeneticaModel>(_entities[3].properties[3]);
 
   /// See [GeneticaModel.fechaRealizacion].
   static final fechaRealizacion =
-      obx.QueryDateProperty<GeneticaModel>(_entities[14].properties[4]);
+      obx.QueryDateProperty<GeneticaModel>(_entities[3].properties[4]);
 
   /// See [GeneticaModel.numFetos].
   static final numFetos =
-      obx.QueryIntegerProperty<GeneticaModel>(_entities[14].properties[5]);
+      obx.QueryIntegerProperty<GeneticaModel>(_entities[3].properties[5]);
 
   /// See [GeneticaModel.datosDeInteres].
   static final datosDeInteres =
-      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[6]);
+      obx.QueryStringProperty<GeneticaModel>(_entities[3].properties[6]);
 
   /// See [GeneticaModel.usFechaRealizacion].
   static final usFechaRealizacion =
-      obx.QueryDateProperty<GeneticaModel>(_entities[14].properties[7]);
+      obx.QueryDateProperty<GeneticaModel>(_entities[3].properties[7]);
 
   /// See [GeneticaModel.usNumFetos].
   static final usNumFetos =
-      obx.QueryIntegerProperty<GeneticaModel>(_entities[14].properties[8]);
+      obx.QueryIntegerProperty<GeneticaModel>(_entities[3].properties[8]);
 
   /// See [GeneticaModel.longitudDelCuello].
   static final longitudDelCuello =
-      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[9]);
+      obx.QueryStringProperty<GeneticaModel>(_entities[3].properties[9]);
 
   /// See [GeneticaModel.oci].
   static final oci =
-      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[10]);
+      obx.QueryStringProperty<GeneticaModel>(_entities[3].properties[10]);
 
   /// See [GeneticaModel.valorOci].
   static final valorOci =
-      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[11]);
+      obx.QueryStringProperty<GeneticaModel>(_entities[3].properties[11]);
 
   /// See [GeneticaModel.maniobrasEsfuerzo].
   static final maniobrasEsfuerzo =
-      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[12]);
+      obx.QueryStringProperty<GeneticaModel>(_entities[3].properties[12]);
 
   /// See [GeneticaModel.icc].
   static final icc =
-      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[13]);
+      obx.QueryStringProperty<GeneticaModel>(_entities[3].properties[13]);
 
   /// See [GeneticaModel.iccPercentil].
   static final iccPercentil =
-      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[14]);
+      obx.QueryStringProperty<GeneticaModel>(_entities[3].properties[14]);
 
   /// See [GeneticaModel.csDatosDeInteres].
   static final csDatosDeInteres =
-      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[15]);
+      obx.QueryStringProperty<GeneticaModel>(_entities[3].properties[15]);
 
   /// See [GeneticaModel.ip1].
   static final ip1 =
-      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[16]);
+      obx.QueryStringProperty<GeneticaModel>(_entities[3].properties[16]);
 
   /// See [GeneticaModel.ipD].
   static final ipD =
-      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[17]);
+      obx.QueryStringProperty<GeneticaModel>(_entities[3].properties[17]);
 
   /// See [GeneticaModel.ipM].
   static final ipM =
-      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[18]);
+      obx.QueryStringProperty<GeneticaModel>(_entities[3].properties[18]);
 
   /// See [GeneticaModel.ipmPercentil].
   static final ipmPercentil =
-      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[19]);
+      obx.QueryStringProperty<GeneticaModel>(_entities[3].properties[19]);
 
   /// See [GeneticaModel.dusDatosDeInteres].
   static final dusDatosDeInteres =
-      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[20]);
+      obx.QueryStringProperty<GeneticaModel>(_entities[3].properties[20]);
 
   /// See [GeneticaModel.scfechaRealizacion].
   static final scfechaRealizacion =
-      obx.QueryDateProperty<GeneticaModel>(_entities[14].properties[21]);
+      obx.QueryDateProperty<GeneticaModel>(_entities[3].properties[21]);
 
   /// See [GeneticaModel.scLongitudCuello].
   static final scLongitudCuello =
-      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[22]);
+      obx.QueryStringProperty<GeneticaModel>(_entities[3].properties[22]);
 
   /// See [GeneticaModel.scOci].
   static final scOci =
-      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[23]);
+      obx.QueryStringProperty<GeneticaModel>(_entities[3].properties[23]);
 
   /// See [GeneticaModel.scValorOci].
   static final scValorOci =
-      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[24]);
+      obx.QueryStringProperty<GeneticaModel>(_entities[3].properties[24]);
 
   /// See [GeneticaModel.scManiobrasEsfuerzo].
   static final scManiobrasEsfuerzo =
-      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[25]);
+      obx.QueryStringProperty<GeneticaModel>(_entities[3].properties[25]);
 
   /// See [GeneticaModel.scIcc].
   static final scIcc =
-      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[26]);
+      obx.QueryStringProperty<GeneticaModel>(_entities[3].properties[26]);
 
   /// See [GeneticaModel.scIccPercentil].
   static final scIccPercentil =
-      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[27]);
+      obx.QueryStringProperty<GeneticaModel>(_entities[3].properties[27]);
 
   /// See [GeneticaModel.eg].
   static final eg =
-      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[28]);
+      obx.QueryStringProperty<GeneticaModel>(_entities[3].properties[28]);
 
   /// See [GeneticaModel.scDatosDeInteres].
   static final scDatosDeInteres =
-      obx.QueryStringProperty<GeneticaModel>(_entities[14].properties[29]);
+      obx.QueryStringProperty<GeneticaModel>(_entities[3].properties[29]);
 
   /// see [GeneticaModel.fetos1erTrimestre]
   static final fetos1erTrimestre =
@@ -7126,485 +6240,1341 @@ class GeneticaModel_ {
 /// [InterconsultasModel] entity fields to define ObjectBox queries.
 class InterconsultasModel_ {
   /// See [InterconsultasModel.id].
-  static final id = obx.QueryIntegerProperty<InterconsultasModel>(
-      _entities[15].properties[0]);
+  static final id =
+      obx.QueryIntegerProperty<InterconsultasModel>(_entities[4].properties[0]);
 
   /// See [InterconsultasModel.paciente].
   static final paciente = obx.QueryRelationToOne<InterconsultasModel, Paciente>(
-      _entities[15].properties[1]);
+      _entities[4].properties[1]);
 
   /// See [InterconsultasModel.psFechaConsulta].
   static final psFechaConsulta =
-      obx.QueryDateProperty<InterconsultasModel>(_entities[15].properties[2]);
+      obx.QueryDateProperty<InterconsultasModel>(_entities[4].properties[2]);
 
   /// See [InterconsultasModel.psEvaluacion].
   static final psEvaluacion =
-      obx.QueryStringProperty<InterconsultasModel>(_entities[15].properties[3]);
+      obx.QueryStringProperty<InterconsultasModel>(_entities[4].properties[3]);
 
   /// See [InterconsultasModel.psCodigo].
   static final psCodigo =
-      obx.QueryStringProperty<InterconsultasModel>(_entities[15].properties[4]);
+      obx.QueryStringProperty<InterconsultasModel>(_entities[4].properties[4]);
 
   /// See [InterconsultasModel.psDescripcion].
   static final psDescripcion =
-      obx.QueryStringProperty<InterconsultasModel>(_entities[15].properties[5]);
+      obx.QueryStringProperty<InterconsultasModel>(_entities[4].properties[5]);
 
   /// See [InterconsultasModel.psEstructura].
   static final psEstructura =
-      obx.QueryStringProperty<InterconsultasModel>(_entities[15].properties[6]);
+      obx.QueryStringProperty<InterconsultasModel>(_entities[4].properties[6]);
 
   /// See [InterconsultasModel.psTipoDiagnostico].
   static final psTipoDiagnostico =
-      obx.QueryStringProperty<InterconsultasModel>(_entities[15].properties[7]);
+      obx.QueryStringProperty<InterconsultasModel>(_entities[4].properties[7]);
 
   /// See [InterconsultasModel.conductaSeguida].
   static final conductaSeguida =
-      obx.QueryStringProperty<InterconsultasModel>(_entities[15].properties[8]);
+      obx.QueryStringProperty<InterconsultasModel>(_entities[4].properties[8]);
 
   /// See [InterconsultasModel.nFechaConsulta].
   static final nFechaConsulta =
-      obx.QueryDateProperty<InterconsultasModel>(_entities[15].properties[9]);
+      obx.QueryDateProperty<InterconsultasModel>(_entities[4].properties[9]);
 
   /// See [InterconsultasModel.nEvaluacion].
-  static final nEvaluacion = obx.QueryStringProperty<InterconsultasModel>(
-      _entities[15].properties[10]);
+  static final nEvaluacion =
+      obx.QueryStringProperty<InterconsultasModel>(_entities[4].properties[10]);
 
   /// See [InterconsultasModel.miFechaConsulta].
   static final miFechaConsulta =
-      obx.QueryDateProperty<InterconsultasModel>(_entities[15].properties[11]);
+      obx.QueryDateProperty<InterconsultasModel>(_entities[4].properties[11]);
 
   /// See [InterconsultasModel.miEvaluacion].
-  static final miEvaluacion = obx.QueryStringProperty<InterconsultasModel>(
-      _entities[15].properties[12]);
+  static final miEvaluacion =
+      obx.QueryStringProperty<InterconsultasModel>(_entities[4].properties[12]);
 
   /// See [InterconsultasModel.tsFechaConsulta].
   static final tsFechaConsulta =
-      obx.QueryDateProperty<InterconsultasModel>(_entities[15].properties[13]);
+      obx.QueryDateProperty<InterconsultasModel>(_entities[4].properties[13]);
 
   /// See [InterconsultasModel.tsEvaluacion].
-  static final tsEvaluacion = obx.QueryStringProperty<InterconsultasModel>(
-      _entities[15].properties[14]);
+  static final tsEvaluacion =
+      obx.QueryStringProperty<InterconsultasModel>(_entities[4].properties[14]);
 
   /// See [InterconsultasModel.dFechaConsulta].
   static final dFechaConsulta =
-      obx.QueryDateProperty<InterconsultasModel>(_entities[15].properties[15]);
+      obx.QueryDateProperty<InterconsultasModel>(_entities[4].properties[15]);
 
   /// See [InterconsultasModel.dEvaluacion].
-  static final dEvaluacion = obx.QueryStringProperty<InterconsultasModel>(
-      _entities[15].properties[16]);
+  static final dEvaluacion =
+      obx.QueryStringProperty<InterconsultasModel>(_entities[4].properties[16]);
 
   /// See [InterconsultasModel.examenEstomatologico].
   static final examenEstomatologico =
-      obx.QueryStringProperty<InterconsultasModel>(
-          _entities[15].properties[17]);
+      obx.QueryStringProperty<InterconsultasModel>(_entities[4].properties[17]);
 
   /// See [InterconsultasModel.numeroExodoncia].
-  static final numeroExodoncia = obx.QueryStringProperty<InterconsultasModel>(
-      _entities[15].properties[18]);
+  static final numeroExodoncia =
+      obx.QueryStringProperty<InterconsultasModel>(_entities[4].properties[18]);
 
   /// See [InterconsultasModel.realizadasExodoncia].
   static final realizadasExodoncia =
-      obx.QueryStringProperty<InterconsultasModel>(
-          _entities[15].properties[19]);
+      obx.QueryStringProperty<InterconsultasModel>(_entities[4].properties[19]);
 
   /// See [InterconsultasModel.numeroObsturaciones].
   static final numeroObsturaciones =
-      obx.QueryStringProperty<InterconsultasModel>(
-          _entities[15].properties[20]);
+      obx.QueryStringProperty<InterconsultasModel>(_entities[4].properties[20]);
 
   /// See [InterconsultasModel.realizadasObsturaciones].
   static final realizadasObsturaciones =
-      obx.QueryStringProperty<InterconsultasModel>(
-          _entities[15].properties[21]);
+      obx.QueryStringProperty<InterconsultasModel>(_entities[4].properties[21]);
 
   /// See [InterconsultasModel.remitida].
   static final remitida = obx.QueryBooleanProperty<InterconsultasModel>(
-      _entities[15].properties[22]);
+      _entities[4].properties[22]);
 
   /// See [InterconsultasModel.noAsistencia].
-  static final noAsistencia = obx.QueryStringProperty<InterconsultasModel>(
-      _entities[15].properties[23]);
+  static final noAsistencia =
+      obx.QueryStringProperty<InterconsultasModel>(_entities[4].properties[23]);
 
   /// See [InterconsultasModel.observaciones].
-  static final observaciones = obx.QueryStringProperty<InterconsultasModel>(
-      _entities[15].properties[24]);
+  static final observaciones =
+      obx.QueryStringProperty<InterconsultasModel>(_entities[4].properties[24]);
+}
+
+/// [Interrogatorio] entity fields to define ObjectBox queries.
+class Interrogatorio_ {
+  /// See [Interrogatorio.id].
+  static final id =
+      obx.QueryIntegerProperty<Interrogatorio>(_entities[5].properties[0]);
+
+  /// See [Interrogatorio.paciente].
+  static final paciente = obx.QueryRelationToOne<Interrogatorio, Paciente>(
+      _entities[5].properties[1]);
+
+  /// See [Interrogatorio.srDisnea].
+  static final srDisnea =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[2]);
+
+  /// See [Interrogatorio.srDolor].
+  static final srDolor =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[3]);
+
+  /// See [Interrogatorio.srHermoptisis].
+  static final srHermoptisis =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[4]);
+
+  /// See [Interrogatorio.srExpectoracion].
+  static final srExpectoracion =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[5]);
+
+  /// See [Interrogatorio.srTos].
+  static final srTos =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[6]);
+
+  /// See [Interrogatorio.srOtros].
+  static final srOtros =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[7]);
+
+  /// See [Interrogatorio.srObservaciones].
+  static final srObservaciones =
+      obx.QueryStringProperty<Interrogatorio>(_entities[5].properties[8]);
+
+  /// See [Interrogatorio.scDisnea].
+  static final scDisnea =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[9]);
+
+  /// See [Interrogatorio.scDolor].
+  static final scDolor =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[10]);
+
+  /// See [Interrogatorio.scClaudicacionIntermitente].
+  static final scClaudicacionIntermitente =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[11]);
+
+  /// See [Interrogatorio.scCianosis].
+  static final scCianosis =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[12]);
+
+  /// See [Interrogatorio.scTos].
+  static final scTos =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[13]);
+
+  /// See [Interrogatorio.scPalpitaciones].
+  static final scPalpitaciones =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[14]);
+
+  /// See [Interrogatorio.scOtros].
+  static final scOtros =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[15]);
+
+  /// See [Interrogatorio.scObservaciones].
+  static final scObservaciones =
+      obx.QueryStringProperty<Interrogatorio>(_entities[5].properties[16]);
+
+  /// See [Interrogatorio.sdDisfagia].
+  static final sdDisfagia =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[17]);
+
+  /// See [Interrogatorio.sdDolor].
+  static final sdDolor =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[18]);
+
+  /// See [Interrogatorio.sdColicos].
+  static final sdColicos =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[19]);
+
+  /// See [Interrogatorio.sdHermatemesis].
+  static final sdHermatemesis =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[20]);
+
+  /// See [Interrogatorio.sdAcolia].
+  static final sdAcolia =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[21]);
+
+  /// See [Interrogatorio.sdPirosis].
+  static final sdPirosis =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[22]);
+
+  /// See [Interrogatorio.sdNauseas].
+  static final sdNauseas =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[23]);
+
+  /// See [Interrogatorio.sdEnterorragia].
+  static final sdEnterorragia =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[24]);
+
+  /// See [Interrogatorio.sdConstipacion].
+  static final sdConstipacion =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[25]);
+
+  /// See [Interrogatorio.sdAcidez].
+  static final sdAcidez =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[26]);
+
+  /// See [Interrogatorio.sdDiarreas].
+  static final sdDiarreas =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[27]);
+
+  /// See [Interrogatorio.sdAerogastrias].
+  static final sdAerogastrias =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[28]);
+
+  /// See [Interrogatorio.sdVomitos].
+  static final sdVomitos =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[29]);
+
+  /// See [Interrogatorio.sdMelena].
+  static final sdMelena =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[30]);
+
+  /// See [Interrogatorio.sdOtros].
+  static final sdOtros =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[31]);
+
+  /// See [Interrogatorio.sdObservaciones].
+  static final sdObservaciones =
+      obx.QueryStringProperty<Interrogatorio>(_entities[5].properties[32]);
+
+  /// See [Interrogatorio.suNicturioas].
+  static final suNicturioas =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[33]);
+
+  /// See [Interrogatorio.suDolor].
+  static final suDolor =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[34]);
+
+  /// See [Interrogatorio.suOrinasTurbias].
+  static final suOrinasTurbias =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[35]);
+
+  /// See [Interrogatorio.suExudadoUretral].
+  static final suExudadoUretral =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[36]);
+
+  /// See [Interrogatorio.suDisuria].
+  static final suDisuria =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[37]);
+
+  /// See [Interrogatorio.suRetencionUrinaria].
+  static final suRetencionUrinaria =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[38]);
+
+  /// See [Interrogatorio.suHermaturia].
+  static final suHermaturia =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[39]);
+
+  /// See [Interrogatorio.suIncontinencia].
+  static final suIncontinencia =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[40]);
+
+  /// See [Interrogatorio.suPolaquiuria].
+  static final suPolaquiuria =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[41]);
+
+  /// See [Interrogatorio.suUretorragia].
+  static final suUretorragia =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[42]);
+
+  /// See [Interrogatorio.suImpotiencia].
+  static final suImpotiencia =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[43]);
+
+  /// See [Interrogatorio.suTumoracion].
+  static final suTumoracion =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[44]);
+
+  /// See [Interrogatorio.suCalculos].
+  static final suCalculos =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[45]);
+
+  /// See [Interrogatorio.suOtros].
+  static final suOtros =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[46]);
+
+  /// See [Interrogatorio.suObservaciones].
+  static final suObservaciones =
+      obx.QueryStringProperty<Interrogatorio>(_entities[5].properties[47]);
+
+  /// See [Interrogatorio.snCefaleas].
+  static final snCefaleas =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[48]);
+
+  /// See [Interrogatorio.snDolorFacial].
+  static final snDolorFacial =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[49]);
+
+  /// See [Interrogatorio.snVomitos].
+  static final snVomitos =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[50]);
+
+  /// See [Interrogatorio.snDolorCervical].
+  static final snDolorCervical =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[51]);
+
+  /// See [Interrogatorio.snVertigos].
+  static final snVertigos =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[52]);
+
+  /// See [Interrogatorio.snDolorLumbar].
+  static final snDolorLumbar =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[53]);
+
+  /// See [Interrogatorio.snConvulsiones].
+  static final snConvulsiones =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[54]);
+
+  /// See [Interrogatorio.snAlteracionMarcha].
+  static final snAlteracionMarcha =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[55]);
+
+  /// See [Interrogatorio.snDefictMotor].
+  static final snDefictMotor =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[56]);
+
+  /// See [Interrogatorio.snAlteracionEquilibrio].
+  static final snAlteracionEquilibrio =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[57]);
+
+  /// See [Interrogatorio.snDeficitSensitivo].
+  static final snDeficitSensitivo =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[58]);
+
+  /// See [Interrogatorio.snAlteracionVisual].
+  static final snAlteracionVisual =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[59]);
+
+  /// See [Interrogatorio.snAlteracionConciencia].
+  static final snAlteracionConciencia =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[60]);
+
+  /// See [Interrogatorio.snDificultadHablarEntender].
+  static final snDificultadHablarEntender =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[61]);
+
+  /// See [Interrogatorio.snOtros].
+  static final snOtros =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[62]);
+
+  /// See [Interrogatorio.snObservaciones].
+  static final snObservaciones =
+      obx.QueryStringProperty<Interrogatorio>(_entities[5].properties[63]);
+
+  /// See [Interrogatorio.seHipofisis].
+  static final seHipofisis =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[64]);
+
+  /// See [Interrogatorio.seOvarios].
+  static final seOvarios =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[65]);
+
+  /// See [Interrogatorio.sePancreas].
+  static final sePancreas =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[66]);
+
+  /// See [Interrogatorio.seSuprarrenal].
+  static final seSuprarrenal =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[67]);
+
+  /// See [Interrogatorio.seParatiroideas].
+  static final seParatiroideas =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[68]);
+
+  /// See [Interrogatorio.seTiroides].
+  static final seTiroides =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[69]);
+
+  /// See [Interrogatorio.seTesticulos].
+  static final seTesticulos =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[70]);
+
+  /// See [Interrogatorio.seOtros].
+  static final seOtros =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[71]);
+
+  /// See [Interrogatorio.seObservaciones].
+  static final seObservaciones =
+      obx.QueryStringProperty<Interrogatorio>(_entities[5].properties[72]);
+
+  /// See [Interrogatorio.astenia].
+  static final astenia =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[73]);
+
+  /// See [Interrogatorio.anorexia].
+  static final anorexia =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[74]);
+
+  /// See [Interrogatorio.epistaxis].
+  static final epistaxis =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[75]);
+
+  /// See [Interrogatorio.fiebre].
+  static final fiebre =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[76]);
+
+  /// See [Interrogatorio.artralgia].
+  static final artralgia =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[77]);
+
+  /// See [Interrogatorio.polifagia].
+  static final polifagia =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[78]);
+
+  /// See [Interrogatorio.edema].
+  static final edema =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[79]);
+
+  /// See [Interrogatorio.prurito].
+  static final prurito =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[80]);
+
+  /// See [Interrogatorio.perdidaPeso].
+  static final perdidaPeso =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[81]);
+
+  /// See [Interrogatorio.gananciaPeso].
+  static final gananciaPeso =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[82]);
+
+  /// See [Interrogatorio.acroparentesias].
+  static final acroparentesias =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[83]);
+
+  /// See [Interrogatorio.otros].
+  static final otros =
+      obx.QueryBooleanProperty<Interrogatorio>(_entities[5].properties[84]);
+
+  /// See [Interrogatorio.observaciones].
+  static final observaciones =
+      obx.QueryStringProperty<Interrogatorio>(_entities[5].properties[85]);
 }
 
 /// [LaboratorioMicrobiologiaModel] entity fields to define ObjectBox queries.
 class LaboratorioMicrobiologiaModel_ {
   /// See [LaboratorioMicrobiologiaModel.id].
   static final id = obx.QueryIntegerProperty<LaboratorioMicrobiologiaModel>(
-      _entities[16].properties[0]);
+      _entities[6].properties[0]);
 
   /// See [LaboratorioMicrobiologiaModel.paciente].
   static final paciente =
       obx.QueryRelationToOne<LaboratorioMicrobiologiaModel, Paciente>(
-          _entities[16].properties[1]);
+          _entities[6].properties[1]);
 
   /// See [LaboratorioMicrobiologiaModel.ghResultadoMaterno].
   static final ghResultadoMaterno =
       obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[2]);
+          _entities[6].properties[2]);
 
   /// See [LaboratorioMicrobiologiaModel.grFechaRealizacionMaterno].
   static final grFechaRealizacionMaterno =
       obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[3]);
+          _entities[6].properties[3]);
 
   /// See [LaboratorioMicrobiologiaModel.ghResultadoPaterno].
   static final ghResultadoPaterno =
       obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[4]);
+          _entities[6].properties[4]);
 
   /// See [LaboratorioMicrobiologiaModel.grFechaRealizacionPaterno].
   static final grFechaRealizacionPaterno =
       obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[5]);
+          _entities[6].properties[5]);
 
   /// See [LaboratorioMicrobiologiaModel.vihResultadoMaterno].
   static final vihResultadoMaterno =
       obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[6]);
+          _entities[6].properties[6]);
 
   /// See [LaboratorioMicrobiologiaModel.vihFechaRealizacionMaterno].
   static final vihFechaRealizacionMaterno =
       obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[7]);
+          _entities[6].properties[7]);
 
   /// See [LaboratorioMicrobiologiaModel.vihResultadoPaterno].
   static final vihResultadoPaterno =
       obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[8]);
+          _entities[6].properties[8]);
 
   /// See [LaboratorioMicrobiologiaModel.vihFechaRealizacionPaterno].
   static final vihFechaRealizacionPaterno =
       obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[9]);
+          _entities[6].properties[9]);
 
   /// See [LaboratorioMicrobiologiaModel.sResultadoMaterno].
   static final sResultadoMaterno =
       obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[10]);
+          _entities[6].properties[10]);
 
   /// See [LaboratorioMicrobiologiaModel.sFechaRealizacionMaterno].
   static final sFechaRealizacionMaterno =
       obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[11]);
+          _entities[6].properties[11]);
 
   /// See [LaboratorioMicrobiologiaModel.sResultadoPaterno].
   static final sResultadoPaterno =
       obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[12]);
+          _entities[6].properties[12]);
 
   /// See [LaboratorioMicrobiologiaModel.sFechaRealizacionPaterno].
   static final sFechaRealizacionPaterno =
       obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[13]);
+          _entities[6].properties[13]);
 
   /// See [LaboratorioMicrobiologiaModel.asResultadoMaterno].
   static final asResultadoMaterno =
       obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[14]);
+          _entities[6].properties[14]);
 
   /// See [LaboratorioMicrobiologiaModel.asFechaRealizacionMaterno].
   static final asFechaRealizacionMaterno =
       obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[15]);
+          _entities[6].properties[15]);
 
   /// See [LaboratorioMicrobiologiaModel.asResultadoPaterno].
   static final asResultadoPaterno =
       obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[16]);
+          _entities[6].properties[16]);
 
   /// See [LaboratorioMicrobiologiaModel.asFechaRealizacionPaterno].
   static final asFechaRealizacionPaterno =
       obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[17]);
+          _entities[6].properties[17]);
 
   /// See [LaboratorioMicrobiologiaModel.hbResultadoMaterno].
   static final hbResultadoMaterno =
       obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[18]);
+          _entities[6].properties[18]);
 
   /// See [LaboratorioMicrobiologiaModel.hbFechaRealizacionMaterno].
   static final hbFechaRealizacionMaterno =
       obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[19]);
+          _entities[6].properties[19]);
 
   /// See [LaboratorioMicrobiologiaModel.htoResultadoMaterno].
   static final htoResultadoMaterno =
       obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[20]);
+          _entities[6].properties[20]);
 
   /// See [LaboratorioMicrobiologiaModel.htoFechaRealizacionMaterno].
   static final htoFechaRealizacionMaterno =
       obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[21]);
+          _entities[6].properties[21]);
 
   /// See [LaboratorioMicrobiologiaModel.gResultadoMaterno].
   static final gResultadoMaterno =
       obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[22]);
+          _entities[6].properties[22]);
 
   /// See [LaboratorioMicrobiologiaModel.gFechaRealizacionMaterno].
   static final gFechaRealizacionMaterno =
       obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[23]);
+          _entities[6].properties[23]);
 
   /// See [LaboratorioMicrobiologiaModel.ptgaResultadoMaterno].
   static final ptgaResultadoMaterno =
       obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[24]);
+          _entities[6].properties[24]);
 
   /// See [LaboratorioMicrobiologiaModel.ptgaFechaRealizacionMaterno].
   static final ptgaFechaRealizacionMaterno =
       obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[25]);
+          _entities[6].properties[25]);
 
   /// See [LaboratorioMicrobiologiaModel.ptg2hResultadoMaterno].
   static final ptg2hResultadoMaterno =
       obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[26]);
+          _entities[6].properties[26]);
 
   /// See [LaboratorioMicrobiologiaModel.ptg2hFechaRealizacionMaterno].
   static final ptg2hFechaRealizacionMaterno =
       obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[27]);
+          _entities[6].properties[27]);
 
   /// See [LaboratorioMicrobiologiaModel.cResultadoMaterno].
   static final cResultadoMaterno =
       obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[28]);
+          _entities[6].properties[28]);
 
   /// See [LaboratorioMicrobiologiaModel.cFechaRealizacionMaterno].
   static final cFechaRealizacionMaterno =
       obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[29]);
+          _entities[6].properties[29]);
 
   /// See [LaboratorioMicrobiologiaModel.auResultadoMaterno].
   static final auResultadoMaterno =
       obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[30]);
+          _entities[6].properties[30]);
 
   /// See [LaboratorioMicrobiologiaModel.auFechaRealizacionMaterno].
   static final auFechaRealizacionMaterno =
       obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[31]);
+          _entities[6].properties[31]);
 
   /// See [LaboratorioMicrobiologiaModel.uResultadoMaterno].
   static final uResultadoMaterno =
       obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[32]);
+          _entities[6].properties[32]);
 
   /// See [LaboratorioMicrobiologiaModel.uFechaRealizacionMaterno].
   static final uFechaRealizacionMaterno =
       obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[33]);
+          _entities[6].properties[33]);
 
   /// See [LaboratorioMicrobiologiaModel.colResultadoMaterno].
   static final colResultadoMaterno =
       obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[34]);
+          _entities[6].properties[34]);
 
   /// See [LaboratorioMicrobiologiaModel.colFechaRealizacionMaterno].
   static final colFechaRealizacionMaterno =
       obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[35]);
+          _entities[6].properties[35]);
 
   /// See [LaboratorioMicrobiologiaModel.tResultadoMaterno].
   static final tResultadoMaterno =
       obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[36]);
+          _entities[6].properties[36]);
 
   /// See [LaboratorioMicrobiologiaModel.tFechaRealizacionMaterno].
   static final tFechaRealizacionMaterno =
       obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[37]);
+          _entities[6].properties[37]);
 
   /// See [LaboratorioMicrobiologiaModel.bResultadoMaterno].
   static final bResultadoMaterno =
       obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[38]);
+          _entities[6].properties[38]);
 
   /// See [LaboratorioMicrobiologiaModel.bFechaRealizacionMaterno].
   static final bFechaRealizacionMaterno =
       obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[39]);
+          _entities[6].properties[39]);
 
   /// See [LaboratorioMicrobiologiaModel.tpgResultadoMaterno].
   static final tpgResultadoMaterno =
       obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[40]);
+          _entities[6].properties[40]);
 
   /// See [LaboratorioMicrobiologiaModel.tpgFechaRealizacionMaterno].
   static final tpgFechaRealizacionMaterno =
       obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[41]);
+          _entities[6].properties[41]);
 
   /// See [LaboratorioMicrobiologiaModel.tgoResultadoMaterno].
   static final tgoResultadoMaterno =
       obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[42]);
+          _entities[6].properties[42]);
 
   /// See [LaboratorioMicrobiologiaModel.tgoFechaRealizacionMaterno].
   static final tgoFechaRealizacionMaterno =
       obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[43]);
+          _entities[6].properties[43]);
 
   /// See [LaboratorioMicrobiologiaModel.ggtResultadoMaterno].
   static final ggtResultadoMaterno =
       obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[44]);
+          _entities[6].properties[44]);
 
   /// See [LaboratorioMicrobiologiaModel.ggtFechaRealizacionMaterno].
   static final ggtFechaRealizacionMaterno =
       obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[45]);
+          _entities[6].properties[45]);
 
   /// See [LaboratorioMicrobiologiaModel.citResultadoMaterno].
   static final citResultadoMaterno =
       obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[46]);
+          _entities[6].properties[46]);
 
   /// See [LaboratorioMicrobiologiaModel.citFechaRealizacionMaterno].
   static final citFechaRealizacionMaterno =
       obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[47]);
+          _entities[6].properties[47]);
 
   /// See [LaboratorioMicrobiologiaModel.uroResultadoMaterno].
   static final uroResultadoMaterno =
       obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[48]);
+          _entities[6].properties[48]);
 
   /// See [LaboratorioMicrobiologiaModel.uroFechaRealizacionMaterno].
   static final uroFechaRealizacionMaterno =
       obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[49]);
+          _entities[6].properties[49]);
 
   /// See [LaboratorioMicrobiologiaModel.hfResultadoMaterno].
   static final hfResultadoMaterno =
       obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[50]);
+          _entities[6].properties[50]);
 
   /// See [LaboratorioMicrobiologiaModel.hfFechaRealizacionMaterno].
   static final hfFechaRealizacionMaterno =
       obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[51]);
+          _entities[6].properties[51]);
 
   /// See [LaboratorioMicrobiologiaModel.evsResultadoMaterno].
   static final evsResultadoMaterno =
       obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[52]);
+          _entities[6].properties[52]);
 
   /// See [LaboratorioMicrobiologiaModel.evsFechaRealizacionMaterno].
   static final evsFechaRealizacionMaterno =
       obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[53]);
+          _entities[6].properties[53]);
 
   /// See [LaboratorioMicrobiologiaModel.evcResultadoMaterno].
   static final evcResultadoMaterno =
       obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[54]);
+          _entities[6].properties[54]);
 
   /// See [LaboratorioMicrobiologiaModel.evcFechaRealizacionMaterno].
   static final evcFechaRealizacionMaterno =
       obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[55]);
+          _entities[6].properties[55]);
 
   /// See [LaboratorioMicrobiologiaModel.pcsultadoMaterno].
   static final pcsultadoMaterno =
       obx.QueryStringProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[56]);
+          _entities[6].properties[56]);
 
   /// See [LaboratorioMicrobiologiaModel.pcFechaRealizacionMaterno].
   static final pcFechaRealizacionMaterno =
       obx.QueryDateProperty<LaboratorioMicrobiologiaModel>(
-          _entities[16].properties[57]);
+          _entities[6].properties[57]);
 }
 
 /// [SignosVitalesModel] entity fields to define ObjectBox queries.
 class SignosVitalesModel_ {
   /// See [SignosVitalesModel.id].
   static final id =
-      obx.QueryIntegerProperty<SignosVitalesModel>(_entities[17].properties[0]);
+      obx.QueryIntegerProperty<SignosVitalesModel>(_entities[7].properties[0]);
 
   /// See [SignosVitalesModel.paciente].
   static final paciente = obx.QueryRelationToOne<SignosVitalesModel, Paciente>(
-      _entities[17].properties[1]);
+      _entities[7].properties[1]);
 
   /// See [SignosVitalesModel.peso].
   static final peso =
-      obx.QueryDoubleProperty<SignosVitalesModel>(_entities[17].properties[2]);
+      obx.QueryDoubleProperty<SignosVitalesModel>(_entities[7].properties[2]);
 
   /// See [SignosVitalesModel.talla].
   static final talla =
-      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[3]);
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[7].properties[3]);
 
   /// See [SignosVitalesModel.percentilPeso].
   static final percentilPeso =
-      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[4]);
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[7].properties[4]);
 
   /// See [SignosVitalesModel.indiceMasaCorporal].
   static final indiceMasaCorporal =
-      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[5]);
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[7].properties[5]);
 
   /// See [SignosVitalesModel.valorNutricional].
   static final valorNutricional =
-      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[6]);
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[7].properties[6]);
 
   /// See [SignosVitalesModel.circunsferenciaAbdominal].
   static final circunsferenciaAbdominal =
-      obx.QueryDoubleProperty<SignosVitalesModel>(_entities[17].properties[7]);
+      obx.QueryDoubleProperty<SignosVitalesModel>(_entities[7].properties[7]);
 
   /// See [SignosVitalesModel.sistolica].
   static final sistolica =
-      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[8]);
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[7].properties[8]);
 
   /// See [SignosVitalesModel.diastolica].
   static final diastolica =
-      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[9]);
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[7].properties[9]);
 
   /// See [SignosVitalesModel.media].
   static final media =
-      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[10]);
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[7].properties[10]);
 
   /// See [SignosVitalesModel.postura].
   static final postura =
-      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[11]);
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[7].properties[11]);
 
   /// See [SignosVitalesModel.ubicacion].
   static final ubicacion =
-      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[12]);
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[7].properties[12]);
 
   /// See [SignosVitalesModel.valor].
   static final valor =
-      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[13]);
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[7].properties[13]);
 
   /// See [SignosVitalesModel.caracteristicas].
   static final caracteristicas =
-      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[14]);
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[7].properties[14]);
 
   /// See [SignosVitalesModel.pulsoUbicacion].
   static final pulsoUbicacion =
-      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[15]);
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[7].properties[15]);
 
   /// See [SignosVitalesModel.frValor].
   static final frValor =
-      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[16]);
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[7].properties[16]);
 
   /// See [SignosVitalesModel.frCarateristicas].
   static final frCarateristicas =
-      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[17]);
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[7].properties[17]);
 
   /// See [SignosVitalesModel.temperatura].
   static final temperatura =
-      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[18]);
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[7].properties[18]);
 
   /// See [SignosVitalesModel.localizacion].
   static final localizacion =
-      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[19]);
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[7].properties[19]);
 
   /// See [SignosVitalesModel.fcValor].
   static final fcValor =
-      obx.QueryStringProperty<SignosVitalesModel>(_entities[17].properties[20]);
+      obx.QueryStringProperty<SignosVitalesModel>(_entities[7].properties[20]);
+}
+
+/// [AntecedentesGinecologicos] entity fields to define ObjectBox queries.
+class AntecedentesGinecologicos_ {
+  /// See [AntecedentesGinecologicos.id].
+  static final id = obx.QueryIntegerProperty<AntecedentesGinecologicos>(
+      _entities[8].properties[0]);
+
+  /// See [AntecedentesGinecologicos.paciente].
+  static final paciente =
+      obx.QueryRelationToOne<AntecedentesGinecologicos, Paciente>(
+          _entities[8].properties[1]);
+
+  /// See [AntecedentesGinecologicos.edadMenopausia].
+  static final edadMenopausia =
+      obx.QueryIntegerProperty<AntecedentesGinecologicos>(
+          _entities[8].properties[2]);
+
+  /// See [AntecedentesGinecologicos.caracteristicasMenopausia].
+  static final caracteristicasMenopausia =
+      obx.QueryStringProperty<AntecedentesGinecologicos>(
+          _entities[8].properties[3]);
+
+  /// See [AntecedentesGinecologicos.edadMenarquia].
+  static final edadMenarquia =
+      obx.QueryIntegerProperty<AntecedentesGinecologicos>(
+          _entities[8].properties[4]);
+
+  /// See [AntecedentesGinecologicos.caracteristicasMenarquia].
+  static final caracteristicasMenarquia =
+      obx.QueryStringProperty<AntecedentesGinecologicos>(
+          _entities[8].properties[5]);
+
+  /// See [AntecedentesGinecologicos.edadPrimeraRelacion].
+  static final edadPrimeraRelacion =
+      obx.QueryIntegerProperty<AntecedentesGinecologicos>(
+          _entities[8].properties[6]);
+
+  /// See [AntecedentesGinecologicos.formulaMenstrual].
+  static final formulaMenstrual =
+      obx.QueryStringProperty<AntecedentesGinecologicos>(
+          _entities[8].properties[7]);
+
+  /// See [AntecedentesGinecologicos.fechaUltimaMenstruacion].
+  static final fechaUltimaMenstruacion =
+      obx.QueryDateProperty<AntecedentesGinecologicos>(
+          _entities[8].properties[8]);
+
+  /// See [AntecedentesGinecologicos.tipoMenstruacion].
+  static final tipoMenstruacion =
+      obx.QueryStringProperty<AntecedentesGinecologicos>(
+          _entities[8].properties[9]);
+
+  /// See [AntecedentesGinecologicos.fechaUltimoUso].
+  static final fechaUltimoUso =
+      obx.QueryDateProperty<AntecedentesGinecologicos>(
+          _entities[8].properties[10]);
+
+  /// See [AntecedentesGinecologicos.descripcion].
+  static final descripcion = obx.QueryStringProperty<AntecedentesGinecologicos>(
+      _entities[8].properties[11]);
+
+  /// See [AntecedentesGinecologicos.barrera].
+  static final barrera = obx.QueryBooleanProperty<AntecedentesGinecologicos>(
+      _entities[8].properties[12]);
+
+  /// See [AntecedentesGinecologicos.diu].
+  static final diu = obx.QueryBooleanProperty<AntecedentesGinecologicos>(
+      _entities[8].properties[13]);
+
+  /// See [AntecedentesGinecologicos.hormonales].
+  static final hormonales = obx.QueryBooleanProperty<AntecedentesGinecologicos>(
+      _entities[8].properties[14]);
+
+  /// See [AntecedentesGinecologicos.fechaPruebaCitologica].
+  static final fechaPruebaCitologica =
+      obx.QueryDateProperty<AntecedentesGinecologicos>(
+          _entities[8].properties[15]);
+
+  /// See [AntecedentesGinecologicos.resultadoPruebaCitologica].
+  static final resultadoPruebaCitologica =
+      obx.QueryStringProperty<AntecedentesGinecologicos>(
+          _entities[8].properties[16]);
+
+  /// See [AntecedentesGinecologicos.fueraDeProgramaPruebaCitologica].
+  static final fueraDeProgramaPruebaCitologica =
+      obx.QueryBooleanProperty<AntecedentesGinecologicos>(
+          _entities[8].properties[17]);
+
+  /// See [AntecedentesGinecologicos.observacionesPruebaCitologica].
+  static final observacionesPruebaCitologica =
+      obx.QueryStringProperty<AntecedentesGinecologicos>(
+          _entities[8].properties[18]);
+
+  /// See [AntecedentesGinecologicos.observacionesAnticonceptivos].
+  static final observacionesAnticonceptivos =
+      obx.QueryStringProperty<AntecedentesGinecologicos>(
+          _entities[8].properties[19]);
+}
+
+/// [AntecedentesObstetricos] entity fields to define ObjectBox queries.
+class AntecedentesObstetricos_ {
+  /// See [AntecedentesObstetricos.id].
+  static final id = obx.QueryIntegerProperty<AntecedentesObstetricos>(
+      _entities[9].properties[0]);
+
+  /// See [AntecedentesObstetricos.paciente].
+  static final paciente =
+      obx.QueryRelationToOne<AntecedentesObstetricos, Paciente>(
+          _entities[9].properties[1]);
+
+  /// see [AntecedentesObstetricos.embarazos]
+  static final embarazos =
+      obx.QueryBacklinkToMany<Embarazo, AntecedentesObstetricos>(
+          Embarazo_.antecedente);
+}
+
+/// [AntecedentesPatologicosPersonales] entity fields to define ObjectBox queries.
+class AntecedentesPatologicosPersonales_ {
+  /// See [AntecedentesPatologicosPersonales.id].
+  static final id = obx.QueryIntegerProperty<AntecedentesPatologicosPersonales>(
+      _entities[10].properties[0]);
+
+  /// See [AntecedentesPatologicosPersonales.paciente].
+  static final paciente =
+      obx.QueryRelationToOne<AntecedentesPatologicosPersonales, Paciente>(
+          _entities[10].properties[1]);
+
+  /// See [AntecedentesPatologicosPersonales.enfermedadesGenerales].
+  static final enfermedadesGenerales =
+      obx.QueryStringProperty<AntecedentesPatologicosPersonales>(
+          _entities[10].properties[2]);
+
+  /// See [AntecedentesPatologicosPersonales.enfermedadesEndocrinas].
+  static final enfermedadesEndocrinas =
+      obx.QueryStringProperty<AntecedentesPatologicosPersonales>(
+          _entities[10].properties[3]);
+
+  /// See [AntecedentesPatologicosPersonales.enfermedadesRespiratorias].
+  static final enfermedadesRespiratorias =
+      obx.QueryStringProperty<AntecedentesPatologicosPersonales>(
+          _entities[10].properties[4]);
+
+  /// See [AntecedentesPatologicosPersonales.enfermedadesCardiovasculares].
+  static final enfermedadesCardiovasculares =
+      obx.QueryStringProperty<AntecedentesPatologicosPersonales>(
+          _entities[10].properties[5]);
+
+  /// See [AntecedentesPatologicosPersonales.enfermedadesDigestivas].
+  static final enfermedadesDigestivas =
+      obx.QueryStringProperty<AntecedentesPatologicosPersonales>(
+          _entities[10].properties[6]);
+
+  /// See [AntecedentesPatologicosPersonales.enfermedadesRenales].
+  static final enfermedadesRenales =
+      obx.QueryStringProperty<AntecedentesPatologicosPersonales>(
+          _entities[10].properties[7]);
+
+  /// See [AntecedentesPatologicosPersonales.enfermedadesNeuronales].
+  static final enfermedadesNeuronales =
+      obx.QueryStringProperty<AntecedentesPatologicosPersonales>(
+          _entities[10].properties[8]);
+
+  /// See [AntecedentesPatologicosPersonales.enfermedadesHematologicas].
+  static final enfermedadesHematologicas =
+      obx.QueryStringProperty<AntecedentesPatologicosPersonales>(
+          _entities[10].properties[9]);
+
+  /// See [AntecedentesPatologicosPersonales.enfermedadesReumatologicas].
+  static final enfermedadesReumatologicas =
+      obx.QueryStringProperty<AntecedentesPatologicosPersonales>(
+          _entities[10].properties[10]);
+
+  /// See [AntecedentesPatologicosPersonales.enfermedadesTransmisionSexual].
+  static final enfermedadesTransmisionSexual =
+      obx.QueryStringProperty<AntecedentesPatologicosPersonales>(
+          _entities[10].properties[11]);
+
+  /// See [AntecedentesPatologicosPersonales.enfermedadesGinecologicas].
+  static final enfermedadesGinecologicas =
+      obx.QueryStringProperty<AntecedentesPatologicosPersonales>(
+          _entities[10].properties[12]);
+
+  /// See [AntecedentesPatologicosPersonales.antecedentesFamiliares].
+  static final antecedentesFamiliares =
+      obx.QueryStringProperty<AntecedentesPatologicosPersonales>(
+          _entities[10].properties[13]);
+
+  /// See [AntecedentesPatologicosPersonales.antecedentesQuirugicos].
+  static final antecedentesQuirugicos =
+      obx.QueryStringProperty<AntecedentesPatologicosPersonales>(
+          _entities[10].properties[14]);
+
+  /// See [AntecedentesPatologicosPersonales.habitosPsicobiologicos].
+  static final habitosPsicobiologicos =
+      obx.QueryStringProperty<AntecedentesPatologicosPersonales>(
+          _entities[10].properties[15]);
+
+  /// See [AntecedentesPatologicosPersonales.transfusionesPrevias].
+  static final transfusionesPrevias =
+      obx.QueryStringProperty<AntecedentesPatologicosPersonales>(
+          _entities[10].properties[16]);
+
+  /// See [AntecedentesPatologicosPersonales.inmunizaciones].
+  static final inmunizaciones =
+      obx.QueryStringProperty<AntecedentesPatologicosPersonales>(
+          _entities[10].properties[17]);
+}
+
+/// [Embarazo] entity fields to define ObjectBox queries.
+class Embarazo_ {
+  /// See [Embarazo.id].
+  static final id =
+      obx.QueryIntegerProperty<Embarazo>(_entities[11].properties[0]);
+
+  /// See [Embarazo.numeroEmbarazo].
+  static final numeroEmbarazo =
+      obx.QueryIntegerProperty<Embarazo>(_entities[11].properties[1]);
+
+  /// See [Embarazo.fecha].
+  static final fecha =
+      obx.QueryDateProperty<Embarazo>(_entities[11].properties[2]);
+
+  /// See [Embarazo.semanasGestacion].
+  static final semanasGestacion =
+      obx.QueryIntegerProperty<Embarazo>(_entities[11].properties[3]);
+
+  /// See [Embarazo.tipoParto].
+  static final tipoParto =
+      obx.QueryStringProperty<Embarazo>(_entities[11].properties[4]);
+
+  /// See [Embarazo.tipoDistocia].
+  static final tipoDistocia =
+      obx.QueryStringProperty<Embarazo>(_entities[11].properties[5]);
+
+  /// See [Embarazo.lugarParto].
+  static final lugarParto =
+      obx.QueryStringProperty<Embarazo>(_entities[11].properties[6]);
+
+  /// See [Embarazo.patologiasAsociadas].
+  static final patologiasAsociadas =
+      obx.QueryStringProperty<Embarazo>(_entities[11].properties[7]);
+
+  /// See [Embarazo.tipoAborto].
+  static final tipoAborto =
+      obx.QueryStringProperty<Embarazo>(_entities[11].properties[8]);
+
+  /// See [Embarazo.tipoProvocado].
+  static final tipoProvocado =
+      obx.QueryStringProperty<Embarazo>(_entities[11].properties[9]);
+
+  /// See [Embarazo.observacionesAborto].
+  static final observacionesAborto =
+      obx.QueryStringProperty<Embarazo>(_entities[11].properties[10]);
+
+  /// See [Embarazo.antecedente].
+  static final antecedente =
+      obx.QueryRelationToOne<Embarazo, AntecedentesObstetricos>(
+          _entities[11].properties[11]);
+
+  /// See [Embarazo.tipoNacimiento].
+  static final tipoNacimiento =
+      obx.QueryStringProperty<Embarazo>(_entities[11].properties[12]);
+
+  /// see [Embarazo.recienNacidos]
+  static final recienNacidos =
+      obx.QueryBacklinkToMany<RecienNacido, Embarazo>(RecienNacido_.embarazo);
+}
+
+/// [EmbarazoActual] entity fields to define ObjectBox queries.
+class EmbarazoActual_ {
+  /// See [EmbarazoActual.id].
+  static final id =
+      obx.QueryIntegerProperty<EmbarazoActual>(_entities[12].properties[0]);
+
+  /// See [EmbarazoActual.fechaUltimaMenstruacion].
+  static final fechaUltimaMenstruacion =
+      obx.QueryDateProperty<EmbarazoActual>(_entities[12].properties[1]);
+
+  /// See [EmbarazoActual.noConfiable].
+  static final noConfiable =
+      obx.QueryBooleanProperty<EmbarazoActual>(_entities[12].properties[2]);
+
+  /// See [EmbarazoActual.desconocida].
+  static final desconocida =
+      obx.QueryBooleanProperty<EmbarazoActual>(_entities[12].properties[3]);
+
+  /// See [EmbarazoActual.fechaPartoEstimado].
+  static final fechaPartoEstimado =
+      obx.QueryDateProperty<EmbarazoActual>(_entities[12].properties[4]);
+
+  /// See [EmbarazoActual.captacion].
+  static final captacion =
+      obx.QueryIntegerProperty<EmbarazoActual>(_entities[12].properties[5]);
+
+  /// See [EmbarazoActual.semanas].
+  static final semanas =
+      obx.QueryIntegerProperty<EmbarazoActual>(_entities[12].properties[6]);
+
+  /// See [EmbarazoActual.paciente].
+  static final paciente = obx.QueryRelationToOne<EmbarazoActual, Paciente>(
+      _entities[12].properties[7]);
+}
+
+/// [Paciente] entity fields to define ObjectBox queries.
+class Paciente_ {
+  /// See [Paciente.id].
+  static final id =
+      obx.QueryIntegerProperty<Paciente>(_entities[13].properties[0]);
+
+  /// See [Paciente.nombre].
+  static final nombre =
+      obx.QueryStringProperty<Paciente>(_entities[13].properties[1]);
+
+  /// See [Paciente.primerApellido].
+  static final primerApellido =
+      obx.QueryStringProperty<Paciente>(_entities[13].properties[2]);
+
+  /// See [Paciente.segundoApellido].
+  static final segundoApellido =
+      obx.QueryStringProperty<Paciente>(_entities[13].properties[3]);
+
+  /// See [Paciente.fechaNacimiento].
+  static final fechaNacimiento =
+      obx.QueryDateProperty<Paciente>(_entities[13].properties[4]);
+
+  /// See [Paciente.sexo].
+  static final sexo =
+      obx.QueryStringProperty<Paciente>(_entities[13].properties[5]);
+
+  /// See [Paciente.direccion].
+  static final direccion =
+      obx.QueryStringProperty<Paciente>(_entities[13].properties[6]);
+
+  /// See [Paciente.tipoDePaciente].
+  static final tipoDePaciente =
+      obx.QueryStringProperty<Paciente>(_entities[13].properties[7]);
+
+  /// See [Paciente.noIdentidad].
+  static final noIdentidad =
+      obx.QueryStringProperty<Paciente>(_entities[13].properties[8]);
+
+  /// See [Paciente.edad].
+  static final edad =
+      obx.QueryIntegerProperty<Paciente>(_entities[13].properties[9]);
+
+  /// See [Paciente.aboRh].
+  static final aboRh =
+      obx.QueryStringProperty<Paciente>(_entities[13].properties[10]);
+
+  /// See [Paciente.unidadHospitalaria].
+  static final unidadHospitalaria =
+      obx.QueryStringProperty<Paciente>(_entities[13].properties[11]);
+
+  /// See [Paciente.policlinico].
+  static final policlinico =
+      obx.QueryStringProperty<Paciente>(_entities[13].properties[12]);
+
+  /// See [Paciente.estadoCivil].
+  static final estadoCivil =
+      obx.QueryStringProperty<Paciente>(_entities[13].properties[13]);
+
+  /// See [Paciente.escolaridad].
+  static final escolaridad =
+      obx.QueryStringProperty<Paciente>(_entities[13].properties[14]);
+
+  /// See [Paciente.consultorio].
+  static final consultorio =
+      obx.QueryStringProperty<Paciente>(_entities[13].properties[15]);
+
+  /// See [Paciente.ocupacion].
+  static final ocupacion =
+      obx.QueryStringProperty<Paciente>(_entities[13].properties[16]);
+
+  /// See [Paciente.fechaDeRegistro].
+  static final fechaDeRegistro =
+      obx.QueryDateProperty<Paciente>(_entities[13].properties[17]);
+
+  /// See [Paciente.fechaDeActualizacion].
+  static final fechaDeActualizacion =
+      obx.QueryDateProperty<Paciente>(_entities[13].properties[18]);
+
+  /// See [Paciente.noDormitorios].
+  static final noDormitorios =
+      obx.QueryIntegerProperty<Paciente>(_entities[13].properties[19]);
+
+  /// See [Paciente.noPersonasNucleoPersonal].
+  static final noPersonasNucleoPersonal =
+      obx.QueryIntegerProperty<Paciente>(_entities[13].properties[20]);
+
+  /// See [Paciente.tipoDeRiesgo].
+  static final tipoDeRiesgo =
+      obx.QueryStringProperty<Paciente>(_entities[13].properties[21]);
+
+  /// See [Paciente.datosDeInteres].
+  static final datosDeInteres =
+      obx.QueryStringProperty<Paciente>(_entities[13].properties[22]);
+
+  /// See [Paciente.tipoDeDiagnostico].
+  static final tipoDeDiagnostico =
+      obx.QueryStringProperty<Paciente>(_entities[13].properties[23]);
+
+  /// See [Paciente.codigo].
+  static final codigo =
+      obx.QueryStringProperty<Paciente>(_entities[13].properties[24]);
+
+  /// See [Paciente.descripcion].
+  static final descripcion =
+      obx.QueryStringProperty<Paciente>(_entities[13].properties[25]);
+
+  /// See [Paciente.estructura].
+  static final estructura =
+      obx.QueryStringProperty<Paciente>(_entities[13].properties[26]);
+
+  /// See [Paciente.conductaSeguida].
+  static final conductaSeguida =
+      obx.QueryStringProperty<Paciente>(_entities[13].properties[27]);
+
+  /// See [Paciente.antecedentesPatologicasPersonales].
+  static final antecedentesPatologicasPersonales =
+      obx.QueryRelationToOne<Paciente, AntecedentesPatologicosPersonales>(
+          _entities[13].properties[28]);
+
+  /// See [Paciente.embarazoActual].
+  static final embarazoActual =
+      obx.QueryRelationToOne<Paciente, EmbarazoActual>(
+          _entities[13].properties[29]);
+
+  /// See [Paciente.interrogatorio].
+  static final interrogatorio =
+      obx.QueryRelationToOne<Paciente, Interrogatorio>(
+          _entities[13].properties[30]);
+
+  /// See [Paciente.signosVitales].
+  static final signosVitales =
+      obx.QueryRelationToOne<Paciente, SignosVitalesModel>(
+          _entities[13].properties[31]);
+
+  /// See [Paciente.examenFisico].
+  static final examenFisico =
+      obx.QueryRelationToOne<Paciente, ExamenFisicoModel>(
+          _entities[13].properties[32]);
+
+  /// See [Paciente.interconsultas].
+  static final interconsultas =
+      obx.QueryRelationToOne<Paciente, InterconsultasModel>(
+          _entities[13].properties[33]);
+
+  /// See [Paciente.genetica].
+  static final genetica = obx.QueryRelationToOne<Paciente, GeneticaModel>(
+      _entities[13].properties[34]);
+
+  /// See [Paciente.laboratorio].
+  static final laboratorio =
+      obx.QueryRelationToOne<Paciente, LaboratorioMicrobiologiaModel>(
+          _entities[13].properties[35]);
+
+  /// See [Paciente.traumatismoAccidentes].
+  static final traumatismoAccidentes =
+      obx.QueryStringProperty<Paciente>(_entities[13].properties[36]);
+
+  /// See [Paciente.antecedentesGinecologicos].
+  static final antecedentesGinecologicos =
+      obx.QueryRelationToOne<Paciente, AntecedentesGinecologicos>(
+          _entities[13].properties[37]);
+
+  /// See [Paciente.antecedentesObstetricos].
+  static final antecedentesObstetricos =
+      obx.QueryRelationToOne<Paciente, AntecedentesObstetricos>(
+          _entities[13].properties[38]);
+}
+
+/// [RecienNacido] entity fields to define ObjectBox queries.
+class RecienNacido_ {
+  /// See [RecienNacido.id].
+  static final id =
+      obx.QueryIntegerProperty<RecienNacido>(_entities[14].properties[0]);
+
+  /// See [RecienNacido.peso].
+  static final peso =
+      obx.QueryDoubleProperty<RecienNacido>(_entities[14].properties[1]);
+
+  /// See [RecienNacido.sexo].
+  static final sexo =
+      obx.QueryStringProperty<RecienNacido>(_entities[14].properties[2]);
+
+  /// See [RecienNacido.estado].
+  static final estado =
+      obx.QueryStringProperty<RecienNacido>(_entities[14].properties[3]);
+
+  /// See [RecienNacido.datosInteres].
+  static final datosInteres =
+      obx.QueryStringProperty<RecienNacido>(_entities[14].properties[4]);
+
+  /// See [RecienNacido.apgar].
+  static final apgar =
+      obx.QueryIntegerProperty<RecienNacido>(_entities[14].properties[5]);
+
+  /// See [RecienNacido.puntos].
+  static final puntos =
+      obx.QueryIntegerProperty<RecienNacido>(_entities[14].properties[6]);
+
+  /// See [RecienNacido.ocurrenciaDefuncion].
+  static final ocurrenciaDefuncion =
+      obx.QueryStringProperty<RecienNacido>(_entities[14].properties[7]);
+
+  /// See [RecienNacido.edadAlFallecer].
+  static final edadAlFallecer =
+      obx.QueryStringProperty<RecienNacido>(_entities[14].properties[8]);
+
+  /// See [RecienNacido.embarazo].
+  static final embarazo = obx.QueryRelationToOne<RecienNacido, Embarazo>(
+      _entities[14].properties[9]);
 }

@@ -1,10 +1,17 @@
 // lib/objectbox.dart
+import 'package:atencion_prenatal_embarazadas/models/genetica_model.dart';
+import 'package:atencion_prenatal_embarazadas/models/interconsultas_model.dart';
+import 'package:atencion_prenatal_embarazadas/models/interrogatory_model.dart';
+import 'package:atencion_prenatal_embarazadas/models/laboratorio_microbiologia_model.dart';
+import 'package:atencion_prenatal_embarazadas/models/signos_vitales_model.dart';
 import 'package:objectbox/objectbox.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as p;
 
 import 'package:atencion_prenatal_embarazadas/models/personal_data_model.dart';
-import 'package:atencion_prenatal_embarazadas/objectbox.g.dart'; // created by `dart run build_runner build`
+import 'package:atencion_prenatal_embarazadas/objectbox.g.dart';
+
+import '../../models/examen_fisico_model.dart'; // created by `dart run build_runner build`
 
 /// Provides access to the ObjectBox Store throughout the app.
 ///
@@ -15,9 +22,34 @@ class ObjectBox {
 
   /// A Box of Paciente.
   late final Box<Paciente> _pacienteBox;
+  late final Box<EmbarazoActual> _embarazoActual;
+  late final Box<AntecedentesPatologicosPersonales> _antecedentesPatologicosBox;
+  late final Box<AntecedentesGinecologicos> _antecedentesGinecologicosBox;
+  late final Box<AntecedentesObstetricos> _antecedentesObstetricosBox;
+  late final Box<Interrogatorio> _interrogatorioBox;
+  late final Box<SignosVitalesModel> _signosVitalesBox;
+  late final Box<ExamenFisicoModel> _examenFisicoBox;
+  late final Box<InterconsultasModel> _interconsultasBox;
+  late final Box<GeneticaModel> _geneticaBox;
+  late final Box<LaboratorioMicrobiologiaModel> _laboratorioBox;
+  late final Box<Embarazo> _embarazoBox;
+  late final Box<RecienNacido> _recienNacidoBox;
+
 
   ObjectBox._create(this._store) {
     _pacienteBox = Box<Paciente>(_store);
+    _embarazoActual = Box<EmbarazoActual>(_store);
+    _antecedentesPatologicosBox = Box<AntecedentesPatologicosPersonales>(_store);
+    _antecedentesGinecologicosBox = Box<AntecedentesGinecologicos>(_store);
+    _antecedentesObstetricosBox = Box<AntecedentesObstetricos>(_store);
+    _interrogatorioBox = Box<Interrogatorio>(_store);
+    _signosVitalesBox = Box<SignosVitalesModel>(_store);
+    _examenFisicoBox = Box<ExamenFisicoModel>(_store);
+    _interconsultasBox = Box<InterconsultasModel>(_store);
+    _geneticaBox = Box<GeneticaModel>(_store);
+    _laboratorioBox = Box<LaboratorioMicrobiologiaModel>(_store);
+   _embarazoBox = Box<Embarazo>(_store);
+   _recienNacidoBox = Box<RecienNacido>(_store);
 
     // Add some demo data if the box is empty.
     if (_pacienteBox.isEmpty()) {
@@ -56,6 +88,55 @@ class ObjectBox {
   void addPaciente(Paciente paciente) {
     _pacienteBox.put(paciente);
   }
+
+   void addEmbarazoActual(EmbarazoActual embarazoActual) {
+    _embarazoActual.put(embarazoActual);
+  }
+
+  void addAntecedentesPatologicosPersonales(AntecedentesPatologicosPersonales antecedente) {
+    _antecedentesPatologicosBox.put(antecedente);
+  }
+
+  void addAntecedentesGinecologicos(AntecedentesGinecologicos antecedente) {
+    _antecedentesGinecologicosBox.put(antecedente);
+  }
+
+  void addAntecedentesObstetricos(AntecedentesObstetricos antecedente) {
+    _antecedentesObstetricosBox.put(antecedente);
+  }
+
+  void addInterrogatorio(Interrogatorio interrogatorio) {
+    _interrogatorioBox.put(interrogatorio);
+  }
+
+  void addSignosVitalesModel(SignosVitalesModel signosVitales) {
+    _signosVitalesBox.put(signosVitales);
+  }
+
+  void addExamenFisico(ExamenFisicoModel examenFisico) {
+    _examenFisicoBox.put(examenFisico);
+  }
+
+  void addInterconsultasModel(InterconsultasModel interconsulta) {
+    _interconsultasBox.put(interconsulta);
+  }
+
+  void addGeneticaModel(GeneticaModel genetica) {
+    _geneticaBox.put(genetica);
+  }
+
+  void addLaboratorioMicrobiologiaModel(LaboratorioMicrobiologiaModel laboratorio) {
+    _laboratorioBox.put(laboratorio);
+  }
+
+  void addEmbarazos(List<Embarazo> embarazos) {
+    _embarazoBox.putMany(embarazos);
+  }
+
+  void addRecienNacido(RecienNacido recienNacido) {
+    _recienNacidoBox.put(recienNacido);
+  }
+
 
   /// Método para borrar un paciente por ID
   void deletePaciente(int id) {

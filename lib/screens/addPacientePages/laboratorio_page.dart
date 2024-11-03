@@ -41,9 +41,7 @@ class LaboratorioPage extends StatelessWidget {
   void _submitLaboratorio(BuildContext context) {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
-      context
-          .read<AddPacienteBloc>()
-          .add(SubmitLaboratorio());
+      context.read<AddPacienteBloc>().add(SubmitLaboratorio());
     }
   }
 
@@ -70,6 +68,10 @@ class LaboratorioPage extends StatelessWidget {
             //_updateControllers(state);
           }
         },
+        buildWhen: (previous, current) =>
+            previous.laboratorioMicrobiologiaModel !=
+                current.laboratorioMicrobiologiaModel ||
+            previous.currentStepLaboratorio != current.currentStepLaboratorio,
         builder: (context, state) {
           return Padding(
             padding: const EdgeInsets.all(16.0),
@@ -78,16 +80,18 @@ class LaboratorioPage extends StatelessWidget {
               currentStep: state.currentStepLaboratorio,
               onStepContinue: () {
                 if (state.currentStepLaboratorio < 24) {
-                  context.read<AddPacienteBloc>().add(UpdateCurrentStepLaboratorio(
-                      step: state.currentStepLaboratorio + 1));
+                  context.read<AddPacienteBloc>().add(
+                      UpdateCurrentStepLaboratorio(
+                          step: state.currentStepLaboratorio + 1));
                 } else {
-                  //_submitDatosPersonales(context);
+                  _submitLaboratorio(context);
                 }
               },
               onStepCancel: () {
                 if (state.currentStepLaboratorio > 0) {
-                  context.read<AddPacienteBloc>().add(UpdateCurrentStepLaboratorio(
-                      step: state.currentStepLaboratorio - 1));
+                  context.read<AddPacienteBloc>().add(
+                      UpdateCurrentStepLaboratorio(
+                          step: state.currentStepLaboratorio - 1));
                 }
               },
               steps: <Step>[
@@ -99,17 +103,19 @@ class LaboratorioPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
-                          initialValue:
-                          state.laboratorioMicrobiologiaModel?.ghResultadoMaterno ?? '',
+                          initialValue: state.laboratorioMicrobiologiaModel
+                                  ?.ghResultadoMaterno ??
+                              '',
                           onChanged: (value) {
-                            var laboratorio = state.laboratorioMicrobiologiaModel ??
-                                LaboratorioMicrobiologiaModel(id: 0);
+                            var laboratorio =
+                                state.laboratorioMicrobiologiaModel ??
+                                    LaboratorioMicrobiologiaModel(id: 0);
                             context
                                 .read<AddPacienteBloc>()
                                 .add(UpdateLaboratorio(
-                              model: laboratorio.copyWith(
-                                  ghResultadoMaterno: value),
-                            ));
+                                  model: laboratorio.copyWith(
+                                      ghResultadoMaterno: value),
+                                ));
                           },
                           decoration: const InputDecoration(
                               labelText: 'Resultado materno'),
@@ -122,38 +128,44 @@ class LaboratorioPage extends StatelessWidget {
                           children: [
                             Expanded(
                               child: Text(
-                                state.laboratorioMicrobiologiaModel?.grFechaRealizacionMaterno == null
+                                state.laboratorioMicrobiologiaModel
+                                            ?.grFechaRealizacionMaterno ==
+                                        null
                                     ? 'Fecha de realización'
                                     : 'Fecha: ${state.laboratorioMicrobiologiaModel?.grFechaRealizacionMaterno!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context, (value){
-                                var laboratorio = state.laboratorioMicrobiologiaModel ??
-                                    LaboratorioMicrobiologiaModel(id: 0);
+                              onPressed: () =>
+                                  _selectDateTime(context, (value) {
+                                var laboratorio =
+                                    state.laboratorioMicrobiologiaModel ??
+                                        LaboratorioMicrobiologiaModel(id: 0);
                                 context
                                     .read<AddPacienteBloc>()
                                     .add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(
-                                      grFechaRealizacionMaterno: value),
-                                ));
+                                      model: laboratorio.copyWith(
+                                          grFechaRealizacionMaterno: value),
+                                    ));
                               }),
                               child: const Text('Seleccionar'),
                             ),
                           ],
                         ),
                         TextFormField(
-                          initialValue:
-                          state.laboratorioMicrobiologiaModel?.ghResultadoPaterno ?? '',
+                          initialValue: state.laboratorioMicrobiologiaModel
+                                  ?.ghResultadoPaterno ??
+                              '',
                           onChanged: (value) {
-                            var laboratorio = state.laboratorioMicrobiologiaModel ??
-                                LaboratorioMicrobiologiaModel(id: 0);
+                            var laboratorio =
+                                state.laboratorioMicrobiologiaModel ??
+                                    LaboratorioMicrobiologiaModel(id: 0);
                             context
                                 .read<AddPacienteBloc>()
                                 .add(UpdateLaboratorio(
-                              model: laboratorio.copyWith(
-                                  ghResultadoPaterno: value),
-                            ));
+                                  model: laboratorio.copyWith(
+                                      ghResultadoPaterno: value),
+                                ));
                           },
                           decoration: const InputDecoration(
                               labelText: 'Resultado paterno'),
@@ -166,21 +178,25 @@ class LaboratorioPage extends StatelessWidget {
                           children: [
                             Expanded(
                               child: Text(
-                                state.laboratorioMicrobiologiaModel?.grFechaRealizacionPaterno == null
+                                state.laboratorioMicrobiologiaModel
+                                            ?.grFechaRealizacionPaterno ==
+                                        null
                                     ? 'Fecha de realización'
                                     : 'Fecha: ${state.laboratorioMicrobiologiaModel?.grFechaRealizacionPaterno!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context, (value){
-                                var laboratorio = state.laboratorioMicrobiologiaModel ??
-                                    LaboratorioMicrobiologiaModel(id: 0);
+                              onPressed: () =>
+                                  _selectDateTime(context, (value) {
+                                var laboratorio =
+                                    state.laboratorioMicrobiologiaModel ??
+                                        LaboratorioMicrobiologiaModel(id: 0);
                                 context
                                     .read<AddPacienteBloc>()
                                     .add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(
-                                      grFechaRealizacionPaterno: value),
-                                ));
+                                      model: laboratorio.copyWith(
+                                          grFechaRealizacionPaterno: value),
+                                    ));
                               }),
                               child: const Text('Seleccionar'),
                             ),
@@ -198,68 +214,102 @@ class LaboratorioPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel?.vihResultadoMaterno ?? '',
+                          initialValue: state.laboratorioMicrobiologiaModel
+                                  ?.vihResultadoMaterno ??
+                              '',
                           onChanged: (value) {
-                            var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                              model: laboratorio.copyWith(vihResultadoMaterno: value),
-                            ));
+                            var laboratorio =
+                                state.laboratorioMicrobiologiaModel ??
+                                    LaboratorioMicrobiologiaModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateLaboratorio(
+                                  model: laboratorio.copyWith(
+                                      vihResultadoMaterno: value),
+                                ));
                           },
                           decoration: const InputDecoration(
                             labelText: 'Resultado materno VIH',
                           ),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa el resultado materno VIH' : null,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el resultado materno VIH'
+                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
                           children: [
                             Expanded(
                               child: Text(
-                                state.laboratorioMicrobiologiaModel?.vihFechaRealizacionMaterno == null
+                                state.laboratorioMicrobiologiaModel
+                                            ?.vihFechaRealizacionMaterno ==
+                                        null
                                     ? 'Fecha de realización'
                                     : 'Fecha: ${state.laboratorioMicrobiologiaModel?.vihFechaRealizacionMaterno!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context, (value){
-                                var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                                context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(vihFechaRealizacionMaterno: value),
-                                ));
+                              onPressed: () =>
+                                  _selectDateTime(context, (value) {
+                                var laboratorio =
+                                    state.laboratorioMicrobiologiaModel ??
+                                        LaboratorioMicrobiologiaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateLaboratorio(
+                                      model: laboratorio.copyWith(
+                                          vihFechaRealizacionMaterno: value),
+                                    ));
                               }),
                               child: const Text('Seleccionar'),
                             ),
                           ],
                         ),
                         TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel?.vihResultadoPaterno ?? '',
+                          initialValue: state.laboratorioMicrobiologiaModel
+                                  ?.vihResultadoPaterno ??
+                              '',
                           onChanged: (value) {
-                            var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                              model: laboratorio.copyWith(vihResultadoPaterno: value),
-                            ));
+                            var laboratorio =
+                                state.laboratorioMicrobiologiaModel ??
+                                    LaboratorioMicrobiologiaModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateLaboratorio(
+                                  model: laboratorio.copyWith(
+                                      vihResultadoPaterno: value),
+                                ));
                           },
                           decoration: const InputDecoration(
                             labelText: 'Resultado paterno VIH',
                           ),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa el resultado paterno VIH' : null,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el resultado paterno VIH'
+                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
                           children: [
                             Expanded(
                               child: Text(
-                                state.laboratorioMicrobiologiaModel?.vihFechaRealizacionPaterno == null
+                                state.laboratorioMicrobiologiaModel
+                                            ?.vihFechaRealizacionPaterno ==
+                                        null
                                     ? 'Fecha de realización'
                                     : 'Fecha: ${state.laboratorioMicrobiologiaModel?.vihFechaRealizacionPaterno!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context, (value){
-                                var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                                context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(vihFechaRealizacionPaterno: value),
-                                ));
+                              onPressed: () =>
+                                  _selectDateTime(context, (value) {
+                                var laboratorio =
+                                    state.laboratorioMicrobiologiaModel ??
+                                        LaboratorioMicrobiologiaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateLaboratorio(
+                                      model: laboratorio.copyWith(
+                                          vihFechaRealizacionPaterno: value),
+                                    ));
                               }),
                               child: const Text('Seleccionar'),
                             ),
@@ -277,64 +327,100 @@ class LaboratorioPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel?.sResultadoMaterno ?? '',
+                          initialValue: state.laboratorioMicrobiologiaModel
+                                  ?.sResultadoMaterno ??
+                              '',
                           onChanged: (value) {
-                            var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                              model: laboratorio.copyWith(sResultadoMaterno: value),
-                            ));
+                            var laboratorio =
+                                state.laboratorioMicrobiologiaModel ??
+                                    LaboratorioMicrobiologiaModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateLaboratorio(
+                                  model: laboratorio.copyWith(
+                                      sResultadoMaterno: value),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Resultado materno Serología'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa el resultado materno Serología' : null,
+                          decoration: const InputDecoration(
+                              labelText: 'Resultado materno Serología'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el resultado materno Serología'
+                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
                           children: [
                             Expanded(
                               child: Text(
-                                state.laboratorioMicrobiologiaModel?.sFechaRealizacionMaterno == null
+                                state.laboratorioMicrobiologiaModel
+                                            ?.sFechaRealizacionMaterno ==
+                                        null
                                     ? 'Fecha de realización'
                                     : 'Fecha: ${state.laboratorioMicrobiologiaModel?.sFechaRealizacionMaterno!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context, (value){
-                                var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                                context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(sFechaRealizacionMaterno: value),
-                                ));
+                              onPressed: () =>
+                                  _selectDateTime(context, (value) {
+                                var laboratorio =
+                                    state.laboratorioMicrobiologiaModel ??
+                                        LaboratorioMicrobiologiaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateLaboratorio(
+                                      model: laboratorio.copyWith(
+                                          sFechaRealizacionMaterno: value),
+                                    ));
                               }),
                               child: const Text('Seleccionar'),
                             ),
                           ],
                         ),
                         TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel?.sResultadoPaterno ?? '',
+                          initialValue: state.laboratorioMicrobiologiaModel
+                                  ?.sResultadoPaterno ??
+                              '',
                           onChanged: (value) {
-                            var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                              model: laboratorio.copyWith(sResultadoPaterno: value),
-                            ));
+                            var laboratorio =
+                                state.laboratorioMicrobiologiaModel ??
+                                    LaboratorioMicrobiologiaModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateLaboratorio(
+                                  model: laboratorio.copyWith(
+                                      sResultadoPaterno: value),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Resultado paterno Serología'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa el resultado paterno Serología' : null,
+                          decoration: const InputDecoration(
+                              labelText: 'Resultado paterno Serología'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el resultado paterno Serología'
+                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
                           children: [
                             Expanded(
                               child: Text(
-                                state.laboratorioMicrobiologiaModel?.sFechaRealizacionPaterno == null
+                                state.laboratorioMicrobiologiaModel
+                                            ?.sFechaRealizacionPaterno ==
+                                        null
                                     ? 'Fecha de realización'
                                     : 'Fecha: ${state.laboratorioMicrobiologiaModel?.sFechaRealizacionPaterno!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context, (value){
-                                var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                                context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(sFechaRealizacionPaterno: value),
-                                ));
+                              onPressed: () =>
+                                  _selectDateTime(context, (value) {
+                                var laboratorio =
+                                    state.laboratorioMicrobiologiaModel ??
+                                        LaboratorioMicrobiologiaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateLaboratorio(
+                                      model: laboratorio.copyWith(
+                                          sFechaRealizacionPaterno: value),
+                                    ));
                               }),
                               child: const Text('Seleccionar'),
                             ),
@@ -352,64 +438,102 @@ class LaboratorioPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel?.asResultadoMaterno ?? '',
+                          initialValue: state.laboratorioMicrobiologiaModel
+                                  ?.asResultadoMaterno ??
+                              '',
                           onChanged: (value) {
-                            var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                              model: laboratorio.copyWith(asResultadoMaterno: value),
-                            ));
+                            var laboratorio =
+                                state.laboratorioMicrobiologiaModel ??
+                                    LaboratorioMicrobiologiaModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateLaboratorio(
+                                  model: laboratorio.copyWith(
+                                      asResultadoMaterno: value),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Resultado materno Antígeno de superficie'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa el resultado materno Antígeno de superficie' : null,
+                          decoration: const InputDecoration(
+                              labelText:
+                                  'Resultado materno Antígeno de superficie'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el resultado materno Antígeno de superficie'
+                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
                           children: [
                             Expanded(
                               child: Text(
-                                state.laboratorioMicrobiologiaModel?.asFechaRealizacionMaterno == null
+                                state.laboratorioMicrobiologiaModel
+                                            ?.asFechaRealizacionMaterno ==
+                                        null
                                     ? 'Fecha de realización'
                                     : 'Fecha: ${state.laboratorioMicrobiologiaModel?.asFechaRealizacionMaterno!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context, (value){
-                                var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                                context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(asFechaRealizacionMaterno: value),
-                                ));
+                              onPressed: () =>
+                                  _selectDateTime(context, (value) {
+                                var laboratorio =
+                                    state.laboratorioMicrobiologiaModel ??
+                                        LaboratorioMicrobiologiaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateLaboratorio(
+                                      model: laboratorio.copyWith(
+                                          asFechaRealizacionMaterno: value),
+                                    ));
                               }),
                               child: const Text('Seleccionar'),
                             ),
                           ],
                         ),
                         TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel?.asResultadoPaterno ?? '',
+                          initialValue: state.laboratorioMicrobiologiaModel
+                                  ?.asResultadoPaterno ??
+                              '',
                           onChanged: (value) {
-                            var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                              model: laboratorio.copyWith(asResultadoPaterno: value),
-                            ));
+                            var laboratorio =
+                                state.laboratorioMicrobiologiaModel ??
+                                    LaboratorioMicrobiologiaModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateLaboratorio(
+                                  model: laboratorio.copyWith(
+                                      asResultadoPaterno: value),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Resultado paterno Antígeno de superficie'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa el resultado paterno Antígeno de superficie' : null,
+                          decoration: const InputDecoration(
+                              labelText:
+                                  'Resultado paterno Antígeno de superficie'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el resultado paterno Antígeno de superficie'
+                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
                           children: [
                             Expanded(
                               child: Text(
-                                state.laboratorioMicrobiologiaModel?.asFechaRealizacionPaterno == null
+                                state.laboratorioMicrobiologiaModel
+                                            ?.asFechaRealizacionPaterno ==
+                                        null
                                     ? 'Fecha de realización'
                                     : 'Fecha: ${state.laboratorioMicrobiologiaModel?.asFechaRealizacionPaterno!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context, (value){
-                                var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                                context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(asFechaRealizacionPaterno: value),
-                                ));
+                              onPressed: () =>
+                                  _selectDateTime(context, (value) {
+                                var laboratorio =
+                                    state.laboratorioMicrobiologiaModel ??
+                                        LaboratorioMicrobiologiaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateLaboratorio(
+                                      model: laboratorio.copyWith(
+                                          asFechaRealizacionPaterno: value),
+                                    ));
                               }),
                               child: const Text('Seleccionar'),
                             ),
@@ -427,32 +551,50 @@ class LaboratorioPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel?.hbResultadoMaterno ?? '',
+                          initialValue: state.laboratorioMicrobiologiaModel
+                                  ?.hbResultadoMaterno ??
+                              '',
                           onChanged: (value) {
-                            var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                              model: laboratorio.copyWith(hbResultadoMaterno: value),
-                            ));
+                            var laboratorio =
+                                state.laboratorioMicrobiologiaModel ??
+                                    LaboratorioMicrobiologiaModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateLaboratorio(
+                                  model: laboratorio.copyWith(
+                                      hbResultadoMaterno: value),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Resultado materno Hb'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa el resultado materno Hb' : null,
+                          decoration: const InputDecoration(
+                              labelText: 'Resultado materno Hb'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el resultado materno Hb'
+                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
                           children: [
                             Expanded(
                               child: Text(
-                                state.laboratorioMicrobiologiaModel?.hbFechaRealizacionMaterno == null
+                                state.laboratorioMicrobiologiaModel
+                                            ?.hbFechaRealizacionMaterno ==
+                                        null
                                     ? 'Fecha de realización'
                                     : 'Fecha: ${state.laboratorioMicrobiologiaModel?.hbFechaRealizacionMaterno!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context, (value){
-                                var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                                context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(hbFechaRealizacionMaterno: value),
-                                ));
+                              onPressed: () =>
+                                  _selectDateTime(context, (value) {
+                                var laboratorio =
+                                    state.laboratorioMicrobiologiaModel ??
+                                        LaboratorioMicrobiologiaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateLaboratorio(
+                                      model: laboratorio.copyWith(
+                                          hbFechaRealizacionMaterno: value),
+                                    ));
                               }),
                               child: const Text('Seleccionar'),
                             ),
@@ -462,7 +604,6 @@ class LaboratorioPage extends StatelessWidget {
                     ),
                   ),
                 ),
-
                 Step(
                   title: const Text('Hematocrito (Hto)'),
                   isActive: state.currentStepLaboratorio >= 5,
@@ -471,32 +612,50 @@ class LaboratorioPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel?.htoResultadoMaterno ?? '',
+                          initialValue: state.laboratorioMicrobiologiaModel
+                                  ?.htoResultadoMaterno ??
+                              '',
                           onChanged: (value) {
-                            var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                              model: laboratorio.copyWith(htoResultadoMaterno: value),
-                            ));
+                            var laboratorio =
+                                state.laboratorioMicrobiologiaModel ??
+                                    LaboratorioMicrobiologiaModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateLaboratorio(
+                                  model: laboratorio.copyWith(
+                                      htoResultadoMaterno: value),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Resultado materno Hto'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa el resultado materno Hto' : null,
+                          decoration: const InputDecoration(
+                              labelText: 'Resultado materno Hto'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el resultado materno Hto'
+                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
                           children: [
                             Expanded(
                               child: Text(
-                                state.laboratorioMicrobiologiaModel?.htoFechaRealizacionMaterno == null
+                                state.laboratorioMicrobiologiaModel
+                                            ?.htoFechaRealizacionMaterno ==
+                                        null
                                     ? 'Fecha de realización'
                                     : 'Fecha: ${state.laboratorioMicrobiologiaModel?.htoFechaRealizacionMaterno!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context, (value){
-                                var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                                context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(htoFechaRealizacionMaterno: value),
-                                ));
+                              onPressed: () =>
+                                  _selectDateTime(context, (value) {
+                                var laboratorio =
+                                    state.laboratorioMicrobiologiaModel ??
+                                        LaboratorioMicrobiologiaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateLaboratorio(
+                                      model: laboratorio.copyWith(
+                                          htoFechaRealizacionMaterno: value),
+                                    ));
                               }),
                               child: const Text('Seleccionar'),
                             ),
@@ -506,7 +665,6 @@ class LaboratorioPage extends StatelessWidget {
                     ),
                   ),
                 ),
-
                 Step(
                   title: const Text('Glicemia'),
                   isActive: state.currentStepLaboratorio >= 6,
@@ -515,32 +673,50 @@ class LaboratorioPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel?.gResultadoMaterno ?? '',
+                          initialValue: state.laboratorioMicrobiologiaModel
+                                  ?.gResultadoMaterno ??
+                              '',
                           onChanged: (value) {
-                            var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                              model: laboratorio.copyWith(gResultadoMaterno: value),
-                            ));
+                            var laboratorio =
+                                state.laboratorioMicrobiologiaModel ??
+                                    LaboratorioMicrobiologiaModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateLaboratorio(
+                                  model: laboratorio.copyWith(
+                                      gResultadoMaterno: value),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Resultado materno Glicemia'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa el resultado materno Glicemia' : null,
+                          decoration: const InputDecoration(
+                              labelText: 'Resultado materno Glicemia'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el resultado materno Glicemia'
+                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
                           children: [
                             Expanded(
                               child: Text(
-                                state.laboratorioMicrobiologiaModel?.gFechaRealizacionMaterno == null
+                                state.laboratorioMicrobiologiaModel
+                                            ?.gFechaRealizacionMaterno ==
+                                        null
                                     ? 'Fecha de realización'
                                     : 'Fecha: ${state.laboratorioMicrobiologiaModel?.gFechaRealizacionMaterno!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context, (value){
-                                var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                                context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(gFechaRealizacionMaterno: value),
-                                ));
+                              onPressed: () =>
+                                  _selectDateTime(context, (value) {
+                                var laboratorio =
+                                    state.laboratorioMicrobiologiaModel ??
+                                        LaboratorioMicrobiologiaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateLaboratorio(
+                                      model: laboratorio.copyWith(
+                                          gFechaRealizacionMaterno: value),
+                                    ));
                               }),
                               child: const Text('Seleccionar'),
                             ),
@@ -550,7 +726,6 @@ class LaboratorioPage extends StatelessWidget {
                     ),
                   ),
                 ),
-
                 Step(
                   title: const Text('PTG Ayunas'),
                   isActive: state.currentStepLaboratorio >= 7,
@@ -559,32 +734,50 @@ class LaboratorioPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel?.ptgaResultadoMaterno ?? '',
+                          initialValue: state.laboratorioMicrobiologiaModel
+                                  ?.ptgaResultadoMaterno ??
+                              '',
                           onChanged: (value) {
-                            var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                              model: laboratorio.copyWith(ptgaResultadoMaterno: value),
-                            ));
+                            var laboratorio =
+                                state.laboratorioMicrobiologiaModel ??
+                                    LaboratorioMicrobiologiaModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateLaboratorio(
+                                  model: laboratorio.copyWith(
+                                      ptgaResultadoMaterno: value),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Resultado materno PTG Ayunas'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa el resultado materno PTG Ayunas' : null,
+                          decoration: const InputDecoration(
+                              labelText: 'Resultado materno PTG Ayunas'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el resultado materno PTG Ayunas'
+                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
                           children: [
                             Expanded(
                               child: Text(
-                                state.laboratorioMicrobiologiaModel?.ptgaFechaRealizacionMaterno == null
+                                state.laboratorioMicrobiologiaModel
+                                            ?.ptgaFechaRealizacionMaterno ==
+                                        null
                                     ? 'Fecha de realización'
                                     : 'Fecha: ${state.laboratorioMicrobiologiaModel?.ptgaFechaRealizacionMaterno!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context, (value){
-                                var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                                context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(ptgaFechaRealizacionMaterno: value),
-                                ));
+                              onPressed: () =>
+                                  _selectDateTime(context, (value) {
+                                var laboratorio =
+                                    state.laboratorioMicrobiologiaModel ??
+                                        LaboratorioMicrobiologiaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateLaboratorio(
+                                      model: laboratorio.copyWith(
+                                          ptgaFechaRealizacionMaterno: value),
+                                    ));
                               }),
                               child: const Text('Seleccionar'),
                             ),
@@ -594,7 +787,6 @@ class LaboratorioPage extends StatelessWidget {
                     ),
                   ),
                 ),
-
                 Step(
                   title: const Text('PTG dos horas después'),
                   isActive: state.currentStepLaboratorio >= 8,
@@ -603,32 +795,50 @@ class LaboratorioPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel?.ptg2hResultadoMaterno ?? '',
+                          initialValue: state.laboratorioMicrobiologiaModel
+                                  ?.ptg2hResultadoMaterno ??
+                              '',
                           onChanged: (value) {
-                            var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                              model: laboratorio.copyWith(ptg2hResultadoMaterno: value),
-                            ));
+                            var laboratorio =
+                                state.laboratorioMicrobiologiaModel ??
+                                    LaboratorioMicrobiologiaModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateLaboratorio(
+                                  model: laboratorio.copyWith(
+                                      ptg2hResultadoMaterno: value),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Resultado materno PTG 2 Horas'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa el resultado materno PTG 2 Horas' : null,
+                          decoration: const InputDecoration(
+                              labelText: 'Resultado materno PTG 2 Horas'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el resultado materno PTG 2 Horas'
+                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
                           children: [
                             Expanded(
                               child: Text(
-                                state.laboratorioMicrobiologiaModel?.ptg2hFechaRealizacionMaterno == null
+                                state.laboratorioMicrobiologiaModel
+                                            ?.ptg2hFechaRealizacionMaterno ==
+                                        null
                                     ? 'Fecha de realización'
                                     : 'Fecha: ${state.laboratorioMicrobiologiaModel?.ptg2hFechaRealizacionMaterno!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context, (value){
-                                var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                                context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(ptg2hFechaRealizacionMaterno: value),
-                                ));
+                              onPressed: () =>
+                                  _selectDateTime(context, (value) {
+                                var laboratorio =
+                                    state.laboratorioMicrobiologiaModel ??
+                                        LaboratorioMicrobiologiaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateLaboratorio(
+                                      model: laboratorio.copyWith(
+                                          ptg2hFechaRealizacionMaterno: value),
+                                    ));
                               }),
                               child: const Text('Seleccionar'),
                             ),
@@ -646,32 +856,50 @@ class LaboratorioPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel?.cResultadoMaterno ?? '',
+                          initialValue: state.laboratorioMicrobiologiaModel
+                                  ?.cResultadoMaterno ??
+                              '',
                           onChanged: (value) {
-                            var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                              model: laboratorio.copyWith(cResultadoMaterno: value),
-                            ));
+                            var laboratorio =
+                                state.laboratorioMicrobiologiaModel ??
+                                    LaboratorioMicrobiologiaModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateLaboratorio(
+                                  model: laboratorio.copyWith(
+                                      cResultadoMaterno: value),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Resultado materno Creatinina'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa el resultado materno Creatinina' : null,
+                          decoration: const InputDecoration(
+                              labelText: 'Resultado materno Creatinina'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el resultado materno Creatinina'
+                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
                           children: [
                             Expanded(
                               child: Text(
-                                state.laboratorioMicrobiologiaModel?.cFechaRealizacionMaterno == null
+                                state.laboratorioMicrobiologiaModel
+                                            ?.cFechaRealizacionMaterno ==
+                                        null
                                     ? 'Fecha de realización'
                                     : 'Fecha: ${state.laboratorioMicrobiologiaModel?.cFechaRealizacionMaterno!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context, (value){
-                                var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                                context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(cFechaRealizacionMaterno: value),
-                                ));
+                              onPressed: () =>
+                                  _selectDateTime(context, (value) {
+                                var laboratorio =
+                                    state.laboratorioMicrobiologiaModel ??
+                                        LaboratorioMicrobiologiaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateLaboratorio(
+                                      model: laboratorio.copyWith(
+                                          cFechaRealizacionMaterno: value),
+                                    ));
                               }),
                               child: const Text('Seleccionar'),
                             ),
@@ -689,32 +917,50 @@ class LaboratorioPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel?.auResultadoMaterno ?? '',
+                          initialValue: state.laboratorioMicrobiologiaModel
+                                  ?.auResultadoMaterno ??
+                              '',
                           onChanged: (value) {
-                            var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                              model: laboratorio.copyWith(auResultadoMaterno: value),
-                            ));
+                            var laboratorio =
+                                state.laboratorioMicrobiologiaModel ??
+                                    LaboratorioMicrobiologiaModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateLaboratorio(
+                                  model: laboratorio.copyWith(
+                                      auResultadoMaterno: value),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Resultado materno Ácido Úrico'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa el resultado materno Ácido Úrico' : null,
+                          decoration: const InputDecoration(
+                              labelText: 'Resultado materno Ácido Úrico'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el resultado materno Ácido Úrico'
+                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
                           children: [
                             Expanded(
                               child: Text(
-                                state.laboratorioMicrobiologiaModel?.auFechaRealizacionMaterno == null
+                                state.laboratorioMicrobiologiaModel
+                                            ?.auFechaRealizacionMaterno ==
+                                        null
                                     ? 'Fecha de realización'
                                     : 'Fecha: ${state.laboratorioMicrobiologiaModel?.auFechaRealizacionMaterno!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context, (value){
-                                var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                                context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(auFechaRealizacionMaterno: value),
-                                ));
+                              onPressed: () =>
+                                  _selectDateTime(context, (value) {
+                                var laboratorio =
+                                    state.laboratorioMicrobiologiaModel ??
+                                        LaboratorioMicrobiologiaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateLaboratorio(
+                                      model: laboratorio.copyWith(
+                                          auFechaRealizacionMaterno: value),
+                                    ));
                               }),
                               child: const Text('Seleccionar'),
                             ),
@@ -732,32 +978,50 @@ class LaboratorioPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel?.uResultadoMaterno ?? '',
+                          initialValue: state.laboratorioMicrobiologiaModel
+                                  ?.uResultadoMaterno ??
+                              '',
                           onChanged: (value) {
-                            var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                              model: laboratorio.copyWith(uResultadoMaterno: value),
-                            ));
+                            var laboratorio =
+                                state.laboratorioMicrobiologiaModel ??
+                                    LaboratorioMicrobiologiaModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateLaboratorio(
+                                  model: laboratorio.copyWith(
+                                      uResultadoMaterno: value),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Resultado materno Urea'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa el resultado materno Urea' : null,
+                          decoration: const InputDecoration(
+                              labelText: 'Resultado materno Urea'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el resultado materno Urea'
+                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
                           children: [
                             Expanded(
                               child: Text(
-                                state.laboratorioMicrobiologiaModel?.uFechaRealizacionMaterno == null
+                                state.laboratorioMicrobiologiaModel
+                                            ?.uFechaRealizacionMaterno ==
+                                        null
                                     ? 'Fecha de realización'
                                     : 'Fecha: ${state.laboratorioMicrobiologiaModel?.uFechaRealizacionMaterno!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context, (value){
-                                var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                                context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(uFechaRealizacionMaterno: value),
-                                ));
+                              onPressed: () =>
+                                  _selectDateTime(context, (value) {
+                                var laboratorio =
+                                    state.laboratorioMicrobiologiaModel ??
+                                        LaboratorioMicrobiologiaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateLaboratorio(
+                                      model: laboratorio.copyWith(
+                                          uFechaRealizacionMaterno: value),
+                                    ));
                               }),
                               child: const Text('Seleccionar'),
                             ),
@@ -775,32 +1039,50 @@ class LaboratorioPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel?.colResultadoMaterno ?? '',
+                          initialValue: state.laboratorioMicrobiologiaModel
+                                  ?.colResultadoMaterno ??
+                              '',
                           onChanged: (value) {
-                            var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                              model: laboratorio.copyWith(colResultadoMaterno: value),
-                            ));
+                            var laboratorio =
+                                state.laboratorioMicrobiologiaModel ??
+                                    LaboratorioMicrobiologiaModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateLaboratorio(
+                                  model: laboratorio.copyWith(
+                                      colResultadoMaterno: value),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Resultado materno Colesterol'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa el resultado materno Colesterol' : null,
+                          decoration: const InputDecoration(
+                              labelText: 'Resultado materno Colesterol'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el resultado materno Colesterol'
+                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
                           children: [
                             Expanded(
                               child: Text(
-                                state.laboratorioMicrobiologiaModel?.colFechaRealizacionMaterno == null
+                                state.laboratorioMicrobiologiaModel
+                                            ?.colFechaRealizacionMaterno ==
+                                        null
                                     ? 'Fecha de realización'
                                     : 'Fecha: ${state.laboratorioMicrobiologiaModel?.colFechaRealizacionMaterno!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context, (value){
-                                var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                                context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(colFechaRealizacionMaterno: value),
-                                ));
+                              onPressed: () =>
+                                  _selectDateTime(context, (value) {
+                                var laboratorio =
+                                    state.laboratorioMicrobiologiaModel ??
+                                        LaboratorioMicrobiologiaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateLaboratorio(
+                                      model: laboratorio.copyWith(
+                                          colFechaRealizacionMaterno: value),
+                                    ));
                               }),
                               child: const Text('Seleccionar'),
                             ),
@@ -810,7 +1092,6 @@ class LaboratorioPage extends StatelessWidget {
                     ),
                   ),
                 ),
-
                 Step(
                   title: const Text('Triglicéridos'),
                   isActive: state.currentStepLaboratorio >= 13,
@@ -819,32 +1100,50 @@ class LaboratorioPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel?.tResultadoMaterno ?? '',
+                          initialValue: state.laboratorioMicrobiologiaModel
+                                  ?.tResultadoMaterno ??
+                              '',
                           onChanged: (value) {
-                            var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                              model: laboratorio.copyWith(tResultadoMaterno: value),
-                            ));
+                            var laboratorio =
+                                state.laboratorioMicrobiologiaModel ??
+                                    LaboratorioMicrobiologiaModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateLaboratorio(
+                                  model: laboratorio.copyWith(
+                                      tResultadoMaterno: value),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Resultado materno Triglicéridos'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa el resultado materno Triglicéridos' : null,
+                          decoration: const InputDecoration(
+                              labelText: 'Resultado materno Triglicéridos'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el resultado materno Triglicéridos'
+                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
                           children: [
                             Expanded(
                               child: Text(
-                                state.laboratorioMicrobiologiaModel?.tFechaRealizacionMaterno == null
+                                state.laboratorioMicrobiologiaModel
+                                            ?.tFechaRealizacionMaterno ==
+                                        null
                                     ? 'Fecha de realización'
                                     : 'Fecha: ${state.laboratorioMicrobiologiaModel?.tFechaRealizacionMaterno!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context, (value){
-                                var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                                context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(tFechaRealizacionMaterno: value),
-                                ));
+                              onPressed: () =>
+                                  _selectDateTime(context, (value) {
+                                var laboratorio =
+                                    state.laboratorioMicrobiologiaModel ??
+                                        LaboratorioMicrobiologiaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateLaboratorio(
+                                      model: laboratorio.copyWith(
+                                          tFechaRealizacionMaterno: value),
+                                    ));
                               }),
                               child: const Text('Seleccionar'),
                             ),
@@ -854,7 +1153,6 @@ class LaboratorioPage extends StatelessWidget {
                     ),
                   ),
                 ),
-
                 Step(
                   title: const Text('Bilirrubina'),
                   isActive: state.currentStepLaboratorio >= 14,
@@ -863,32 +1161,50 @@ class LaboratorioPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel?.bResultadoMaterno ?? '',
+                          initialValue: state.laboratorioMicrobiologiaModel
+                                  ?.bResultadoMaterno ??
+                              '',
                           onChanged: (value) {
-                            var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                              model: laboratorio.copyWith(bResultadoMaterno: value),
-                            ));
+                            var laboratorio =
+                                state.laboratorioMicrobiologiaModel ??
+                                    LaboratorioMicrobiologiaModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateLaboratorio(
+                                  model: laboratorio.copyWith(
+                                      bResultadoMaterno: value),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Resultado materno Bilirrubina'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa el resultado materno Bilirrubina' : null,
+                          decoration: const InputDecoration(
+                              labelText: 'Resultado materno Bilirrubina'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el resultado materno Bilirrubina'
+                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
                           children: [
                             Expanded(
                               child: Text(
-                                state.laboratorioMicrobiologiaModel?.bFechaRealizacionMaterno == null
+                                state.laboratorioMicrobiologiaModel
+                                            ?.bFechaRealizacionMaterno ==
+                                        null
                                     ? 'Fecha de realización'
                                     : 'Fecha: ${state.laboratorioMicrobiologiaModel?.bFechaRealizacionMaterno!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context, (value){
-                                var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                                context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(bFechaRealizacionMaterno: value),
-                                ));
+                              onPressed: () =>
+                                  _selectDateTime(context, (value) {
+                                var laboratorio =
+                                    state.laboratorioMicrobiologiaModel ??
+                                        LaboratorioMicrobiologiaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateLaboratorio(
+                                      model: laboratorio.copyWith(
+                                          bFechaRealizacionMaterno: value),
+                                    ));
                               }),
                               child: const Text('Seleccionar'),
                             ),
@@ -906,32 +1222,50 @@ class LaboratorioPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel?.tpgResultadoMaterno ?? '',
+                          initialValue: state.laboratorioMicrobiologiaModel
+                                  ?.tpgResultadoMaterno ??
+                              '',
                           onChanged: (value) {
-                            var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                              model: laboratorio.copyWith(tpgResultadoMaterno: value),
-                            ));
+                            var laboratorio =
+                                state.laboratorioMicrobiologiaModel ??
+                                    LaboratorioMicrobiologiaModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateLaboratorio(
+                                  model: laboratorio.copyWith(
+                                      tpgResultadoMaterno: value),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Resultado materno TPG'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa el resultado materno TPG' : null,
+                          decoration: const InputDecoration(
+                              labelText: 'Resultado materno TPG'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el resultado materno TPG'
+                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
                           children: [
                             Expanded(
                               child: Text(
-                                state.laboratorioMicrobiologiaModel?.tpgFechaRealizacionMaterno == null
+                                state.laboratorioMicrobiologiaModel
+                                            ?.tpgFechaRealizacionMaterno ==
+                                        null
                                     ? 'Fecha de realización'
                                     : 'Fecha: ${state.laboratorioMicrobiologiaModel?.tpgFechaRealizacionMaterno!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context, (value){
-                                var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                                context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(tpgFechaRealizacionMaterno: value),
-                                ));
+                              onPressed: () =>
+                                  _selectDateTime(context, (value) {
+                                var laboratorio =
+                                    state.laboratorioMicrobiologiaModel ??
+                                        LaboratorioMicrobiologiaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateLaboratorio(
+                                      model: laboratorio.copyWith(
+                                          tpgFechaRealizacionMaterno: value),
+                                    ));
                               }),
                               child: const Text('Seleccionar'),
                             ),
@@ -949,32 +1283,50 @@ class LaboratorioPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel?.tgoResultadoMaterno ?? '',
+                          initialValue: state.laboratorioMicrobiologiaModel
+                                  ?.tgoResultadoMaterno ??
+                              '',
                           onChanged: (value) {
-                            var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                              model: laboratorio.copyWith(tgoResultadoMaterno: value),
-                            ));
+                            var laboratorio =
+                                state.laboratorioMicrobiologiaModel ??
+                                    LaboratorioMicrobiologiaModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateLaboratorio(
+                                  model: laboratorio.copyWith(
+                                      tgoResultadoMaterno: value),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Resultado materno TGO'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa el resultado materno TGO' : null,
+                          decoration: const InputDecoration(
+                              labelText: 'Resultado materno TGO'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el resultado materno TGO'
+                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
                           children: [
                             Expanded(
                               child: Text(
-                                state.laboratorioMicrobiologiaModel?.tgoFechaRealizacionMaterno == null
+                                state.laboratorioMicrobiologiaModel
+                                            ?.tgoFechaRealizacionMaterno ==
+                                        null
                                     ? 'Fecha de realización'
                                     : 'Fecha: ${state.laboratorioMicrobiologiaModel?.tgoFechaRealizacionMaterno!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context, (value){
-                                var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                                context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(tgoFechaRealizacionMaterno: value),
-                                ));
+                              onPressed: () =>
+                                  _selectDateTime(context, (value) {
+                                var laboratorio =
+                                    state.laboratorioMicrobiologiaModel ??
+                                        LaboratorioMicrobiologiaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateLaboratorio(
+                                      model: laboratorio.copyWith(
+                                          tgoFechaRealizacionMaterno: value),
+                                    ));
                               }),
                               child: const Text('Seleccionar'),
                             ),
@@ -992,32 +1344,50 @@ class LaboratorioPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel?.ggtResultadoMaterno ?? '',
+                          initialValue: state.laboratorioMicrobiologiaModel
+                                  ?.ggtResultadoMaterno ??
+                              '',
                           onChanged: (value) {
-                            var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                              model: laboratorio.copyWith(ggtResultadoMaterno: value),
-                            ));
+                            var laboratorio =
+                                state.laboratorioMicrobiologiaModel ??
+                                    LaboratorioMicrobiologiaModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateLaboratorio(
+                                  model: laboratorio.copyWith(
+                                      ggtResultadoMaterno: value),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Resultado materno GGT'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa el resultado materno GGT' : null,
+                          decoration: const InputDecoration(
+                              labelText: 'Resultado materno GGT'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el resultado materno GGT'
+                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
                           children: [
                             Expanded(
                               child: Text(
-                                state.laboratorioMicrobiologiaModel?.ggtFechaRealizacionMaterno == null
+                                state.laboratorioMicrobiologiaModel
+                                            ?.ggtFechaRealizacionMaterno ==
+                                        null
                                     ? 'Fecha de realización'
                                     : 'Fecha: ${state.laboratorioMicrobiologiaModel?.ggtFechaRealizacionMaterno!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context, (value){
-                                var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                                context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(ggtFechaRealizacionMaterno: value),
-                                ));
+                              onPressed: () =>
+                                  _selectDateTime(context, (value) {
+                                var laboratorio =
+                                    state.laboratorioMicrobiologiaModel ??
+                                        LaboratorioMicrobiologiaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateLaboratorio(
+                                      model: laboratorio.copyWith(
+                                          ggtFechaRealizacionMaterno: value),
+                                    ));
                               }),
                               child: const Text('Seleccionar'),
                             ),
@@ -1033,9 +1403,7 @@ class LaboratorioPage extends StatelessWidget {
                   content: Form(
                     key: _formKey19,
                     child: Column(
-                      children: <Widget>[
-
-                      ],
+                      children: <Widget>[],
                     ),
                   ),
                 ),
@@ -1047,32 +1415,50 @@ class LaboratorioPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel?.uroResultadoMaterno ?? '',
+                          initialValue: state.laboratorioMicrobiologiaModel
+                                  ?.uroResultadoMaterno ??
+                              '',
                           onChanged: (value) {
-                            var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                              model: laboratorio.copyWith(uroResultadoMaterno: value),
-                            ));
+                            var laboratorio =
+                                state.laboratorioMicrobiologiaModel ??
+                                    LaboratorioMicrobiologiaModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateLaboratorio(
+                                  model: laboratorio.copyWith(
+                                      uroResultadoMaterno: value),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Resultado materno Urocultivo'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa el resultado materno Urocultivo' : null,
+                          decoration: const InputDecoration(
+                              labelText: 'Resultado materno Urocultivo'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el resultado materno Urocultivo'
+                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
                           children: [
                             Expanded(
                               child: Text(
-                                state.laboratorioMicrobiologiaModel?.uroFechaRealizacionMaterno == null
+                                state.laboratorioMicrobiologiaModel
+                                            ?.uroFechaRealizacionMaterno ==
+                                        null
                                     ? 'Fecha de realización'
                                     : 'Fecha: ${state.laboratorioMicrobiologiaModel?.uroFechaRealizacionMaterno!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context, (value){
-                                var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                                context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(uroFechaRealizacionMaterno: value),
-                                ));
+                              onPressed: () =>
+                                  _selectDateTime(context, (value) {
+                                var laboratorio =
+                                    state.laboratorioMicrobiologiaModel ??
+                                        LaboratorioMicrobiologiaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateLaboratorio(
+                                      model: laboratorio.copyWith(
+                                          uroFechaRealizacionMaterno: value),
+                                    ));
                               }),
                               child: const Text('Seleccionar'),
                             ),
@@ -1090,32 +1476,50 @@ class LaboratorioPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel?.hfResultadoMaterno ?? '',
+                          initialValue: state.laboratorioMicrobiologiaModel
+                                  ?.hfResultadoMaterno ??
+                              '',
                           onChanged: (value) {
-                            var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                              model: laboratorio.copyWith(hfResultadoMaterno: value),
-                            ));
+                            var laboratorio =
+                                state.laboratorioMicrobiologiaModel ??
+                                    LaboratorioMicrobiologiaModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateLaboratorio(
+                                  model: laboratorio.copyWith(
+                                      hfResultadoMaterno: value),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Resultado materno Heces fecales'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa el resultado materno Heces fecales' : null,
+                          decoration: const InputDecoration(
+                              labelText: 'Resultado materno Heces fecales'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el resultado materno Heces fecales'
+                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
                           children: [
                             Expanded(
                               child: Text(
-                                state.laboratorioMicrobiologiaModel?.hfFechaRealizacionMaterno == null
+                                state.laboratorioMicrobiologiaModel
+                                            ?.hfFechaRealizacionMaterno ==
+                                        null
                                     ? 'Fecha de realización'
                                     : 'Fecha: ${state.laboratorioMicrobiologiaModel?.hfFechaRealizacionMaterno!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context, (value){
-                                var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                                context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(hfFechaRealizacionMaterno: value),
-                                ));
+                              onPressed: () =>
+                                  _selectDateTime(context, (value) {
+                                var laboratorio =
+                                    state.laboratorioMicrobiologiaModel ??
+                                        LaboratorioMicrobiologiaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateLaboratorio(
+                                      model: laboratorio.copyWith(
+                                          hfFechaRealizacionMaterno: value),
+                                    ));
                               }),
                               child: const Text('Seleccionar'),
                             ),
@@ -1133,32 +1537,51 @@ class LaboratorioPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel?.evsResultadoMaterno ?? '',
+                          initialValue: state.laboratorioMicrobiologiaModel
+                                  ?.evsResultadoMaterno ??
+                              '',
                           onChanged: (value) {
-                            var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                              model: laboratorio.copyWith(evsResultadoMaterno: value),
-                            ));
+                            var laboratorio =
+                                state.laboratorioMicrobiologiaModel ??
+                                    LaboratorioMicrobiologiaModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateLaboratorio(
+                                  model: laboratorio.copyWith(
+                                      evsResultadoMaterno: value),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Resultado materno Exudado vaginal simple'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa el resultado materno Exudado vaginal simple' : null,
+                          decoration: const InputDecoration(
+                              labelText:
+                                  'Resultado materno Exudado vaginal simple'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el resultado materno Exudado vaginal simple'
+                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
                           children: [
                             Expanded(
                               child: Text(
-                                state.laboratorioMicrobiologiaModel?.evsFechaRealizacionMaterno == null
+                                state.laboratorioMicrobiologiaModel
+                                            ?.evsFechaRealizacionMaterno ==
+                                        null
                                     ? 'Fecha de realización'
                                     : 'Fecha: ${state.laboratorioMicrobiologiaModel?.evsFechaRealizacionMaterno!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context, (value){
-                                var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                                context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(evsFechaRealizacionMaterno: value),
-                                ));
+                              onPressed: () =>
+                                  _selectDateTime(context, (value) {
+                                var laboratorio =
+                                    state.laboratorioMicrobiologiaModel ??
+                                        LaboratorioMicrobiologiaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateLaboratorio(
+                                      model: laboratorio.copyWith(
+                                          evsFechaRealizacionMaterno: value),
+                                    ));
                               }),
                               child: const Text('Seleccionar'),
                             ),
@@ -1176,32 +1599,51 @@ class LaboratorioPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel?.evcResultadoMaterno ?? '',
+                          initialValue: state.laboratorioMicrobiologiaModel
+                                  ?.evcResultadoMaterno ??
+                              '',
                           onChanged: (value) {
-                            var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                              model: laboratorio.copyWith(evcResultadoMaterno: value),
-                            ));
+                            var laboratorio =
+                                state.laboratorioMicrobiologiaModel ??
+                                    LaboratorioMicrobiologiaModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateLaboratorio(
+                                  model: laboratorio.copyWith(
+                                      evcResultadoMaterno: value),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Resultado materno Exudado vaginal cultivo'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa el resultado materno Exudado vaginal cultivo' : null,
+                          decoration: const InputDecoration(
+                              labelText:
+                                  'Resultado materno Exudado vaginal cultivo'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el resultado materno Exudado vaginal cultivo'
+                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
                           children: [
                             Expanded(
                               child: Text(
-                                state.laboratorioMicrobiologiaModel?.evcFechaRealizacionMaterno == null
+                                state.laboratorioMicrobiologiaModel
+                                            ?.evcFechaRealizacionMaterno ==
+                                        null
                                     ? 'Fecha de realización'
                                     : 'Fecha: ${state.laboratorioMicrobiologiaModel?.evcFechaRealizacionMaterno!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context, (value){
-                                var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                                context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(evcFechaRealizacionMaterno: value),
-                                ));
+                              onPressed: () =>
+                                  _selectDateTime(context, (value) {
+                                var laboratorio =
+                                    state.laboratorioMicrobiologiaModel ??
+                                        LaboratorioMicrobiologiaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateLaboratorio(
+                                      model: laboratorio.copyWith(
+                                          evcFechaRealizacionMaterno: value),
+                                    ));
                               }),
                               child: const Text('Seleccionar'),
                             ),
@@ -1219,32 +1661,50 @@ class LaboratorioPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel?.pcsultadoMaterno ?? '',
+                          initialValue: state.laboratorioMicrobiologiaModel
+                                  ?.pcsultadoMaterno ??
+                              '',
                           onChanged: (value) {
-                            var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                              model: laboratorio.copyWith(pcsultadoMaterno: value),
-                            ));
+                            var laboratorio =
+                                state.laboratorioMicrobiologiaModel ??
+                                    LaboratorioMicrobiologiaModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateLaboratorio(
+                                  model: laboratorio.copyWith(
+                                      pcsultadoMaterno: value),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Resultado materno Prueba de Coombs'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa el resultado materno Prueba de Coombs' : null,
+                          decoration: const InputDecoration(
+                              labelText: 'Resultado materno Prueba de Coombs'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el resultado materno Prueba de Coombs'
+                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
                           children: [
                             Expanded(
                               child: Text(
-                                state.laboratorioMicrobiologiaModel?.pcFechaRealizacionMaterno == null
+                                state.laboratorioMicrobiologiaModel
+                                            ?.pcFechaRealizacionMaterno ==
+                                        null
                                     ? 'Fecha de realización'
                                     : 'Fecha: ${state.laboratorioMicrobiologiaModel?.pcFechaRealizacionMaterno!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context, (value){
-                                var laboratorio = state.laboratorioMicrobiologiaModel ?? LaboratorioMicrobiologiaModel(id: 0);
-                                context.read<AddPacienteBloc>().add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(pcFechaRealizacionMaterno: value),
-                                ));
+                              onPressed: () =>
+                                  _selectDateTime(context, (value) {
+                                var laboratorio =
+                                    state.laboratorioMicrobiologiaModel ??
+                                        LaboratorioMicrobiologiaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateLaboratorio(
+                                      model: laboratorio.copyWith(
+                                          pcFechaRealizacionMaterno: value),
+                                    ));
                               }),
                               child: const Text('Seleccionar'),
                             ),
@@ -1254,7 +1714,6 @@ class LaboratorioPage extends StatelessWidget {
                     ),
                   ),
                 ),
-
               ],
             ),
           );
@@ -1263,7 +1722,8 @@ class LaboratorioPage extends StatelessWidget {
     );
   }
 
-  void _selectDateTime(BuildContext context, Null Function(dynamic value) onChange) async {
+  void _selectDateTime(
+      BuildContext context, Null Function(dynamic value) onChange) async {
     final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: DateTime(1990),

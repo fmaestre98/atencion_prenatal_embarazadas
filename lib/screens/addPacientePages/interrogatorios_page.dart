@@ -129,7 +129,7 @@ class InterrogatorioPage extends StatelessWidget {
                     key: _formKey,
                     child: Column(
                       children: <Widget>[
-                        _buildRadioGroup('Disnea:', state.interrogatorio?.srDisnea, (value) {
+                        buildRadioGroup('Disnea:', state.interrogatorio?.srDisnea, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -139,7 +139,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     srDisnea: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Dolor:', state.interrogatorio?.srDolor, (value) {
+                        buildRadioGroup('Dolor:', state.interrogatorio?.srDolor, (value) {
                           safePrint(value);
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
@@ -150,7 +150,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     srDolor: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Hermoptisis:', state.interrogatorio?.srHermoptisis, (value) {
+                        buildRadioGroup('Hermoptisis:', state.interrogatorio?.srHermoptisis, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -160,7 +160,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     srHermoptisis: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Expectoración:', state.interrogatorio?.srExpectoracion, (value) {
+                        buildRadioGroup('Expectoración:', state.interrogatorio?.srExpectoracion, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -170,7 +170,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     srExpectoracion: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Tos:', state.interrogatorio?.srTos, (value) {
+                        buildRadioGroup('Tos:', state.interrogatorio?.srTos, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -180,7 +180,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     srTos: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Otros:', state.interrogatorio?.srOtros, (value) {
+                        buildRadioGroup('Otros:', state.interrogatorio?.srOtros, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -190,7 +190,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     srOtros: value == 'Sí'),
                               ));
                         }),
-                        _buildObservationField(state.interrogatorio?.srObservaciones,(value) {
+                        buildObservationField(state.interrogatorio?.srObservaciones,(value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -211,7 +211,7 @@ class InterrogatorioPage extends StatelessWidget {
                     key: _formKey2,
                     child: Column(
                       children: <Widget>[
-                        _buildRadioGroup('Disnea:', state.interrogatorio?.scDisnea, (value) {
+                        buildRadioGroup('Disnea:', state.interrogatorio?.scDisnea, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -221,7 +221,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     scDisnea: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Dolor:', state.interrogatorio?.scDolor, (value) {
+                        buildRadioGroup('Dolor:', state.interrogatorio?.scDolor, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -231,7 +231,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     scDolor: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Claudicación intermitente:', state.interrogatorio?.scClaudicacionIntermitente, (value) {
+                        buildRadioGroup('Claudicación intermitente:', state.interrogatorio?.scClaudicacionIntermitente, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -241,7 +241,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     scClaudicacionIntermitente: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Cianosis:', state.interrogatorio?.scCianosis, (value) {
+                        buildRadioGroup('Cianosis:', state.interrogatorio?.scCianosis, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -251,7 +251,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     scCianosis: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Tos:', state.interrogatorio?.scTos, (value) {
+                        buildRadioGroup('Tos:', state.interrogatorio?.scTos, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -261,7 +261,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     scTos: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Palpitaciones:', state.interrogatorio?.scPalpitaciones, (value) {
+                        buildRadioGroup('Palpitaciones:', state.interrogatorio?.scPalpitaciones, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -271,7 +271,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     scPalpitaciones: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Otros:', state.interrogatorio?.scOtros, (value) {
+                        buildRadioGroup('Otros:', state.interrogatorio?.scOtros, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -281,7 +281,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     scOtros: value == 'Sí'),
                               ));
                         }),
-                        _buildObservationField(state.interrogatorio?.scObservaciones,(value) {
+                        buildObservationField(state.interrogatorio?.scObservaciones,(value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -302,7 +302,7 @@ class InterrogatorioPage extends StatelessWidget {
                     key: _formKey3,
                     child: Column(
                       children: <Widget>[
-                        _buildRadioGroup('Disfagia:', state.interrogatorio?.sdDisfagia, (value) {
+                        buildRadioGroup('Disfagia:', state.interrogatorio?.sdDisfagia, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -312,7 +312,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     sdDisfagia: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Cólicos:', state.interrogatorio?.sdColicos, (value) {
+                        buildRadioGroup('Cólicos:', state.interrogatorio?.sdColicos, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -322,7 +322,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     sdColicos: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Hematemesis:', state.interrogatorio?.sdHermatemesis, (value) {
+                        buildRadioGroup('Hematemesis:', state.interrogatorio?.sdHermatemesis, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -332,7 +332,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     sdHermatemesis: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Acolia:', state.interrogatorio?.sdAcolia, (value) {
+                        buildRadioGroup('Acolia:', state.interrogatorio?.sdAcolia, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -342,7 +342,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     sdAcolia: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Pirosis:', state.interrogatorio?.sdPirosis, (value) {
+                        buildRadioGroup('Pirosis:', state.interrogatorio?.sdPirosis, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -352,7 +352,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     sdPirosis: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Náuseas:', state.interrogatorio?.sdNauseas, (value) {
+                        buildRadioGroup('Náuseas:', state.interrogatorio?.sdNauseas, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -362,7 +362,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     sdNauseas: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Enterorragia:', state.interrogatorio?.sdEnterorragia, (value) {
+                        buildRadioGroup('Enterorragia:', state.interrogatorio?.sdEnterorragia, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -372,7 +372,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     sdEnterorragia: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Constipación:', state.interrogatorio?.sdConstipacion, (value) {
+                        buildRadioGroup('Constipación:', state.interrogatorio?.sdConstipacion, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -382,7 +382,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     sdConstipacion: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Acidez:', state.interrogatorio?.sdAcidez, (value) {
+                        buildRadioGroup('Acidez:', state.interrogatorio?.sdAcidez, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -392,7 +392,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     sdAcidez: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Diarreas:', state.interrogatorio?.sdDiarreas, (value) {
+                        buildRadioGroup('Diarreas:', state.interrogatorio?.sdDiarreas, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -402,7 +402,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     sdDiarreas: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Aerogastrias:', state.interrogatorio?.sdAerogastrias, (value) {
+                        buildRadioGroup('Aerogastrias:', state.interrogatorio?.sdAerogastrias, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -412,7 +412,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     sdAerogastrias: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Dolor:', state.interrogatorio?.sdDolor, (value) {
+                        buildRadioGroup('Dolor:', state.interrogatorio?.sdDolor, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -422,7 +422,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     sdDolor: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Vómitos:', state.interrogatorio?.sdVomitos, (value) {
+                        buildRadioGroup('Vómitos:', state.interrogatorio?.sdVomitos, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -432,7 +432,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     sdVomitos: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Melena:',  state.interrogatorio?.sdMelena, (value) {
+                        buildRadioGroup('Melena:',  state.interrogatorio?.sdMelena, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -442,7 +442,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     sdMelena: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Otros:', state.interrogatorio?.sdOtros, (value) {
+                        buildRadioGroup('Otros:', state.interrogatorio?.sdOtros, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -452,7 +452,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     sdOtros: value == 'Sí'),
                               ));
                         }),
-                        _buildObservationField(state.interrogatorio?.sdObservaciones,(value) {
+                        buildObservationField(state.interrogatorio?.sdObservaciones,(value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -473,7 +473,7 @@ class InterrogatorioPage extends StatelessWidget {
                     key: _formKey4,
                     child: Column(
                       children: <Widget>[
-                        _buildRadioGroup('Dolor:', state.interrogatorio?.suDolor, (value) {
+                        buildRadioGroup('Dolor:', state.interrogatorio?.suDolor, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -483,7 +483,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     suDolor: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Nicturias:', state.interrogatorio?.suNicturioas, (value) {
+                        buildRadioGroup('Nicturias:', state.interrogatorio?.suNicturioas, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -493,7 +493,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     suNicturioas: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Orinas turbias:', state.interrogatorio?.suOrinasTurbias, (value) {
+                        buildRadioGroup('Orinas turbias:', state.interrogatorio?.suOrinasTurbias, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -503,7 +503,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     suOrinasTurbias: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Exudado uretral:', state.interrogatorio?.suExudadoUretral, (value) {
+                        buildRadioGroup('Exudado uretral:', state.interrogatorio?.suExudadoUretral, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -513,7 +513,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     suExudadoUretral: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Disuria:',  state.interrogatorio?.suDisuria, (value) {
+                        buildRadioGroup('Disuria:',  state.interrogatorio?.suDisuria, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -523,7 +523,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     suDisuria: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Retención urinaria:', state.interrogatorio?.suRetencionUrinaria, (value) {
+                        buildRadioGroup('Retención urinaria:', state.interrogatorio?.suRetencionUrinaria, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -533,7 +533,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     suRetencionUrinaria: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Hermaturia:',  state.interrogatorio?.suHermaturia, (value) {
+                        buildRadioGroup('Hermaturia:',  state.interrogatorio?.suHermaturia, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -543,7 +543,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     suHermaturia: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Incontinencia:',  state.interrogatorio?.suIncontinencia, (value) {
+                        buildRadioGroup('Incontinencia:',  state.interrogatorio?.suIncontinencia, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -553,7 +553,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     suIncontinencia: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Polaquiuria:',  state.interrogatorio?.suPolaquiuria, (value) {
+                        buildRadioGroup('Polaquiuria:',  state.interrogatorio?.suPolaquiuria, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -563,7 +563,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     suPolaquiuria: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Uretrorragia:',  state.interrogatorio?.suUretorragia, (value) {
+                        buildRadioGroup('Uretrorragia:',  state.interrogatorio?.suUretorragia, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -573,7 +573,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     suUretorragia: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Impotencia:', state.interrogatorio?.suImpotiencia, (value) {
+                        buildRadioGroup('Impotencia:', state.interrogatorio?.suImpotiencia, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -583,7 +583,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     suImpotiencia: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Tumoración:',  state.interrogatorio?.suTumoracion, (value) {
+                        buildRadioGroup('Tumoración:',  state.interrogatorio?.suTumoracion, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -593,7 +593,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     suTumoracion: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Cálculos:',  state.interrogatorio?.suCalculos, (value) {
+                        buildRadioGroup('Cálculos:',  state.interrogatorio?.suCalculos, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -603,7 +603,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     suCalculos: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Otros:',  state.interrogatorio?.suOtros, (value) {
+                        buildRadioGroup('Otros:',  state.interrogatorio?.suOtros, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -613,7 +613,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     suOtros: value == 'Sí'),
                               ));
                         }),
-                        _buildObservationField(state.interrogatorio?.suObservaciones,(value) {
+                        buildObservationField(state.interrogatorio?.suObservaciones,(value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -634,7 +634,7 @@ class InterrogatorioPage extends StatelessWidget {
                     key: _formKey5,
                     child: Column(
                       children: <Widget>[
-                        _buildRadioGroup('Cefaleas:',  state.interrogatorio?.snCefaleas, (value) {
+                        buildRadioGroup('Cefaleas:',  state.interrogatorio?.snCefaleas, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -644,7 +644,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     snCefaleas: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Dolor facial:',  state.interrogatorio?.snDolorFacial, (value) {
+                        buildRadioGroup('Dolor facial:',  state.interrogatorio?.snDolorFacial, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -654,7 +654,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     snDolorFacial: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Vómitos:',  state.interrogatorio?.snVomitos, (value) {
+                        buildRadioGroup('Vómitos:',  state.interrogatorio?.snVomitos, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -664,7 +664,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     snVomitos: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Dolor Cervical:',  state.interrogatorio?.snDolorCervical, (value) {
+                        buildRadioGroup('Dolor Cervical:',  state.interrogatorio?.snDolorCervical, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -674,7 +674,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     snDolorCervical: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Vértigos:', state.interrogatorio?.snVertigos, (value) {
+                        buildRadioGroup('Vértigos:', state.interrogatorio?.snVertigos, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -684,7 +684,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     snVertigos: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Dolor lumbar:',  state.interrogatorio?.snDolorLumbar, (value) {
+                        buildRadioGroup('Dolor lumbar:',  state.interrogatorio?.snDolorLumbar, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -694,7 +694,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     snDolorLumbar: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Convulsiones:',  state.interrogatorio?.snConvulsiones, (value) {
+                        buildRadioGroup('Convulsiones:',  state.interrogatorio?.snConvulsiones, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -704,7 +704,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     snConvulsiones: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Alteración marcha:', state.interrogatorio?.snAlteracionMarcha, (value) {
+                        buildRadioGroup('Alteración marcha:', state.interrogatorio?.snAlteracionMarcha, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -714,7 +714,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     snAlteracionMarcha: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Déficit motor:', state.interrogatorio?.snDefictMotor, (value) {
+                        buildRadioGroup('Déficit motor:', state.interrogatorio?.snDefictMotor, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -724,7 +724,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     snDefictMotor: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Alteración equilibrio:',  state.interrogatorio?.snAlteracionEquilibrio, (value) {
+                        buildRadioGroup('Alteración equilibrio:',  state.interrogatorio?.snAlteracionEquilibrio, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -734,7 +734,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     snAlteracionEquilibrio: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Déficit sensitivo:', state.interrogatorio?.snDeficitSensitivo, (value) {
+                        buildRadioGroup('Déficit sensitivo:', state.interrogatorio?.snDeficitSensitivo, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -744,7 +744,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     snDeficitSensitivo: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Alteración visual:', state.interrogatorio?.snAlteracionVisual, (value) {
+                        buildRadioGroup('Alteración visual:', state.interrogatorio?.snAlteracionVisual, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -754,7 +754,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     snAlteracionVisual: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Alteración conciencia:', state.interrogatorio?.snAlteracionConciencia, (value) {
+                        buildRadioGroup('Alteración conciencia:', state.interrogatorio?.snAlteracionConciencia, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -764,7 +764,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     snAlteracionConciencia: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Dificultad de hablar y entender:',
+                        buildRadioGroup('Dificultad de hablar y entender:',
                             state.interrogatorio?.snDificultadHablarEntender,
                             (value) {
                           var interrogatorio =
@@ -776,7 +776,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     snDificultadHablarEntender: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Otros:',  state.interrogatorio?.snOtros, (value) {
+                        buildRadioGroup('Otros:',  state.interrogatorio?.snOtros, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -786,7 +786,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     snOtros: value == 'Sí'),
                               ));
                         }),
-                        _buildObservationField(state.interrogatorio?.snObservaciones,(value) {
+                        buildObservationField(state.interrogatorio?.snObservaciones,(value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -807,7 +807,7 @@ class InterrogatorioPage extends StatelessWidget {
                     key: _formKey6,
                     child: Column(
                       children: <Widget>[
-                        _buildRadioGroup('Hipófisis:', state.interrogatorio?.seHipofisis, (value) {
+                        buildRadioGroup('Hipófisis:', state.interrogatorio?.seHipofisis, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -817,7 +817,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     seHipofisis: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Ovarios:', state.interrogatorio?.seOvarios, (value) {
+                        buildRadioGroup('Ovarios:', state.interrogatorio?.seOvarios, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -827,7 +827,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     seOvarios: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Páncreas:', state.interrogatorio?.sePancreas, (value) {
+                        buildRadioGroup('Páncreas:', state.interrogatorio?.sePancreas, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -837,7 +837,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     sePancreas: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Suprarrenal:', state.interrogatorio?.seSuprarrenal, (value) {
+                        buildRadioGroup('Suprarrenal:', state.interrogatorio?.seSuprarrenal, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -847,7 +847,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     seSuprarrenal: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Paratiroideas:', state.interrogatorio?.seParatiroideas, (value) {
+                        buildRadioGroup('Paratiroideas:', state.interrogatorio?.seParatiroideas, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -857,7 +857,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     seParatiroideas: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup(
+                        buildRadioGroup(
                             'Tiroides:', state.interrogatorio?.seTiroides,
                             (value) {
                           var interrogatorio =
@@ -869,7 +869,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     seTiroides: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup(
+                        buildRadioGroup(
                             'Testículos:', state.interrogatorio?.seTesticulos,
                             (value) {
                           var interrogatorio =
@@ -881,7 +881,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     seTesticulos: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup(
+                        buildRadioGroup(
                             'Otros:', state.interrogatorio?.seOtros, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
@@ -892,7 +892,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     seOtros: value == 'Sí'),
                               ));
                         }),
-                        _buildObservationField(state.interrogatorio?.seObservaciones,(value) {
+                        buildObservationField(state.interrogatorio?.seObservaciones,(value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -913,7 +913,7 @@ class InterrogatorioPage extends StatelessWidget {
                     key: _formKey7,
                     child: Column(
                       children: <Widget>[
-                        _buildRadioGroup(
+                        buildRadioGroup(
                             'Astenia:', state.interrogatorio?.astenia, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
@@ -924,7 +924,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     astenia: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup(
+                        buildRadioGroup(
                             'Anorexia:', state.interrogatorio?.anorexia,
                             (value) {
                           var interrogatorio =
@@ -936,7 +936,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     anorexia: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup(
+                        buildRadioGroup(
                             'Epistaxis:', state.interrogatorio?.epistaxis,
                             (value) {
                           var interrogatorio =
@@ -948,7 +948,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     epistaxis: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup(
+                        buildRadioGroup(
                             'Fiebre:', state.interrogatorio?.fiebre, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
@@ -959,7 +959,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     fiebre: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup(
+                        buildRadioGroup(
                             'Artragia:', state.interrogatorio?.artralgia,
                             (value) {
                           var interrogatorio =
@@ -971,7 +971,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     artralgia: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup(
+                        buildRadioGroup(
                             'Polifagia:', state.interrogatorio?.polifagia,
                             (value) {
                           var interrogatorio =
@@ -983,7 +983,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     polifagia: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Edema:', state.interrogatorio?.edema,
+                        buildRadioGroup('Edema:', state.interrogatorio?.edema,
                             (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
@@ -994,7 +994,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     edema: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup(
+                        buildRadioGroup(
                             'Prurito:', state.interrogatorio?.prurito, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
@@ -1005,7 +1005,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     prurito: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Pérdida de peso:',
+                        buildRadioGroup('Pérdida de peso:',
                             state.interrogatorio?.perdidaPeso, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
@@ -1016,7 +1016,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     perdidaPeso: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Ganancia de peso:',
+                        buildRadioGroup('Ganancia de peso:',
                             state.interrogatorio?.gananciaPeso, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
@@ -1027,7 +1027,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     gananciaPeso: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Acroparentésias:',
+                        buildRadioGroup('Acroparentésias:',
                             state.interrogatorio?.acroparentesias, (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
@@ -1038,7 +1038,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     acroparentesias: value == 'Sí'),
                               ));
                         }),
-                        _buildRadioGroup('Otros:', state.interrogatorio?.otros,
+                        buildRadioGroup('Otros:', state.interrogatorio?.otros,
                             (value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
@@ -1049,7 +1049,7 @@ class InterrogatorioPage extends StatelessWidget {
                                     otros: value == 'Sí'),
                               ));
                         }),
-                        _buildObservationField(state.interrogatorio?.observaciones,(value) {
+                        buildObservationField(state.interrogatorio?.observaciones,(value) {
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context
@@ -1074,50 +1074,5 @@ class InterrogatorioPage extends StatelessWidget {
         },
       ),
     );
-  }
-
-  Widget _buildRadioGroup(
-      String question, bool? value, Function(String?) onChanged) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(question),
-        Row(
-          children: [
-            Radio<String>(
-              toggleable: true,
-              value: 'Sí',
-              groupValue: _getValueFromBool(value),
-              onChanged: onChanged,
-            ),
-            const Text('Sí'),
-            Radio<String>(
-              toggleable: true,
-              value: 'No',
-              groupValue: _getValueFromBool(value),
-              onChanged: onChanged,
-            ),
-            const Text('No'),
-          ],
-        ),
-      ],
-    );
-  }
-
-  Widget _buildObservationField(String? initialValue, Function(String?) onChanged ) {
-    return TextFormField(
-      initialValue: initialValue,
-      decoration: const InputDecoration(
-        labelText: 'Observaciones',
-        border: OutlineInputBorder(),
-      ),
-      maxLines: 3,
-      onChanged: onChanged,
-
-    );
-  }
-
-  String? _getValueFromBool(bool? value) {
-    return value == true ? 'Sí' : (value == false ? 'No' : null);
   }
 }

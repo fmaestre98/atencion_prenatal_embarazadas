@@ -4,1443 +4,306 @@
   "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
   "entities": [
     {
-      "id": "2:2039920815618038356",
-      "lastPropertyId": "86:8409211551056974565",
-      "name": "Interrogatorio",
-      "properties": [
-        {
-          "id": "1:3283002862773472693",
-          "name": "id",
-          "type": 6,
-          "flags": 1
-        },
-        {
-          "id": "2:288244551746073971",
-          "name": "pacienteId",
-          "type": 11,
-          "flags": 520,
-          "indexId": "2:502127217175195618",
-          "relationTarget": "Paciente"
-        },
-        {
-          "id": "3:2040052404020008783",
-          "name": "srDisnea",
-          "type": 1
-        },
-        {
-          "id": "4:5396446009219443373",
-          "name": "srDolor",
-          "type": 1
-        },
-        {
-          "id": "5:6568034613747416934",
-          "name": "srHermoptisis",
-          "type": 1
-        },
-        {
-          "id": "6:5290212240748200649",
-          "name": "srExpectoracion",
-          "type": 1
-        },
-        {
-          "id": "7:4968161020554697048",
-          "name": "srTos",
-          "type": 1
-        },
-        {
-          "id": "8:8283170431783502530",
-          "name": "srOtros",
-          "type": 1
-        },
-        {
-          "id": "9:6784685384954465279",
-          "name": "srObservaciones",
-          "type": 9
-        },
-        {
-          "id": "10:5388388614320073253",
-          "name": "scDisnea",
-          "type": 1
-        },
-        {
-          "id": "11:3956724560622278979",
-          "name": "scDolor",
-          "type": 1
-        },
-        {
-          "id": "12:6806552144908941588",
-          "name": "scClaudicacionIntermitente",
-          "type": 1
-        },
-        {
-          "id": "13:8516407137153206090",
-          "name": "scCianosis",
-          "type": 1
-        },
-        {
-          "id": "14:3424378900088449323",
-          "name": "scTos",
-          "type": 1
-        },
-        {
-          "id": "15:560912546797602271",
-          "name": "scPalpitaciones",
-          "type": 1
-        },
-        {
-          "id": "16:5569562982260190155",
-          "name": "scOtros",
-          "type": 1
-        },
-        {
-          "id": "17:4542956156164308762",
-          "name": "scObservaciones",
-          "type": 9
-        },
-        {
-          "id": "18:7346496002497895271",
-          "name": "sdDisfagia",
-          "type": 1
-        },
-        {
-          "id": "19:7589160006550130414",
-          "name": "sdDolor",
-          "type": 1
-        },
-        {
-          "id": "20:5810795224105284302",
-          "name": "sdColicos",
-          "type": 1
-        },
-        {
-          "id": "21:1456163888125888160",
-          "name": "sdHermatemesis",
-          "type": 1
-        },
-        {
-          "id": "22:2947057343699154403",
-          "name": "sdAcolia",
-          "type": 1
-        },
-        {
-          "id": "23:7035268152892623605",
-          "name": "sdPirosis",
-          "type": 1
-        },
-        {
-          "id": "24:601548858261786454",
-          "name": "sdNauseas",
-          "type": 1
-        },
-        {
-          "id": "25:2428206538545125125",
-          "name": "sdEnterorragia",
-          "type": 1
-        },
-        {
-          "id": "26:2279504084986548735",
-          "name": "sdConstipacion",
-          "type": 1
-        },
-        {
-          "id": "27:3611323001338059041",
-          "name": "sdAcidez",
-          "type": 1
-        },
-        {
-          "id": "28:5570440674310474174",
-          "name": "sdDiarreas",
-          "type": 1
-        },
-        {
-          "id": "29:1332750805297726085",
-          "name": "sdAerogastrias",
-          "type": 1
-        },
-        {
-          "id": "30:5032107827731125223",
-          "name": "sdVomitos",
-          "type": 1
-        },
-        {
-          "id": "31:5817886758638717735",
-          "name": "sdMelena",
-          "type": 1
-        },
-        {
-          "id": "32:7127017319211556852",
-          "name": "sdOtros",
-          "type": 1
-        },
-        {
-          "id": "33:5699425193761294195",
-          "name": "sdObservaciones",
-          "type": 9
-        },
-        {
-          "id": "34:3547139485145267530",
-          "name": "suNicturioas",
-          "type": 1
-        },
-        {
-          "id": "35:2509937740677600959",
-          "name": "suDolor",
-          "type": 1
-        },
-        {
-          "id": "36:8414444702389775316",
-          "name": "suOrinasTurbias",
-          "type": 1
-        },
-        {
-          "id": "37:5982610539700571060",
-          "name": "suExudadoUretral",
-          "type": 1
-        },
-        {
-          "id": "38:384739864669175990",
-          "name": "suDisuria",
-          "type": 1
-        },
-        {
-          "id": "39:8362592802644511288",
-          "name": "suRetencionUrinaria",
-          "type": 1
-        },
-        {
-          "id": "40:2700624191772864261",
-          "name": "suHermaturia",
-          "type": 1
-        },
-        {
-          "id": "41:3238498322905056047",
-          "name": "suIncontinencia",
-          "type": 1
-        },
-        {
-          "id": "42:3967853347935001398",
-          "name": "suPolaquiuria",
-          "type": 1
-        },
-        {
-          "id": "43:9150226651802003774",
-          "name": "suUretorragia",
-          "type": 1
-        },
-        {
-          "id": "44:5224583956909800184",
-          "name": "suImpotiencia",
-          "type": 1
-        },
-        {
-          "id": "45:6860352792820781788",
-          "name": "suTumoracion",
-          "type": 1
-        },
-        {
-          "id": "46:3086924680856923509",
-          "name": "suCalculos",
-          "type": 1
-        },
-        {
-          "id": "47:2180044394910726151",
-          "name": "suOtros",
-          "type": 1
-        },
-        {
-          "id": "48:6413688659981496922",
-          "name": "suObservaciones",
-          "type": 9
-        },
-        {
-          "id": "49:1979013063463950191",
-          "name": "snCefaleas",
-          "type": 1
-        },
-        {
-          "id": "50:3101922278839707671",
-          "name": "snDolorFacial",
-          "type": 1
-        },
-        {
-          "id": "51:4137299886585482020",
-          "name": "snVomitos",
-          "type": 1
-        },
-        {
-          "id": "52:665950956199609323",
-          "name": "snDolorCervical",
-          "type": 1
-        },
-        {
-          "id": "53:3226310869881100978",
-          "name": "snVertigos",
-          "type": 1
-        },
-        {
-          "id": "54:2694765650501988915",
-          "name": "snDolorLumbar",
-          "type": 1
-        },
-        {
-          "id": "55:4529794587201163620",
-          "name": "snConvulsiones",
-          "type": 1
-        },
-        {
-          "id": "56:3454955923432963330",
-          "name": "snAlteracionMarcha",
-          "type": 1
-        },
-        {
-          "id": "57:6971888800257167929",
-          "name": "snDefictMotor",
-          "type": 1
-        },
-        {
-          "id": "58:4291774409502212695",
-          "name": "snAlteracionEquilibrio",
-          "type": 1
-        },
-        {
-          "id": "59:4519254983000143045",
-          "name": "snDeficitSensitivo",
-          "type": 1
-        },
-        {
-          "id": "60:9129597357152828410",
-          "name": "snAlteracionVisual",
-          "type": 1
-        },
-        {
-          "id": "61:6451434834402749841",
-          "name": "snAlteracionConciencia",
-          "type": 1
-        },
-        {
-          "id": "62:2170014959946722785",
-          "name": "snDificultadHablarEntender",
-          "type": 1
-        },
-        {
-          "id": "63:8013160307922947503",
-          "name": "snOtros",
-          "type": 1
-        },
-        {
-          "id": "64:9006509001905429934",
-          "name": "snObservaciones",
-          "type": 9
-        },
-        {
-          "id": "65:3889572056645025768",
-          "name": "seHipofisis",
-          "type": 1
-        },
-        {
-          "id": "66:4350195461073055345",
-          "name": "seOvarios",
-          "type": 1
-        },
-        {
-          "id": "67:4345528158554945122",
-          "name": "sePancreas",
-          "type": 1
-        },
-        {
-          "id": "68:8030031801634583290",
-          "name": "seSuprarrenal",
-          "type": 1
-        },
-        {
-          "id": "69:6876428555602642273",
-          "name": "seParatiroideas",
-          "type": 1
-        },
-        {
-          "id": "70:853567969511843938",
-          "name": "seTiroides",
-          "type": 1
-        },
-        {
-          "id": "71:850098628574935334",
-          "name": "seTesticulos",
-          "type": 1
-        },
-        {
-          "id": "72:532052742892426574",
-          "name": "seOtros",
-          "type": 1
-        },
-        {
-          "id": "73:990989788134360592",
-          "name": "seObservaciones",
-          "type": 9
-        },
-        {
-          "id": "74:2892668957114967810",
-          "name": "astenia",
-          "type": 1
-        },
-        {
-          "id": "75:6448169016127627023",
-          "name": "anorexia",
-          "type": 1
-        },
-        {
-          "id": "76:1385389702704709955",
-          "name": "epistaxis",
-          "type": 1
-        },
-        {
-          "id": "77:7567034758459879940",
-          "name": "fiebre",
-          "type": 1
-        },
-        {
-          "id": "78:4413779796195449768",
-          "name": "artralgia",
-          "type": 1
-        },
-        {
-          "id": "79:4974394618334568933",
-          "name": "polifagia",
-          "type": 1
-        },
-        {
-          "id": "80:2034967528770849069",
-          "name": "edema",
-          "type": 1
-        },
-        {
-          "id": "81:2589416108703320217",
-          "name": "prurito",
-          "type": 1
-        },
-        {
-          "id": "82:8074908678560769049",
-          "name": "perdidaPeso",
-          "type": 1
-        },
-        {
-          "id": "83:879471134077002930",
-          "name": "gananciaPeso",
-          "type": 1
-        },
-        {
-          "id": "84:8197447883493453474",
-          "name": "acroparentesias",
-          "type": 1
-        },
-        {
-          "id": "85:8322679470164056844",
-          "name": "otros",
-          "type": 1
-        },
-        {
-          "id": "86:8409211551056974565",
-          "name": "observaciones",
-          "type": 9
-        }
-      ],
-      "relations": []
-    },
-    {
-      "id": "4:8411594303202627597",
-      "lastPropertyId": "5:2397559045123795297",
-      "name": "Antecedente",
-      "properties": [
-        {
-          "id": "1:3816908882025309547",
-          "name": "id",
-          "type": 6,
-          "flags": 1
-        },
-        {
-          "id": "2:6946298700383009072",
-          "name": "pacienteId",
-          "type": 11,
-          "flags": 520,
-          "indexId": "4:7217166825669020857",
-          "relationTarget": "Paciente"
-        },
-        {
-          "id": "3:6099677868881949995",
-          "name": "tipo",
-          "type": 9
-        },
-        {
-          "id": "4:8725841013314236900",
-          "name": "descripcion",
-          "type": 9
-        },
-        {
-          "id": "5:2397559045123795297",
-          "name": "fecha",
-          "type": 10
-        }
-      ],
-      "relations": []
-    },
-    {
-      "id": "5:7066300506379273094",
-      "lastPropertyId": "15:7579944251982521369",
-      "name": "AntecedentesGinecologicos",
-      "properties": [
-        {
-          "id": "1:6873006406621804689",
-          "name": "id",
-          "type": 6,
-          "flags": 1
-        },
-        {
-          "id": "2:1131702034902472903",
-          "name": "pacienteId",
-          "type": 11,
-          "flags": 520,
-          "indexId": "5:4673826886208878337",
-          "relationTarget": "Paciente"
-        },
-        {
-          "id": "3:5573122592414387848",
-          "name": "edadMenopausia",
-          "type": 6
-        },
-        {
-          "id": "4:15578828889677499",
-          "name": "caracteristicasMenopausia",
-          "type": 9
-        },
-        {
-          "id": "5:2886368570308582740",
-          "name": "edadMenarquia",
-          "type": 6
-        },
-        {
-          "id": "6:8939444700213158009",
-          "name": "caracteristicasMenarquia",
-          "type": 9
-        },
-        {
-          "id": "7:3129004696033345760",
-          "name": "edadPrimeraRelacion",
-          "type": 6
-        },
-        {
-          "id": "8:1833224210884899908",
-          "name": "formulaMenstrual",
-          "type": 9
-        },
-        {
-          "id": "9:6307867125477447838",
-          "name": "fechaUltimaMenstruacion",
-          "type": 10
-        },
-        {
-          "id": "10:8109860552178038901",
-          "name": "tipoMenstruacion",
-          "type": 9
-        },
-        {
-          "id": "11:4319897323573016060",
-          "name": "fechaUltimoUso",
-          "type": 10
-        },
-        {
-          "id": "12:6071069589358863920",
-          "name": "descripcion",
-          "type": 9
-        },
-        {
-          "id": "13:3282540669822285510",
-          "name": "barrera",
-          "type": 1
-        },
-        {
-          "id": "14:7565772058390091562",
-          "name": "diu",
-          "type": 1
-        },
-        {
-          "id": "15:7579944251982521369",
-          "name": "hormonales",
-          "type": 1
-        }
-      ],
-      "relations": [
-        {
-          "id": "3:6772359203914994911",
-          "name": "resultadosCitologicos",
-          "targetId": "8:481877359317515240"
-        }
-      ]
-    },
-    {
-      "id": "6:1657572938707936780",
-      "lastPropertyId": "2:2569798145263887908",
-      "name": "AntecedentesObstetricos",
-      "properties": [
-        {
-          "id": "1:1417413020368612841",
-          "name": "id",
-          "type": 6,
-          "flags": 1
-        },
-        {
-          "id": "2:2569798145263887908",
-          "name": "pacienteId",
-          "type": 11,
-          "flags": 520,
-          "indexId": "6:8764369305178925836",
-          "relationTarget": "Paciente"
-        }
-      ],
-      "relations": []
-    },
-    {
-      "id": "7:4114459817740905263",
-      "lastPropertyId": "2:7796862840842859515",
-      "name": "AntecedentesPatologicosPersonales",
-      "properties": [
-        {
-          "id": "1:4447891385762171544",
-          "name": "id",
-          "type": 6,
-          "flags": 1
-        },
-        {
-          "id": "2:7796862840842859515",
-          "name": "pacienteId",
-          "type": 11,
-          "flags": 520,
-          "indexId": "7:3353095543676520960",
-          "relationTarget": "Paciente"
-        }
-      ],
-      "relations": [
-        {
-          "id": "4:5374108844642427757",
-          "name": "enfermedadesGenerales",
-          "targetId": "11:7089720316066374324"
-        },
-        {
-          "id": "5:8976206580456137568",
-          "name": "enfermedadesEndocrinas",
-          "targetId": "11:7089720316066374324"
-        },
-        {
-          "id": "6:3132579534341660856",
-          "name": "enfermedadesRespiratorias",
-          "targetId": "11:7089720316066374324"
-        },
-        {
-          "id": "7:9001800775513223439",
-          "name": "enfermedadesCardiovasculares",
-          "targetId": "11:7089720316066374324"
-        },
-        {
-          "id": "8:4406262932103991477",
-          "name": "enfermedadesDigestivas",
-          "targetId": "11:7089720316066374324"
-        },
-        {
-          "id": "9:2379681043930324469",
-          "name": "enfermedadesRenales",
-          "targetId": "11:7089720316066374324"
-        },
-        {
-          "id": "10:341265251135044910",
-          "name": "enfermedadesNeuronales",
-          "targetId": "11:7089720316066374324"
-        },
-        {
-          "id": "11:9021303638898101427",
-          "name": "enfermedadesHematologicas",
-          "targetId": "11:7089720316066374324"
-        },
-        {
-          "id": "12:4865565211692369094",
-          "name": "enfermedadesReumatologicas",
-          "targetId": "11:7089720316066374324"
-        },
-        {
-          "id": "13:8511458797484966722",
-          "name": "enfermedadesTransmisionSexual",
-          "targetId": "11:7089720316066374324"
-        },
-        {
-          "id": "14:5431265603138581775",
-          "name": "enfermedadesGinecologicas",
-          "targetId": "11:7089720316066374324"
-        }
-      ]
-    },
-    {
-      "id": "8:481877359317515240",
-      "lastPropertyId": "6:3899959400123138690",
-      "name": "Citologia",
-      "properties": [
-        {
-          "id": "1:5678424343420424006",
-          "name": "id",
-          "type": 6,
-          "flags": 1
-        },
-        {
-          "id": "2:7071589064601155813",
-          "name": "fecha",
-          "type": 10
-        },
-        {
-          "id": "3:5999243117047418902",
-          "name": "resultado",
-          "type": 9
-        },
-        {
-          "id": "4:3081777977847942952",
-          "name": "fueraDePrograma",
-          "type": 1
-        },
-        {
-          "id": "5:3033260751448151741",
-          "name": "observaciones",
-          "type": 9
-        },
-        {
-          "id": "6:3899959400123138690",
-          "name": "antecedenteId",
-          "type": 11,
-          "flags": 520,
-          "indexId": "8:1564196683658499304",
-          "relationTarget": "AntecedentesGinecologicos"
-        }
-      ],
-      "relations": []
-    },
-    {
-      "id": "9:8963735491338825201",
-      "lastPropertyId": "10:4553939452853934538",
-      "name": "Embarazo",
-      "properties": [
-        {
-          "id": "1:4976000982870638274",
-          "name": "id",
-          "type": 6,
-          "flags": 1
-        },
-        {
-          "id": "2:284637894532176300",
-          "name": "numeroEmbarazo",
-          "type": 6
-        },
-        {
-          "id": "3:4135647763745377932",
-          "name": "fecha",
-          "type": 10
-        },
-        {
-          "id": "4:6156727314404464043",
-          "name": "semanasGestacion",
-          "type": 6
-        },
-        {
-          "id": "5:4924597020371366633",
-          "name": "abortoEtiologia",
-          "type": 9
-        },
-        {
-          "id": "6:8742371177842350079",
-          "name": "caracteristicasNacimiento",
-          "type": 9
-        },
-        {
-          "id": "7:2033068620117086852",
-          "name": "tipoParto",
-          "type": 9
-        },
-        {
-          "id": "8:3706295933325343478",
-          "name": "tipoDistocia",
-          "type": 9
-        },
-        {
-          "id": "9:8675331509041243062",
-          "name": "lugarParto",
-          "type": 9
-        },
-        {
-          "id": "10:4553939452853934538",
-          "name": "antecedenteId",
-          "type": 11,
-          "flags": 520,
-          "indexId": "9:4952087313181750900",
-          "relationTarget": "AntecedentesObstetricos"
-        }
-      ],
-      "relations": []
-    },
-    {
-      "id": "10:6994753854429315169",
-      "lastPropertyId": "8:2480313616167909595",
-      "name": "EmbarazoActual",
-      "properties": [
-        {
-          "id": "1:2289473705598561201",
-          "name": "id",
-          "type": 6,
-          "flags": 1
-        },
-        {
-          "id": "2:269903087541201097",
-          "name": "fechaUltimaMenstruacion",
-          "type": 10
-        },
-        {
-          "id": "3:5485375319852938880",
-          "name": "noConfiable",
-          "type": 1
-        },
-        {
-          "id": "4:976892871061360406",
-          "name": "desconocida",
-          "type": 1
-        },
-        {
-          "id": "5:7396322892749590010",
-          "name": "fechaPartoEstimado",
-          "type": 10
-        },
-        {
-          "id": "6:8226083003854369966",
-          "name": "captacion",
-          "type": 6
-        },
-        {
-          "id": "7:3145088494317739303",
-          "name": "semanas",
-          "type": 6
-        },
-        {
-          "id": "8:2480313616167909595",
-          "name": "pacienteId",
-          "type": 11,
-          "flags": 520,
-          "indexId": "10:2224098582144887869",
-          "relationTarget": "Paciente"
-        }
-      ],
-      "relations": []
-    },
-    {
-      "id": "11:7089720316066374324",
-      "lastPropertyId": "6:8340623301015607575",
-      "name": "Enfermedad",
-      "properties": [
-        {
-          "id": "1:5861855200996886656",
-          "name": "id",
-          "type": 6,
-          "flags": 1
-        },
-        {
-          "id": "2:3723269846334473281",
-          "name": "nombre",
-          "type": 9
-        },
-        {
-          "id": "3:5017688750439591039",
-          "name": "cronica",
-          "type": 1
-        },
-        {
-          "id": "4:336772267005165871",
-          "name": "fecha",
-          "type": 10
-        },
-        {
-          "id": "5:70286265651357390",
-          "name": "descripcion",
-          "type": 9
-        },
-        {
-          "id": "6:8340623301015607575",
-          "name": "antecedenteId",
-          "type": 11,
-          "flags": 520,
-          "indexId": "11:6150895150813013170",
-          "relationTarget": "AntecedentesPatologicosPersonales"
-        }
-      ],
-      "relations": []
-    },
-    {
-      "id": "12:7761614205288077719",
-      "lastPropertyId": "37:4171410278652026002",
-      "name": "Paciente",
-      "properties": [
-        {
-          "id": "1:6645908137672119143",
-          "name": "id",
-          "type": 6,
-          "flags": 1
-        },
-        {
-          "id": "2:4153934984931940090",
-          "name": "nombre",
-          "type": 9
-        },
-        {
-          "id": "3:4138903358659998831",
-          "name": "primerApellido",
-          "type": 9
-        },
-        {
-          "id": "4:6809138812501845439",
-          "name": "segundoApellido",
-          "type": 9
-        },
-        {
-          "id": "5:7010769336451265829",
-          "name": "fechaNacimiento",
-          "type": 10
-        },
-        {
-          "id": "6:1437902931996693737",
-          "name": "sexo",
-          "type": 9
-        },
-        {
-          "id": "7:8250619644147972432",
-          "name": "direccion",
-          "type": 9
-        },
-        {
-          "id": "8:386823849339154268",
-          "name": "tipoDePaciente",
-          "type": 9
-        },
-        {
-          "id": "9:6590517229691698969",
-          "name": "noIdentidad",
-          "type": 9
-        },
-        {
-          "id": "10:6731300692350944303",
-          "name": "aboRh",
-          "type": 9
-        },
-        {
-          "id": "11:3292015507542328778",
-          "name": "unidadHospitalaria",
-          "type": 9
-        },
-        {
-          "id": "12:255427572119228785",
-          "name": "policlinico",
-          "type": 9
-        },
-        {
-          "id": "13:391294667442635865",
-          "name": "estadoCivil",
-          "type": 9
-        },
-        {
-          "id": "14:3798317399516846472",
-          "name": "escolaridad",
-          "type": 9
-        },
-        {
-          "id": "15:3753449852418223487",
-          "name": "consultorio",
-          "type": 9
-        },
-        {
-          "id": "16:421399869648070139",
-          "name": "ocupacion",
-          "type": 9
-        },
-        {
-          "id": "17:31519700120712879",
-          "name": "noDormitorios",
-          "type": 6
-        },
-        {
-          "id": "18:8566665016071885249",
-          "name": "noPersonasNucleoPersonal",
-          "type": 6
-        },
-        {
-          "id": "19:6505066405161352395",
-          "name": "tipoDeRiesgo",
-          "type": 9
-        },
-        {
-          "id": "20:756456543361609068",
-          "name": "datosDeInteres",
-          "type": 9
-        },
-        {
-          "id": "21:5828903731586805718",
-          "name": "tipoDeDiagnostico",
-          "type": 9
-        },
-        {
-          "id": "22:3867419837382740067",
-          "name": "codigo",
-          "type": 9
-        },
-        {
-          "id": "23:7235565564391156028",
-          "name": "descripcion",
-          "type": 9
-        },
-        {
-          "id": "24:4716319074072869736",
-          "name": "estructura",
-          "type": 9
-        },
-        {
-          "id": "25:2245632216575404706",
-          "name": "conductaSeguida",
-          "type": 9
-        },
-        {
-          "id": "28:5779527745294701656",
-          "name": "embarazoActualId",
-          "type": 11,
-          "flags": 520,
-          "indexId": "14:3417801690771563341",
-          "relationTarget": "EmbarazoActual"
-        },
-        {
-          "id": "29:8733439380872150914",
-          "name": "interrogatorioId",
-          "type": 11,
-          "flags": 520,
-          "indexId": "15:4300594980004109624",
-          "relationTarget": "Interrogatorio"
-        },
-        {
-          "id": "30:9126572931702301462",
-          "name": "fechaDeRegistro",
-          "type": 10
-        },
-        {
-          "id": "31:5355125049851457999",
-          "name": "fechaDeActualizacion",
-          "type": 10
-        },
-        {
-          "id": "32:3343682868467014237",
-          "name": "edad",
-          "type": 6
-        },
-        {
-          "id": "33:9116442927737983382",
-          "name": "signosVitalesId",
-          "type": 11,
-          "flags": 520,
-          "indexId": "23:8201558340184330337",
-          "relationTarget": "SignosVitalesModel"
-        },
-        {
-          "id": "34:8450042244872535087",
-          "name": "examenFisicoId",
-          "type": 11,
-          "flags": 520,
-          "indexId": "24:2190030544975487551",
-          "relationTarget": "ExamenFisicoModel"
-        },
-        {
-          "id": "35:8006616618205960480",
-          "name": "interconsultasId",
-          "type": 11,
-          "flags": 520,
-          "indexId": "25:1686872265094260734",
-          "relationTarget": "InterconsultasModel"
-        },
-        {
-          "id": "36:7697322776669860200",
-          "name": "geneticaId",
-          "type": 11,
-          "flags": 520,
-          "indexId": "26:6955833706687552710",
-          "relationTarget": "GeneticaModel"
-        },
-        {
-          "id": "37:4171410278652026002",
-          "name": "laboratorioId",
-          "type": 11,
-          "flags": 520,
-          "indexId": "27:4154737050510400679",
-          "relationTarget": "LaboratorioMicrobiologiaModel"
-        }
-      ],
-      "relations": []
-    },
-    {
-      "id": "13:6960418874851669987",
-      "lastPropertyId": "10:2906726004146979595",
-      "name": "RecienNacido",
-      "properties": [
-        {
-          "id": "1:7976672240331173612",
-          "name": "id",
-          "type": 6,
-          "flags": 1
-        },
-        {
-          "id": "2:3824656945508566701",
-          "name": "peso",
-          "type": 8
-        },
-        {
-          "id": "3:1929070064626367316",
-          "name": "sexo",
-          "type": 9
-        },
-        {
-          "id": "4:6559535105552477417",
-          "name": "estado",
-          "type": 9
-        },
-        {
-          "id": "5:9544660455389653",
-          "name": "datosInteres",
-          "type": 9
-        },
-        {
-          "id": "6:6244678276833832486",
-          "name": "apgar",
-          "type": 6
-        },
-        {
-          "id": "7:2850486851874379276",
-          "name": "puntos",
-          "type": 6
-        },
-        {
-          "id": "8:3188294265347618620",
-          "name": "ocurrenciaDefuncion",
-          "type": 9
-        },
-        {
-          "id": "9:2734800343283078170",
-          "name": "edadAlFallecer",
-          "type": 9
-        },
-        {
-          "id": "10:2906726004146979595",
-          "name": "embarazoId",
-          "type": 11,
-          "flags": 520,
-          "indexId": "16:3429999169993845107",
-          "relationTarget": "Embarazo"
-        }
-      ],
-      "relations": []
-    },
-    {
-      "id": "14:5741221267339422420",
-      "lastPropertyId": "59:2147453723864899800",
+      "id": "1:5721501224268132907",
+      "lastPropertyId": "59:887560586688466272",
       "name": "ExamenFisicoModel",
       "properties": [
         {
-          "id": "1:8688330271867079560",
+          "id": "1:56767559380649067",
           "name": "id",
           "type": 6,
           "flags": 1
         },
         {
-          "id": "2:4940379001907952353",
+          "id": "2:4858045782704963183",
           "name": "pacienteId",
           "type": 11,
           "flags": 520,
-          "indexId": "17:704544510088554514",
+          "indexId": "1:7612850605747851210",
           "relationTarget": "Paciente"
         },
         {
-          "id": "3:7890795162060713921",
+          "id": "3:6739026915732435933",
           "name": "semanasDeGestacion",
           "type": 9
         },
         {
-          "id": "4:3177665098167231226",
+          "id": "4:88461488486050397",
           "name": "peso",
           "type": 9
         },
         {
-          "id": "5:4474610992256222968",
+          "id": "5:1788105344118610306",
           "name": "alturaUterina",
           "type": 9
         },
         {
-          "id": "6:5718696735946559933",
+          "id": "6:6596561000367336239",
           "name": "circunsferenciaAbdominal",
           "type": 9
         },
         {
-          "id": "7:6346944710292157951",
+          "id": "7:841248757842499273",
           "name": "presentacion",
           "type": 9
         },
         {
-          "id": "8:1861591247494969526",
+          "id": "8:7510884595019688754",
           "name": "posicion",
           "type": 9
         },
         {
-          "id": "9:634577009327273944",
+          "id": "9:3349279957622429845",
           "name": "focoFetal",
           "type": 9
         },
         {
-          "id": "10:5985613706137303031",
+          "id": "10:1500953962638529278",
           "name": "movimientoFetal",
           "type": 9
         },
         {
-          "id": "11:1426849224303413478",
+          "id": "11:6227843857908524466",
           "name": "tonoUterino",
           "type": 9
         },
         {
-          "id": "12:8275043006628288651",
+          "id": "12:390852766976472980",
           "name": "edemas",
           "type": 9
         },
         {
-          "id": "13:3315544004505515239",
+          "id": "13:1689006508467909585",
           "name": "dinamicaUterina",
           "type": 9
         },
         {
-          "id": "14:5421773155683001284",
+          "id": "14:4955534846487029209",
           "name": "tejidoCelularSubcutaneo",
           "type": 9
         },
         {
-          "id": "15:6682436749206571759",
+          "id": "15:2380241172521707867",
           "name": "facies",
           "type": 9
         },
         {
-          "id": "16:4186611532551426596",
+          "id": "16:3127411793430393411",
           "name": "piel",
           "type": 9
         },
         {
-          "id": "17:6732196928722544729",
+          "id": "17:2145776342185727509",
           "name": "gObservacions",
           "type": 9
         },
         {
-          "id": "18:7689027552794960819",
+          "id": "18:8469084739827036938",
           "name": "mucosas",
           "type": 9
         },
         {
-          "id": "19:7178860477864082232",
+          "id": "19:3008002090177619018",
           "name": "faneras",
           "type": 9
         },
         {
-          "id": "20:5646276737792710315",
+          "id": "20:772060754828992304",
           "name": "rInspeccion",
           "type": 9
         },
         {
-          "id": "21:1421074104826180840",
+          "id": "21:1019916876285245578",
           "name": "rPalpacion",
           "type": 9
         },
         {
-          "id": "22:5710087683450743780",
+          "id": "22:5415460969808371469",
           "name": "rPercucion",
           "type": 9
         },
         {
-          "id": "23:948348904837597098",
+          "id": "23:315142694729268287",
           "name": "rAuscultacion",
           "type": 9
         },
         {
-          "id": "24:1841805659649256861",
+          "id": "24:6685185637299310935",
           "name": "rObservacions",
           "type": 9
         },
         {
-          "id": "25:6262386830103969331",
+          "id": "25:1479048955794781949",
           "name": "acInspeccion",
           "type": 9
         },
         {
-          "id": "26:914399997208292803",
+          "id": "26:296775174443795457",
           "name": "acPalpacion",
           "type": 9
         },
         {
-          "id": "27:5604274348223698177",
+          "id": "27:695952976736791937",
           "name": "acAuscultacion",
           "type": 9
         },
         {
-          "id": "28:1246210253807028007",
+          "id": "28:3095808279514412932",
           "name": "acObservacions",
           "type": 9
         },
         {
-          "id": "29:2082135501001400669",
+          "id": "29:6675949749192058780",
           "name": "venosoPeriferico",
           "type": 9
         },
         {
-          "id": "30:7634679008406445488",
+          "id": "30:6248321203409460567",
           "name": "linfatico",
           "type": 9
         },
         {
-          "id": "31:1180181773065726238",
+          "id": "31:7676962205405503222",
           "name": "vlObservacions",
           "type": 9
         },
         {
-          "id": "32:8840282273097061154",
+          "id": "32:1335508927377076060",
           "name": "boca",
           "type": 9
         },
         {
-          "id": "33:6116049166426954965",
+          "id": "33:7104298008777781253",
           "name": "lengua",
           "type": 9
         },
         {
-          "id": "34:5866245399807434792",
+          "id": "34:2721876935697230618",
           "name": "orofaringe",
           "type": 9
         },
         {
-          "id": "35:6042253867705316563",
+          "id": "35:2257363771779996791",
           "name": "dsObservacions",
           "type": 9
         },
         {
-          "id": "36:470687122533511301",
+          "id": "36:3701192052493097341",
           "name": "aInspeccion",
           "type": 9
         },
         {
-          "id": "37:4352185094489862423",
+          "id": "37:2211962581270338785",
           "name": "aPalpacion",
           "type": 9
         },
         {
-          "id": "38:151511879725194698",
+          "id": "38:3510075370703232655",
           "name": "aPercucion",
           "type": 9
         },
         {
-          "id": "39:618787662223057892",
+          "id": "39:1791324584496767348",
           "name": "aAuscultacion",
           "type": 9
         },
         {
-          "id": "40:6251568887127485770",
+          "id": "40:5223516905123322241",
           "name": "aTactoRectal",
           "type": 9
         },
         {
-          "id": "41:1751043828284157822",
+          "id": "41:7529368454148982931",
           "name": "aObservacions",
           "type": 9
         },
         {
-          "id": "42:4557529458853952187",
+          "id": "42:5955478462511018854",
           "name": "uInspeccion",
           "type": 9
         },
         {
-          "id": "43:975855250958595544",
+          "id": "43:801149520790426261",
           "name": "uPalpacion",
           "type": 9
         },
         {
-          "id": "44:690290611252295496",
+          "id": "44:6516380157752478662",
           "name": "uPercucion",
           "type": 9
         },
         {
-          "id": "45:2117253705461585325",
+          "id": "45:1203006207832316102",
           "name": "uObservacions",
           "type": 9
         },
         {
-          "id": "46:5803667265878243321",
+          "id": "46:6369768801183836404",
           "name": "vuelvaPerine",
           "type": 9
         },
         {
-          "id": "47:3694951316305582939",
+          "id": "47:9190514554519290155",
           "name": "vObservaciones",
           "type": 9
         },
         {
-          "id": "48:8542552196116121742",
+          "id": "48:8002263269237671447",
           "name": "vagina",
           "type": 9
         },
         {
-          "id": "49:8735917069777603045",
+          "id": "49:2599428334910475057",
           "name": "vagObservaciones",
           "type": 9
         },
         {
-          "id": "50:4297910410523489441",
+          "id": "50:1862933260989459159",
           "name": "cuello",
           "type": 9
         },
         {
-          "id": "51:353391596446138985",
+          "id": "51:1952021766338857576",
           "name": "cObservaciones",
           "type": 9
         },
         {
-          "id": "52:5319265957663311244",
+          "id": "52:3962075615308440005",
           "name": "utero",
           "type": 9
         },
         {
-          "id": "53:3571772333653998035",
+          "id": "53:4682349315076887784",
           "name": "utObservaciones",
           "type": 9
         },
         {
-          "id": "54:3454116637060313626",
+          "id": "54:7858312440773115718",
           "name": "anejos",
           "type": 9
         },
         {
-          "id": "55:8782307850104867108",
+          "id": "55:5132395697966822384",
           "name": "anObservaciones",
           "type": 9
         },
         {
-          "id": "56:2487165962218614225",
+          "id": "56:9095842577408008674",
           "name": "mInspeccion",
           "type": 9
         },
         {
-          "id": "57:3541751772873469832",
+          "id": "57:6476387940473655308",
           "name": "mPalpacion",
           "type": 9
         },
         {
-          "id": "58:5723635455979407052",
+          "id": "58:7423840594998334022",
           "name": "aptasLaptar",
           "type": 1
         },
         {
-          "id": "59:2147453723864899800",
+          "id": "59:887560586688466272",
           "name": "mObservaciones",
           "type": 9
         }
@@ -1448,415 +311,415 @@
       "relations": []
     },
     {
-      "id": "15:3662604372185394157",
-      "lastPropertyId": "16:1027369132793922077",
+      "id": "2:7533413560408603590",
+      "lastPropertyId": "16:6226981165469233025",
       "name": "FetoUltrasonido1erTrimestre",
       "properties": [
         {
-          "id": "1:3125946366706916733",
+          "id": "1:5551651909366113144",
           "name": "id",
           "type": 6,
           "flags": 1
         },
         {
-          "id": "2:5978819714644387426",
+          "id": "2:5072964052487141717",
           "name": "lc",
           "type": 9
         },
         {
-          "id": "3:7293225964262647217",
+          "id": "3:4888976350916981285",
           "name": "corion",
           "type": 9
         },
         {
-          "id": "4:8517130644830799992",
+          "id": "4:4679957864633143830",
           "name": "lcr",
           "type": 9
         },
         {
-          "id": "5:5817401172394981847",
+          "id": "5:199039580130065465",
           "name": "dbp",
           "type": 9
         },
         {
-          "id": "6:3439484276179102944",
+          "id": "6:4666961315458413742",
           "name": "tn",
           "type": 9
         },
         {
-          "id": "7:4561520246876412711",
+          "id": "7:7733347537365327581",
           "name": "hn",
           "type": 9
         },
         {
-          "id": "8:3766962808434350931",
+          "id": "8:4759918069796187542",
           "name": "cristalinos",
           "type": 9
         },
         {
-          "id": "9:334208035354213382",
+          "id": "9:2754628960799541876",
           "name": "estomago",
           "type": 9
         },
         {
-          "id": "10:4700319859280097862",
+          "id": "10:4602988057974592840",
           "name": "paa",
           "type": 9
         },
         {
-          "id": "11:8818730017350044748",
+          "id": "11:8787219376053032582",
           "name": "cuatroMiembros",
           "type": 9
         },
         {
-          "id": "12:5148541706448086574",
+          "id": "12:8268466695020902196",
           "name": "eg",
           "type": 9
         },
         {
-          "id": "13:8130416207633606399",
+          "id": "13:3080056523300633566",
           "name": "ip",
           "type": 9
         },
         {
-          "id": "14:3255566421439409914",
+          "id": "14:4813668997160669130",
           "name": "ipPercentil",
           "type": 9
         },
         {
-          "id": "15:8475597562460842413",
+          "id": "15:7023804397792989110",
           "name": "onda",
           "type": 9
         },
         {
-          "id": "16:1027369132793922077",
+          "id": "16:6226981165469233025",
           "name": "geneticaId",
           "type": 11,
           "flags": 520,
-          "indexId": "18:4592602352847734047",
+          "indexId": "2:5226306738753501576",
           "relationTarget": "GeneticaModel"
         }
       ],
       "relations": []
     },
     {
-      "id": "16:251014534238979815",
-      "lastPropertyId": "30:1563168873480773821",
+      "id": "3:7637103729878727690",
+      "lastPropertyId": "30:7494840728389865564",
       "name": "FetoUltrasonidoSeguimiento",
       "properties": [
         {
-          "id": "1:8057549421994480848",
+          "id": "1:8125091633960807087",
           "name": "id",
           "type": 6,
           "flags": 1
         },
         {
-          "id": "2:6306411711820394489",
+          "id": "2:7689247043635493708",
           "name": "lc",
           "type": 9
         },
         {
-          "id": "3:7139575735983327593",
+          "id": "3:2121880832343577865",
           "name": "cc",
           "type": 9
         },
         {
-          "id": "4:4754414430149739636",
+          "id": "4:6899208413909200784",
           "name": "ca",
           "type": 9
         },
         {
-          "id": "5:7949076784008281895",
+          "id": "5:697042336060443484",
           "name": "lf",
           "type": 9
         },
         {
-          "id": "6:1202032701240761724",
+          "id": "6:5037486609413897781",
           "name": "ila",
           "type": 9
         },
         {
-          "id": "7:2847471464772980264",
+          "id": "7:226691354566419542",
           "name": "ts",
           "type": 9
         },
         {
-          "id": "8:8892162452562973750",
+          "id": "8:1042528848542427268",
           "name": "threeVasos",
           "type": 9
         },
         {
-          "id": "9:3027524774471497910",
+          "id": "9:7667935611945532654",
           "name": "la",
           "type": 9
         },
         {
-          "id": "10:8719123678407108861",
+          "id": "10:3079863703106682301",
           "name": "pocision",
           "type": 9
         },
         {
-          "id": "11:6341271019889664315",
+          "id": "11:9013598421991064998",
           "name": "signosDeAcretismo",
           "type": 9
         },
         {
-          "id": "12:8569742419055808378",
+          "id": "12:5044469511899873404",
           "name": "variedadDeAcretismo",
           "type": 9
         },
         {
-          "id": "13:8587571896474204837",
+          "id": "13:2211226635481581566",
           "name": "madurezPlacentaria",
           "type": 9
         },
         {
-          "id": "14:4403263744325612439",
+          "id": "14:4012331011250298973",
           "name": "vejiga",
           "type": 9
         },
         {
-          "id": "15:1929275231911009692",
+          "id": "15:8675727106511619229",
           "name": "estomago",
           "type": 9
         },
         {
-          "id": "16:4591934391921557398",
+          "id": "16:345842646688974029",
           "name": "columna",
           "type": 9
         },
         {
-          "id": "17:9033633483216298449",
+          "id": "17:7913691100174237084",
           "name": "riniones",
           "type": 9
         },
         {
-          "id": "18:5912166084474092363",
+          "id": "18:3764129788053095776",
           "name": "macisoFacial",
           "type": 9
         },
         {
-          "id": "19:8105513774057253109",
+          "id": "19:4638604302786670930",
           "name": "fourMiembros",
           "type": 9
         },
         {
-          "id": "20:1328620507178648408",
+          "id": "20:8260032669648112010",
           "name": "paa",
           "type": 9
         },
         {
-          "id": "21:3963809765986885145",
+          "id": "21:5447173531892334102",
           "name": "pliegueNucal",
           "type": 9
         },
         {
-          "id": "22:6599116917334667825",
+          "id": "22:1115279188755145896",
           "name": "fosaPosteriol",
           "type": 9
         },
         {
-          "id": "23:2416066946066679624",
+          "id": "23:4338221777226782319",
           "name": "atrioVentricular",
           "type": 9
         },
         {
-          "id": "24:6173100428254639403",
+          "id": "24:5077142863079730229",
           "name": "cerebelo",
           "type": 9
         },
         {
-          "id": "25:5445241934716663628",
+          "id": "25:435171450365218803",
           "name": "cordon3Vasos",
           "type": 9
         },
         {
-          "id": "26:6511409092474064707",
+          "id": "26:4654683314548765899",
           "name": "eg",
           "type": 9
         },
         {
-          "id": "27:6203707289614097684",
+          "id": "27:1346507573147748868",
           "name": "pf",
           "type": 9
         },
         {
-          "id": "28:1662028972588592085",
+          "id": "28:7935956372113320872",
           "name": "pfPercentil",
           "type": 9
         },
         {
-          "id": "29:6873378873597868551",
+          "id": "29:184198447498704643",
           "name": "datosDeInteres",
           "type": 9
         },
         {
-          "id": "30:1563168873480773821",
+          "id": "30:7494840728389865564",
           "name": "geneticaId",
           "type": 11,
           "flags": 520,
-          "indexId": "19:6140709056239397922",
+          "indexId": "3:9139807834926685414",
           "relationTarget": "GeneticaModel"
         }
       ],
       "relations": []
     },
     {
-      "id": "17:6738869765077871938",
-      "lastPropertyId": "30:9145423353426510466",
+      "id": "4:4883402142282404312",
+      "lastPropertyId": "30:3683248013609720281",
       "name": "GeneticaModel",
       "properties": [
         {
-          "id": "1:6868762528945526900",
+          "id": "1:7993494141665182053",
           "name": "id",
           "type": 6,
           "flags": 1
         },
         {
-          "id": "2:3348647497235402612",
+          "id": "2:7894166328917071393",
           "name": "pacienteId",
           "type": 11,
           "flags": 520,
-          "indexId": "20:5736363076161751233",
+          "indexId": "4:772915772976255811",
           "relationTarget": "Paciente"
         },
         {
-          "id": "3:106507458029769245",
+          "id": "3:3949869180286799357",
           "name": "efhb",
           "type": 9
         },
         {
-          "id": "4:7441357797545844740",
+          "id": "4:7236505419474435362",
           "name": "afp",
           "type": 9
         },
         {
-          "id": "5:2521274137684755901",
+          "id": "5:6781385681637447912",
           "name": "fechaRealizacion",
           "type": 10
         },
         {
-          "id": "6:5193330369408047568",
+          "id": "6:7156640031536176063",
           "name": "numFetos",
           "type": 6
         },
         {
-          "id": "7:6250560872290918689",
+          "id": "7:8714843453704730526",
           "name": "datosDeInteres",
           "type": 9
         },
         {
-          "id": "8:6584880490051681336",
+          "id": "8:4121235275920894012",
           "name": "usFechaRealizacion",
           "type": 10
         },
         {
-          "id": "9:742252711457330577",
+          "id": "9:327642939973936266",
           "name": "usNumFetos",
           "type": 6
         },
         {
-          "id": "10:8919640897566972490",
+          "id": "10:6116371013243206940",
           "name": "longitudDelCuello",
           "type": 9
         },
         {
-          "id": "11:151523477907093382",
+          "id": "11:7461119292536930228",
           "name": "oci",
           "type": 9
         },
         {
-          "id": "12:2860433256649961346",
+          "id": "12:6080517637747978310",
           "name": "valorOci",
           "type": 9
         },
         {
-          "id": "13:91603583383567628",
+          "id": "13:1906300151664386613",
           "name": "maniobrasEsfuerzo",
           "type": 9
         },
         {
-          "id": "14:755611787974734716",
+          "id": "14:7775998617361975515",
           "name": "icc",
           "type": 9
         },
         {
-          "id": "15:1252822012129767092",
+          "id": "15:7550498330734764151",
           "name": "iccPercentil",
           "type": 9
         },
         {
-          "id": "16:2929045663357553490",
+          "id": "16:5953501557194008933",
           "name": "csDatosDeInteres",
           "type": 9
         },
         {
-          "id": "17:8119347056841073414",
+          "id": "17:3173502593156840355",
           "name": "ip1",
           "type": 9
         },
         {
-          "id": "18:8207806876933661457",
+          "id": "18:5637023570967396903",
           "name": "ipD",
           "type": 9
         },
         {
-          "id": "19:6578612760844198872",
+          "id": "19:5431560632143867105",
           "name": "ipM",
           "type": 9
         },
         {
-          "id": "20:6455495328283809556",
+          "id": "20:5947506710543227476",
           "name": "ipmPercentil",
           "type": 9
         },
         {
-          "id": "21:5394843672275240645",
+          "id": "21:1844256933274502230",
           "name": "dusDatosDeInteres",
           "type": 9
         },
         {
-          "id": "22:7603274497977678801",
+          "id": "22:307965898947177343",
           "name": "scfechaRealizacion",
           "type": 10
         },
         {
-          "id": "23:8050578930135661119",
+          "id": "23:8746600433543669425",
           "name": "scLongitudCuello",
           "type": 9
         },
         {
-          "id": "24:37048806778003277",
+          "id": "24:7804305829707829778",
           "name": "scOci",
           "type": 9
         },
         {
-          "id": "25:1132550142141951864",
+          "id": "25:5733012060697263733",
           "name": "scValorOci",
           "type": 9
         },
         {
-          "id": "26:7218139921966173950",
+          "id": "26:2690495315905718076",
           "name": "scManiobrasEsfuerzo",
           "type": 9
         },
         {
-          "id": "27:7445603231039948446",
+          "id": "27:2503280864629039878",
           "name": "scIcc",
           "type": 9
         },
         {
-          "id": "28:8999231914683457794",
+          "id": "28:6431108574866263505",
           "name": "scIccPercentil",
           "type": 9
         },
         {
-          "id": "29:4404023032317355133",
+          "id": "29:1811446651965385117",
           "name": "eg",
           "type": 9
         },
         {
-          "id": "30:9145423353426510466",
+          "id": "30:3683248013609720281",
           "name": "scDatosDeInteres",
           "type": 9
         }
@@ -1864,136 +727,136 @@
       "relations": []
     },
     {
-      "id": "18:701333006210659001",
-      "lastPropertyId": "25:1362005881937332900",
+      "id": "5:8708072605131447954",
+      "lastPropertyId": "25:7577901603828675638",
       "name": "InterconsultasModel",
       "properties": [
         {
-          "id": "1:6861142600724165663",
+          "id": "1:6837261996921829503",
           "name": "id",
           "type": 6,
           "flags": 1
         },
         {
-          "id": "2:7369823130972320210",
+          "id": "2:4511294998749188636",
           "name": "pacienteId",
           "type": 11,
           "flags": 520,
-          "indexId": "21:1688863015651471715",
+          "indexId": "5:1349532143956846793",
           "relationTarget": "Paciente"
         },
         {
-          "id": "3:465020686379089288",
+          "id": "3:2266994436756232384",
           "name": "psFechaConsulta",
           "type": 10
         },
         {
-          "id": "4:7483436663214471967",
+          "id": "4:2649557641385216574",
           "name": "psEvaluacion",
           "type": 9
         },
         {
-          "id": "5:4577691702803435112",
+          "id": "5:2394522898258927769",
           "name": "psCodigo",
           "type": 9
         },
         {
-          "id": "6:6457473762218755446",
+          "id": "6:150323323977489817",
           "name": "psDescripcion",
           "type": 9
         },
         {
-          "id": "7:5639389772266945375",
+          "id": "7:5605534518404024800",
           "name": "psEstructura",
           "type": 9
         },
         {
-          "id": "8:8297809171504285100",
+          "id": "8:4435833078052836816",
           "name": "psTipoDiagnostico",
           "type": 9
         },
         {
-          "id": "9:179634100452749180",
+          "id": "9:5049519056468544017",
           "name": "conductaSeguida",
           "type": 9
         },
         {
-          "id": "10:4028592540333375075",
+          "id": "10:2634393529368651330",
           "name": "nFechaConsulta",
           "type": 10
         },
         {
-          "id": "11:2126145012103346070",
+          "id": "11:9015812473327614666",
           "name": "nEvaluacion",
           "type": 9
         },
         {
-          "id": "12:7487233330102507856",
+          "id": "12:6555014051290046362",
           "name": "miFechaConsulta",
           "type": 10
         },
         {
-          "id": "13:3411359536565201342",
+          "id": "13:8447733885889642180",
           "name": "miEvaluacion",
           "type": 9
         },
         {
-          "id": "14:5994045353850564314",
+          "id": "14:7229297337437755753",
           "name": "tsFechaConsulta",
           "type": 10
         },
         {
-          "id": "15:731632408536578843",
+          "id": "15:2932786135305367460",
           "name": "tsEvaluacion",
           "type": 9
         },
         {
-          "id": "16:7960342035754081043",
+          "id": "16:4482810868208581974",
           "name": "dFechaConsulta",
           "type": 10
         },
         {
-          "id": "17:1405691180407342081",
+          "id": "17:3882655470287709879",
           "name": "dEvaluacion",
           "type": 9
         },
         {
-          "id": "18:2330917686207398048",
+          "id": "18:1906894876625268573",
           "name": "examenEstomatologico",
           "type": 9
         },
         {
-          "id": "19:2199762075422887433",
+          "id": "19:4954457201499483227",
           "name": "numeroExodoncia",
           "type": 9
         },
         {
-          "id": "20:1227726692282970969",
+          "id": "20:5829889315715550448",
           "name": "realizadasExodoncia",
           "type": 9
         },
         {
-          "id": "21:5384345394006931462",
+          "id": "21:5352579010500928767",
           "name": "numeroObsturaciones",
           "type": 9
         },
         {
-          "id": "22:4115443838294278631",
+          "id": "22:1289708425485925079",
           "name": "realizadasObsturaciones",
           "type": 9
         },
         {
-          "id": "23:3998801540494521328",
+          "id": "23:1580972948048357751",
           "name": "remitida",
           "type": 1
         },
         {
-          "id": "24:5386765509776316260",
+          "id": "24:3648064519941440451",
           "name": "noAsistencia",
           "type": 9
         },
         {
-          "id": "25:1362005881937332900",
+          "id": "25:7577901603828675638",
           "name": "observaciones",
           "type": 9
         }
@@ -2001,301 +864,743 @@
       "relations": []
     },
     {
-      "id": "19:7625648154578817663",
-      "lastPropertyId": "58:4387549549362868548",
-      "name": "LaboratorioMicrobiologiaModel",
+      "id": "6:8122314888964987941",
+      "lastPropertyId": "86:7878314036816305430",
+      "name": "Interrogatorio",
       "properties": [
         {
-          "id": "1:4960685588553202207",
+          "id": "1:3133925551944917458",
           "name": "id",
           "type": 6,
           "flags": 1
         },
         {
-          "id": "2:6786591075011972152",
+          "id": "2:3320316281229496167",
           "name": "pacienteId",
           "type": 11,
           "flags": 520,
-          "indexId": "22:3403228673761836591",
+          "indexId": "6:4338396989314439181",
           "relationTarget": "Paciente"
         },
         {
-          "id": "3:4371396784873576370",
+          "id": "3:1816111558564464518",
+          "name": "srDisnea",
+          "type": 1
+        },
+        {
+          "id": "4:767700117229783549",
+          "name": "srDolor",
+          "type": 1
+        },
+        {
+          "id": "5:2269024457074589015",
+          "name": "srHermoptisis",
+          "type": 1
+        },
+        {
+          "id": "6:3397978214101110754",
+          "name": "srExpectoracion",
+          "type": 1
+        },
+        {
+          "id": "7:7639860609903556430",
+          "name": "srTos",
+          "type": 1
+        },
+        {
+          "id": "8:7071427593964982975",
+          "name": "srOtros",
+          "type": 1
+        },
+        {
+          "id": "9:5464879008465405896",
+          "name": "srObservaciones",
+          "type": 9
+        },
+        {
+          "id": "10:2831523510802951321",
+          "name": "scDisnea",
+          "type": 1
+        },
+        {
+          "id": "11:5509958087953409591",
+          "name": "scDolor",
+          "type": 1
+        },
+        {
+          "id": "12:2463041040346413631",
+          "name": "scClaudicacionIntermitente",
+          "type": 1
+        },
+        {
+          "id": "13:864534338675730593",
+          "name": "scCianosis",
+          "type": 1
+        },
+        {
+          "id": "14:4370524553390818638",
+          "name": "scTos",
+          "type": 1
+        },
+        {
+          "id": "15:1078129091413217050",
+          "name": "scPalpitaciones",
+          "type": 1
+        },
+        {
+          "id": "16:8797982975394271645",
+          "name": "scOtros",
+          "type": 1
+        },
+        {
+          "id": "17:4807888254427597574",
+          "name": "scObservaciones",
+          "type": 9
+        },
+        {
+          "id": "18:2123297111988105455",
+          "name": "sdDisfagia",
+          "type": 1
+        },
+        {
+          "id": "19:8112301932372111164",
+          "name": "sdDolor",
+          "type": 1
+        },
+        {
+          "id": "20:5377984167650085561",
+          "name": "sdColicos",
+          "type": 1
+        },
+        {
+          "id": "21:8040822838454174936",
+          "name": "sdHermatemesis",
+          "type": 1
+        },
+        {
+          "id": "22:8546632422424525690",
+          "name": "sdAcolia",
+          "type": 1
+        },
+        {
+          "id": "23:5742088544376437098",
+          "name": "sdPirosis",
+          "type": 1
+        },
+        {
+          "id": "24:3567979556775906550",
+          "name": "sdNauseas",
+          "type": 1
+        },
+        {
+          "id": "25:8605729315191087290",
+          "name": "sdEnterorragia",
+          "type": 1
+        },
+        {
+          "id": "26:6847549610408743796",
+          "name": "sdConstipacion",
+          "type": 1
+        },
+        {
+          "id": "27:7428788967954972035",
+          "name": "sdAcidez",
+          "type": 1
+        },
+        {
+          "id": "28:5284429749840687191",
+          "name": "sdDiarreas",
+          "type": 1
+        },
+        {
+          "id": "29:450385112999261580",
+          "name": "sdAerogastrias",
+          "type": 1
+        },
+        {
+          "id": "30:1477006392893002443",
+          "name": "sdVomitos",
+          "type": 1
+        },
+        {
+          "id": "31:6435548385449485344",
+          "name": "sdMelena",
+          "type": 1
+        },
+        {
+          "id": "32:1977152133685317877",
+          "name": "sdOtros",
+          "type": 1
+        },
+        {
+          "id": "33:9218676069062981461",
+          "name": "sdObservaciones",
+          "type": 9
+        },
+        {
+          "id": "34:2930026213044740388",
+          "name": "suNicturioas",
+          "type": 1
+        },
+        {
+          "id": "35:450178340276121388",
+          "name": "suDolor",
+          "type": 1
+        },
+        {
+          "id": "36:7080348139183473889",
+          "name": "suOrinasTurbias",
+          "type": 1
+        },
+        {
+          "id": "37:3541355893486775726",
+          "name": "suExudadoUretral",
+          "type": 1
+        },
+        {
+          "id": "38:2707110756318266007",
+          "name": "suDisuria",
+          "type": 1
+        },
+        {
+          "id": "39:429682659694631186",
+          "name": "suRetencionUrinaria",
+          "type": 1
+        },
+        {
+          "id": "40:3989564683774339039",
+          "name": "suHermaturia",
+          "type": 1
+        },
+        {
+          "id": "41:8356430427200749011",
+          "name": "suIncontinencia",
+          "type": 1
+        },
+        {
+          "id": "42:6470636514177285580",
+          "name": "suPolaquiuria",
+          "type": 1
+        },
+        {
+          "id": "43:4967974255297511671",
+          "name": "suUretorragia",
+          "type": 1
+        },
+        {
+          "id": "44:137458372312547283",
+          "name": "suImpotiencia",
+          "type": 1
+        },
+        {
+          "id": "45:213043144206436779",
+          "name": "suTumoracion",
+          "type": 1
+        },
+        {
+          "id": "46:5390085213842460871",
+          "name": "suCalculos",
+          "type": 1
+        },
+        {
+          "id": "47:7070316055456933536",
+          "name": "suOtros",
+          "type": 1
+        },
+        {
+          "id": "48:987541530196006764",
+          "name": "suObservaciones",
+          "type": 9
+        },
+        {
+          "id": "49:7817947982182026143",
+          "name": "snCefaleas",
+          "type": 1
+        },
+        {
+          "id": "50:5398412171635835966",
+          "name": "snDolorFacial",
+          "type": 1
+        },
+        {
+          "id": "51:3965822718882079963",
+          "name": "snVomitos",
+          "type": 1
+        },
+        {
+          "id": "52:7849944067183814105",
+          "name": "snDolorCervical",
+          "type": 1
+        },
+        {
+          "id": "53:3890767338444067946",
+          "name": "snVertigos",
+          "type": 1
+        },
+        {
+          "id": "54:5737647253827227845",
+          "name": "snDolorLumbar",
+          "type": 1
+        },
+        {
+          "id": "55:1021031732456692237",
+          "name": "snConvulsiones",
+          "type": 1
+        },
+        {
+          "id": "56:2300323126048179451",
+          "name": "snAlteracionMarcha",
+          "type": 1
+        },
+        {
+          "id": "57:1938151877852042066",
+          "name": "snDefictMotor",
+          "type": 1
+        },
+        {
+          "id": "58:620754004430713533",
+          "name": "snAlteracionEquilibrio",
+          "type": 1
+        },
+        {
+          "id": "59:2332572997531641121",
+          "name": "snDeficitSensitivo",
+          "type": 1
+        },
+        {
+          "id": "60:2827014834659913828",
+          "name": "snAlteracionVisual",
+          "type": 1
+        },
+        {
+          "id": "61:1585371086291275949",
+          "name": "snAlteracionConciencia",
+          "type": 1
+        },
+        {
+          "id": "62:162525644102325004",
+          "name": "snDificultadHablarEntender",
+          "type": 1
+        },
+        {
+          "id": "63:5792489505902217097",
+          "name": "snOtros",
+          "type": 1
+        },
+        {
+          "id": "64:2514200477185629640",
+          "name": "snObservaciones",
+          "type": 9
+        },
+        {
+          "id": "65:5297295498540054130",
+          "name": "seHipofisis",
+          "type": 1
+        },
+        {
+          "id": "66:488422203174947704",
+          "name": "seOvarios",
+          "type": 1
+        },
+        {
+          "id": "67:4980408508348214855",
+          "name": "sePancreas",
+          "type": 1
+        },
+        {
+          "id": "68:1950484195945707745",
+          "name": "seSuprarrenal",
+          "type": 1
+        },
+        {
+          "id": "69:3027505501481650876",
+          "name": "seParatiroideas",
+          "type": 1
+        },
+        {
+          "id": "70:892680239476777073",
+          "name": "seTiroides",
+          "type": 1
+        },
+        {
+          "id": "71:2988380346850978844",
+          "name": "seTesticulos",
+          "type": 1
+        },
+        {
+          "id": "72:4132922628307311861",
+          "name": "seOtros",
+          "type": 1
+        },
+        {
+          "id": "73:4617599162883795600",
+          "name": "seObservaciones",
+          "type": 9
+        },
+        {
+          "id": "74:3952159170600428934",
+          "name": "astenia",
+          "type": 1
+        },
+        {
+          "id": "75:489174223705450632",
+          "name": "anorexia",
+          "type": 1
+        },
+        {
+          "id": "76:2588268717527895718",
+          "name": "epistaxis",
+          "type": 1
+        },
+        {
+          "id": "77:1436218296305496457",
+          "name": "fiebre",
+          "type": 1
+        },
+        {
+          "id": "78:7939003973848557837",
+          "name": "artralgia",
+          "type": 1
+        },
+        {
+          "id": "79:1464249701331048396",
+          "name": "polifagia",
+          "type": 1
+        },
+        {
+          "id": "80:6984797025326734952",
+          "name": "edema",
+          "type": 1
+        },
+        {
+          "id": "81:4223824130290305600",
+          "name": "prurito",
+          "type": 1
+        },
+        {
+          "id": "82:4985255161267429481",
+          "name": "perdidaPeso",
+          "type": 1
+        },
+        {
+          "id": "83:8161332211065541159",
+          "name": "gananciaPeso",
+          "type": 1
+        },
+        {
+          "id": "84:8693132532208516333",
+          "name": "acroparentesias",
+          "type": 1
+        },
+        {
+          "id": "85:8320681221907983818",
+          "name": "otros",
+          "type": 1
+        },
+        {
+          "id": "86:7878314036816305430",
+          "name": "observaciones",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "7:1676541132215424496",
+      "lastPropertyId": "58:1417721582687684042",
+      "name": "LaboratorioMicrobiologiaModel",
+      "properties": [
+        {
+          "id": "1:5482941500679547877",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:7716995976040160575",
+          "name": "pacienteId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "7:7015638807161768612",
+          "relationTarget": "Paciente"
+        },
+        {
+          "id": "3:889868469785000158",
           "name": "ghResultadoMaterno",
           "type": 9
         },
         {
-          "id": "4:4833926131427641344",
+          "id": "4:4444046991774323563",
           "name": "grFechaRealizacionMaterno",
           "type": 10
         },
         {
-          "id": "5:8846063688202262905",
+          "id": "5:5857911199664576156",
           "name": "ghResultadoPaterno",
           "type": 9
         },
         {
-          "id": "6:6566662937549517588",
+          "id": "6:7903143199736136407",
           "name": "grFechaRealizacionPaterno",
           "type": 10
         },
         {
-          "id": "7:6215622661927594894",
+          "id": "7:8156226659746892574",
           "name": "vihResultadoMaterno",
           "type": 9
         },
         {
-          "id": "8:8388887843492735688",
+          "id": "8:938589869138899547",
           "name": "vihFechaRealizacionMaterno",
           "type": 10
         },
         {
-          "id": "9:5735964825236515972",
+          "id": "9:3926172459123705569",
           "name": "vihResultadoPaterno",
           "type": 9
         },
         {
-          "id": "10:3302608187943536385",
+          "id": "10:3083352582889471792",
           "name": "vihFechaRealizacionPaterno",
           "type": 10
         },
         {
-          "id": "11:6915434656020484835",
+          "id": "11:8509707546160736952",
           "name": "sResultadoMaterno",
           "type": 9
         },
         {
-          "id": "12:642338209316877797",
+          "id": "12:2159798475376677167",
           "name": "sFechaRealizacionMaterno",
           "type": 10
         },
         {
-          "id": "13:5452209617661244561",
+          "id": "13:7246167985364524318",
           "name": "sResultadoPaterno",
           "type": 9
         },
         {
-          "id": "14:2779539092730150295",
+          "id": "14:4158224707094763942",
           "name": "sFechaRealizacionPaterno",
           "type": 10
         },
         {
-          "id": "15:2068267759664354013",
+          "id": "15:487194315697632346",
           "name": "asResultadoMaterno",
           "type": 9
         },
         {
-          "id": "16:5743320717494979098",
+          "id": "16:7486866735562099097",
           "name": "asFechaRealizacionMaterno",
           "type": 10
         },
         {
-          "id": "17:8341270976424983077",
+          "id": "17:1142789953659187600",
           "name": "asResultadoPaterno",
           "type": 9
         },
         {
-          "id": "18:8533498262678108779",
+          "id": "18:7988593255116759206",
           "name": "asFechaRealizacionPaterno",
           "type": 10
         },
         {
-          "id": "19:4742673532704070448",
+          "id": "19:2184012205040911312",
           "name": "hbResultadoMaterno",
           "type": 9
         },
         {
-          "id": "20:2776099310695552872",
+          "id": "20:3819896122271478016",
           "name": "hbFechaRealizacionMaterno",
           "type": 10
         },
         {
-          "id": "21:5345760823352045869",
+          "id": "21:2147424515427772794",
           "name": "htoResultadoMaterno",
           "type": 9
         },
         {
-          "id": "22:2707428133201756013",
+          "id": "22:1697067035202911814",
           "name": "htoFechaRealizacionMaterno",
           "type": 10
         },
         {
-          "id": "23:1931001695894788643",
+          "id": "23:8728636079442766343",
           "name": "gResultadoMaterno",
           "type": 9
         },
         {
-          "id": "24:4364155235209527148",
+          "id": "24:5155310148882072222",
           "name": "gFechaRealizacionMaterno",
           "type": 10
         },
         {
-          "id": "25:8956387731993778106",
+          "id": "25:8097490566764552772",
           "name": "ptgaResultadoMaterno",
           "type": 9
         },
         {
-          "id": "26:7818795656834832715",
+          "id": "26:6963126581782534775",
           "name": "ptgaFechaRealizacionMaterno",
           "type": 10
         },
         {
-          "id": "27:839469475374220082",
+          "id": "27:7411270915067135690",
           "name": "ptg2hResultadoMaterno",
           "type": 9
         },
         {
-          "id": "28:518874891881476723",
+          "id": "28:2652631466698698196",
           "name": "ptg2hFechaRealizacionMaterno",
           "type": 10
         },
         {
-          "id": "29:8955873835111977673",
+          "id": "29:2524809035920260105",
           "name": "cResultadoMaterno",
           "type": 9
         },
         {
-          "id": "30:8737740260154030359",
+          "id": "30:2825698022061478743",
           "name": "cFechaRealizacionMaterno",
           "type": 10
         },
         {
-          "id": "31:8053266216877622216",
+          "id": "31:3635462228335698004",
           "name": "auResultadoMaterno",
           "type": 9
         },
         {
-          "id": "32:3869963371597931220",
+          "id": "32:5826502314953134722",
           "name": "auFechaRealizacionMaterno",
           "type": 10
         },
         {
-          "id": "33:1350502546798933509",
+          "id": "33:4569113311513011724",
           "name": "uResultadoMaterno",
           "type": 9
         },
         {
-          "id": "34:1689224228046626482",
+          "id": "34:8745033202882693352",
           "name": "uFechaRealizacionMaterno",
           "type": 10
         },
         {
-          "id": "35:6684822105443782363",
+          "id": "35:2592336684464437964",
           "name": "colResultadoMaterno",
           "type": 9
         },
         {
-          "id": "36:4129111868315252031",
+          "id": "36:5453078120808927474",
           "name": "colFechaRealizacionMaterno",
           "type": 10
         },
         {
-          "id": "37:7197458764157444742",
+          "id": "37:5510699803544680662",
           "name": "tResultadoMaterno",
           "type": 9
         },
         {
-          "id": "38:7439754062438390069",
+          "id": "38:464260130247225948",
           "name": "tFechaRealizacionMaterno",
           "type": 10
         },
         {
-          "id": "39:7399630138108299598",
+          "id": "39:785049245375157041",
           "name": "bResultadoMaterno",
           "type": 9
         },
         {
-          "id": "40:3868348738925196331",
+          "id": "40:925890428277123549",
           "name": "bFechaRealizacionMaterno",
           "type": 10
         },
         {
-          "id": "41:1859783780192681785",
+          "id": "41:7493075109728516962",
           "name": "tpgResultadoMaterno",
           "type": 9
         },
         {
-          "id": "42:3506057299493180023",
+          "id": "42:7352404094172824382",
           "name": "tpgFechaRealizacionMaterno",
           "type": 10
         },
         {
-          "id": "43:8820315911981192789",
+          "id": "43:2196711883757039070",
           "name": "tgoResultadoMaterno",
           "type": 9
         },
         {
-          "id": "44:5454246626392139320",
+          "id": "44:4201938363281096271",
           "name": "tgoFechaRealizacionMaterno",
           "type": 10
         },
         {
-          "id": "45:5219203585294678391",
+          "id": "45:6329988291855425272",
           "name": "ggtResultadoMaterno",
           "type": 9
         },
         {
-          "id": "46:4670547379783359533",
+          "id": "46:2807690846887377203",
           "name": "ggtFechaRealizacionMaterno",
           "type": 10
         },
         {
-          "id": "47:8237988770648578283",
+          "id": "47:6205437865101183558",
           "name": "citResultadoMaterno",
           "type": 9
         },
         {
-          "id": "48:8773477606549102755",
+          "id": "48:8802556749827202833",
           "name": "citFechaRealizacionMaterno",
           "type": 10
         },
         {
-          "id": "49:6687077032876381893",
+          "id": "49:3398164118211287399",
           "name": "uroResultadoMaterno",
           "type": 9
         },
         {
-          "id": "50:3923895628220387430",
+          "id": "50:5237484421172176315",
           "name": "uroFechaRealizacionMaterno",
           "type": 10
         },
         {
-          "id": "51:609843289645012664",
+          "id": "51:8553968424885788138",
           "name": "hfResultadoMaterno",
           "type": 9
         },
         {
-          "id": "52:2463654898243192769",
+          "id": "52:904271970482298488",
           "name": "hfFechaRealizacionMaterno",
           "type": 10
         },
         {
-          "id": "53:7001870118651702822",
+          "id": "53:1141350146466995250",
           "name": "evsResultadoMaterno",
           "type": 9
         },
         {
-          "id": "54:4816822694496079690",
+          "id": "54:7438646235970505296",
           "name": "evsFechaRealizacionMaterno",
           "type": 10
         },
         {
-          "id": "55:4802216872219306148",
+          "id": "55:4857005032420448772",
           "name": "evcResultadoMaterno",
           "type": 9
         },
         {
-          "id": "56:8281237728964507903",
+          "id": "56:8323081396352711023",
           "name": "evcFechaRealizacionMaterno",
           "type": 10
         },
         {
-          "id": "57:5371891735322641822",
+          "id": "57:5707925240365519551",
           "name": "pcsultadoMaterno",
           "type": 9
         },
         {
-          "id": "58:4387549549362868548",
+          "id": "58:1417721582687684042",
           "name": "pcFechaRealizacionMaterno",
           "type": 10
         }
@@ -2303,152 +1608,803 @@
       "relations": []
     },
     {
-      "id": "20:4744735908949802630",
-      "lastPropertyId": "21:5052657070569879854",
+      "id": "8:9013067703472179918",
+      "lastPropertyId": "21:4616511624472435591",
       "name": "SignosVitalesModel",
       "properties": [
         {
-          "id": "1:888913118658284724",
+          "id": "1:4984614967598667734",
           "name": "id",
           "type": 6,
           "flags": 1
         },
         {
-          "id": "2:2527057029857282194",
+          "id": "2:4496157934412558684",
           "name": "pacienteId",
           "type": 11,
           "flags": 520,
-          "indexId": "28:1214914561460118661",
+          "indexId": "8:2796895008155381605",
           "relationTarget": "Paciente"
         },
         {
-          "id": "3:6976235514380405979",
+          "id": "3:127033946601538892",
           "name": "peso",
           "type": 8
         },
         {
-          "id": "4:5535047770527756050",
+          "id": "4:5378379294810472919",
           "name": "talla",
           "type": 9
         },
         {
-          "id": "5:299307616092585758",
+          "id": "5:1656057503186805871",
           "name": "percentilPeso",
           "type": 9
         },
         {
-          "id": "6:8406147767071948413",
+          "id": "6:5233275861172976023",
           "name": "indiceMasaCorporal",
           "type": 9
         },
         {
-          "id": "7:2811998407402130132",
+          "id": "7:2717436071020936354",
           "name": "valorNutricional",
           "type": 9
         },
         {
-          "id": "8:5021741179137947030",
+          "id": "8:8667929665151158708",
           "name": "circunsferenciaAbdominal",
           "type": 8
         },
         {
-          "id": "9:4010706179652445800",
+          "id": "9:7346147882562065517",
           "name": "sistolica",
           "type": 9
         },
         {
-          "id": "10:544095999977981224",
+          "id": "10:8852233489549611781",
           "name": "diastolica",
           "type": 9
         },
         {
-          "id": "11:3321660472390039466",
+          "id": "11:7677788085158721740",
           "name": "media",
           "type": 9
         },
         {
-          "id": "12:1606915355672765596",
+          "id": "12:5199361932831774573",
           "name": "postura",
           "type": 9
         },
         {
-          "id": "13:1189789295170296990",
+          "id": "13:8713659293402164474",
           "name": "ubicacion",
           "type": 9
         },
         {
-          "id": "14:6595917127401857267",
+          "id": "14:769766739252576544",
           "name": "valor",
           "type": 9
         },
         {
-          "id": "15:6014268453187644172",
+          "id": "15:6784919510010250663",
           "name": "caracteristicas",
           "type": 9
         },
         {
-          "id": "16:3990840188827448116",
+          "id": "16:2388999808025745755",
           "name": "pulsoUbicacion",
           "type": 9
         },
         {
-          "id": "17:6521026176923761859",
+          "id": "17:1653253478228435568",
           "name": "frValor",
           "type": 9
         },
         {
-          "id": "18:1579009564913040207",
+          "id": "18:5125677851782415585",
           "name": "frCarateristicas",
           "type": 9
         },
         {
-          "id": "19:4229917485171913527",
+          "id": "19:7656366574899509680",
           "name": "temperatura",
           "type": 9
         },
         {
-          "id": "20:5810202213934020960",
+          "id": "20:5165037625459588472",
           "name": "localizacion",
           "type": 9
         },
         {
-          "id": "21:5052657070569879854",
+          "id": "21:4616511624472435591",
           "name": "fcValor",
           "type": 9
         }
       ],
       "relations": []
+    },
+    {
+      "id": "10:6265575256744728211",
+      "lastPropertyId": "20:262735448775988304",
+      "name": "AntecedentesGinecologicos",
+      "properties": [
+        {
+          "id": "1:6340620844092128394",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:6337076424718218952",
+          "name": "pacienteId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "10:719517241994446575",
+          "relationTarget": "Paciente"
+        },
+        {
+          "id": "3:496932225044019611",
+          "name": "edadMenopausia",
+          "type": 6
+        },
+        {
+          "id": "4:7332698098405879065",
+          "name": "caracteristicasMenopausia",
+          "type": 9
+        },
+        {
+          "id": "5:3877602440918025645",
+          "name": "edadMenarquia",
+          "type": 6
+        },
+        {
+          "id": "6:9127667465145601622",
+          "name": "caracteristicasMenarquia",
+          "type": 9
+        },
+        {
+          "id": "7:4996835195359248777",
+          "name": "edadPrimeraRelacion",
+          "type": 6
+        },
+        {
+          "id": "8:1678384534076800390",
+          "name": "formulaMenstrual",
+          "type": 9
+        },
+        {
+          "id": "9:4895745313316965039",
+          "name": "fechaUltimaMenstruacion",
+          "type": 10
+        },
+        {
+          "id": "10:328889848585321488",
+          "name": "tipoMenstruacion",
+          "type": 9
+        },
+        {
+          "id": "11:9068787682781689316",
+          "name": "fechaUltimoUso",
+          "type": 10
+        },
+        {
+          "id": "12:4502406977430949785",
+          "name": "descripcion",
+          "type": 9
+        },
+        {
+          "id": "13:833336766771507769",
+          "name": "barrera",
+          "type": 1
+        },
+        {
+          "id": "14:5131025714027851305",
+          "name": "diu",
+          "type": 1
+        },
+        {
+          "id": "15:294323511258747371",
+          "name": "hormonales",
+          "type": 1
+        },
+        {
+          "id": "16:4286096479562353190",
+          "name": "fechaPruebaCitologica",
+          "type": 10
+        },
+        {
+          "id": "17:3498436288539739283",
+          "name": "resultadoPruebaCitologica",
+          "type": 9
+        },
+        {
+          "id": "18:5590390102038890501",
+          "name": "fueraDeProgramaPruebaCitologica",
+          "type": 1
+        },
+        {
+          "id": "19:6273744190860635088",
+          "name": "observacionesPruebaCitologica",
+          "type": 9
+        },
+        {
+          "id": "20:262735448775988304",
+          "name": "observacionesAnticonceptivos",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "11:7515282698112778171",
+      "lastPropertyId": "2:4324181607154178539",
+      "name": "AntecedentesObstetricos",
+      "properties": [
+        {
+          "id": "1:4541635125495917171",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:4324181607154178539",
+          "name": "pacienteId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "11:4945938991848942102",
+          "relationTarget": "Paciente"
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "12:6841547090256066026",
+      "lastPropertyId": "18:2501996788533306258",
+      "name": "AntecedentesPatologicosPersonales",
+      "properties": [
+        {
+          "id": "1:1546087731680114519",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:5086500371646249790",
+          "name": "pacienteId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "12:2066808792837593203",
+          "relationTarget": "Paciente"
+        },
+        {
+          "id": "3:4674527364876087987",
+          "name": "enfermedadesGenerales",
+          "type": 9
+        },
+        {
+          "id": "4:8540465277547484408",
+          "name": "enfermedadesEndocrinas",
+          "type": 9
+        },
+        {
+          "id": "5:1527718408139367666",
+          "name": "enfermedadesRespiratorias",
+          "type": 9
+        },
+        {
+          "id": "6:1910622935724342727",
+          "name": "enfermedadesCardiovasculares",
+          "type": 9
+        },
+        {
+          "id": "7:2090715779026664806",
+          "name": "enfermedadesDigestivas",
+          "type": 9
+        },
+        {
+          "id": "8:8944902116123009225",
+          "name": "enfermedadesRenales",
+          "type": 9
+        },
+        {
+          "id": "9:1213867974731556944",
+          "name": "enfermedadesNeuronales",
+          "type": 9
+        },
+        {
+          "id": "10:4760638037735486042",
+          "name": "enfermedadesHematologicas",
+          "type": 9
+        },
+        {
+          "id": "11:5123732707634050567",
+          "name": "enfermedadesReumatologicas",
+          "type": 9
+        },
+        {
+          "id": "12:2986491844879110550",
+          "name": "enfermedadesTransmisionSexual",
+          "type": 9
+        },
+        {
+          "id": "13:670672201162275032",
+          "name": "enfermedadesGinecologicas",
+          "type": 9
+        },
+        {
+          "id": "14:6260864640335091215",
+          "name": "antecedentesFamiliares",
+          "type": 9
+        },
+        {
+          "id": "15:202879185287663209",
+          "name": "antecedentesQuirugicos",
+          "type": 9
+        },
+        {
+          "id": "16:6241620025890198923",
+          "name": "habitosPsicobiologicos",
+          "type": 9
+        },
+        {
+          "id": "17:6982008057552435857",
+          "name": "transfusionesPrevias",
+          "type": 9
+        },
+        {
+          "id": "18:2501996788533306258",
+          "name": "inmunizaciones",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "13:287259560606766573",
+      "lastPropertyId": "15:5187099008928967316",
+      "name": "Embarazo",
+      "properties": [
+        {
+          "id": "1:5160650427291190398",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:1902433955881587912",
+          "name": "numeroEmbarazo",
+          "type": 6
+        },
+        {
+          "id": "3:4900038378175904115",
+          "name": "fecha",
+          "type": 10
+        },
+        {
+          "id": "4:2851928007086493565",
+          "name": "semanasGestacion",
+          "type": 6
+        },
+        {
+          "id": "7:4284865350876264121",
+          "name": "tipoParto",
+          "type": 9
+        },
+        {
+          "id": "8:7908579206188175915",
+          "name": "tipoDistocia",
+          "type": 9
+        },
+        {
+          "id": "9:6968823298149050884",
+          "name": "lugarParto",
+          "type": 9
+        },
+        {
+          "id": "10:978206337315413943",
+          "name": "patologiasAsociadas",
+          "type": 9
+        },
+        {
+          "id": "11:7727317431015412136",
+          "name": "tipoAborto",
+          "type": 9
+        },
+        {
+          "id": "12:4610857261106000445",
+          "name": "tipoProvocado",
+          "type": 9
+        },
+        {
+          "id": "13:8939084310912666623",
+          "name": "observacionesAborto",
+          "type": 9
+        },
+        {
+          "id": "14:1593870539053063314",
+          "name": "antecedenteId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "13:4715142463696717466",
+          "relationTarget": "AntecedentesObstetricos"
+        },
+        {
+          "id": "15:5187099008928967316",
+          "name": "tipoNacimiento",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "14:6235463827782746160",
+      "lastPropertyId": "8:7511285729094350432",
+      "name": "EmbarazoActual",
+      "properties": [
+        {
+          "id": "1:2080245851396998490",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:4086726715362175334",
+          "name": "fechaUltimaMenstruacion",
+          "type": 10
+        },
+        {
+          "id": "3:8903853413804972",
+          "name": "noConfiable",
+          "type": 1
+        },
+        {
+          "id": "4:4854154239984764654",
+          "name": "desconocida",
+          "type": 1
+        },
+        {
+          "id": "5:8083539504589348504",
+          "name": "fechaPartoEstimado",
+          "type": 10
+        },
+        {
+          "id": "6:1603297315745538657",
+          "name": "captacion",
+          "type": 6
+        },
+        {
+          "id": "7:3496014688395580125",
+          "name": "semanas",
+          "type": 6
+        },
+        {
+          "id": "8:7511285729094350432",
+          "name": "pacienteId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "14:3876254762243395606",
+          "relationTarget": "Paciente"
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "15:7819792788201191823",
+      "lastPropertyId": "39:8687518481566774608",
+      "name": "Paciente",
+      "properties": [
+        {
+          "id": "1:5003310458433193180",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:3685992406919139464",
+          "name": "nombre",
+          "type": 9
+        },
+        {
+          "id": "3:4913872949104313156",
+          "name": "primerApellido",
+          "type": 9
+        },
+        {
+          "id": "4:5449447902376678691",
+          "name": "segundoApellido",
+          "type": 9
+        },
+        {
+          "id": "5:1735886001828048",
+          "name": "fechaNacimiento",
+          "type": 10
+        },
+        {
+          "id": "6:7683826282324256157",
+          "name": "sexo",
+          "type": 9
+        },
+        {
+          "id": "7:3124435221483074538",
+          "name": "direccion",
+          "type": 9
+        },
+        {
+          "id": "8:2766508771815168519",
+          "name": "tipoDePaciente",
+          "type": 9
+        },
+        {
+          "id": "9:7210409027197406566",
+          "name": "noIdentidad",
+          "type": 9
+        },
+        {
+          "id": "10:7202810282711116139",
+          "name": "edad",
+          "type": 6
+        },
+        {
+          "id": "11:6056306970981627334",
+          "name": "aboRh",
+          "type": 9
+        },
+        {
+          "id": "12:2079362859365626804",
+          "name": "unidadHospitalaria",
+          "type": 9
+        },
+        {
+          "id": "13:4434675790949902236",
+          "name": "policlinico",
+          "type": 9
+        },
+        {
+          "id": "14:567865882854593564",
+          "name": "estadoCivil",
+          "type": 9
+        },
+        {
+          "id": "15:3506403224399319593",
+          "name": "escolaridad",
+          "type": 9
+        },
+        {
+          "id": "16:1745041602915149099",
+          "name": "consultorio",
+          "type": 9
+        },
+        {
+          "id": "17:1799086577657064980",
+          "name": "ocupacion",
+          "type": 9
+        },
+        {
+          "id": "18:1708712811142794749",
+          "name": "fechaDeRegistro",
+          "type": 10
+        },
+        {
+          "id": "19:771152576103031310",
+          "name": "fechaDeActualizacion",
+          "type": 10
+        },
+        {
+          "id": "20:7935215777929040085",
+          "name": "noDormitorios",
+          "type": 6
+        },
+        {
+          "id": "21:7965182904443275984",
+          "name": "noPersonasNucleoPersonal",
+          "type": 6
+        },
+        {
+          "id": "22:2156421535646195896",
+          "name": "tipoDeRiesgo",
+          "type": 9
+        },
+        {
+          "id": "23:4271805712454420488",
+          "name": "datosDeInteres",
+          "type": 9
+        },
+        {
+          "id": "24:8410916518825622674",
+          "name": "tipoDeDiagnostico",
+          "type": 9
+        },
+        {
+          "id": "25:3805597073590718173",
+          "name": "codigo",
+          "type": 9
+        },
+        {
+          "id": "26:1349887420734024901",
+          "name": "descripcion",
+          "type": 9
+        },
+        {
+          "id": "27:6200163559727514229",
+          "name": "estructura",
+          "type": 9
+        },
+        {
+          "id": "28:7528925802203605347",
+          "name": "conductaSeguida",
+          "type": 9
+        },
+        {
+          "id": "29:1022150161040324123",
+          "name": "antecedentesPatologicasPersonalesId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "15:5922747125499499784",
+          "relationTarget": "AntecedentesPatologicosPersonales"
+        },
+        {
+          "id": "30:7752422213230051873",
+          "name": "embarazoActualId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "16:5489811246854338976",
+          "relationTarget": "EmbarazoActual"
+        },
+        {
+          "id": "31:87336437445300394",
+          "name": "interrogatorioId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "17:5362769958513145864",
+          "relationTarget": "Interrogatorio"
+        },
+        {
+          "id": "32:7587276191093045",
+          "name": "signosVitalesId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "18:1145306280934884395",
+          "relationTarget": "SignosVitalesModel"
+        },
+        {
+          "id": "33:7334625052975835733",
+          "name": "examenFisicoId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "19:7710697020983658113",
+          "relationTarget": "ExamenFisicoModel"
+        },
+        {
+          "id": "34:130735408396117198",
+          "name": "interconsultasId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "20:5966339612515707836",
+          "relationTarget": "InterconsultasModel"
+        },
+        {
+          "id": "35:4308397942225263434",
+          "name": "geneticaId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "21:8091368372721034166",
+          "relationTarget": "GeneticaModel"
+        },
+        {
+          "id": "36:1796240520529020331",
+          "name": "laboratorioId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "22:5928091109294448098",
+          "relationTarget": "LaboratorioMicrobiologiaModel"
+        },
+        {
+          "id": "37:7176560344217269566",
+          "name": "traumatismoAccidentes",
+          "type": 9
+        },
+        {
+          "id": "38:6033364301099228043",
+          "name": "antecedentesGinecologicosId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "24:7241741734946753432",
+          "relationTarget": "AntecedentesGinecologicos"
+        },
+        {
+          "id": "39:8687518481566774608",
+          "name": "antecedentesObstetricosId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "25:8559783333958603281",
+          "relationTarget": "AntecedentesObstetricos"
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "16:3926236565943512946",
+      "lastPropertyId": "10:2491436019194960302",
+      "name": "RecienNacido",
+      "properties": [
+        {
+          "id": "1:1810268648533227585",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:5699819225327229293",
+          "name": "peso",
+          "type": 8
+        },
+        {
+          "id": "3:4275464295734185357",
+          "name": "sexo",
+          "type": 9
+        },
+        {
+          "id": "4:7872572637823003542",
+          "name": "estado",
+          "type": 9
+        },
+        {
+          "id": "5:7253380748864174077",
+          "name": "datosInteres",
+          "type": 9
+        },
+        {
+          "id": "6:1350268673781002167",
+          "name": "apgar",
+          "type": 6
+        },
+        {
+          "id": "7:241988868897107207",
+          "name": "puntos",
+          "type": 6
+        },
+        {
+          "id": "8:8180898083445737289",
+          "name": "ocurrenciaDefuncion",
+          "type": 9
+        },
+        {
+          "id": "9:329867671139144793",
+          "name": "edadAlFallecer",
+          "type": 9
+        },
+        {
+          "id": "10:2491436019194960302",
+          "name": "embarazoId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "23:7146683255210309692",
+          "relationTarget": "Embarazo"
+        }
+      ],
+      "relations": []
     }
   ],
-  "lastEntityId": "20:4744735908949802630",
-  "lastIndexId": "28:1214914561460118661",
-  "lastRelationId": "14:5431265603138581775",
+  "lastEntityId": "16:3926236565943512946",
+  "lastIndexId": "25:8559783333958603281",
+  "lastRelationId": "0:0",
   "lastSequenceId": "0:0",
   "modelVersion": 5,
   "modelVersionParserMinimum": 5,
   "retiredEntityUids": [
-    3996157001370866902,
-    6473606377810914912
+    927412057051305507
   ],
-  "retiredIndexUids": [
-    8057303325378860992,
-    3360524346302828976
-  ],
+  "retiredIndexUids": [],
   "retiredPropertyUids": [
-    4620656507009253317,
-    8313944828278512612,
-    8192819360287344475,
-    2789899094985484205,
-    7004613500463965696,
-    4031979108904179218,
-    1041392091051900192,
-    4736388164980832843,
-    8396832012455940696,
-    1315203403585535857
+    7296807794567256352,
+    8096645604214935358,
+    7497143060541371806,
+    2386030017791163027,
+    4822483313436385638,
+    6508011883525494388,
+    989350632995913814
   ],
-  "retiredRelationUids": [
-    737123734785742008,
-    5549541683541151137
-  ],
+  "retiredRelationUids": [],
   "version": 1
 }

@@ -20,7 +20,10 @@ class AddPacienteState extends Equatable {
   final InterconsultasModel? interconsultasModel;
   final List<FetoUltrasonido1erTrimestre>? fetos1erTrimestre;
   final List<FetoUltrasonidoSeguimiento>? fetosSeguimiento;
-  final List<Antecedente>? antecedentes;
+  final List<Embarazo>? embarazoList;
+  final AntecedentesPatologicosPersonales? antecedentesPatologicosPersonales;
+  final AntecedentesGinecologicos? antecedentesGinecologicos;
+  final AntecedentesObstetricos? antecedentesObstetricos;
   final bool pacienteLoaded;
   final bool isSubmitting;
   final bool isSuccess;
@@ -52,7 +55,6 @@ class AddPacienteState extends Equatable {
     this.interconsultasModel,
     this.fetos1erTrimestre,
     this.fetosSeguimiento,
-    this.antecedentes,
     this.pacienteLoaded = false,
     this.isSubmitting = false,
     this.isSuccess = false,
@@ -74,6 +76,10 @@ class AddPacienteState extends Equatable {
     this.isSuccessGenetica = false,
     this.currentStepInterconsultas = 0,
     this.isSuccessInterconsultas = false,
+    this.antecedentesPatologicosPersonales,
+    this.antecedentesGinecologicos,
+    this.antecedentesObstetricos,
+    this.embarazoList,
   });
 
   AddPacienteState copyWith({
@@ -107,7 +113,10 @@ class AddPacienteState extends Equatable {
     bool? isSuccessGenetica,
     bool? isSuccessInterconsultas,
     int? currentStepInterconsultas,
-    List<Antecedente>? antecedentes,
+    AntecedentesPatologicosPersonales? antecedentesPatologicosPersonales,
+    AntecedentesGinecologicos? antecedentesGinecologicos,
+    AntecedentesObstetricos? antecedentesObstetricos,
+    List<Embarazo>? embarazoList,
   }) {
     return AddPacienteState(
       paciente: paciente ?? this.paciente,
@@ -151,7 +160,13 @@ class AddPacienteState extends Equatable {
           currentStepInterconsultas ?? this.currentStepInterconsultas,
       fetos1erTrimestre: fetos1erTrimestre ?? this.fetos1erTrimestre,
       fetosSeguimiento: fetosSeguimiento ?? this.fetosSeguimiento,
-      antecedentes: antecedentes ?? this.antecedentes,
+      antecedentesPatologicosPersonales: antecedentesPatologicosPersonales ??
+          this.antecedentesPatologicosPersonales,
+      antecedentesGinecologicos:
+          antecedentesGinecologicos ?? this.antecedentesGinecologicos,
+      antecedentesObstetricos:
+          antecedentesObstetricos ?? this.antecedentesObstetricos,
+      embarazoList: embarazoList ?? this.embarazoList,
     );
   }
 
@@ -184,6 +199,9 @@ class AddPacienteState extends Equatable {
         embarazoActual,
         fetosSeguimiento,
         fetos1erTrimestre,
-        antecedentes,
+        antecedentesPatologicosPersonales,
+        antecedentesGinecologicos,
+        antecedentesObstetricos,
+        embarazoList,
       ];
 }
