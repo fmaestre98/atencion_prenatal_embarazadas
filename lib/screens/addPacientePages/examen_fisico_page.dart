@@ -61,7 +61,7 @@ class ExamenFisicoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Examen Físico'),
+        title: const Text('Examen Físico'),
       ),
       body: BlocConsumer<AddPacienteBloc, AddPacienteState>(
         listenWhen: (previous, current) => previous.isSuccessExamenFisico != current.isSuccessExamenFisico

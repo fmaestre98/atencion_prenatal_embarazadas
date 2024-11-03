@@ -4,12 +4,11 @@ import 'package:rxdart/rxdart.dart';
 import '../../data/database/objectbox.dart';
 import 'search_event.dart';
 import 'search_state.dart';
-import 'package:get_it/get_it.dart';
 
 class SearchBloc extends Bloc<SearchEvent, SearchState> {
-  final ObjectBox _objectBox = GetIt.instance<ObjectBox>();
+  late final ObjectBox _objectBox;
 
-  SearchBloc() : super(SearchInitial()) {
+  SearchBloc(this._objectBox) : super(SearchInitial()) {
     on<TextChanged>(
       _onTextChanged,
       transformer: debounce(const Duration(milliseconds: 300)),
@@ -33,7 +32,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
 
     try {
       final results = _objectBox.getPacientesByNoIdentidad(query);
-      emit(SearchSuccess(results: results));
+      emit(SearchSuccess(results: results!));
     } catch (e) {
       emit(SearchError(message: e.toString()));
     }

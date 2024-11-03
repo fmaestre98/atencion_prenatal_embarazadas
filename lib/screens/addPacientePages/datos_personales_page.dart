@@ -1315,6 +1315,8 @@ class DatosPersonalesPage extends StatelessWidget {
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Por favor ingresa la edad';
+                            } else if(int.tryParse(value)! < 17 || int.tryParse(value)! > 18){
+                              return 'Entre 7 y 18 años';
                             }
                             return null;
                           },
@@ -1363,6 +1365,8 @@ class DatosPersonalesPage extends StatelessWidget {
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Por favor ingresa la edad';
+                            } else if(int.tryParse(value)! < 40 || int.tryParse(value)! > 55){
+                              return 'Entre 40 y 55 años';
                             }
                             return null;
                           },
@@ -1747,6 +1751,14 @@ class DatosPersonalesPage extends StatelessWidget {
                                   keyboardType: TextInputType.number,
                                   decoration: const InputDecoration(
                                       labelText: 'Semanas de gestación'),
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return 'Por favor ingresa las semanas de gestación';
+                                    } else if(int.tryParse(value)! < 5 || int.tryParse(value)! > 44){
+                                      return 'Entre 5 y 44 semanas';
+                                    }
+                                    return null;
+                                  },
                                   onChanged: (value) {
                                     var updatedEmbarazo = embarazo.copyWith(
                                         semanasGestacion: int.tryParse(value));

@@ -216,6 +216,7 @@ class SignosVitalesPage extends StatelessWidget {
                       children: <Widget>[
                         TextFormField(
                           initialValue: state.signosVitales?.sistolica ?? '',
+                          keyboardType: TextInputType.number,
                           onChanged: (value) {
                             var signosVitales = state.signosVitales ?? SignosVitalesModel(id: 0);
                             context.read<AddPacienteBloc>().add(UpdateSignosVitales(
@@ -249,17 +250,24 @@ class SignosVitalesPage extends StatelessWidget {
                           decoration: const InputDecoration(labelText: 'Media'),
                           validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa la presión media' : null,
                         ),
-
-                        TextFormField(
-                          initialValue: state.signosVitales?.postura ?? '',
+                        DropdownButtonFormField<String>(
+                          value: state.signosVitales?.postura ?? 'Sentado',
+                          decoration:
+                          const InputDecoration(labelText: 'Postura'),
+                          items: ['Sentado', 'Acostado', 'De pie']
+                              .map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa la postura' : null,
                           onChanged: (value) {
                             var signosVitales = state.signosVitales ?? SignosVitalesModel(id: 0);
                             context.read<AddPacienteBloc>().add(UpdateSignosVitales(
                               signosVitalesModel: signosVitales.copyWith(postura: value),
                             ));
                           },
-                          decoration: const InputDecoration(labelText: 'Postura'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa la postura' : null,
                         ),
 
                         TextFormField(

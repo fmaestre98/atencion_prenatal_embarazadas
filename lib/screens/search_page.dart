@@ -1,17 +1,19 @@
 // lib/screens/search_page.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 
 import '../bloc/search/search_bloc.dart';
 import '../bloc/search/search_event.dart';
 import '../bloc/search/search_state.dart';
+import '../data/database/objectbox.dart';
 import 'add_page.dart';
 
 class SearchPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => SearchBloc(),
+      create: (context) => SearchBloc( GetIt.instance<ObjectBox>()),
       child: SearchPageChild(),
     );
   }

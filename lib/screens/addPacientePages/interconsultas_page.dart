@@ -368,7 +368,8 @@ class InterconsultasPage extends StatelessWidget {
                         ),
                         TextFormField(
                           initialValue: state.interconsultasModel?.noAsistencia ?? '',
-                          decoration: const InputDecoration(labelText: 'No Asistencia'),
+                          keyboardType: TextInputType.number,
+                          decoration: const InputDecoration(labelText: 'No. asistencia'),
                           onChanged: (value) {
                             var model = state.interconsultasModel ?? InterconsultasModel(id: 0);
                             context.read<AddPacienteBloc>().add(UpdateInterconsultas(

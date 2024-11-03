@@ -1,4 +1,5 @@
 // lib/objectbox.dart
+import 'package:atencion_prenatal_embarazadas/core/utils.dart';
 import 'package:atencion_prenatal_embarazadas/models/genetica_model.dart';
 import 'package:atencion_prenatal_embarazadas/models/interconsultas_model.dart';
 import 'package:atencion_prenatal_embarazadas/models/interrogatory_model.dart';
@@ -144,9 +145,14 @@ class ObjectBox {
   }
 
   /// Método para obtener pacientes por noIdentidad
-  List<Paciente> getPacientesByNoIdentidad(String noIdentidad) {
-    final query = _pacienteBox.query(Paciente_.noIdentidad.startsWith(noIdentidad));
-    return query.build().find();
+  List<Paciente>? getPacientesByNoIdentidad(String? noIdentidad) {
+    safePrint("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
+    safePrint(noIdentidad);
+    if(noIdentidad != null){
+      final query = _pacienteBox.query(Paciente_.noIdentidad.startsWith(noIdentidad));
+      return query.build().find();
+    }
+    return [];
   }
 
   /// Método para obtener el total de pacientes
