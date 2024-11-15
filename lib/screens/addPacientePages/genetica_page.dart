@@ -7,8 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../bloc/add/add_bloc.dart';
 import '../../bloc/add/add_state.dart';
-import '../../models/personal_data_model.dart';
-import 'interconsultas_page.dart';
 
 class GeneticaPage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -54,6 +52,8 @@ class GeneticaPage extends StatelessWidget {
         title: Text('Genética e Imagenología'),
       ),
       body: BlocConsumer<AddPacienteBloc, AddPacienteState>(
+        listenWhen: (previous, current) =>
+            previous.isSuccessGenetica != current.isSuccessGenetica,
         listener: (context, state) {
           if (state.isSuccessGenetica) {
             // Navegar a la página de Interrogatorio cuando el estado sea exitoso
@@ -68,6 +68,9 @@ class GeneticaPage extends StatelessWidget {
             );
           }
         },
+        buildWhen: (previous, current) => previous.currentStepGenetica != current.currentStepGenetica ||
+        previous.geneticaModel != current.geneticaModel || previous.fetosSeguimiento != current.fetosSeguimiento ||
+        previous.fetos1erTrimestre != current.fetos1erTrimestre,
         builder: (context, state) {
           return Padding(
             padding: const EdgeInsets.all(16.0),
@@ -142,9 +145,11 @@ class GeneticaPage extends StatelessWidget {
                             ElevatedButton(
                               onPressed: () =>
                                   _selectDateTime(context, (value) {
-                                    var genetica =
-                                        state.geneticaModel ?? GeneticaModel(id: 0);
-                                    context.read<AddPacienteBloc>().add(UpdateGenetica(
+                                var genetica =
+                                    state.geneticaModel ?? GeneticaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateGenetica(
                                       model: genetica.copyWith(
                                         fechaRealizacion: value,
                                       ),
@@ -172,7 +177,10 @@ class GeneticaPage extends StatelessWidget {
                         ),
                         // Sección para manejar los fetos de manera dinámica
                         if (state.fetos1erTrimestre != null)
-                          ...state.fetos1erTrimestre!.asMap().entries.map((entry) {
+                          ...state.fetos1erTrimestre!
+                              .asMap()
+                              .entries
+                              .map((entry) {
                             int index = entry.key;
                             var feto = entry.value;
 
@@ -180,93 +188,104 @@ class GeneticaPage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
                                       'Feto ${index + 1}',
                                       style: const TextStyle(
-                                          fontWeight: FontWeight.bold, fontSize: 16),
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16),
                                     ),
                                     IconButton(
-                                      icon: const Icon(Icons.delete, color: Colors.red),
+                                      icon: const Icon(Icons.delete,
+                                          color: Colors.red),
                                       onPressed: () {
                                         // Lógica para eliminar el feto
                                         context.read<AddPacienteBloc>().add(
-                                            DeleteFetoUltrasonido1erTrimestre(index: index));
+                                            DeleteFetoUltrasonido1erTrimestre(
+                                                index: index));
                                       },
                                     ),
                                   ],
                                 ),
                                 TextFormField(
                                   initialValue: feto.lc,
-                                  decoration: const InputDecoration(labelText: 'LC (Feto)'),
+                                  decoration: const InputDecoration(
+                                      labelText: 'LC (Feto)'),
                                   onChanged: (value) {
                                     context
                                         .read<AddPacienteBloc>()
                                         .add(UpdateFetoUltrasonido1erTrimestre(
-                                      index: index,
-                                      feto: feto.copyWith(lc: value),
-                                    ));
+                                          index: index,
+                                          feto: feto.copyWith(lc: value),
+                                        ));
                                   },
                                 ),
                                 TextFormField(
                                   initialValue: feto.corion,
-                                  decoration: const InputDecoration(labelText: 'Corion (Feto)'),
+                                  decoration: const InputDecoration(
+                                      labelText: 'Corion (Feto)'),
                                   onChanged: (value) {
                                     context
                                         .read<AddPacienteBloc>()
                                         .add(UpdateFetoUltrasonido1erTrimestre(
-                                      index: index,
-                                      feto: feto.copyWith(corion: value),
-                                    ));
+                                          index: index,
+                                          feto: feto.copyWith(corion: value),
+                                        ));
                                   },
                                 ),
                                 TextFormField(
                                   initialValue: feto.tn,
-                                  decoration: const InputDecoration(labelText: 'TN'),
+                                  decoration:
+                                      const InputDecoration(labelText: 'TN'),
                                   onChanged: (value) {
                                     context
                                         .read<AddPacienteBloc>()
                                         .add(UpdateFetoUltrasonido1erTrimestre(
-                                      index: index,
-                                      feto: feto.copyWith(tn: value),
-                                    ));
+                                          index: index,
+                                          feto: feto.copyWith(tn: value),
+                                        ));
                                   },
                                 ),
                                 TextFormField(
                                   initialValue: feto.cuatroMiembros,
-                                  decoration: const InputDecoration(labelText: '4 Miembros'),
+                                  decoration: const InputDecoration(
+                                      labelText: '4 Miembros'),
                                   onChanged: (value) {
                                     context
                                         .read<AddPacienteBloc>()
                                         .add(UpdateFetoUltrasonido1erTrimestre(
-                                      index: index,
-                                      feto: feto.copyWith(cuatroMiembros: value),
-                                    ));
+                                          index: index,
+                                          feto: feto.copyWith(
+                                              cuatroMiembros: value),
+                                        ));
                                   },
                                 ),
                                 TextFormField(
                                   initialValue: feto.estomago,
-                                  decoration: const InputDecoration(labelText: 'Estomago'),
+                                  decoration: const InputDecoration(
+                                      labelText: 'Estomago'),
                                   onChanged: (value) {
                                     context
                                         .read<AddPacienteBloc>()
                                         .add(UpdateFetoUltrasonido1erTrimestre(
-                                      index: index,
-                                      feto: feto.copyWith(estomago: value),
-                                    ));
+                                          index: index,
+                                          feto: feto.copyWith(estomago: value),
+                                        ));
                                   },
                                 ),
                                 TextFormField(
                                   initialValue: feto.paa,
-                                  decoration: const InputDecoration(labelText: 'PAA'),
+                                  decoration:
+                                      const InputDecoration(labelText: 'PAA'),
                                   onChanged: (value) {
                                     context
                                         .read<AddPacienteBloc>()
                                         .add(UpdateFetoUltrasonido1erTrimestre(
-                                      index: index,
-                                      feto: feto.copyWith(paa: value),
-                                    ));
+                                          index: index,
+                                          feto: feto.copyWith(paa: value),
+                                        ));
                                   },
                                 ),
                                 // Agregar más campos según sea necesario para cada feto
@@ -306,14 +325,16 @@ class GeneticaPage extends StatelessWidget {
                             ElevatedButton(
                               onPressed: () =>
                                   _selectDateTime(context, (value) {
-                                    var genetica =
-                                        state.geneticaModel ?? GeneticaModel(id: 0);
-                                    context.read<AddPacienteBloc>().add(UpdateGenetica(
+                                var genetica =
+                                    state.geneticaModel ?? GeneticaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateGenetica(
                                       model: genetica.copyWith(
                                         usFechaRealizacion: value,
                                       ),
                                     ));
-                                  }),
+                              }),
                               child: const Text('Seleccionar'),
                             ),
                           ],
@@ -335,117 +356,122 @@ class GeneticaPage extends StatelessWidget {
                           },
                         ),
                         // Sección para manejar los fetos de manera dinámica
-                       if (state.fetosSeguimiento != null)
-                        ...state.fetosSeguimiento!
-                            .asMap()
-                            .entries
-                            .map((entry) {
-                          int index = entry.key;
-                          var feto = entry.value;
+                        if (state.fetosSeguimiento != null)
+                          ...state.fetosSeguimiento!
+                              .asMap()
+                              .entries
+                              .map((entry) {
+                            int index = entry.key;
+                            var feto = entry.value;
 
-                          return Column(
-                            children: <Widget>[
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    'Feto ${index + 1}',
-                                    style: const TextStyle(
-                                        fontWeight: FontWeight.bold, fontSize: 16),
-                                  ),
-                                  IconButton(
-                                    icon: const Icon(Icons.delete, color: Colors.red),
-                                    onPressed: () {
-                                      // Lógica para eliminar el feto
-                                      context.read<AddPacienteBloc>().add(
-                                          DeleteFetoUltrasonidoSeguimiento(index: index));
-                                    },
-                                  ),
-                                ],
-                              ),
-                              TextFormField(
-                                initialValue: feto.lc,
-                                decoration: const InputDecoration(
-                                    labelText: 'LC (Feto)'),
-                                onChanged: (value) {
-                                  context
-                                      .read<AddPacienteBloc>()
-                                      .add(UpdateFetoUltrasonidoSeguimiento(
-                                        index: index,
-                                        feto: feto.copyWith(lc: value),
-                                      ));
-                                },
-                              ),
-                              TextFormField(
-                                initialValue: feto.cc,
-                                decoration:
-                                    const InputDecoration(labelText: 'CC'),
-                                onChanged: (value) {
-                                  context
-                                      .read<AddPacienteBloc>()
-                                      .add(UpdateFetoUltrasonidoSeguimiento(
-                                        index: index,
-                                        feto: feto.copyWith(cc: value),
-                                      ));
-                                },
-                              ),
-                              TextFormField(
-                                initialValue: feto.cordon3Vasos,
-                                decoration:
-                                const InputDecoration(labelText: '3 Vasos'),
-                                onChanged: (value) {
-                                  context
-                                      .read<AddPacienteBloc>()
-                                      .add(UpdateFetoUltrasonidoSeguimiento(
-                                    index: index,
-                                    feto: feto.copyWith(cordon3Vasos: value),
-                                  ));
-                                },
-                              ),
-                              TextFormField(
-                                initialValue: feto.vejiga,
-                                decoration:
-                                const InputDecoration(labelText: 'Vejiga'),
-                                onChanged: (value) {
-                                  context
-                                      .read<AddPacienteBloc>()
-                                      .add(UpdateFetoUltrasonidoSeguimiento(
-                                    index: index,
-                                    feto: feto.copyWith(vejiga: value),
-                                  ));
-                                },
-                              ),
-                              TextFormField(
-                                initialValue: feto.estomago,
-                                decoration:
-                                const InputDecoration(labelText: 'Estomago'),
-                                onChanged: (value) {
-                                  context
-                                      .read<AddPacienteBloc>()
-                                      .add(UpdateFetoUltrasonidoSeguimiento(
-                                    index: index,
-                                    feto: feto.copyWith(estomago: value),
-                                  ));
-                                },
-                              ),
-                              TextFormField(
-                                initialValue: feto.columna,
-                                decoration:
-                                const InputDecoration(labelText: 'Columna'),
-                                onChanged: (value) {
-                                  context
-                                      .read<AddPacienteBloc>()
-                                      .add(UpdateFetoUltrasonidoSeguimiento(
-                                    index: index,
-                                    feto: feto.copyWith(columna: value),
-                                  ));
-                                },
-                              ),
-                              const Divider(),
-                              // Agregar más campos según sea necesario para cada feto
-                            ],
-                          );
-                        }).toList(),
+                            return Column(
+                              children: <Widget>[
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      'Feto ${index + 1}',
+                                      style: const TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16),
+                                    ),
+                                    IconButton(
+                                      icon: const Icon(Icons.delete,
+                                          color: Colors.red),
+                                      onPressed: () {
+                                        // Lógica para eliminar el feto
+                                        context.read<AddPacienteBloc>().add(
+                                            DeleteFetoUltrasonidoSeguimiento(
+                                                index: index));
+                                      },
+                                    ),
+                                  ],
+                                ),
+                                TextFormField(
+                                  initialValue: feto.lc,
+                                  decoration: const InputDecoration(
+                                      labelText: 'LC (Feto)'),
+                                  onChanged: (value) {
+                                    context
+                                        .read<AddPacienteBloc>()
+                                        .add(UpdateFetoUltrasonidoSeguimiento(
+                                          index: index,
+                                          feto: feto.copyWith(lc: value),
+                                        ));
+                                  },
+                                ),
+                                TextFormField(
+                                  initialValue: feto.cc,
+                                  decoration:
+                                      const InputDecoration(labelText: 'CC'),
+                                  onChanged: (value) {
+                                    context
+                                        .read<AddPacienteBloc>()
+                                        .add(UpdateFetoUltrasonidoSeguimiento(
+                                          index: index,
+                                          feto: feto.copyWith(cc: value),
+                                        ));
+                                  },
+                                ),
+                                TextFormField(
+                                  initialValue: feto.cordon3Vasos,
+                                  decoration: const InputDecoration(
+                                      labelText: '3 Vasos'),
+                                  onChanged: (value) {
+                                    context
+                                        .read<AddPacienteBloc>()
+                                        .add(UpdateFetoUltrasonidoSeguimiento(
+                                          index: index,
+                                          feto: feto.copyWith(
+                                              cordon3Vasos: value),
+                                        ));
+                                  },
+                                ),
+                                TextFormField(
+                                  initialValue: feto.vejiga,
+                                  decoration: const InputDecoration(
+                                      labelText: 'Vejiga'),
+                                  onChanged: (value) {
+                                    context
+                                        .read<AddPacienteBloc>()
+                                        .add(UpdateFetoUltrasonidoSeguimiento(
+                                          index: index,
+                                          feto: feto.copyWith(vejiga: value),
+                                        ));
+                                  },
+                                ),
+                                TextFormField(
+                                  initialValue: feto.estomago,
+                                  decoration: const InputDecoration(
+                                      labelText: 'Estomago'),
+                                  onChanged: (value) {
+                                    context
+                                        .read<AddPacienteBloc>()
+                                        .add(UpdateFetoUltrasonidoSeguimiento(
+                                          index: index,
+                                          feto: feto.copyWith(estomago: value),
+                                        ));
+                                  },
+                                ),
+                                TextFormField(
+                                  initialValue: feto.columna,
+                                  decoration: const InputDecoration(
+                                      labelText: 'Columna'),
+                                  onChanged: (value) {
+                                    context
+                                        .read<AddPacienteBloc>()
+                                        .add(UpdateFetoUltrasonidoSeguimiento(
+                                          index: index,
+                                          feto: feto.copyWith(columna: value),
+                                        ));
+                                  },
+                                ),
+                                const Divider(),
+                                // Agregar más campos según sea necesario para cada feto
+                              ],
+                            );
+                          }).toList(),
                         ElevatedButton(
                           onPressed: () {
                             // Lógica para agregar un nuevo feto
@@ -647,14 +673,16 @@ class GeneticaPage extends StatelessWidget {
                             ElevatedButton(
                               onPressed: () =>
                                   _selectDateTime(context, (value) {
-                                    var genetica =
-                                        state.geneticaModel ?? GeneticaModel(id: 0);
-                                    context.read<AddPacienteBloc>().add(UpdateGenetica(
+                                var genetica =
+                                    state.geneticaModel ?? GeneticaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateGenetica(
                                       model: genetica.copyWith(
                                         scfechaRealizacion: value,
                                       ),
                                     ));
-                                  }),
+                              }),
                               child: const Text('Seleccionar'),
                             ),
                           ],

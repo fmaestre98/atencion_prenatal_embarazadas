@@ -187,6 +187,7 @@ class SignosVitalesPage extends StatelessWidget {
                         const SizedBox(height: 16),
                         TextFormField(
                           initialValue: state.signosVitales?.circunsferenciaAbdominal.toString() ?? '',
+                          keyboardType: TextInputType.number,
                           onChanged: (value){
                             var signosVitales =
                                 state.signosVitales ?? SignosVitalesModel(id: 0);

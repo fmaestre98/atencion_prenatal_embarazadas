@@ -48,7 +48,7 @@ class SignosVitalesModel {
       this.sistolica,
       this.diastolica,
       this.media,
-      this.postura,
+      this.postura="Sentado",
       this.ubicacion,
       this.valor,
       this.caracteristicas,

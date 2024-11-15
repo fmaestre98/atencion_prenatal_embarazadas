@@ -228,6 +228,7 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
   Future<void> _savePaciente() async {
     emit(state.copyWith(isSubmitting: true, errorMessage: null));
     try {
+      safePrint("tytrytjyfhfhgfhgfhggggggggggggggggggggggggfffffffffffttttttttt");
       // Asume que ya has llenado todas las secciones necesarias
       // Aquí puedes validar que todas las secciones estén llenas
       Paciente? paciente = state.paciente;
@@ -247,6 +248,9 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
           genetica.fetos1erTrimestre.addAll(state.fetos1erTrimestre ?? []);
           genetica.fetosSeguimiento.removeWhere((element) => true);
           genetica.fetosSeguimiento.addAll(state.fetosSeguimiento ?? []);
+          _objectBox.addFetosSeguimiento(state.fetosSeguimiento ?? []);
+          _objectBox.addFetosTrimestre(state.fetos1erTrimestre ?? []);
+
         }
         paciente.genetica.target = genetica;
         paciente.antecedentesPatologicasPersonales.target =
@@ -267,6 +271,12 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
           AntecedentesObstetricos antecedentesObstetricos = state.antecedentesObstetricos!;
           antecedentesObstetricos.embarazos.removeWhere((e)=>true);
           antecedentesObstetricos.embarazos.addAll(state.embarazoList ?? []);
+          List<Embarazo> embarazoList = state.embarazoList ?? [];
+          embarazoList = embarazoList.map((e){
+            e.antecedente.target = state.antecedentesObstetricos;
+            return e;
+          }).toList();
+          _objectBox.addEmbarazos(embarazoList);
           _objectBox.addAntecedentesObstetricos(state.antecedentesObstetricos!);
         }
         if (state.geneticaModel != null) {
@@ -357,41 +367,46 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
   // Manejador para agregar un nuevo feto
   void _onAddFetoUltrasonido1erTrimestre(
       AddFetoUltrasonido1erTrimestre event, Emitter<AddPacienteState> emit) {
-    GeneticaModel? geneticaModel = state.geneticaModel;
+    GeneticaModel geneticaModel = state.geneticaModel ?? GeneticaModel();
     safePrint(
         "_onAddFetoUltrasonido1erTrimestre _onAddFetoUltrasonido1erTrimestre");
-    if (geneticaModel != null) {
       safePrint("_onAddFetoUltrasonido1erTrimestre ${event.feto}");
       List<FetoUltrasonido1erTrimestre> list =
           List.from(state.fetos1erTrimestre ?? []);
       list.add(event.feto);
       emit(state.copyWith(
         fetos1erTrimestre: list,
+        genetica: geneticaModel,
       ));
-    }
   }
 
   void _onAddEmbarazo(AddEmbarazo event, Emitter<AddPacienteState> emit) {
+    AntecedentesObstetricos antecedentesObstetricos = state.antecedentesObstetricos ?? AntecedentesObstetricos();
     List<Embarazo> list = List.from(state.embarazoList ?? []);
     list.add(event.model);
     emit(state.copyWith(
       embarazoList: list,
+      antecedentesObstetricos: antecedentesObstetricos,
     ));
   }
 
   void _onUpdateEmbarazo(UpdateEmbarazo event, Emitter<AddPacienteState> emit) {
+    AntecedentesObstetricos antecedentesObstetricos = state.antecedentesObstetricos ?? AntecedentesObstetricos();
     List<Embarazo> list = List.from(state.embarazoList ?? []);
     list[event.index] = event.model;
     emit(state.copyWith(
       embarazoList: list,
+      antecedentesObstetricos: antecedentesObstetricos,
     ));
   }
 
   void _onDeleteEmbarazo(DeleteEmbarazo event, Emitter<AddPacienteState> emit) {
+    AntecedentesObstetricos antecedentesObstetricos = state.antecedentesObstetricos ?? AntecedentesObstetricos();
     List<Embarazo> list = List.from(state.embarazoList ?? []);
     list.removeAt(event.index);
     emit(state.copyWith(
       embarazoList: list,
+      antecedentesObstetricos: antecedentesObstetricos,
     ));
   }
 
@@ -409,14 +424,13 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
   // Manejador para agregar un nuevo feto
   void _onAddFetoUltrasonidoSeguimiento(
       AddFetoUltrasonidoSeguimiento event, Emitter<AddPacienteState> emit) {
-    GeneticaModel? geneticaModel = state.geneticaModel;
-    if (geneticaModel != null) {
+      GeneticaModel geneticaModel = state.geneticaModel ?? GeneticaModel();
       List<FetoUltrasonidoSeguimiento> list =
           List.from(state.fetosSeguimiento ?? []);
       list.add(event.feto);
       emit(state.copyWith(
         fetosSeguimiento: list,
+        genetica: geneticaModel,
       ));
-    }
   }
 }

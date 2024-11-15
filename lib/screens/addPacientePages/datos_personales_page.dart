@@ -1851,8 +1851,9 @@ class DatosPersonalesPage extends StatelessWidget {
                   content: Form(
                       key: _formKey8,
                       child: Column(children: <Widget>[
+                        SizedBox(height: 10,),
                         TextFormField(
-                          initialValue: state.paciente?.datosDeInteres ?? '',
+                          initialValue: state.paciente?.traumatismoAccidentes ?? '',
                           decoration: const InputDecoration(
                             labelText: 'Datos de interés ',
                             border: OutlineInputBorder(),
@@ -1864,7 +1865,7 @@ class DatosPersonalesPage extends StatelessWidget {
                                 .read<AddPacienteBloc>()
                                 .add(UpdateDatosPersonales(
                                   paciente: paciente.copyWith(
-                                    datosDeInteres: value,
+                                    traumatismoAccidentes: value,
                                   ),
                                 ));
                           },

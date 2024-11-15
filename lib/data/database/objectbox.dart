@@ -1,11 +1,9 @@
 // lib/objectbox.dart
-import 'package:atencion_prenatal_embarazadas/core/utils.dart';
 import 'package:atencion_prenatal_embarazadas/models/genetica_model.dart';
 import 'package:atencion_prenatal_embarazadas/models/interconsultas_model.dart';
 import 'package:atencion_prenatal_embarazadas/models/interrogatory_model.dart';
 import 'package:atencion_prenatal_embarazadas/models/laboratorio_microbiologia_model.dart';
 import 'package:atencion_prenatal_embarazadas/models/signos_vitales_model.dart';
-import 'package:objectbox/objectbox.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as p;
 
@@ -35,12 +33,14 @@ class ObjectBox {
   late final Box<LaboratorioMicrobiologiaModel> _laboratorioBox;
   late final Box<Embarazo> _embarazoBox;
   late final Box<RecienNacido> _recienNacidoBox;
-
+  late final Box<FetoUltrasonido1erTrimestre> _fetoUltrasonido1erTrimestreBox;
+  late final Box<FetoUltrasonidoSeguimiento> _fetoUltrasonidoSeguimientoBox;
 
   ObjectBox._create(this._store) {
     _pacienteBox = Box<Paciente>(_store);
     _embarazoActual = Box<EmbarazoActual>(_store);
-    _antecedentesPatologicosBox = Box<AntecedentesPatologicosPersonales>(_store);
+    _antecedentesPatologicosBox =
+        Box<AntecedentesPatologicosPersonales>(_store);
     _antecedentesGinecologicosBox = Box<AntecedentesGinecologicos>(_store);
     _antecedentesObstetricosBox = Box<AntecedentesObstetricos>(_store);
     _interrogatorioBox = Box<Interrogatorio>(_store);
@@ -49,9 +49,10 @@ class ObjectBox {
     _interconsultasBox = Box<InterconsultasModel>(_store);
     _geneticaBox = Box<GeneticaModel>(_store);
     _laboratorioBox = Box<LaboratorioMicrobiologiaModel>(_store);
-   _embarazoBox = Box<Embarazo>(_store);
-   _recienNacidoBox = Box<RecienNacido>(_store);
-
+    _embarazoBox = Box<Embarazo>(_store);
+    _recienNacidoBox = Box<RecienNacido>(_store);
+    _fetoUltrasonido1erTrimestreBox = Box<FetoUltrasonido1erTrimestre>(_store);
+    _fetoUltrasonidoSeguimientoBox = Box<FetoUltrasonidoSeguimiento>(_store);
     // Add some demo data if the box is empty.
     if (_pacienteBox.isEmpty()) {
       // _putDemoData();
@@ -71,10 +72,8 @@ class ObjectBox {
 
     // Future<Store> openStore() {...} is defined in the generated objectbox.g.dart
     final store = await openStore(
-      directory: p.join(
-          (await getApplicationDocumentsDirectory()).path,
-          "obx-demo"
-      ),
+      directory:
+          p.join((await getApplicationDocumentsDirectory()).path, "obx-demo"),
       macosApplicationGroup: "objectbox.demo",
     );
     return ObjectBox._create(store);
@@ -90,11 +89,12 @@ class ObjectBox {
     _pacienteBox.put(paciente);
   }
 
-   void addEmbarazoActual(EmbarazoActual embarazoActual) {
+  void addEmbarazoActual(EmbarazoActual embarazoActual) {
     _embarazoActual.put(embarazoActual);
   }
 
-  void addAntecedentesPatologicosPersonales(AntecedentesPatologicosPersonales antecedente) {
+  void addAntecedentesPatologicosPersonales(
+      AntecedentesPatologicosPersonales antecedente) {
     _antecedentesPatologicosBox.put(antecedente);
   }
 
@@ -126,7 +126,8 @@ class ObjectBox {
     _geneticaBox.put(genetica);
   }
 
-  void addLaboratorioMicrobiologiaModel(LaboratorioMicrobiologiaModel laboratorio) {
+  void addLaboratorioMicrobiologiaModel(
+      LaboratorioMicrobiologiaModel laboratorio) {
     _laboratorioBox.put(laboratorio);
   }
 
@@ -134,10 +135,17 @@ class ObjectBox {
     _embarazoBox.putMany(embarazos);
   }
 
+  void addFetosSeguimiento(List<FetoUltrasonidoSeguimiento> fetos) {
+    _fetoUltrasonidoSeguimientoBox.putMany(fetos);
+  }
+
+  void addFetosTrimestre(List<FetoUltrasonido1erTrimestre> fetos) {
+    _fetoUltrasonido1erTrimestreBox.putMany(fetos);
+  }
+
   void addRecienNacido(RecienNacido recienNacido) {
     _recienNacidoBox.put(recienNacido);
   }
-
 
   /// Método para borrar un paciente por ID
   void deletePaciente(int id) {
@@ -146,27 +154,27 @@ class ObjectBox {
 
   /// Método para obtener pacientes por noIdentidad
   List<Paciente>? getPacientesByNoIdentidad(String? noIdentidad) {
-    safePrint("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
-    safePrint(noIdentidad);
-    if(noIdentidad != null){
-      final query = _pacienteBox.query(Paciente_.noIdentidad.startsWith(noIdentidad));
+    if (noIdentidad != null) {
+      final query =
+          _pacienteBox.query(Paciente_.noIdentidad.startsWith(noIdentidad));
       return query.build().find();
     }
     return [];
   }
 
   /// Método para obtener el total de pacientes
-  int countPacientes() {
+  int? countPacientes() {
     return _pacienteBox.count();
   }
 
   /// Método para obtener los últimos 5 pacientes registrados
-  List<Paciente> getLastFivePacientes() {
-    final query = (_pacienteBox.query()
+  List<Paciente>? getLastFivePacientes() {
+    final query = (_pacienteBox
+        .query()
         .order(Paciente_.id, flags: Order.descending)
-        .build())..limit = 5;
-    final pacientes = query
-        .find();
+        .build())
+      ..limit = 5;
+    final pacientes = query.find();
     query.close(); // Cierra la consulta para liberar recursos
     return pacientes;
   }
@@ -175,24 +183,10 @@ class ObjectBox {
   void dispose() {
     _store.close();
   }
-
-  // Método privado para agregar datos de demostración (opcional)
-  void _putDemoData() {
-  /*  final demoPacientes = [
-      Paciente(
-        noIdentidad: '1234567890123',
-        nombre: 'María Pérez',
-        fechaNacimiento: DateTime(1990, 5, 20),
-        fechaRegistro: DateTime.now().subtract(Duration(days: 1)),
-      ),
-      // Añade más pacientes de demostración si lo deseas
-    ];
-    _pacienteBox.putMany(demoPacientes);*/
-  }
-
+  
   /// Método para obtener un paciente por ID
   Paciente? getPacienteById(int id) {
-    return _pacienteBox.get(id); // Devuelve el paciente por su ID, o null si no se encuentra
+    return _pacienteBox
+        .get(id); // Devuelve el paciente por su ID, o null si no se encuentra
   }
 }
-

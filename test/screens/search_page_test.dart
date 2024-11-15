@@ -1,9 +1,7 @@
 import 'package:atencion_prenatal_embarazadas/bloc/search/search_bloc.dart';
-import 'package:atencion_prenatal_embarazadas/bloc/search/search_event.dart';
 import 'package:atencion_prenatal_embarazadas/bloc/search/search_state.dart';
 import 'package:atencion_prenatal_embarazadas/models/personal_data_model.dart';
 import 'package:atencion_prenatal_embarazadas/screens/search_page.dart';
-import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

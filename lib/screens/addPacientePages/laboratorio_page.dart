@@ -52,6 +52,7 @@ class LaboratorioPage extends StatelessWidget {
         title: Text('Laboratorio y Microbiología'),
       ),
       body: BlocConsumer<AddPacienteBloc, AddPacienteState>(
+        listenWhen: (previous, current) => previous.isSuccessLaboratorio != current.isSuccessLaboratorio,
         listener: (context, state) {
           if (state.isSuccessLaboratorio) {
             // Navegar a la página de Interrogatorio cuando el estado sea exitoso
@@ -432,7 +433,7 @@ class LaboratorioPage extends StatelessWidget {
                 ),
                 Step(
                   title: const Text('Antígeno de superficie'),
-                  isActive: state.currentStepSignosVitales >= 3,
+                  isActive: state.currentStepLaboratorio >= 3,
                   content: Form(
                     key: _formKey4,
                     child: Column(
@@ -1403,7 +1404,58 @@ class LaboratorioPage extends StatelessWidget {
                   content: Form(
                     key: _formKey19,
                     child: Column(
-                      children: <Widget>[],
+                      children: <Widget>[
+                        TextFormField(
+                          initialValue: state.laboratorioMicrobiologiaModel
+                              ?.citResultadoMaterno ??
+                              '',
+                          onChanged: (value) {
+                            var laboratorio =
+                                state.laboratorioMicrobiologiaModel ??
+                                    LaboratorioMicrobiologiaModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateLaboratorio(
+                              model: laboratorio.copyWith(
+                                  citResultadoMaterno: value),
+                            ));
+                          },
+                          decoration: const InputDecoration(
+                              labelText: 'Resultado materno'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el resultado materno'
+                              : null,
+                        ),
+                        const SizedBox(height: 16),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                state.laboratorioMicrobiologiaModel
+                                    ?.citFechaRealizacionMaterno ==
+                                    null
+                                    ? 'Fecha de realización'
+                                    : 'Fecha: ${state.laboratorioMicrobiologiaModel?.citFechaRealizacionMaterno!.toLocal().toString().split(' ')[0]}',
+                              ),
+                            ),
+                            ElevatedButton(
+                              onPressed: () =>
+                                  _selectDateTime(context, (value) {
+                                    var laboratorio =
+                                        state.laboratorioMicrobiologiaModel ??
+                                            LaboratorioMicrobiologiaModel(id: 0);
+                                    context
+                                        .read<AddPacienteBloc>()
+                                        .add(UpdateLaboratorio(
+                                      model: laboratorio.copyWith(
+                                          citFechaRealizacionMaterno: value),
+                                    ));
+                                  }),
+                              child: const Text('Seleccionar'),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -1655,7 +1707,7 @@ class LaboratorioPage extends StatelessWidget {
                 ),
                 Step(
                   title: const Text('Prueba de coombs'),
-                  isActive: state.currentStepLaboratorio >= 24,
+                  isActive: state.currentStepLaboratorio >= 23,
                   content: Form(
                     key: _formKey24,
                     child: Column(
@@ -1713,6 +1765,11 @@ class LaboratorioPage extends StatelessWidget {
                       ],
                     ),
                   ),
+                ),
+                Step(
+                  title: const Text('Guardar'),
+                  isActive: state.currentStepLaboratorio >= 24,
+                  content: const SizedBox(),
                 ),
               ],
             ),
