@@ -1,8 +1,11 @@
 // lib/screens/signos_vitales_page.dart
 import 'package:atencion_prenatal_embarazadas/bloc/add/add_event.dart';
 import 'package:atencion_prenatal_embarazadas/models/signos_vitales_model.dart';
+import 'package:atencion_prenatal_embarazadas/router/router.dart';
+import 'package:atencion_prenatal_embarazadas/router/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import '../../bloc/add/add_bloc.dart';
 import '../../bloc/add/add_state.dart';
 import 'examen_fisico_page.dart';
@@ -44,11 +47,7 @@ class SignosVitalesPage extends StatelessWidget {
             || previous.errorMessage != current.errorMessage,
         listener: (context, state) {
           if (state.isSuccessSignosVitales) {
-            // Navegar a la página de Interrogatorio cuando el estado sea exitoso
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => ExamenFisicoPage()),
-            );
+            context.pushReplacement(Routes.routeAddExamenFisico);
           } else if (state.errorMessage != null) {
             // Mostrar mensaje de error
             ScaffoldMessenger.of(context).showSnackBar(

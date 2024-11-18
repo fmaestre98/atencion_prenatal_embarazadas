@@ -18,7 +18,6 @@ class ResumenAtencionPage extends StatelessWidget {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(content: Text('Embarazada agregada exitosamente')),
             );
-            Navigator.popUntil(context, ModalRoute.withName('/'));
           } else if (state.errorMessage != null) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text('Error: ${state.errorMessage}')),

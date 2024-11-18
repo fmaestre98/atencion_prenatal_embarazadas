@@ -1,7 +1,10 @@
 // lib/screens/interconsultas_page.dart
 import 'package:atencion_prenatal_embarazadas/bloc/add/add_event.dart';
+import 'package:atencion_prenatal_embarazadas/router/router.dart';
+import 'package:atencion_prenatal_embarazadas/router/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import '../../bloc/add/add_bloc.dart';
 import '../../bloc/add/add_state.dart';
 import '../../models/interconsultas_model.dart';
@@ -15,8 +18,6 @@ class InterconsultasPage extends StatelessWidget {
   final _formKey5 = GlobalKey<FormState>();
   final _formKey6 = GlobalKey<FormState>();
   final _formKey7 = GlobalKey<FormState>();
-
-
 
   InterconsultasPage({Key? key}) : super(key: key);
 
@@ -39,11 +40,7 @@ class InterconsultasPage extends StatelessWidget {
             previous.isSuccessInterconsultas != current.isSuccessInterconsultas,
         listener: (context, state) {
           if (state.isSuccessInterconsultas) {
-            // Navegar a la página de Interrogatorio cuando el estado sea exitoso
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => ResumenAtencionPage()),
-            );
+            context.pushReplacement(Routes.addResumenAtencion);
           } else if (state.errorMessage != null) {
             // Mostrar mensaje de error
             ScaffoldMessenger.of(context).showSnackBar(
@@ -89,31 +86,31 @@ class InterconsultasPage extends StatelessWidget {
                           children: [
                             Expanded(
                               child: Text(
-                                state
-                                    .interconsultasModel?.psFechaConsulta
-                                    == null
+                                state.interconsultasModel?.psFechaConsulta ==
+                                        null
                                     ? 'Fecha de consulta'
-                                    : 'Fecha: ${state
-                                    .interconsultasModel?.psFechaConsulta!.toLocal().toString().split(' ')[0]}',
+                                    : 'Fecha: ${state.interconsultasModel?.psFechaConsulta!.toLocal().toString().split(' ')[0]}',
                               ),
                             ),
                             ElevatedButton(
                               onPressed: () =>
                                   _selectDateTime1(context, (value) {
-                                    var interconsulta =
-                                    state.interconsultasModel ?? InterconsultasModel();
-                                    interconsulta.copyWith(psFechaConsulta: value);
-                                    context
-                                        .read<AddPacienteBloc>()
-                                        .add(UpdateInterconsultas(
+                                var interconsulta = state.interconsultasModel ??
+                                    InterconsultasModel();
+                                interconsulta.copyWith(psFechaConsulta: value);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateInterconsultas(
                                       model: interconsulta,
                                     ));
-                                  }),
+                              }),
                               child: const Text('Seleccionar'),
                             ),
                           ],
                         ),
-                        const SizedBox(height: 5,),
+                        const SizedBox(
+                          height: 5,
+                        ),
                         TextFormField(
                           initialValue:
                               state.interconsultasModel?.psEvaluacion ?? '',

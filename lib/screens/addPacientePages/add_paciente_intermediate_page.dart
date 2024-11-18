@@ -1,16 +1,18 @@
 import 'package:atencion_prenatal_embarazadas/core/utils.dart';
+import 'package:atencion_prenatal_embarazadas/screens/layout_scaffold.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../bloc/add/add_bloc.dart';
-import '../../bloc/add/add_event.dart';
 import '../../bloc/add/add_state.dart';
+import '../../router/routes.dart';
 
 class AddPacienteIntermediatePage extends StatelessWidget {
 
   const AddPacienteIntermediatePage({Key? key})
-      : super(key: key);
+      : super(key: key ?? const ValueKey<String>('AddPacienteIntermediatePage'));
 
   @override
   Widget build(BuildContext context) {
@@ -97,56 +99,56 @@ class AddPacienteIntermediatePage extends StatelessWidget {
                         leading: const Icon(Icons.person),
                         title: const Text('Datos Personales'),
                         onTap: () {
-                          Navigator.of(context).pushNamed('/datosPersonales');
+                          context.push(Routes.routeAddDatosPersonales);
                         },
                       ),
                       ListTile(
                         leading: const Icon(Icons.question_answer),
                         title: const Text('Interrogatorio'),
                         onTap: () {
-                          Navigator.of(context).pushNamed('/interrogatorio');
+                          context.push(Routes.routeAddInterrogatorio);
                         },
                       ),
                       ListTile(
                         leading: const Icon(Icons.favorite),
                         title: const Text('Signos Vitales'),
                         onTap: () {
-                          Navigator.of(context).pushNamed('/signosVitales');
+                          context.push(Routes.routeAddSignosVitales);
                         },
                       ),
                       ListTile(
                         leading: const Icon(Icons.medical_services),
                         title: const Text('Examen Físico'),
                         onTap: () {
-                          Navigator.of(context).pushNamed('/examenFisico');
+                          context.push(Routes.routeAddExamenFisico);
                         },
                       ),
                       ListTile(
                         leading: const Icon(Icons.invert_colors_sharp),
                         title: const Text('Genética'),
                         onTap: () {
-                          Navigator.of(context).pushNamed('/genetica');
+                          context.push(Routes.routeAddGenetica);
                         },
                       ),
                       ListTile(
                         leading: const Icon(Icons.science),
                         title: const Text('Laboratorio'),
                         onTap: () {
-                          Navigator.of(context).pushNamed('/laboratorio');
+                          context.push(Routes.routeAddLaboratorio);
                         },
                       ),
                       ListTile(
                         leading: const Icon(Icons.interpreter_mode),
                         title: const Text('Interconsultas'),
                         onTap: () {
-                          Navigator.of(context).pushNamed('/interconsultas');
+                          context.push(Routes.routeAddInterconsultas);
                         },
                       ),
                       ListTile(
                         leading: const Icon(Icons.summarize_rounded),
                         title: const Text('Resumen de Atención'),
                         onTap: () {
-                          Navigator.of(context).pushNamed('/resumenAtencion');
+                          context.push(Routes.routeAddResumenAtencion);
                         },
                       ),
                     ],

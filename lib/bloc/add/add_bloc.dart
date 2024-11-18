@@ -14,6 +14,7 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
   AddPacienteBloc() : super(const AddPacienteState()) {
     // Cargar los datos del paciente usando el ID
     on<LoadPacienteData>(_loadPacienteData);
+    on<ClearPacienteData>(_clearPacienteData);
     on<UpdateDatosPersonales>(_onUpdateDatosPersonales);
     on<UpdateInterrogatorio>(_onUpdateInterrogatorio);
     on<UpdateSignosVitales>(_onUpdateSignosVitales);
@@ -80,10 +81,15 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
           embarazoList: paciente.antecedentesObstetricos.target?.embarazos,
           pacienteLoaded: true,
         ));
-        safePrint("embarazos list");
-        safePrint(paciente.antecedentesObstetricos.target?.embarazos);
-      }
+       }
     }
+  }
+
+
+  void _clearPacienteData(
+      ClearPacienteData event, Emitter<AddPacienteState> emit) {
+    safePrint("called _loadPacienteData");
+        emit(const AddPacienteState());
   }
 
   void _onUpdatePacienteLoaded(
@@ -228,7 +234,6 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
   Future<void> _savePaciente() async {
     emit(state.copyWith(isSubmitting: true, errorMessage: null));
     try {
-      safePrint("tytrytjyfhfhgfhgfhggggggggggggggggggggggggfffffffffffttttttttt");
       // Asume que ya has llenado todas las secciones necesarias
       // Aquí puedes validar que todas las secciones estén llenas
       Paciente? paciente = state.paciente;

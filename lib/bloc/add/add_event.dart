@@ -35,6 +35,12 @@ class LoadPacienteData extends AddPacienteEvent {
   List<Object?> get props => [pacienteId];
 }
 
+class ClearPacienteData extends AddPacienteEvent {
+  const ClearPacienteData();
+  @override
+  List<Object?> get props => [];
+}
+
 // Evento para actualizar Datos Personales
 class UpdatePacienteLoaded extends AddPacienteEvent {
   final bool? pacienteLoaded;

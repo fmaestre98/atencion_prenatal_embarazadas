@@ -2,9 +2,12 @@
 import 'package:atencion_prenatal_embarazadas/bloc/add/add_event.dart';
 import 'package:atencion_prenatal_embarazadas/core/utils.dart';
 import 'package:atencion_prenatal_embarazadas/models/genetica_model.dart';
+import 'package:atencion_prenatal_embarazadas/router/router.dart';
+import 'package:atencion_prenatal_embarazadas/router/routes.dart';
 import 'package:atencion_prenatal_embarazadas/screens/addPacientePages/laboratorio_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import '../../bloc/add/add_bloc.dart';
 import '../../bloc/add/add_state.dart';
 
@@ -56,21 +59,18 @@ class GeneticaPage extends StatelessWidget {
             previous.isSuccessGenetica != current.isSuccessGenetica,
         listener: (context, state) {
           if (state.isSuccessGenetica) {
-            // Navegar a la página de Interrogatorio cuando el estado sea exitoso
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => LaboratorioPage()),
-            );
+            context.pushReplacement(Routes.routeAddLaboratorio);
           } else if (state.errorMessage != null) {
-            // Mostrar mensaje de error
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text(state.errorMessage!)),
             );
           }
         },
-        buildWhen: (previous, current) => previous.currentStepGenetica != current.currentStepGenetica ||
-        previous.geneticaModel != current.geneticaModel || previous.fetosSeguimiento != current.fetosSeguimiento ||
-        previous.fetos1erTrimestre != current.fetos1erTrimestre,
+        buildWhen: (previous, current) =>
+            previous.currentStepGenetica != current.currentStepGenetica ||
+            previous.geneticaModel != current.geneticaModel ||
+            previous.fetosSeguimiento != current.fetosSeguimiento ||
+            previous.fetos1erTrimestre != current.fetos1erTrimestre,
         builder: (context, state) {
           return Padding(
             padding: const EdgeInsets.all(16.0),

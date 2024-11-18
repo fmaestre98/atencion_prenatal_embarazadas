@@ -1,8 +1,11 @@
 // lib/screens/laboratorio_page.dart
 import 'package:atencion_prenatal_embarazadas/models/laboratorio_microbiologia_model.dart';
+import 'package:atencion_prenatal_embarazadas/router/router.dart';
+import 'package:atencion_prenatal_embarazadas/router/routes.dart';
 import 'package:atencion_prenatal_embarazadas/screens/addPacientePages/interconsultas_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import '../../bloc/add/add_bloc.dart';
 import '../../bloc/add/add_event.dart';
 import '../../bloc/add/add_state.dart';
@@ -52,14 +55,11 @@ class LaboratorioPage extends StatelessWidget {
         title: Text('Laboratorio y Microbiología'),
       ),
       body: BlocConsumer<AddPacienteBloc, AddPacienteState>(
-        listenWhen: (previous, current) => previous.isSuccessLaboratorio != current.isSuccessLaboratorio,
+        listenWhen: (previous, current) =>
+            previous.isSuccessLaboratorio != current.isSuccessLaboratorio,
         listener: (context, state) {
           if (state.isSuccessLaboratorio) {
-            // Navegar a la página de Interrogatorio cuando el estado sea exitoso
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => InterconsultasPage()),
-            );
+            context.pushReplacement(Routes.addInterconsultas);
           } else if (state.errorMessage != null) {
             // Mostrar mensaje de error
             ScaffoldMessenger.of(context).showSnackBar(
@@ -1407,7 +1407,7 @@ class LaboratorioPage extends StatelessWidget {
                       children: <Widget>[
                         TextFormField(
                           initialValue: state.laboratorioMicrobiologiaModel
-                              ?.citResultadoMaterno ??
+                                  ?.citResultadoMaterno ??
                               '',
                           onChanged: (value) {
                             var laboratorio =
@@ -1416,9 +1416,9 @@ class LaboratorioPage extends StatelessWidget {
                             context
                                 .read<AddPacienteBloc>()
                                 .add(UpdateLaboratorio(
-                              model: laboratorio.copyWith(
-                                  citResultadoMaterno: value),
-                            ));
+                                  model: laboratorio.copyWith(
+                                      citResultadoMaterno: value),
+                                ));
                           },
                           decoration: const InputDecoration(
                               labelText: 'Resultado materno'),
@@ -1432,8 +1432,8 @@ class LaboratorioPage extends StatelessWidget {
                             Expanded(
                               child: Text(
                                 state.laboratorioMicrobiologiaModel
-                                    ?.citFechaRealizacionMaterno ==
-                                    null
+                                            ?.citFechaRealizacionMaterno ==
+                                        null
                                     ? 'Fecha de realización'
                                     : 'Fecha: ${state.laboratorioMicrobiologiaModel?.citFechaRealizacionMaterno!.toLocal().toString().split(' ')[0]}',
                               ),
@@ -1441,16 +1441,16 @@ class LaboratorioPage extends StatelessWidget {
                             ElevatedButton(
                               onPressed: () =>
                                   _selectDateTime(context, (value) {
-                                    var laboratorio =
-                                        state.laboratorioMicrobiologiaModel ??
-                                            LaboratorioMicrobiologiaModel(id: 0);
-                                    context
-                                        .read<AddPacienteBloc>()
-                                        .add(UpdateLaboratorio(
+                                var laboratorio =
+                                    state.laboratorioMicrobiologiaModel ??
+                                        LaboratorioMicrobiologiaModel(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateLaboratorio(
                                       model: laboratorio.copyWith(
                                           citFechaRealizacionMaterno: value),
                                     ));
-                                  }),
+                              }),
                               child: const Text('Seleccionar'),
                             ),
                           ],

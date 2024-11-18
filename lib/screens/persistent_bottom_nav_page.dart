@@ -15,7 +15,7 @@ class PersistentBottomNavPage extends StatelessWidget {
     return PersistentBottomBarScaffold(
       items: [
         PersistentTabItem(
-          tab: HomePage(),
+          tab: const HomePage(),
           icon: Icons.home,
           title: 'Home',
           navigatorkey: _tab1navigatorKey,

@@ -1,11 +1,14 @@
 import 'package:atencion_prenatal_embarazadas/core/utils.dart';
+import 'package:atencion_prenatal_embarazadas/router/router.dart';
 import 'package:atencion_prenatal_embarazadas/screens/addPacientePages/genetica_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import '../../bloc/add/add_bloc.dart';
 import '../../bloc/add/add_event.dart';
 import '../../bloc/add/add_state.dart';
 import '../../models/examen_fisico_model.dart';
+import '../../router/routes.dart';
 import 'laboratorio_page.dart';
 
 class ExamenFisicoPage extends StatelessWidget {
@@ -35,7 +38,7 @@ class ExamenFisicoPage extends StatelessWidget {
   ExamenFisicoPage({Key? key}) : super(key: key);
 
   void _submitExamenFisico(BuildContext context) {
-   /* if (_formKey.currentState!.validate() &&
+    /* if (_formKey.currentState!.validate() &&
         _formKey2.currentState!.validate() &&
         _formKey3.currentState!.validate() &&
         _formKey4.currentState!.validate() &&
@@ -49,11 +52,9 @@ class ExamenFisicoPage extends StatelessWidget {
         _formKey12.currentState!.validate() &&
         _formKey13.currentState!.validate() &&
         _formKey14.currentState!.validate()) {*/
-      _formKey.currentState!.save();
+    _formKey.currentState!.save();
 
-      context
-          .read<AddPacienteBloc>()
-          .add(SubmitExamenFisico());
+    context.read<AddPacienteBloc>().add(SubmitExamenFisico());
     //}
   }
 
@@ -64,15 +65,13 @@ class ExamenFisicoPage extends StatelessWidget {
         title: const Text('Examen Físico'),
       ),
       body: BlocConsumer<AddPacienteBloc, AddPacienteState>(
-        listenWhen: (previous, current) => previous.isSuccessExamenFisico != current.isSuccessExamenFisico
-            || previous.errorMessage != current.errorMessage,
+        listenWhen: (previous, current) =>
+            previous.isSuccessExamenFisico != current.isSuccessExamenFisico ||
+            previous.errorMessage != current.errorMessage,
         listener: (context, state) {
           safePrint(state.isSuccessExamenFisico);
           if (state.isSuccessExamenFisico) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => GeneticaPage()),
-            );
+            context.pushReplacement(Routes.addGenetica);
           } else if (state.errorMessage != null) {
             // Mostrar mensaje de error
             ScaffoldMessenger.of(context).showSnackBar(
@@ -80,7 +79,8 @@ class ExamenFisicoPage extends StatelessWidget {
             );
           }
         },
-        buildWhen: (previous, current) => previous.examenFisicoModel != current.examenFisicoModel ||
+        buildWhen: (previous, current) =>
+            previous.examenFisicoModel != current.examenFisicoModel ||
             current.currentStepExamenFisico != previous.currentStepExamenFisico,
         builder: (context, state) {
           return Padding(
@@ -341,50 +341,52 @@ class ExamenFisicoPage extends StatelessWidget {
                                     tejidoCelularSubcutaneo: value),
                               ));
                         }),
-                        _buildRadioGroup('Facies',
-                            state.examenFisicoModel?.facies, (value) {
-                              var examenFisico = state.examenFisicoModel ??
-                                  ExamenFisicoModel(id: 0);
-                              context
-                                  .read<AddPacienteBloc>()
-                                  .add(UpdateExamenFisico(
-                                examenFisicoModel: examenFisico.copyWith(
-                                    facies: value),
-                              ));
-                            }),
                         _buildRadioGroup(
-                            'Piel', state.examenFisicoModel?.piel, (value) {
+                            'Facies', state.examenFisicoModel?.facies, (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
                           context
                               .read<AddPacienteBloc>()
                               .add(UpdateExamenFisico(
-                            examenFisicoModel: examenFisico.copyWith(
-                                piel: value),
-                          ));
+                                examenFisicoModel:
+                                    examenFisico.copyWith(facies: value),
+                              ));
                         }),
-                        _buildRadioGroup('Mucosas',
-                            state.examenFisicoModel?.mucosas, (value) {
-                              var examenFisico = state.examenFisicoModel ??
-                                  ExamenFisicoModel(id: 0);
-                              context
-                                  .read<AddPacienteBloc>()
-                                  .add(UpdateExamenFisico(
-                                examenFisicoModel: examenFisico.copyWith(
-                                    mucosas: value),
+                        _buildRadioGroup('Piel', state.examenFisicoModel?.piel,
+                            (value) {
+                          var examenFisico = state.examenFisicoModel ??
+                              ExamenFisicoModel(id: 0);
+                          context
+                              .read<AddPacienteBloc>()
+                              .add(UpdateExamenFisico(
+                                examenFisicoModel:
+                                    examenFisico.copyWith(piel: value),
                               ));
-                            }),
-                        _buildRadioGroup('Faneras',
-                            state.examenFisicoModel?.faneras, (value) {
-                              var examenFisico = state.examenFisicoModel ??
-                                  ExamenFisicoModel(id: 0);
-                              context
-                                  .read<AddPacienteBloc>()
-                                  .add(UpdateExamenFisico(
-                                examenFisicoModel: examenFisico.copyWith(
-                                    faneras: value),
+                        }),
+                        _buildRadioGroup(
+                            'Mucosas', state.examenFisicoModel?.mucosas,
+                            (value) {
+                          var examenFisico = state.examenFisicoModel ??
+                              ExamenFisicoModel(id: 0);
+                          context
+                              .read<AddPacienteBloc>()
+                              .add(UpdateExamenFisico(
+                                examenFisicoModel:
+                                    examenFisico.copyWith(mucosas: value),
                               ));
-                            }),
+                        }),
+                        _buildRadioGroup(
+                            'Faneras', state.examenFisicoModel?.faneras,
+                            (value) {
+                          var examenFisico = state.examenFisicoModel ??
+                              ExamenFisicoModel(id: 0);
+                          context
+                              .read<AddPacienteBloc>()
+                              .add(UpdateExamenFisico(
+                                examenFisicoModel:
+                                    examenFisico.copyWith(faneras: value),
+                              ));
+                        }),
                         TextFormField(
                           initialValue:
                               state.examenFisicoModel?.gObservacions ?? '',

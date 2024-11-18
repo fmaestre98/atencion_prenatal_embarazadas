@@ -1,13 +1,16 @@
 import 'dart:math';
 
 import 'package:atencion_prenatal_embarazadas/core/utils.dart';
+import 'package:atencion_prenatal_embarazadas/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../bloc/add/add_bloc.dart';
 import '../../bloc/add/add_event.dart';
 import '../../bloc/add/add_state.dart';
 import '../../models/personal_data_model.dart';
+import '../../router/routes.dart';
 import 'interrogatorios_page.dart';
 
 class DatosPersonalesPage extends StatelessWidget {
@@ -103,7 +106,6 @@ class DatosPersonalesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    safePrint("called build ddddddddd");
     return Scaffold(
       appBar: AppBar(
         title: const Text('Datos Personales'),
@@ -113,16 +115,9 @@ class DatosPersonalesPage extends StatelessWidget {
             previous.isSuccess != current.isSuccess ||
             previous.errorMessage != current.errorMessage,
         listener: (context, state) {
-          safePrint("in listenner KKKKKKKKKKKKKKKKK");
-          safePrint(state);
           if (state.isSuccess) {
-            safePrint(
-                "Hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
             // Navegar a la página de Interrogatorio cuando el estado sea exitoso
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => InterrogatorioPage()),
-            );
+            context.pushReplacement(Routes.routeAddInterrogatorio);
           } else if (state.errorMessage != null) {
             // Mostrar mensaje de error
             ScaffoldMessenger.of(context).showSnackBar(
@@ -142,7 +137,6 @@ class DatosPersonalesPage extends StatelessWidget {
                 previous.antecedentesPatologicosPersonales != current.antecedentesPatologicosPersonales ||
         previous.embarazoList != current.embarazoList,
         builder: (context, state) {
-          safePrint("called builder datos personales");
           return Padding(
             padding: const EdgeInsets.all(16.0),
             child: Stepper(
@@ -150,7 +144,6 @@ class DatosPersonalesPage extends StatelessWidget {
               currentStep: state.currentStepDatosPersonales,
               onStepContinue: () {
                 bool update = false;
-                safePrint(state.currentStepDatosPersonales);
                 if (state.currentStepDatosPersonales < 8) {
                   if (state.currentStepDatosPersonales == 0) {
                     if (_formKey.currentState!.validate()) {
