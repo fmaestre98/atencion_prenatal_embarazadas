@@ -1,5 +1,4 @@
 import 'package:atencion_prenatal_embarazadas/router/router.dart';
-import 'package:atencion_prenatal_embarazadas/screens/persistent_bottom_nav_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

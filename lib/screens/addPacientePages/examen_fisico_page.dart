@@ -26,6 +26,7 @@ class ExamenFisicoPage extends StatelessWidget {
   final _formKey12 = GlobalKey<FormState>();
   final _formKey13 = GlobalKey<FormState>();
   final _formKey14 = GlobalKey<FormState>();
+  final ScrollController _scrollController = ScrollController();
 
   // Controladores de texto
   final TextEditingController _examenFisicoGeneralController =
@@ -69,9 +70,8 @@ class ExamenFisicoPage extends StatelessWidget {
             previous.isSuccessExamenFisico != current.isSuccessExamenFisico ||
             previous.errorMessage != current.errorMessage,
         listener: (context, state) {
-          safePrint(state.isSuccessExamenFisico);
           if (state.isSuccessExamenFisico) {
-            context.pushReplacement(Routes.addGenetica);
+            context.pushReplacement(Routes.routeAddGenetica);
           } else if (state.errorMessage != null) {
             // Mostrar mensaje de error
             ScaffoldMessenger.of(context).showSnackBar(
@@ -86,13 +86,88 @@ class ExamenFisicoPage extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.all(16.0),
             child: Stepper(
+              controller: _scrollController,
               type: StepperType.vertical,
               currentStep: state.currentStepExamenFisico,
               onStepContinue: () {
                 if (state.currentStepExamenFisico < 14) {
-                  context.read<AddPacienteBloc>().add(
-                      UpdateCurrentStepExamenFisico(
-                          step: state.currentStepExamenFisico + 1));
+                  bool update = false;
+                  if (state.currentStepExamenFisico == 0) {
+                    if (_formKey.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey, _scrollController);
+                  } else if (state.currentStepExamenFisico == 1) {
+                    if (_formKey2.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey2, _scrollController);
+                  } else if (state.currentStepExamenFisico == 2) {
+                    if (_formKey3.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey3, _scrollController);
+                  } else if (state.currentStepExamenFisico == 3) {
+                    if (_formKey4.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey4, _scrollController);
+                  } else if (state.currentStepExamenFisico == 4) {
+                    if (_formKey5.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey5, _scrollController);
+                  } else if (state.currentStepExamenFisico == 5) {
+                    if (_formKey6.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey6, _scrollController);
+                  } else if (state.currentStepExamenFisico == 6) {
+                    if (_formKey7.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey7, _scrollController);
+                  } else if (state.currentStepExamenFisico == 7) {
+                    if (_formKey8.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey8, _scrollController);
+                  } else if (state.currentStepExamenFisico == 8) {
+                    if (_formKey9.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey9, _scrollController);
+                  } else if (state.currentStepExamenFisico == 9) {
+                    if (_formKey10.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey10, _scrollController);
+                  } else if (state.currentStepExamenFisico == 10) {
+                    if (_formKey11.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey11, _scrollController);
+                  } else if (state.currentStepExamenFisico == 11) {
+                    if (_formKey12.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey12, _scrollController);
+                  } else if (state.currentStepExamenFisico == 12) {
+                    if (_formKey13.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey13, _scrollController);
+                  } else if (state.currentStepExamenFisico == 13) {
+                    if (_formKey14.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey14, _scrollController);
+                  }
+                  if(update){
+                    context.read<AddPacienteBloc>().add(
+                        UpdateCurrentStepExamenFisico(
+                            step: state.currentStepExamenFisico + 1));
+                  }
                 } else {
                   _submitExamenFisico(context);
                 }
@@ -115,6 +190,7 @@ class ExamenFisicoPage extends StatelessWidget {
                         TextFormField(
                           initialValue:
                               state.examenFisicoModel?.semanasDeGestacion ?? '',
+                          keyboardType: TextInputType.number,
                           onChanged: (value) {
                             var examenFisico = state.examenFisicoModel ??
                                 ExamenFisicoModel(id: 0);
@@ -133,6 +209,7 @@ class ExamenFisicoPage extends StatelessWidget {
                         ),
                         TextFormField(
                           initialValue: state.examenFisicoModel?.peso ?? '',
+                          keyboardType: TextInputType.number,
                           onChanged: (value) {
                             var examenFisico = state.examenFisicoModel ??
                                 ExamenFisicoModel(id: 0);
@@ -151,6 +228,7 @@ class ExamenFisicoPage extends StatelessWidget {
                         TextFormField(
                           initialValue:
                               state.examenFisicoModel?.alturaUterina ?? '',
+                          keyboardType: TextInputType.number,
                           onChanged: (value) {
                             var examenFisico = state.examenFisicoModel ??
                                 ExamenFisicoModel(id: 0);
@@ -171,6 +249,7 @@ class ExamenFisicoPage extends StatelessWidget {
                           initialValue: state.examenFisicoModel
                                   ?.circunsferenciaAbdominal ??
                               '',
+                          keyboardType: TextInputType.number,
                           onChanged: (value) {
                             var examenFisico = state.examenFisicoModel ??
                                 ExamenFisicoModel(id: 0);
@@ -187,46 +266,52 @@ class ExamenFisicoPage extends StatelessWidget {
                               ? 'Por favor ingresa la circunferencia abdominal'
                               : null,
                         ),
-                        TextFormField(
-                          initialValue:
-                              state.examenFisicoModel?.presentacion ?? '',
-                          onChanged: (value) {
+                        DropdownButtonFormField<String>(
+                          value: state.examenFisicoModel?.presentacion ?? "Cefálico",
+                          decoration: const InputDecoration(labelText: 'Presentación'),
+                          items: ['Cefálico', 'Pelviano', 'Transverso']
+                              .map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          onChanged: (newValue) {
                             var examenFisico = state.examenFisicoModel ??
                                 ExamenFisicoModel(id: 0);
                             context
                                 .read<AddPacienteBloc>()
                                 .add(UpdateExamenFisico(
-                                  examenFisicoModel: examenFisico.copyWith(
-                                      presentacion: value),
-                                ));
+                              examenFisicoModel: examenFisico.copyWith(
+                                  presentacion: newValue),
+                            ));
                           },
-                          decoration:
-                              const InputDecoration(labelText: 'Presentación'),
-                          validator: (value) => value == null || value.isEmpty
-                              ? 'Por favor ingresa la presentación'
-                              : null,
                         ),
-                        TextFormField(
-                          initialValue: state.examenFisicoModel?.posicion ?? '',
-                          onChanged: (value) {
+                        DropdownButtonFormField<String>(
+                          value: state.examenFisicoModel?.posicion ?? "Dorso izquierdo",
+                          decoration: const InputDecoration(labelText: 'Posición'),
+                          items: ['Dorso izquierdo', 'Dorso derecho']
+                              .map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          onChanged: (newValue) {
                             var examenFisico = state.examenFisicoModel ??
                                 ExamenFisicoModel(id: 0);
                             context
                                 .read<AddPacienteBloc>()
                                 .add(UpdateExamenFisico(
-                                  examenFisicoModel:
-                                      examenFisico.copyWith(posicion: value),
-                                ));
+                              examenFisicoModel: examenFisico.copyWith(
+                                  posicion: newValue),
+                            ));
                           },
-                          decoration:
-                              const InputDecoration(labelText: 'Posición'),
-                          validator: (value) => value == null || value.isEmpty
-                              ? 'Por favor ingresa la posición'
-                              : null,
                         ),
                         TextFormField(
                           initialValue:
                               state.examenFisicoModel?.focoFetal ?? '',
+                          keyboardType: TextInputType.number,
                           onChanged: (value) {
                             var examenFisico = state.examenFisicoModel ??
                                 ExamenFisicoModel(id: 0);
@@ -243,43 +328,47 @@ class ExamenFisicoPage extends StatelessWidget {
                               ? 'Por favor ingresa el foco fetal'
                               : null,
                         ),
-                        TextFormField(
-                          initialValue:
-                              state.examenFisicoModel?.movimientoFetal ?? '',
-                          onChanged: (value) {
+                        DropdownButtonFormField<String>(
+                          value: state.examenFisicoModel?.movimientoFetal ?? "Presente",
+                          decoration: const InputDecoration(labelText: 'Movimiento Fetal'),
+                          items: ['Presente', 'Ausente', 'Disminuido']
+                              .map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          onChanged: (newValue) {
                             var examenFisico = state.examenFisicoModel ??
                                 ExamenFisicoModel(id: 0);
                             context
                                 .read<AddPacienteBloc>()
                                 .add(UpdateExamenFisico(
-                                  examenFisicoModel: examenFisico.copyWith(
-                                      movimientoFetal: value),
-                                ));
+                              examenFisicoModel: examenFisico.copyWith(
+                                  movimientoFetal: newValue),
+                            ));
                           },
-                          decoration: const InputDecoration(
-                              labelText: 'Movimiento Fetal'),
-                          validator: (value) => value == null || value.isEmpty
-                              ? 'Por favor ingresa el movimiento fetal'
-                              : null,
                         ),
-                        TextFormField(
-                          initialValue:
-                              state.examenFisicoModel?.tonoUterino ?? '',
-                          onChanged: (value) {
+                        DropdownButtonFormField<String>(
+                          value: state.examenFisicoModel?.tonoUterino ?? "Normal",
+                          decoration: const InputDecoration(labelText: 'Tono Uterino'),
+                          items: ['Normal', 'Aumentado']
+                              .map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          onChanged: (newValue) {
                             var examenFisico = state.examenFisicoModel ??
                                 ExamenFisicoModel(id: 0);
                             context
                                 .read<AddPacienteBloc>()
                                 .add(UpdateExamenFisico(
-                                  examenFisicoModel:
-                                      examenFisico.copyWith(tonoUterino: value),
-                                ));
+                              examenFisicoModel: examenFisico.copyWith(
+                                  tonoUterino: newValue),
+                            ));
                           },
-                          decoration:
-                              const InputDecoration(labelText: 'Tono Uterino'),
-                          validator: (value) => value == null || value.isEmpty
-                              ? 'Por favor ingresa el tono uterino'
-                              : null,
                         ),
                         TextFormField(
                           initialValue: state.examenFisicoModel?.edemas ?? '',

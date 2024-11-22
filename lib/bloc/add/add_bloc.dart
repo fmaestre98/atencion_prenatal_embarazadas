@@ -82,14 +82,20 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
           pacienteLoaded: true,
         ));
        }
+      safePrint(state.paciente?.noIdentidad);
+      safePrint(state.antecedentesObstetricos?.embarazos);
+      safePrint(state.fetos1erTrimestre);
+      safePrint(state.fetosSeguimiento);
     }
   }
 
 
   void _clearPacienteData(
       ClearPacienteData event, Emitter<AddPacienteState> emit) {
-    safePrint("called _loadPacienteData");
+        safePrint("called _clearPacienteData");
         emit(const AddPacienteState());
+        safePrint("PPPPPPPPPPPPPPPPPPPPPPPPPP");
+        safePrint(state.paciente?.noIdentidad);
   }
 
   void _onUpdatePacienteLoaded(
@@ -139,6 +145,7 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
 
   void _onUpdateInterconsultas(
       UpdateInterconsultas event, Emitter<AddPacienteState> emit) {
+    safePrint("_onUpdateInterconsultas");
     emit(state.copyWith(interconsultasModel: event.model));
   }
 
@@ -242,7 +249,6 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
       if (paciente != null) {
         paciente.fechaDeRegistro ??= DateTime.now();
         paciente.embarazoActual.target = state.embarazoActual;
-        safePrint(state.embarazoActual);
         paciente.interrogatorio.target = state.interrogatorio;
         paciente.signosVitales.target = state.signosVitales;
         paciente.examenFisico.target = state.examenFisicoModel;
@@ -263,7 +269,6 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
         paciente.antecedentesGinecologicos.target =
             state.antecedentesGinecologicos;
         paciente.antecedentesObstetricos.target = state.antecedentesObstetricos;
-        safePrint(paciente.toString());
         _objectBox.addPaciente(paciente);
         if (state.embarazoActual != null) {
           _objectBox.addEmbarazoActual(state.embarazoActual!);
@@ -272,11 +277,14 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
           _objectBox.addAntecedentesPatologicosPersonales(
               state.antecedentesPatologicosPersonales!);
         }
+        safePrint("if (state.antecedentesObstetricos != null) {");
         if (state.antecedentesObstetricos != null) {
+          safePrint("inside if (state.antecedentesObstetricos != null) {");
           AntecedentesObstetricos antecedentesObstetricos = state.antecedentesObstetricos!;
           antecedentesObstetricos.embarazos.removeWhere((e)=>true);
           antecedentesObstetricos.embarazos.addAll(state.embarazoList ?? []);
           List<Embarazo> embarazoList = state.embarazoList ?? [];
+          safePrint(embarazoList);
           embarazoList = embarazoList.map((e){
             e.antecedente.target = state.antecedentesObstetricos;
             return e;
@@ -304,6 +312,10 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
           _objectBox.addLaboratorioMicrobiologiaModel(
               state.laboratorioMicrobiologiaModel!);
         }
+        if(state.interconsultasModel != null){
+          _objectBox.addInterconsultasModel(state.interconsultasModel!);
+        }
+
 
         // Si hay interrogatorio, asócialo con el Paciente this dont make sense
         /* if (state.interrogatorio != null) {
@@ -373,9 +385,6 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
   void _onAddFetoUltrasonido1erTrimestre(
       AddFetoUltrasonido1erTrimestre event, Emitter<AddPacienteState> emit) {
     GeneticaModel geneticaModel = state.geneticaModel ?? GeneticaModel();
-    safePrint(
-        "_onAddFetoUltrasonido1erTrimestre _onAddFetoUltrasonido1erTrimestre");
-      safePrint("_onAddFetoUltrasonido1erTrimestre ${event.feto}");
       List<FetoUltrasonido1erTrimestre> list =
           List.from(state.fetos1erTrimestre ?? []);
       list.add(event.feto);

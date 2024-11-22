@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:atencion_prenatal_embarazadas/core/utils.dart';
-import 'package:atencion_prenatal_embarazadas/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -11,7 +10,6 @@ import '../../bloc/add/add_event.dart';
 import '../../bloc/add/add_state.dart';
 import '../../models/personal_data_model.dart';
 import '../../router/routes.dart';
-import 'interrogatorios_page.dart';
 
 class DatosPersonalesPage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -22,75 +20,9 @@ class DatosPersonalesPage extends StatelessWidget {
   final _formKey6 = GlobalKey<FormState>();
   final _formKey7 = GlobalKey<FormState>();
   final _formKey8 = GlobalKey<FormState>();
+  final ScrollController _scrollController = ScrollController();
 
-  DatosPersonalesPage({Key? key}) : super(key: key);
-
-  void _selectDateTime(BuildContext context, AddPacienteState state) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: DateTime(1990),
-      firstDate: DateTime(1900),
-      lastDate: DateTime.now(),
-    );
-    if (picked != null) {
-      // Actualiza la fecha de nacimiento
-      print("my-logs $picked");
-      var paciente = state.paciente ?? Paciente(id: 0);
-      context.read<AddPacienteBloc>().add(UpdateDatosPersonales(
-            paciente: paciente.copyWith(fechaNacimiento: picked),
-          ));
-    }
-  }
-
-  void _selectDateTime1(
-      BuildContext context, Null Function(dynamic value) onChange) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: DateTime(1990),
-      firstDate: DateTime(1900),
-      lastDate: DateTime.now(),
-    );
-    if (picked != null) {
-      // Actualiza la fecha de nacimiento
-      print("my-logs $picked");
-      onChange(picked);
-    }
-  }
-
-  void _selectDateTimeUltimaMenstruacion(
-      BuildContext context, AddPacienteState state) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: DateTime(1990),
-      firstDate: DateTime(1900),
-      lastDate: DateTime.now(),
-    );
-    if (picked != null) {
-      // Actualiza la fecha de nacimiento
-      print("my-logs $picked");
-      var embarazo = state.embarazoActual ?? EmbarazoActual(id: 0);
-      context.read<AddPacienteBloc>().add(UpdateEmbarazoActual(
-            embarazoActual: embarazo.copyWith(fechaUltimaMenstruacion: picked),
-          ));
-    }
-  }
-
-  void _selectDateTimePartoEstimado(
-      BuildContext context, AddPacienteState state) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: DateTime(1990),
-      firstDate: DateTime(1900),
-      lastDate: DateTime.now(),
-    );
-    if (picked != null) {
-      // Actualiza la fecha de nacimiento
-      var embarazo = state.embarazoActual ?? EmbarazoActual(id: 0);
-      context.read<AddPacienteBloc>().add(UpdateEmbarazoActual(
-            embarazoActual: embarazo.copyWith(fechaPartoEstimado: picked),
-          ));
-    }
-  }
+  DatosPersonalesPage({Key? key}) : super(key: key ?? const ValueKey<String>('DatosPersonalesPage'));
 
   void _submitDatosPersonales(BuildContext context) {
     if (_formKey.currentState!.validate() &&
@@ -131,15 +63,20 @@ class DatosPersonalesPage extends StatelessWidget {
                 previous.currentStepDatosPersonales ||
             previous.embarazoActual != current.embarazoActual ||
             previous.embarazoActual != current.embarazoActual ||
-               previous.antecedentesObstetricos != current.antecedentesObstetricos ||
-            previous.antecedentesGinecologicos != current.antecedentesGinecologicos ||
-                previous.antecedentesGinecologicos != current.antecedentesGinecologicos ||
-                previous.antecedentesPatologicosPersonales != current.antecedentesPatologicosPersonales ||
-        previous.embarazoList != current.embarazoList,
+            previous.antecedentesObstetricos !=
+                current.antecedentesObstetricos ||
+            previous.antecedentesGinecologicos !=
+                current.antecedentesGinecologicos ||
+            previous.antecedentesGinecologicos !=
+                current.antecedentesGinecologicos ||
+            previous.antecedentesPatologicosPersonales !=
+                current.antecedentesPatologicosPersonales ||
+            previous.embarazoList != current.embarazoList,
         builder: (context, state) {
           return Padding(
             padding: const EdgeInsets.all(16.0),
             child: Stepper(
+              controller: _scrollController,
               type: StepperType.vertical,
               currentStep: state.currentStepDatosPersonales,
               onStepContinue: () {
@@ -148,30 +85,37 @@ class DatosPersonalesPage extends StatelessWidget {
                   if (state.currentStepDatosPersonales == 0) {
                     if (_formKey.currentState!.validate()) {
                       update = true;
+                      scrollToForm(_formKey, _scrollController);
                     }
                   } else if (state.currentStepDatosPersonales == 1) {
                     if (_formKey2.currentState!.validate()) {
                       update = true;
+                      scrollToForm(_formKey2, _scrollController);
                     }
                   } else if (state.currentStepDatosPersonales == 2) {
                     if (_formKey3.currentState!.validate()) {
                       update = true;
+                      scrollToForm(_formKey3, _scrollController);
                     }
                   } else if (state.currentStepDatosPersonales == 3) {
                     if (_formKey4.currentState!.validate()) {
                       update = true;
+                      scrollToForm(_formKey4, _scrollController);
                     }
                   } else if (state.currentStepDatosPersonales == 4) {
                     if (_formKey5.currentState!.validate()) {
                       update = true;
+                      scrollToForm(_formKey5, _scrollController);
                     }
                   } else if (state.currentStepDatosPersonales == 5) {
                     if (_formKey6.currentState!.validate()) {
                       update = true;
+                      scrollToForm(_formKey6, _scrollController);
                     }
                   } else if (state.currentStepDatosPersonales == 6) {
                     if (_formKey7.currentState!.validate()) {
                       update = true;
+                      scrollToForm(_formKey7, _scrollController);
                     }
                   } else if (state.currentStepDatosPersonales == 7) {
                     update = true;
@@ -304,7 +248,16 @@ class DatosPersonalesPage extends StatelessWidget {
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () => _selectDateTime(context, state),
+                              onPressed: () => selectDateTime(context, (value) {
+                                var paciente =
+                                    state.paciente ?? Paciente(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateDatosPersonales(
+                                      paciente: paciente.copyWith(
+                                          fechaNacimiento: value),
+                                    ));
+                              }),
                               child: const Text('Seleccionar'),
                             ),
                           ],
@@ -628,9 +581,16 @@ class DatosPersonalesPage extends StatelessWidget {
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () =>
-                                  _selectDateTimeUltimaMenstruacion(
-                                      context, state),
+                              onPressed: () => selectDateTime(context, (value) {
+                                var embarazo = state.embarazoActual ??
+                                    EmbarazoActual(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateEmbarazoActual(
+                                      embarazoActual: embarazo.copyWith(
+                                          fechaUltimaMenstruacion: value),
+                                    ));
+                              }),
                               child: const Text('Seleccionar'),
                             ),
                           ],
@@ -714,7 +674,12 @@ class DatosPersonalesPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTimePartoEstimado(context, state),
+                                  selectDateTime(context, (value){
+                                    var embarazo = state.embarazoActual ?? EmbarazoActual(id: 0);
+                                    context.read<AddPacienteBloc>().add(UpdateEmbarazoActual(
+                                      embarazoActual: embarazo.copyWith(fechaPartoEstimado: value),
+                                    ));
+                                  }),
                               child: const Text('Seleccionar'),
                             ),
                           ],
@@ -876,7 +841,9 @@ class DatosPersonalesPage extends StatelessWidget {
                     key: _formKey5,
                     child: Column(
                       children: <Widget>[
-                        const SizedBox(height: 10,),
+                        const SizedBox(
+                          height: 10,
+                        ),
                         TextFormField(
                           initialValue: state.antecedentesPatologicosPersonales
                                   ?.enfermedadesGenerales ??
@@ -1308,7 +1275,8 @@ class DatosPersonalesPage extends StatelessWidget {
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Por favor ingresa la edad';
-                            } else if(int.tryParse(value)! < 17 || int.tryParse(value)! > 18){
+                            } else if (int.tryParse(value)! < 7 ||
+                                int.tryParse(value)! > 18) {
                               return 'Entre 7 y 18 años';
                             }
                             return null;
@@ -1316,7 +1284,6 @@ class DatosPersonalesPage extends StatelessWidget {
                           onChanged: (value) {
                             var antecedente = state.antecedentesGinecologicos ??
                                 AntecedentesGinecologicos(id: 0);
-                            safePrint(antecedente.toString());
                             context
                                 .read<AddPacienteBloc>()
                                 .add(UpdateAntecedentesGinecologicos(
@@ -1338,7 +1305,6 @@ class DatosPersonalesPage extends StatelessWidget {
                           onChanged: (value) {
                             var antecedente = state.antecedentesGinecologicos ??
                                 AntecedentesGinecologicos(id: 0);
-                            safePrint(antecedente.toString());
                             context
                                 .read<AddPacienteBloc>()
                                 .add(UpdateAntecedentesGinecologicos(
@@ -1358,7 +1324,8 @@ class DatosPersonalesPage extends StatelessWidget {
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Por favor ingresa la edad';
-                            } else if(int.tryParse(value)! < 40 || int.tryParse(value)! > 55){
+                            } else if (int.tryParse(value)! < 40 ||
+                                int.tryParse(value)! > 55) {
                               return 'Entre 40 y 55 años';
                             }
                             return null;
@@ -1366,7 +1333,6 @@ class DatosPersonalesPage extends StatelessWidget {
                           onChanged: (value) {
                             var antecedente = state.antecedentesGinecologicos ??
                                 AntecedentesGinecologicos(id: 0);
-                            safePrint(antecedente.toString());
                             context
                                 .read<AddPacienteBloc>()
                                 .add(UpdateAntecedentesGinecologicos(
@@ -1459,8 +1425,7 @@ class DatosPersonalesPage extends StatelessWidget {
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () =>
-                                  _selectDateTime1(context, (value) {
+                              onPressed: () => selectDateTime(context, (value) {
                                 var antecedente =
                                     state.antecedentesGinecologicos ??
                                         AntecedentesGinecologicos(id: 0);
@@ -1555,8 +1520,7 @@ class DatosPersonalesPage extends StatelessWidget {
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () =>
-                                  _selectDateTime1(context, (value) {
+                              onPressed: () => selectDateTime(context, (value) {
                                 var antecedente =
                                     state.antecedentesGinecologicos ??
                                         AntecedentesGinecologicos(id: 0);
@@ -1608,8 +1572,7 @@ class DatosPersonalesPage extends StatelessWidget {
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () =>
-                                  _selectDateTime1(context, (value) {
+                              onPressed: () => selectDateTime(context, (value) {
                                 var antecedente =
                                     state.antecedentesGinecologicos ??
                                         AntecedentesGinecologicos(id: 0);
@@ -1705,8 +1668,7 @@ class DatosPersonalesPage extends StatelessWidget {
                         ...List.generate(
                           state.embarazoList?.length ?? 0,
                           (index) {
-                            final embarazo =
-                                state.embarazoList![index];
+                            final embarazo = state.embarazoList![index];
                             return Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -1747,7 +1709,8 @@ class DatosPersonalesPage extends StatelessWidget {
                                   validator: (value) {
                                     if (value == null || value.isEmpty) {
                                       return 'Por favor ingresa las semanas de gestación';
-                                    } else if(int.tryParse(value)! < 5 || int.tryParse(value)! > 44){
+                                    } else if (int.tryParse(value)! < 5 ||
+                                        int.tryParse(value)! > 44) {
                                       return 'Entre 5 y 44 semanas';
                                     }
                                     return null;
@@ -1793,7 +1756,7 @@ class DatosPersonalesPage extends StatelessWidget {
                                     ),
                                     ElevatedButton(
                                       onPressed: () =>
-                                          _selectDateTime1(context, (value) {
+                                          selectDateTime(context, (value) {
                                         var updatedEmbarazo =
                                             embarazo.copyWith(fecha: value);
                                         context
@@ -1844,9 +1807,12 @@ class DatosPersonalesPage extends StatelessWidget {
                   content: Form(
                       key: _formKey8,
                       child: Column(children: <Widget>[
-                        SizedBox(height: 10,),
+                        SizedBox(
+                          height: 10,
+                        ),
                         TextFormField(
-                          initialValue: state.paciente?.traumatismoAccidentes ?? '',
+                          initialValue:
+                              state.paciente?.traumatismoAccidentes ?? '',
                           decoration: const InputDecoration(
                             labelText: 'Datos de interés ',
                             border: OutlineInputBorder(),

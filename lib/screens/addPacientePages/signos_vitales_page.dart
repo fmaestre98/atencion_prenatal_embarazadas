@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import '../../bloc/add/add_bloc.dart';
 import '../../bloc/add/add_state.dart';
+import '../../core/utils.dart';
 import 'examen_fisico_page.dart';
 
 class SignosVitalesPage extends StatelessWidget {
@@ -17,10 +18,10 @@ class SignosVitalesPage extends StatelessWidget {
   final _formKey4 = GlobalKey<FormState>();
   final _formKey5 = GlobalKey<FormState>();
   final _formKey6 = GlobalKey<FormState>();
+  final ScrollController _scrollController = ScrollController();
 
-
-  SignosVitalesPage({Key? key}) : super(key: key);
-
+  SignosVitalesPage({Key? key})
+      : super(key: key ?? const ValueKey<String>('SignosVitalesPage'));
 
   void _submitSignosVitales(BuildContext context) {
     if (_formKey.currentState!.validate() &&
@@ -30,9 +31,7 @@ class SignosVitalesPage extends StatelessWidget {
         _formKey5.currentState!.validate() &&
         _formKey6.currentState!.validate()) {
       _formKey.currentState!.save();
-      context
-          .read<AddPacienteBloc>()
-          .add(SubmitSignosVitales());
+      context.read<AddPacienteBloc>().add(SubmitSignosVitales());
     }
   }
 
@@ -40,11 +39,12 @@ class SignosVitalesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Signos Vitales/Datos Antropométricos'),
+        title: const Text('Signos Vitales/Datos Antropométricos'),
       ),
       body: BlocConsumer<AddPacienteBloc, AddPacienteState>(
-        listenWhen: (previous, current) => previous.isSuccessSignosVitales != current.isSuccessSignosVitales
-            || previous.errorMessage != current.errorMessage,
+        listenWhen: (previous, current) =>
+            previous.isSuccessSignosVitales != current.isSuccessSignosVitales ||
+            previous.errorMessage != current.errorMessage,
         listener: (context, state) {
           if (state.isSuccessSignosVitales) {
             context.pushReplacement(Routes.routeAddExamenFisico);
@@ -55,26 +55,65 @@ class SignosVitalesPage extends StatelessWidget {
             );
           }
         },
-        buildWhen: (previous, current) => previous.signosVitales != current.signosVitales ||
-            current.currentStepSignosVitales != previous.currentStepSignosVitales,
+        buildWhen: (previous, current) =>
+            previous.signosVitales != current.signosVitales ||
+            current.currentStepSignosVitales !=
+                previous.currentStepSignosVitales,
         builder: (context, state) {
           return Padding(
             padding: const EdgeInsets.all(16.0),
             child: Stepper(
+              controller: _scrollController,
               type: StepperType.vertical,
               currentStep: state.currentStepSignosVitales,
               onStepContinue: () {
                 if (state.currentStepSignosVitales < 6) {
-                  context.read<AddPacienteBloc>().add(UpdateCurrentStepSignosVitales(
-                      step: state.currentStepSignosVitales + 1));
+                  bool update = false;
+                  if (state.currentStepSignosVitales == 0) {
+                    if (_formKey.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey, _scrollController);
+                  } else if (state.currentStepSignosVitales == 1) {
+                    if (_formKey2.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey2, _scrollController);
+                  } else if (state.currentStepSignosVitales == 2) {
+                    if (_formKey3.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey3, _scrollController);
+                  } else if (state.currentStepSignosVitales == 3) {
+                    if (_formKey4.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey4, _scrollController);
+                  } else if (state.currentStepSignosVitales == 4) {
+                    if (_formKey5.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey5, _scrollController);
+                  } else if (state.currentStepSignosVitales == 5) {
+                    if (_formKey6.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey6, _scrollController);
+                  }
+                  if (update) {
+                    context.read<AddPacienteBloc>().add(
+                        UpdateCurrentStepSignosVitales(
+                            step: state.currentStepSignosVitales + 1));
+                  }
                 } else {
                   _submitSignosVitales(context);
                 }
               },
               onStepCancel: () {
                 if (state.currentStepSignosVitales > 0) {
-                  context.read<AddPacienteBloc>().add(UpdateCurrentStepSignosVitales(
-                      step: state.currentStepSignosVitales - 1));
+                  context.read<AddPacienteBloc>().add(
+                      UpdateCurrentStepSignosVitales(
+                          step: state.currentStepSignosVitales - 1));
                 }
               },
               steps: <Step>[
@@ -86,54 +125,53 @@ class SignosVitalesPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
-                          initialValue: state.signosVitales?.peso.toString() ?? '',
+                          initialValue:
+                              state.signosVitales?.peso.toString() ?? '',
                           keyboardType: const TextInputType.numberWithOptions(),
-                          onChanged: (value){
-                            var signosVitales =
-                                state.signosVitales ?? SignosVitalesModel(id: 0);
+                          onChanged: (value) {
+                            var signosVitales = state.signosVitales ??
+                                SignosVitalesModel(id: 0);
                             context
                                 .read<AddPacienteBloc>()
                                 .add(UpdateSignosVitales(
-                              signosVitalesModel: signosVitales.copyWith(
-                                  peso: double.tryParse(value)),
-                            ));
+                                  signosVitalesModel: signosVitales.copyWith(
+                                      peso: double.tryParse(value)),
+                                ));
                           },
-                          decoration:
-                          const InputDecoration(labelText: 'Peso'),
+                          decoration: const InputDecoration(labelText: 'Peso'),
                           validator: (value) => value == null || value.isEmpty
                               ? 'Por favor ingresa el peso'
                               : null,
                         ),
                         TextFormField(
                           initialValue: state.signosVitales?.talla ?? '',
-                          onChanged: (value){
-                            var signosVitales =
-                                state.signosVitales ?? SignosVitalesModel(id: 0);
-                            context
-                                .read<AddPacienteBloc>()
-                                .add(UpdateSignosVitales(
-                              signosVitalesModel: signosVitales.copyWith(
-                                  talla: value)),
-                            );
+                          onChanged: (value) {
+                            var signosVitales = state.signosVitales ??
+                                SignosVitalesModel(id: 0);
+                            context.read<AddPacienteBloc>().add(
+                                  UpdateSignosVitales(
+                                      signosVitalesModel:
+                                          signosVitales.copyWith(talla: value)),
+                                );
                           },
-                          decoration: const InputDecoration(
-                              labelText: 'Talla'),
+                          decoration: const InputDecoration(labelText: 'Talla'),
                           validator: (value) => value == null || value.isEmpty
                               ? 'Por favor ingresa la talla'
                               : null,
                         ),
                         TextFormField(
-                          initialValue: state.signosVitales?.percentilPeso ?? '',
-                          onChanged: (value){
-                            var signosVitales =
-                                state.signosVitales ?? SignosVitalesModel(id: 0);
-                            context
-                                .read<AddPacienteBloc>()
-                                .add(UpdateSignosVitales(
-                                signosVitalesModel: signosVitales.copyWith(
-                                    percentilPeso: value)),
-                            );
+                          initialValue:
+                              state.signosVitales?.percentilPeso ?? '',
+                          onChanged: (value) {
+                            var signosVitales = state.signosVitales ??
+                                SignosVitalesModel(id: 0);
+                            context.read<AddPacienteBloc>().add(
+                                  UpdateSignosVitales(
+                                      signosVitalesModel: signosVitales
+                                          .copyWith(percentilPeso: value)),
+                                );
                           },
+                          keyboardType: TextInputType.number,
                           decoration: const InputDecoration(
                               labelText: 'Percentil peso'),
                           validator: (value) => value == null || value.isEmpty
@@ -141,19 +179,19 @@ class SignosVitalesPage extends StatelessWidget {
                               : null,
                         ),
                         TextFormField(
-                          initialValue: state.signosVitales?.indiceMasaCorporal ?? '',
-                          onChanged: (value){
-                            var signosVitales =
-                                state.signosVitales ?? SignosVitalesModel(id: 0);
-                            context
-                                .read<AddPacienteBloc>()
-                                .add(UpdateSignosVitales(
-                                signosVitalesModel: signosVitales.copyWith(
-                                    indiceMasaCorporal: value)),
-                            );
+                          initialValue:
+                              state.signosVitales?.indiceMasaCorporal ?? '',
+                          onChanged: (value) {
+                            var signosVitales = state.signosVitales ??
+                                SignosVitalesModel(id: 0);
+                            context.read<AddPacienteBloc>().add(
+                                  UpdateSignosVitales(
+                                      signosVitalesModel: signosVitales
+                                          .copyWith(indiceMasaCorporal: value)),
+                                );
                           },
-                          decoration:
-                          const InputDecoration(labelText: 'Indice de masa corporal'),
+                          decoration: const InputDecoration(
+                              labelText: 'Indice de masa corporal'),
                           keyboardType: TextInputType.number,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
@@ -163,19 +201,20 @@ class SignosVitalesPage extends StatelessWidget {
                           },
                         ),
                         TextFormField(
-                          initialValue: state.signosVitales?.valorNutricional ?? '',
-                          onChanged: (value){
-                            var signosVitales =
-                                state.signosVitales ?? SignosVitalesModel(id: 0);
-                            context
-                                .read<AddPacienteBloc>()
-                                .add(UpdateSignosVitales(
-                                signosVitalesModel: signosVitales.copyWith(
-                                    valorNutricional: value)),
-                            );
+                          initialValue:
+                              state.signosVitales?.valorNutricional ?? '',
+                          onChanged: (value) {
+                            var signosVitales = state.signosVitales ??
+                                SignosVitalesModel(id: 0);
+                            context.read<AddPacienteBloc>().add(
+                                  UpdateSignosVitales(
+                                      signosVitalesModel: signosVitales
+                                          .copyWith(valorNutricional: value)),
+                                );
                           },
                           keyboardType: TextInputType.number,
-                          decoration: const InputDecoration(labelText: 'Valor nutricional'),
+                          decoration: const InputDecoration(
+                              labelText: 'Valor nutricional'),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Por favor ingresa el valor nutricional';
@@ -185,17 +224,21 @@ class SignosVitalesPage extends StatelessWidget {
                         ),
                         const SizedBox(height: 16),
                         TextFormField(
-                          initialValue: state.signosVitales?.circunsferenciaAbdominal.toString() ?? '',
+                          initialValue: state
+                                  .signosVitales?.circunsferenciaAbdominal
+                                  .toString() ??
+                              '',
                           keyboardType: TextInputType.number,
-                          onChanged: (value){
-                            var signosVitales =
-                                state.signosVitales ?? SignosVitalesModel(id: 0);
-                            context
-                                .read<AddPacienteBloc>()
-                                .add(UpdateSignosVitales(
-                                signosVitalesModel: signosVitales.copyWith(
-                                    circunsferenciaAbdominal: double.tryParse(value))),
-                            );
+                          onChanged: (value) {
+                            var signosVitales = state.signosVitales ??
+                                SignosVitalesModel(id: 0);
+                            context.read<AddPacienteBloc>().add(
+                                  UpdateSignosVitales(
+                                      signosVitalesModel:
+                                          signosVitales.copyWith(
+                                              circunsferenciaAbdominal:
+                                                  double.tryParse(value))),
+                                );
                           },
                           decoration: const InputDecoration(
                               labelText: 'Circunferencia abdominal'),
@@ -218,42 +261,62 @@ class SignosVitalesPage extends StatelessWidget {
                           initialValue: state.signosVitales?.sistolica ?? '',
                           keyboardType: TextInputType.number,
                           onChanged: (value) {
-                            var signosVitales = state.signosVitales ?? SignosVitalesModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateSignosVitales(
-                              signosVitalesModel: signosVitales.copyWith(sistolica: value),
-                            ));
+                            var signosVitales = state.signosVitales ??
+                                SignosVitalesModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateSignosVitales(
+                                  signosVitalesModel:
+                                      signosVitales.copyWith(sistolica: value),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Sistólica'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa la presión sistólica' : null,
+                          decoration:
+                              const InputDecoration(labelText: 'Sistólica'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa la presión sistólica'
+                              : null,
                         ),
-
                         TextFormField(
                           initialValue: state.signosVitales?.diastolica ?? '',
                           onChanged: (value) {
-                            var signosVitales = state.signosVitales ?? SignosVitalesModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateSignosVitales(
-                              signosVitalesModel: signosVitales.copyWith(diastolica: value),
-                            ));
+                            var signosVitales = state.signosVitales ??
+                                SignosVitalesModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateSignosVitales(
+                                  signosVitalesModel:
+                                      signosVitales.copyWith(diastolica: value),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Diastólica'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa la presión diastólica' : null,
+                          keyboardType: TextInputType.number,
+                          decoration:
+                              const InputDecoration(labelText: 'Diastólica'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa la presión diastólica'
+                              : null,
                         ),
-
                         TextFormField(
                           initialValue: state.signosVitales?.media ?? '',
+                          keyboardType: TextInputType.number,
                           onChanged: (value) {
-                            var signosVitales = state.signosVitales ?? SignosVitalesModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateSignosVitales(
-                              signosVitalesModel: signosVitales.copyWith(media: value),
-                            ));
+                            var signosVitales = state.signosVitales ??
+                                SignosVitalesModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateSignosVitales(
+                                  signosVitalesModel:
+                                      signosVitales.copyWith(media: value),
+                                ));
                           },
                           decoration: const InputDecoration(labelText: 'Media'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa la presión media' : null,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa la presión media'
+                              : null,
                         ),
                         DropdownButtonFormField<String>(
                           value: state.signosVitales?.postura ?? 'Sentado',
                           decoration:
-                          const InputDecoration(labelText: 'Postura'),
+                              const InputDecoration(labelText: 'Postura'),
                           items: ['Sentado', 'Acostado', 'De pie']
                               .map((String value) {
                             return DropdownMenuItem<String>(
@@ -261,25 +324,46 @@ class SignosVitalesPage extends StatelessWidget {
                               child: Text(value),
                             );
                           }).toList(),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa la postura' : null,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa la postura'
+                              : null,
                           onChanged: (value) {
-                            var signosVitales = state.signosVitales ?? SignosVitalesModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateSignosVitales(
-                              signosVitalesModel: signosVitales.copyWith(postura: value),
-                            ));
+                            var signosVitales = state.signosVitales ??
+                                SignosVitalesModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateSignosVitales(
+                                  signosVitalesModel:
+                                      signosVitales.copyWith(postura: value),
+                                ));
                           },
                         ),
-
-                        TextFormField(
-                          initialValue: state.signosVitales?.ubicacion ?? '',
-                          onChanged: (value) {
-                            var signosVitales = state.signosVitales ?? SignosVitalesModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateSignosVitales(
-                              signosVitalesModel: signosVitales.copyWith(ubicacion: value),
-                            ));
+                        DropdownButtonFormField<String>(
+                          value: state.signosVitales?.ubicacion ??
+                              "Brazo izquierdo",
+                          decoration:
+                              const InputDecoration(labelText: 'Ubicación'),
+                          items: [
+                            "Brazo izquierdo",
+                            "Brazo derecho",
+                            "Miembro inferior izquierdo",
+                            "Miembro inferior derecho"
+                          ].map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          onChanged: (newValue) {
+                            var signosVitales = state.signosVitales ??
+                                SignosVitalesModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateSignosVitales(
+                                  signosVitalesModel: signosVitales.copyWith(
+                                      ubicacion: newValue),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Ubicación'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa la ubicación' : null,
                         ),
                       ],
                     ),
@@ -294,38 +378,81 @@ class SignosVitalesPage extends StatelessWidget {
                       children: <Widget>[
                         TextFormField(
                           initialValue: state.signosVitales?.valor ?? '',
+                          keyboardType: TextInputType.number,
                           onChanged: (value) {
-                            var signosVitales = state.signosVitales ?? SignosVitalesModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateSignosVitales(
-                              signosVitalesModel: signosVitales.copyWith(valor: value),
-                            ));
+                            var signosVitales = state.signosVitales ??
+                                SignosVitalesModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateSignosVitales(
+                                  signosVitalesModel:
+                                      signosVitales.copyWith(valor: value),
+                                ));
                           },
                           decoration: const InputDecoration(labelText: 'Valor'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa el valor del pulso' : null,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el valor del pulso'
+                              : null,
                         ),
-
-                        TextFormField(
-                          initialValue: state.signosVitales?.caracteristicas ?? '',
-                          onChanged: (value) {
-                            var signosVitales = state.signosVitales ?? SignosVitalesModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateSignosVitales(
-                              signosVitalesModel: signosVitales.copyWith(caracteristicas: value),
-                            ));
+                        DropdownButtonFormField<String>(
+                          value:
+                              state.signosVitales?.caracteristicas ?? "Normal",
+                          decoration: const InputDecoration(
+                              labelText: 'Características'),
+                          items: [
+                            "Normal",
+                            "Pulso alternante",
+                            "Pulso de latido doble",
+                            "Pulso fuerte y saltón",
+                            "Pulso paradójico",
+                            "Pulso pequeño y débil"
+                          ].map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          onChanged: (newValue) {
+                            var signosVitales = state.signosVitales ??
+                                SignosVitalesModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateSignosVitales(
+                                  signosVitalesModel: signosVitales.copyWith(
+                                      caracteristicas: newValue),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Características'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa las características' : null,
                         ),
-
-                        TextFormField(
-                          initialValue: state.signosVitales?.pulsoUbicacion ?? '',
-                          onChanged: (value) {
-                            var signosVitales = state.signosVitales ?? SignosVitalesModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateSignosVitales(
-                              signosVitalesModel: signosVitales.copyWith(pulsoUbicacion: value),
-                            ));
+                        DropdownButtonFormField<String>(
+                          value: state.signosVitales?.pulsoUbicacion ??
+                              "Pulso carótida",
+                          decoration:
+                              const InputDecoration(labelText: 'Ubicación'),
+                          items: [
+                            "Pulso carótida",
+                            "Pulso femoral",
+                            "Pulso humeral",
+                            "Pulso pedio",
+                            "Pulso poplíteo",
+                            "Pulso radial",
+                            "Pulso temporal",
+                            "Pulso tibial"
+                          ].map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          onChanged: (newValue) {
+                            var signosVitales = state.signosVitales ??
+                                SignosVitalesModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateSignosVitales(
+                                  signosVitalesModel: signosVitales.copyWith(
+                                      pulsoUbicacion: newValue),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Ubicación'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa la ubicación' : null,
                         ),
                       ],
                     ),
@@ -338,28 +465,56 @@ class SignosVitalesPage extends StatelessWidget {
                     key: _formKey4,
                     child: Column(
                       children: <Widget>[
-                        TextFormField(
-                          initialValue: state.signosVitales?.frCarateristicas ?? '',
-                          onChanged: (value) {
-                            var signosVitales = state.signosVitales ?? SignosVitalesModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateSignosVitales(
-                              signosVitalesModel: signosVitales.copyWith(frCarateristicas: value),
-                            ));
+                        DropdownButtonFormField<String>(
+                          value:
+                              state.signosVitales?.frCarateristicas ?? "Apnea",
+                          decoration: const InputDecoration(
+                              labelText: 'Características'),
+                          items: [
+                            "Apnea",
+                            "Bradipnea",
+                            "Disnea",
+                            "Eupnea",
+                            "Hiperpnea",
+                            "Ortopnea",
+                            "R. Biot",
+                            "R. Cheyne-Stokes",
+                            "R. Kussmaul",
+                            "Taquipnea"
+                          ].map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          onChanged: (newValue) {
+                            var signosVitales = state.signosVitales ??
+                                SignosVitalesModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateSignosVitales(
+                                  signosVitalesModel: signosVitales.copyWith(
+                                      frCarateristicas: newValue),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Características'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa las características' : null,
                         ),
-
                         TextFormField(
                           initialValue: state.signosVitales?.frValor ?? '',
+                          keyboardType: TextInputType.number,
                           onChanged: (value) {
-                            var signosVitales = state.signosVitales ?? SignosVitalesModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateSignosVitales(
-                              signosVitalesModel: signosVitales.copyWith(frValor: value),
-                            ));
+                            var signosVitales = state.signosVitales ??
+                                SignosVitalesModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateSignosVitales(
+                                  signosVitalesModel:
+                                      signosVitales.copyWith(frValor: value),
+                                ));
                           },
                           decoration: const InputDecoration(labelText: 'Valor'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa el valor' : null,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el valor'
+                              : null,
                         ),
                       ],
                     ),
@@ -374,26 +529,49 @@ class SignosVitalesPage extends StatelessWidget {
                       children: <Widget>[
                         TextFormField(
                           initialValue: state.signosVitales?.temperatura ?? '',
+                          keyboardType: TextInputType.number,
                           onChanged: (value) {
-                            var signosVitales = state.signosVitales ?? SignosVitalesModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateSignosVitales(
-                              signosVitalesModel: signosVitales.copyWith(temperatura: value),
-                            ));
+                            var signosVitales = state.signosVitales ??
+                                SignosVitalesModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateSignosVitales(
+                                  signosVitalesModel: signosVitales.copyWith(
+                                      temperatura: value),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Temperatura'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa la temperatura' : null,
+                          decoration:
+                              const InputDecoration(labelText: 'Temperatura'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa la temperatura'
+                              : null,
                         ),
-
-                        TextFormField(
-                          initialValue: state.signosVitales?.localizacion ?? '',
-                          onChanged: (value) {
-                            var signosVitales = state.signosVitales ?? SignosVitalesModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateSignosVitales(
-                              signosVitalesModel: signosVitales.copyWith(localizacion: value),
-                            ));
+                        DropdownButtonFormField<String>(
+                          value: state.signosVitales?.localizacion ?? "Oral",
+                          decoration: const InputDecoration(
+                              labelText: 'Características'),
+                          items: [
+                            "Oral",
+                            "Axilar",
+                            "Rectal",
+                            "Dérmica",
+                            "Ótica"
+                          ].map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          onChanged: (newValue) {
+                            var signosVitales = state.signosVitales ??
+                                SignosVitalesModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateSignosVitales(
+                                  signosVitalesModel: signosVitales.copyWith(
+                                      localizacion: newValue),
+                                ));
                           },
-                          decoration: const InputDecoration(labelText: 'Localización'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa la localización' : null,
                         ),
                       ],
                     ),
@@ -408,14 +586,21 @@ class SignosVitalesPage extends StatelessWidget {
                       children: <Widget>[
                         TextFormField(
                           initialValue: state.signosVitales?.fcValor ?? '',
+                          keyboardType: TextInputType.number,
                           onChanged: (value) {
-                            var signosVitales = state.signosVitales ?? SignosVitalesModel(id: 0);
-                            context.read<AddPacienteBloc>().add(UpdateSignosVitales(
-                              signosVitalesModel: signosVitales.copyWith(fcValor: value),
-                            ));
+                            var signosVitales = state.signosVitales ??
+                                SignosVitalesModel(id: 0);
+                            context
+                                .read<AddPacienteBloc>()
+                                .add(UpdateSignosVitales(
+                                  signosVitalesModel:
+                                      signosVitales.copyWith(fcValor: value),
+                                ));
                           },
                           decoration: const InputDecoration(labelText: 'Valor'),
-                          validator: (value) => value == null || value.isEmpty ? 'Por favor ingresa el valor' : null,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el valor'
+                              : null,
                         ),
                       ],
                     ),

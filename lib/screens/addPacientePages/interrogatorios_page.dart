@@ -19,6 +19,7 @@ class InterrogatorioPage extends StatelessWidget {
   final _formKey5 = GlobalKey<FormState>();
   final _formKey6 = GlobalKey<FormState>();
   final _formKey7 = GlobalKey<FormState>();
+  final ScrollController _scrollController = ScrollController();
 
   // Agrega más controladores según tu modelo
 
@@ -34,8 +35,6 @@ class InterrogatorioPage extends StatelessWidget {
         _formKey7.currentState!.validate()) {
       // Enviar evento al BLoC
       context.read<AddPacienteBloc>().add(SubmitInterrogatorio());
-      safePrint(
-          "lkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
     }
   }
 
@@ -51,7 +50,6 @@ class InterrogatorioPage extends StatelessWidget {
                 current.isSuccessInterrogatorio ||
             previous.errorMessage != current.errorMessage,
         listener: (context, state) {
-          safePrint(state.interrogatorio.toString());
           if (state.isSuccessInterrogatorio) {
             context.pushReplacement(Routes.routeAddSignosVitales);
           } else if (state.errorMessage != null) {
@@ -66,44 +64,50 @@ class InterrogatorioPage extends StatelessWidget {
             current.currentStepInterrogatorio !=
                 previous.currentStepInterrogatorio,
         builder: (context, state) {
-          safePrint("called builder interrogatorio");
           return Padding(
             padding: const EdgeInsets.all(16.0),
             child: Stepper(
+              controller: _scrollController,
               type: StepperType.vertical,
               currentStep: state.currentStepInterrogatorio,
               onStepContinue: () {
-                safePrint(state.currentStepInterrogatorio);
                 bool update = false;
                 if (state.currentStepInterrogatorio < 7) {
                   if (state.currentStepInterrogatorio == 0) {
                     if (_formKey.currentState!.validate()) {
                       update = true;
                     }
+                    scrollToForm(_formKey, _scrollController);
                   } else if (state.currentStepInterrogatorio == 1) {
                     if (_formKey2.currentState!.validate()) {
                       update = true;
                     }
+                    scrollToForm(_formKey2, _scrollController);
                   } else if (state.currentStepInterrogatorio == 2) {
                     if (_formKey3.currentState!.validate()) {
                       update = true;
                     }
+                    scrollToForm(_formKey3, _scrollController);
                   } else if (state.currentStepInterrogatorio == 3) {
                     if (_formKey4.currentState!.validate()) {
                       update = true;
                     }
+                    scrollToForm(_formKey4, _scrollController);
                   } else if (state.currentStepInterrogatorio == 4) {
                     if (_formKey5.currentState!.validate()) {
                       update = true;
                     }
+                    scrollToForm(_formKey5, _scrollController);
                   } else if (state.currentStepInterrogatorio == 5) {
                     if (_formKey6.currentState!.validate()) {
                       update = true;
                     }
+                    scrollToForm(_formKey6, _scrollController);
                   } else if (state.currentStepInterrogatorio == 6) {
                     if (_formKey7.currentState!.validate()) {
                       update = true;
                     }
+                    scrollToForm(_formKey7, _scrollController);
                   }
                   if (update) {
                     context.read<AddPacienteBloc>().add(
@@ -111,7 +115,6 @@ class InterrogatorioPage extends StatelessWidget {
                             step: state.currentStepInterrogatorio + 1));
                   }
                 } else {
-                  safePrint("hereeee befor submit interrogatorio");
                   _submitInterrogatorio(context);
                 }
               },
@@ -143,7 +146,6 @@ class InterrogatorioPage extends StatelessWidget {
                         }),
                         buildRadioGroup('Dolor:', state.interrogatorio?.srDolor,
                             (value) {
-                          safePrint(value);
                           var interrogatorio =
                               state.interrogatorio ?? Interrogatorio(id: 0);
                           context

@@ -27,7 +27,6 @@ class ExamenFisicoModel {
   String? mucosas;
   String? faneras;
 
-
   //respiratorio
   String? rInspeccion;
   String? rPalpacion;
@@ -92,17 +91,17 @@ class ExamenFisicoModel {
   bool? aptasLaptar;
   String? mObservaciones;
 
-  ExamenFisicoModel({
-      this.id=0,
+  ExamenFisicoModel(
+      {this.id = 0,
       this.semanasDeGestacion,
       this.peso,
       this.alturaUterina,
       this.circunsferenciaAbdominal,
-      this.presentacion,
-      this.posicion,
-      this.focoFetal,
+      this.presentacion = "Cefálico",
+      this.posicion = "Dorso izquierdo",
+      this.focoFetal = "Presente",
       this.movimientoFetal,
-      this.tonoUterino,
+      this.tonoUterino = "Normal",
       this.edemas,
       this.dinamicaUterina,
       this.tejidoCelularSubcutaneo,
@@ -217,7 +216,8 @@ class ExamenFisicoModel {
       semanasDeGestacion: semanasDeGestacion ?? this.semanasDeGestacion,
       peso: peso ?? this.peso,
       alturaUterina: alturaUterina ?? this.alturaUterina,
-      circunsferenciaAbdominal: circunsferenciaAbdominal ?? this.circunsferenciaAbdominal,
+      circunsferenciaAbdominal:
+          circunsferenciaAbdominal ?? this.circunsferenciaAbdominal,
       presentacion: presentacion ?? this.presentacion,
       posicion: posicion ?? this.posicion,
       focoFetal: focoFetal ?? this.focoFetal,
@@ -225,7 +225,8 @@ class ExamenFisicoModel {
       tonoUterino: tonoUterino ?? this.tonoUterino,
       edemas: edemas ?? this.edemas,
       dinamicaUterina: dinamicaUterina ?? this.dinamicaUterina,
-      tejidoCelularSubcutaneo: tejidoCelularSubcutaneo ?? this.tejidoCelularSubcutaneo,
+      tejidoCelularSubcutaneo:
+          tejidoCelularSubcutaneo ?? this.tejidoCelularSubcutaneo,
       facies: facies ?? this.facies,
       piel: piel ?? this.piel,
       gObservacions: gObservacions ?? this.gObservacions,
@@ -258,7 +259,7 @@ class ExamenFisicoModel {
       uPercucion: uPercucion ?? this.uPercucion,
       uObservacions: uObservacions ?? this.uObservacions,
       vuelvaPerine: vuelvaPerine ?? this.vuelvaPerine,
-      vObservaciones: vlObservacions ?? this.vlObservacions,
+      vObservaciones: vObservaciones ?? this.vObservaciones,
       vagina: vagina ?? this.vagina,
       vagObservaciones: vagObservaciones ?? this.vagObservaciones,
       cuello: cuello ?? this.cuello,

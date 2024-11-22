@@ -54,3 +54,35 @@ Widget buildObservationField(String? initialValue, Function(String?) onChanged )
 String? getValueFromBool(bool? value) {
   return value == true ? 'Sí' : (value == false ? 'No' : null);
 }
+
+void selectDateTime(
+    BuildContext context, Null Function(dynamic value) onChange) async {
+  final DateTime? picked = await showDatePicker(
+    context: context,
+    initialDate: DateTime(1990),
+    firstDate: DateTime(1900),
+    lastDate: DateTime.now(),
+  );
+  if (picked != null) {
+    // Actualiza la fecha de nacimiento
+    print("my-logs $picked");
+    onChange(picked);
+  }
+}
+
+
+void scrollToForm(GlobalKey key, ScrollController scrollController) {
+  final context = key.currentContext;
+  if (context != null) {
+    final box = context.findRenderObject() as RenderBox;
+    // Obtiene la posición para desplazar
+    final offset = box.localToGlobal(Offset.zero).dy;
+
+    // Desplazarse a la posición del formulario
+    scrollController.animateTo(
+      offset - 10,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
+  }
+}

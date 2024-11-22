@@ -1,6 +1,5 @@
 import 'package:atencion_prenatal_embarazadas/core/utils.dart';
 import 'package:atencion_prenatal_embarazadas/router/routes.dart';
-import 'package:atencion_prenatal_embarazadas/screens/add_page.dart';
 import 'package:atencion_prenatal_embarazadas/screens/home_page.dart';
 import 'package:atencion_prenatal_embarazadas/screens/layout_scaffold.dart';
 import 'package:atencion_prenatal_embarazadas/screens/search_page.dart';
@@ -10,7 +9,6 @@ import 'package:go_router/go_router.dart';
 
 import '../bloc/add/add_bloc.dart';
 import '../bloc/add/add_event.dart';
-import '../bloc/add/add_state.dart';
 import '../screens/addPacientePages/add_paciente_intermediate_page.dart';
 import '../screens/addPacientePages/datos_personales_page.dart';
 import '../screens/addPacientePages/examen_fisico_page.dart';

@@ -44,7 +44,7 @@ class InterconsultasModel {
   String? observaciones;
 
   InterconsultasModel({
-      this.id=0,
+      this.id = 0,
       this.psFechaConsulta,
       this.psEvaluacion,
       this.psCodigo,

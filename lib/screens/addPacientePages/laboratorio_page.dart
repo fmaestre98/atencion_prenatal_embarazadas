@@ -1,15 +1,12 @@
 // lib/screens/laboratorio_page.dart
 import 'package:atencion_prenatal_embarazadas/models/laboratorio_microbiologia_model.dart';
-import 'package:atencion_prenatal_embarazadas/router/router.dart';
 import 'package:atencion_prenatal_embarazadas/router/routes.dart';
-import 'package:atencion_prenatal_embarazadas/screens/addPacientePages/interconsultas_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import '../../bloc/add/add_bloc.dart';
 import '../../bloc/add/add_event.dart';
 import '../../bloc/add/add_state.dart';
-import 'genetica_page.dart';
 
 class LaboratorioPage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -52,14 +49,14 @@ class LaboratorioPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Laboratorio y Microbiología'),
+        title: const Text('Laboratorio y Microbiología'),
       ),
       body: BlocConsumer<AddPacienteBloc, AddPacienteState>(
         listenWhen: (previous, current) =>
             previous.isSuccessLaboratorio != current.isSuccessLaboratorio,
         listener: (context, state) {
           if (state.isSuccessLaboratorio) {
-            context.pushReplacement(Routes.addInterconsultas);
+            context.pushReplacement(Routes.routeAddInterconsultas);
           } else if (state.errorMessage != null) {
             // Mostrar mensaje de error
             ScaffoldMessenger.of(context).showSnackBar(
@@ -103,26 +100,31 @@ class LaboratorioPage extends StatelessWidget {
                     key: _formKey,
                     child: Column(
                       children: <Widget>[
-                        TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel
-                                  ?.ghResultadoMaterno ??
-                              '',
-                          onChanged: (value) {
+                        DropdownButtonFormField<String>(
+                          value: state.laboratorioMicrobiologiaModel
+                              ?.ghResultadoMaterno ?? "O+",
+                          decoration: const InputDecoration(
+                              labelText: 'Resultado materno'),
+                          items: [
+                        "O+","O-", "A+","A-","B+","B-", "AB+","AB-"
+                          ].map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          onChanged: (newValue) {
                             var laboratorio =
                                 state.laboratorioMicrobiologiaModel ??
                                     LaboratorioMicrobiologiaModel(id: 0);
                             context
                                 .read<AddPacienteBloc>()
                                 .add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(
-                                      ghResultadoMaterno: value),
-                                ));
+                              model: laboratorio.copyWith(
+                                  ghResultadoMaterno: newValue),
+                            ));
+
                           },
-                          decoration: const InputDecoration(
-                              labelText: 'Resultado materno'),
-                          validator: (value) => value == null || value.isEmpty
-                              ? 'Por favor ingresa el resultado materno'
-                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
@@ -153,26 +155,31 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel
-                                  ?.ghResultadoPaterno ??
-                              '',
-                          onChanged: (value) {
+                        DropdownButtonFormField<String>(
+                          value: state.laboratorioMicrobiologiaModel
+                              ?.ghResultadoPaterno ?? "O+",
+                          decoration: const InputDecoration(
+                              labelText: 'Resultado paterno'),
+                          items: [
+                            "O+","O-", "A+","A-","B+","B-", "AB+","AB-"
+                          ].map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          onChanged: (newValue) {
                             var laboratorio =
                                 state.laboratorioMicrobiologiaModel ??
                                     LaboratorioMicrobiologiaModel(id: 0);
                             context
                                 .read<AddPacienteBloc>()
                                 .add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(
-                                      ghResultadoPaterno: value),
-                                ));
+                              model: laboratorio.copyWith(
+                                  ghResultadoPaterno: newValue),
+                            ));
+
                           },
-                          decoration: const InputDecoration(
-                              labelText: 'Resultado paterno'),
-                          validator: (value) => value == null || value.isEmpty
-                              ? 'Por favor ingresa el resultado paterno'
-                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
@@ -214,27 +221,31 @@ class LaboratorioPage extends StatelessWidget {
                     key: _formKey2,
                     child: Column(
                       children: <Widget>[
-                        TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel
-                                  ?.vihResultadoMaterno ??
-                              '',
-                          onChanged: (value) {
+                        DropdownButtonFormField<String>(
+                          value: state.laboratorioMicrobiologiaModel
+                              ?.vihResultadoMaterno ?? "Negativo",
+                          decoration: const InputDecoration(
+                              labelText: 'Resultado materno'),
+                          items: [
+                            "Positivo", "Negativo"
+                          ].map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          onChanged: (newValue) {
                             var laboratorio =
                                 state.laboratorioMicrobiologiaModel ??
                                     LaboratorioMicrobiologiaModel(id: 0);
                             context
                                 .read<AddPacienteBloc>()
                                 .add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(
-                                      vihResultadoMaterno: value),
-                                ));
+                              model: laboratorio.copyWith(
+                                  vihResultadoMaterno: newValue),
+                            ));
+
                           },
-                          decoration: const InputDecoration(
-                            labelText: 'Resultado materno VIH',
-                          ),
-                          validator: (value) => value == null || value.isEmpty
-                              ? 'Por favor ingresa el resultado materno VIH'
-                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
@@ -265,27 +276,31 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel
-                                  ?.vihResultadoPaterno ??
-                              '',
-                          onChanged: (value) {
+                        DropdownButtonFormField<String>(
+                          value: state.laboratorioMicrobiologiaModel
+                              ?.vihResultadoPaterno ?? "Negativo",
+                          decoration: const InputDecoration(
+                              labelText: 'Resultado paterno'),
+                          items: [
+                            "Positivo", "Negativo"
+                          ].map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          onChanged: (newValue) {
                             var laboratorio =
                                 state.laboratorioMicrobiologiaModel ??
                                     LaboratorioMicrobiologiaModel(id: 0);
                             context
                                 .read<AddPacienteBloc>()
                                 .add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(
-                                      vihResultadoPaterno: value),
-                                ));
+                              model: laboratorio.copyWith(
+                                  vihResultadoPaterno: newValue),
+                            ));
+
                           },
-                          decoration: const InputDecoration(
-                            labelText: 'Resultado paterno VIH',
-                          ),
-                          validator: (value) => value == null || value.isEmpty
-                              ? 'Por favor ingresa el resultado paterno VIH'
-                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
@@ -327,26 +342,31 @@ class LaboratorioPage extends StatelessWidget {
                     key: _formKey3,
                     child: Column(
                       children: <Widget>[
-                        TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel
-                                  ?.sResultadoMaterno ??
-                              '',
-                          onChanged: (value) {
+                        DropdownButtonFormField<String>(
+                          value: state.laboratorioMicrobiologiaModel
+                              ?.sResultadoMaterno ?? "No reactivo",
+                          decoration: const InputDecoration(
+                              labelText: 'Resultado materno'),
+                          items: [
+                            "No reactivo", "Reactivo"
+                          ].map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          onChanged: (newValue) {
                             var laboratorio =
                                 state.laboratorioMicrobiologiaModel ??
                                     LaboratorioMicrobiologiaModel(id: 0);
                             context
                                 .read<AddPacienteBloc>()
                                 .add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(
-                                      sResultadoMaterno: value),
-                                ));
+                              model: laboratorio.copyWith(
+                                  sResultadoMaterno: newValue),
+                            ));
+
                           },
-                          decoration: const InputDecoration(
-                              labelText: 'Resultado materno Serología'),
-                          validator: (value) => value == null || value.isEmpty
-                              ? 'Por favor ingresa el resultado materno Serología'
-                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
@@ -377,26 +397,30 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel
-                                  ?.sResultadoPaterno ??
-                              '',
-                          onChanged: (value) {
+                        DropdownButtonFormField<String>(
+                          value: state.laboratorioMicrobiologiaModel
+                              ?.sResultadoPaterno ?? "No reactivo",
+                          decoration: const InputDecoration(
+                              labelText: 'Resultado paterno'),
+                          items: [
+                            "No reactivo", "Reactivo"
+                          ].map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          onChanged: (newValue) {
                             var laboratorio =
                                 state.laboratorioMicrobiologiaModel ??
                                     LaboratorioMicrobiologiaModel(id: 0);
                             context
                                 .read<AddPacienteBloc>()
                                 .add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(
-                                      sResultadoPaterno: value),
-                                ));
+                              model: laboratorio.copyWith(
+                                  sResultadoPaterno: newValue),
+                            ));
                           },
-                          decoration: const InputDecoration(
-                              labelText: 'Resultado paterno Serología'),
-                          validator: (value) => value == null || value.isEmpty
-                              ? 'Por favor ingresa el resultado paterno Serología'
-                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
@@ -438,27 +462,30 @@ class LaboratorioPage extends StatelessWidget {
                     key: _formKey4,
                     child: Column(
                       children: <Widget>[
-                        TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel
-                                  ?.asResultadoMaterno ??
-                              '',
-                          onChanged: (value) {
+                        DropdownButtonFormField<String>(
+                          value: state.laboratorioMicrobiologiaModel
+                              ?.asResultadoMaterno ?? "No reactivo",
+                          decoration: const InputDecoration(
+                              labelText: 'Resultado materno Antígeno de superficie'),
+                          items: [
+                            "No reactivo", "Reactivo"
+                          ].map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          onChanged: (newValue) {
                             var laboratorio =
                                 state.laboratorioMicrobiologiaModel ??
                                     LaboratorioMicrobiologiaModel(id: 0);
                             context
                                 .read<AddPacienteBloc>()
                                 .add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(
-                                      asResultadoMaterno: value),
-                                ));
+                              model: laboratorio.copyWith(
+                                  asResultadoMaterno: newValue),
+                            ));
                           },
-                          decoration: const InputDecoration(
-                              labelText:
-                                  'Resultado materno Antígeno de superficie'),
-                          validator: (value) => value == null || value.isEmpty
-                              ? 'Por favor ingresa el resultado materno Antígeno de superficie'
-                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
@@ -489,27 +516,30 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        TextFormField(
-                          initialValue: state.laboratorioMicrobiologiaModel
-                                  ?.asResultadoPaterno ??
-                              '',
-                          onChanged: (value) {
+                        DropdownButtonFormField<String>(
+                          value: state.laboratorioMicrobiologiaModel
+                              ?.asResultadoPaterno ?? "No reactivo",
+                          decoration: const InputDecoration(
+                              labelText: 'Resultado paterno Antígeno de superficie'),
+                          items: [
+                            "No reactivo", "Reactivo"
+                          ].map((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                          onChanged: (newValue) {
                             var laboratorio =
                                 state.laboratorioMicrobiologiaModel ??
                                     LaboratorioMicrobiologiaModel(id: 0);
                             context
                                 .read<AddPacienteBloc>()
                                 .add(UpdateLaboratorio(
-                                  model: laboratorio.copyWith(
-                                      asResultadoPaterno: value),
-                                ));
+                              model: laboratorio.copyWith(
+                                  asResultadoPaterno: newValue),
+                            ));
                           },
-                          decoration: const InputDecoration(
-                              labelText:
-                                  'Resultado paterno Antígeno de superficie'),
-                          validator: (value) => value == null || value.isEmpty
-                              ? 'Por favor ingresa el resultado paterno Antígeno de superficie'
-                              : null,
                         ),
                         const SizedBox(height: 16),
                         Row(
@@ -566,6 +596,7 @@ class LaboratorioPage extends StatelessWidget {
                                       hbResultadoMaterno: value),
                                 ));
                           },
+                          keyboardType: TextInputType.number,
                           decoration: const InputDecoration(
                               labelText: 'Resultado materno Hb'),
                           validator: (value) => value == null || value.isEmpty
@@ -613,6 +644,7 @@ class LaboratorioPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         TextFormField(
+                          keyboardType: TextInputType.number,
                           initialValue: state.laboratorioMicrobiologiaModel
                                   ?.htoResultadoMaterno ??
                               '',
@@ -677,6 +709,7 @@ class LaboratorioPage extends StatelessWidget {
                           initialValue: state.laboratorioMicrobiologiaModel
                                   ?.gResultadoMaterno ??
                               '',
+                          keyboardType: TextInputType.number,
                           onChanged: (value) {
                             var laboratorio =
                                 state.laboratorioMicrobiologiaModel ??
@@ -738,6 +771,7 @@ class LaboratorioPage extends StatelessWidget {
                           initialValue: state.laboratorioMicrobiologiaModel
                                   ?.ptgaResultadoMaterno ??
                               '',
+                          keyboardType: TextInputType.number,
                           onChanged: (value) {
                             var laboratorio =
                                 state.laboratorioMicrobiologiaModel ??
@@ -799,6 +833,7 @@ class LaboratorioPage extends StatelessWidget {
                           initialValue: state.laboratorioMicrobiologiaModel
                                   ?.ptg2hResultadoMaterno ??
                               '',
+                          keyboardType: TextInputType.number,
                           onChanged: (value) {
                             var laboratorio =
                                 state.laboratorioMicrobiologiaModel ??
@@ -860,6 +895,7 @@ class LaboratorioPage extends StatelessWidget {
                           initialValue: state.laboratorioMicrobiologiaModel
                                   ?.cResultadoMaterno ??
                               '',
+                          keyboardType: TextInputType.number,
                           onChanged: (value) {
                             var laboratorio =
                                 state.laboratorioMicrobiologiaModel ??
@@ -921,6 +957,7 @@ class LaboratorioPage extends StatelessWidget {
                           initialValue: state.laboratorioMicrobiologiaModel
                                   ?.auResultadoMaterno ??
                               '',
+                          keyboardType: TextInputType.number,
                           onChanged: (value) {
                             var laboratorio =
                                 state.laboratorioMicrobiologiaModel ??
@@ -982,6 +1019,7 @@ class LaboratorioPage extends StatelessWidget {
                           initialValue: state.laboratorioMicrobiologiaModel
                                   ?.uResultadoMaterno ??
                               '',
+                          keyboardType: TextInputType.number,
                           onChanged: (value) {
                             var laboratorio =
                                 state.laboratorioMicrobiologiaModel ??
@@ -1043,6 +1081,7 @@ class LaboratorioPage extends StatelessWidget {
                           initialValue: state.laboratorioMicrobiologiaModel
                                   ?.colResultadoMaterno ??
                               '',
+                          keyboardType: TextInputType.number,
                           onChanged: (value) {
                             var laboratorio =
                                 state.laboratorioMicrobiologiaModel ??
@@ -1104,6 +1143,7 @@ class LaboratorioPage extends StatelessWidget {
                           initialValue: state.laboratorioMicrobiologiaModel
                                   ?.tResultadoMaterno ??
                               '',
+                          keyboardType: TextInputType.number,
                           onChanged: (value) {
                             var laboratorio =
                                 state.laboratorioMicrobiologiaModel ??
@@ -1165,6 +1205,7 @@ class LaboratorioPage extends StatelessWidget {
                           initialValue: state.laboratorioMicrobiologiaModel
                                   ?.bResultadoMaterno ??
                               '',
+                          keyboardType: TextInputType.number,
                           onChanged: (value) {
                             var laboratorio =
                                 state.laboratorioMicrobiologiaModel ??
@@ -1226,6 +1267,7 @@ class LaboratorioPage extends StatelessWidget {
                           initialValue: state.laboratorioMicrobiologiaModel
                                   ?.tpgResultadoMaterno ??
                               '',
+                          keyboardType: TextInputType.number,
                           onChanged: (value) {
                             var laboratorio =
                                 state.laboratorioMicrobiologiaModel ??
@@ -1287,6 +1329,7 @@ class LaboratorioPage extends StatelessWidget {
                           initialValue: state.laboratorioMicrobiologiaModel
                                   ?.tgoResultadoMaterno ??
                               '',
+                          keyboardType: TextInputType.number,
                           onChanged: (value) {
                             var laboratorio =
                                 state.laboratorioMicrobiologiaModel ??
@@ -1348,6 +1391,7 @@ class LaboratorioPage extends StatelessWidget {
                           initialValue: state.laboratorioMicrobiologiaModel
                                   ?.ggtResultadoMaterno ??
                               '',
+                          keyboardType: TextInputType.number,
                           onChanged: (value) {
                             var laboratorio =
                                 state.laboratorioMicrobiologiaModel ??

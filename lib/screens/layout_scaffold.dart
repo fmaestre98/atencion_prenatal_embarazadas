@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../bloc/add/add_bloc.dart';
+import '../router/routes.dart';
 
 class LayoutScaffold extends StatelessWidget {
   const LayoutScaffold({Key? key, required this.navigationShell})
@@ -20,12 +21,15 @@ class LayoutScaffold extends StatelessWidget {
         bottomNavigationBar: NavigationBar(
             selectedIndex: navigationShell.currentIndex,
             onDestinationSelected: (index) {
-              safePrint(index);
+              safePrint("index $index");
               if(index != 2){
                 final bloc = context.read<AddPacienteBloc>();
                 bloc.add(const ClearPacienteData());
+              } else {
+                // Asegúrate de que el estado extra no quede pegado al volver a esta ruta.
+                context.go(Routes.addPage, extra: null);
               }
-              navigationShell.goBranch(index);
+              navigationShell.goBranch(index, initialLocation: true);
             },
             destinations: destinations
                 .map((destination) => NavigationDestination(
