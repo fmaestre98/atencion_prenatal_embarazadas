@@ -480,6 +480,7 @@ class Embarazo {
     String? tipoAborto,
     String? tipoProvocado,
     String? observacionesAborto,
+    String? tipoNacimiento,
   }) {
     return Embarazo(
       id: id ?? this.id,
@@ -493,6 +494,7 @@ class Embarazo {
       tipoAborto: tipoAborto ?? this.tipoAborto,
       tipoProvocado: tipoProvocado ?? this.tipoProvocado,
       observacionesAborto: observacionesAborto ?? this.observacionesAborto,
+      tipoNacimiento: tipoNacimiento ?? this.tipoNacimiento,
     );
   }
 }

@@ -251,13 +251,12 @@ class InterconsultasPage extends StatelessWidget {
                                 onPressed: () =>
                                     selectDateTime(context, (value) {
                                       var model = state.interconsultasModel ??
-                                          InterconsultasModel(id: 0);
-                                      final fecha = DateTime.tryParse(value);
-                                      model = model.copyWith(nFechaConsulta: fecha);
+                                          InterconsultasModel();
+                                      model = model.copyWith(nFechaConsulta: value);
                                       context
                                           .read<AddPacienteBloc>()
                                           .add(UpdateInterconsultas(
-                                        model:model,));
+                                        model:model));
                                     }),
                                 child: const Text('Seleccionar'),
                               ),
@@ -306,12 +305,11 @@ class InterconsultasPage extends StatelessWidget {
                                     selectDateTime(context, (value) {
                                       var model = state.interconsultasModel ??
                                           InterconsultasModel(id: 0);
-                                      final fecha = DateTime.tryParse(value);
                                       context
                                           .read<AddPacienteBloc>()
                                           .add(UpdateInterconsultas(
                                         model:
-                                        model.copyWith(miFechaConsulta: fecha),
+                                        model.copyWith(miFechaConsulta: value),
                                       ));
                                     }),
                                 child: const Text('Seleccionar'),
@@ -361,12 +359,11 @@ class InterconsultasPage extends StatelessWidget {
                                     selectDateTime(context, (value) {
                                       var model = state.interconsultasModel ??
                                           InterconsultasModel(id: 0);
-                                      final fecha = DateTime.tryParse(value);
                                       context
                                           .read<AddPacienteBloc>()
                                           .add(UpdateInterconsultas(
                                         model:
-                                        model.copyWith(tsFechaConsulta: fecha),
+                                        model.copyWith(tsFechaConsulta: value),
                                       ));
                                     }),
                                 child: const Text('Seleccionar'),
@@ -416,12 +413,11 @@ class InterconsultasPage extends StatelessWidget {
                                     selectDateTime(context, (value) {
                                       var model = state.interconsultasModel ??
                                           InterconsultasModel(id: 0);
-                                      final fecha = DateTime.tryParse(value);
                                       context
                                           .read<AddPacienteBloc>()
                                           .add(UpdateInterconsultas(
                                         model:
-                                        model.copyWith(dFechaConsulta: fecha),
+                                        model.copyWith(dFechaConsulta: value),
                                       ));
                                     }),
                                 child: const Text('Seleccionar'),

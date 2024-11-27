@@ -19,7 +19,7 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
     on<UpdateInterrogatorio>(_onUpdateInterrogatorio);
     on<UpdateSignosVitales>(_onUpdateSignosVitales);
     // Maneja otros eventos similares...
-    on<SubmitPaciente>(_onSubmitPaciente);
+    on<SubmitPaciente>(_onSubmitDatosPersonales);
     on<SubmitInterrogatorio>(_onSubmitInterrogatorio);
     on<SubmitSignosVitales>(_onSubmitSignosVitales);
     on<SubmitInterconsultas>(_onSubmitInterconsultas);
@@ -86,6 +86,9 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
       safePrint(state.antecedentesObstetricos?.embarazos);
       safePrint(state.fetos1erTrimestre);
       safePrint(state.fetosSeguimiento);
+
+      safePrint("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
+      safePrint(state.embarazoList);
     }
   }
 
@@ -194,50 +197,219 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
     emit(state.copyWith(examenFisico: event.examenFisicoModel));
   }
 
-  // Implementa métodos para manejar otros eventos...
-
-  Future<void> _onSubmitPaciente(
-      SubmitPaciente event, Emitter<AddPacienteState> emit) async {
-    await _savePaciente();
-    emit(state.copyWith(isSuccess: true));
-  }
-
-  Future<void> _onSubmitInterrogatorio(
-      SubmitInterrogatorio event, Emitter<AddPacienteState> emit) async {
-    await _savePaciente();
-    emit(state.copyWith(isSuccessInterrogatorio: true));
-  }
 
   Future<void> _onSubmitInterconsultas(
       SubmitInterconsultas event, Emitter<AddPacienteState> emit) async {
-    await _savePaciente();
+    await _saveInterconsultas();
     emit(state.copyWith(isSuccessInterconsultas: true));
   }
 
-  Future<void> _onSubmitSignosVitales(
-      SubmitSignosVitales event, Emitter<AddPacienteState> emit) async {
-    await _savePaciente();
-    emit(state.copyWith(isSuccessSignosVitales: true));
-  }
 
   Future<void> _onSubmitExamenFisico(
       SubmitExamenFisico event, Emitter<AddPacienteState> emit) async {
-    await _savePaciente();
+    await _saveExamenFisico();
     emit(state.copyWith(isSuccessExamenFisico: true));
   }
 
   Future<void> _onSubmitGenetica(
       SubmitGenetica event, Emitter<AddPacienteState> emit) async {
-    await _savePaciente();
+    await _saveGenetica();
     emit(state.copyWith(isSuccessGenetica: true));
   }
 
   Future<void> _onSubmitLaboratorio(
       SubmitLaboratorio event, Emitter<AddPacienteState> emit) async {
-    await _savePaciente();
+    await _saveLaboratorio();
     emit(state.copyWith(isSuccessLaboratorio: true));
   }
 
+  // Métodos separados para guardar secciones específicas
+  Future<void> _saveDatosPersonales() async {
+    safePrint(state.embarazoList);
+    final paciente = state.paciente;
+    if (paciente != null) {
+      paciente.fechaDeRegistro ??= DateTime.now();
+      paciente.embarazoActual.target = state.embarazoActual;
+
+      if (state.antecedentesObstetricos != null) {
+        AntecedentesObstetricos antecedentesObstetricos = state.antecedentesObstetricos!;
+
+        // Obtener la lista actual de embarazos
+        List<Embarazo> currentEmbarazos = antecedentesObstetricos.embarazos;
+
+        // Crear un Set para identificar embarazos existentes
+        Set<int> existingIds = currentEmbarazos.map((e) => e.id).toSet(); // Suponiendo que cada embarazo tiene un 'id'
+
+        // Agregar o actualizar embarazos
+        for (var nuevoEmbarazo in state.embarazoList ?? []) {
+          if (existingIds.contains(nuevoEmbarazo.id)) {
+            // Actualizar el embarazo existente
+            int index = currentEmbarazos.indexWhere((e) => e.id == nuevoEmbarazo.id);
+            currentEmbarazos[index] = nuevoEmbarazo; // Actualizar el objeto existente
+          } else {
+            // Agregar nuevo embarazo
+            currentEmbarazos.add(nuevoEmbarazo);
+          }
+        }
+
+        // Eliminar embarazos que ya no están en la nueva lista
+        antecedentesObstetricos.embarazos.removeWhere((e) => !state.embarazoList!.any((ne) => ne.id == e.id));
+
+        // Guardar cambios
+        paciente.antecedentesObstetricos.target = antecedentesObstetricos;
+        _objectBox.addAntecedentesObstetricos(antecedentesObstetricos);
+      }
+
+      paciente.antecedentesPatologicasPersonales.target =
+          state.antecedentesPatologicosPersonales;
+      paciente.antecedentesGinecologicos.target =
+          state.antecedentesGinecologicos;
+
+      _objectBox.addPaciente(paciente);
+    }
+  }
+
+  Future<void> _saveInterrogatorio() async {
+    if (state.interrogatorio != null) {
+       state.paciente!.interrogatorio.target = state.interrogatorio!;
+       _objectBox.addPaciente(state.paciente!);
+      _objectBox.addInterrogatorio(state.interrogatorio!);
+    }
+  }
+
+  Future<void> _saveSignosVitales() async {
+    if (state.signosVitales != null) {
+      state.paciente!.signosVitales.target = state.signosVitales!;
+      _objectBox.addPaciente(state.paciente!);
+      _objectBox.addSignosVitalesModel(state.signosVitales!);
+    }
+  }
+
+  Future<void> _saveExamenFisico() async {
+    if (state.examenFisicoModel != null) {
+      state.paciente!.examenFisico.target = state.examenFisicoModel!;
+      _objectBox.addPaciente(state.paciente!);
+      _objectBox.addExamenFisico(state.examenFisicoModel!);
+    }
+  }
+
+  Future<void> _saveGenetica() async {
+    try {
+      final genetica = state.geneticaModel;
+
+      if (genetica == null) {
+        safePrint("No hay datos genéticos para guardar.");
+        return;
+      }
+
+      // Limpiar y actualizar fetos del primer trimestre
+      List<FetoUltrasonido1erTrimestre> fetos1erTrimestre = state.fetos1erTrimestre ?? [];
+      List<FetoUltrasonidoSeguimiento> fetosSeguimiento = state.fetosSeguimiento ?? [];
+
+      // Actualizar fetos del primer trimestre
+      Set<int> existingFetos1erTrimestreIds = genetica.fetos1erTrimestre.map((feto) => feto.id).toSet();
+
+      for (var nuevoFeto in fetos1erTrimestre) {
+        if (existingFetos1erTrimestreIds.contains(nuevoFeto.id)) {
+          // Actualizar el feto existente
+          int index = genetica.fetos1erTrimestre.indexWhere((feto) => feto.id == nuevoFeto.id);
+          genetica.fetos1erTrimestre[index] = nuevoFeto; // Actualizar el objeto existente
+        } else {
+          // Agregar nuevo feto
+          genetica.fetos1erTrimestre.add(nuevoFeto);
+        }
+      }
+
+      // Eliminar fetos que ya no están en la nueva lista
+      genetica.fetos1erTrimestre.removeWhere((feto) => !fetos1erTrimestre.any((nuevoFeto) => nuevoFeto.id == feto.id));
+
+      // Actualizar fetos de seguimiento
+      Set<int> existingFetosSeguimientoIds = genetica.fetosSeguimiento.map((feto) => feto.id).toSet();
+
+      for (var nuevoFeto in fetosSeguimiento) {
+        if (existingFetosSeguimientoIds.contains(nuevoFeto.id)) {
+          // Actualizar el feto existente
+          int index = genetica.fetosSeguimiento.indexWhere((feto) => feto.id == nuevoFeto.id);
+          genetica.fetosSeguimiento[index] = nuevoFeto; // Actualizar el objeto existente
+        } else {
+          // Agregar nuevo feto
+          genetica.fetosSeguimiento.add(nuevoFeto);
+        }
+      }
+
+      // Eliminar fetos de seguimiento que ya no están en la nueva lista
+      genetica.fetosSeguimiento.removeWhere((feto) => !fetosSeguimiento.any((nuevoFeto) => nuevoFeto.id == feto.id));
+
+      // Actualizar el objeto paciente con los datos de genética
+      state.paciente!.genetica.target = state.geneticaModel!;
+      _objectBox.addPaciente(state.paciente!);
+
+      // Guardar datos en ObjectBox
+      _objectBox.addFetosTrimestre(genetica.fetos1erTrimestre);
+      _objectBox.addFetosSeguimiento(genetica.fetosSeguimiento);
+      _objectBox.addGeneticaModel(genetica);
+
+      safePrint("Datos genéticos guardados exitosamente.");
+    } catch (e, stackTrace) {
+      // Manejo de errores
+      safePrint("Error al guardar datos genéticos: $e");
+      safePrint("StackTrace: $stackTrace");
+    }
+  }
+
+  Future<void> _saveLaboratorio() async {
+    if (state.laboratorioMicrobiologiaModel != null) {
+
+      state.paciente!.laboratorio.target = state.laboratorioMicrobiologiaModel!;
+      _objectBox.addPaciente(state.paciente!);
+      _objectBox.addLaboratorioMicrobiologiaModel(
+          state.laboratorioMicrobiologiaModel!);
+    }
+  }
+
+  Future<void> _saveInterconsultas() async {
+    if (state.interconsultasModel != null) {
+      state.paciente!.interconsultas.target = state.interconsultasModel!;
+      _objectBox.addPaciente(state.paciente!);
+      _objectBox.addInterconsultasModel(state.interconsultasModel!);
+    }
+  }
+
+// Métodos onSubmit específicos
+  Future<void> _onSubmitDatosPersonales(
+      SubmitPaciente event, Emitter<AddPacienteState> emit) async {
+    emit(state.copyWith(isSubmitting: true));
+    try {
+      await _saveDatosPersonales();
+      emit(state.copyWith(isSubmitting: false, isSuccess: true));
+    } catch (e) {
+      emit(state.copyWith(isSubmitting: false, errorMessage: e.toString()));
+    }
+  }
+
+  Future<void> _onSubmitInterrogatorio(
+      SubmitInterrogatorio event, Emitter<AddPacienteState> emit) async {
+    emit(state.copyWith(isSubmitting: true));
+    try {
+      await _saveInterrogatorio();
+      emit(state.copyWith(isSubmitting: false, isSuccessInterrogatorio: true));
+    } catch (e) {
+      emit(state.copyWith(isSubmitting: false, errorMessage: e.toString()));
+    }
+  }
+
+  Future<void> _onSubmitSignosVitales(
+      SubmitSignosVitales event, Emitter<AddPacienteState> emit) async {
+    emit(state.copyWith(isSubmitting: true));
+    try {
+      await _saveSignosVitales();
+      emit(state.copyWith(isSubmitting: false, isSuccessSignosVitales: true));
+    } catch (e) {
+      emit(state.copyWith(isSubmitting: false, errorMessage: e.toString()));
+    }
+  }
+
+/*
   Future<void> _savePaciente() async {
     emit(state.copyWith(isSubmitting: true, errorMessage: null));
     try {
@@ -334,7 +506,7 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
       ));
     }
   }
-
+*/
   Future<void> _onDeletePaciente(
       DeletePaciente event, Emitter<AddPacienteState> emit) async {
     emit(state.copyWith(isDeleting: true, deleteError: null));

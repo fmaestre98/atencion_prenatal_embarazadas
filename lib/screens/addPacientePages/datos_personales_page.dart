@@ -25,6 +25,7 @@ class DatosPersonalesPage extends StatelessWidget {
   DatosPersonalesPage({Key? key}) : super(key: key ?? const ValueKey<String>('DatosPersonalesPage'));
 
   void _submitDatosPersonales(BuildContext context) {
+    safePrint("OOOOOOOOOOOOOOOOOOOOOOOOOOOWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
     if (_formKey.currentState!.validate() &&
         _formKey2.currentState!.validate() &&
         _formKey3.currentState!.validate() &&
@@ -1724,6 +1725,94 @@ class DatosPersonalesPage extends StatelessWidget {
                                           index: index,
                                           model: updatedEmbarazo,
                                         ));
+                                  },
+                                ),
+                                const SizedBox(height: 10),
+                                DropdownButtonFormField<String>(
+                                  value: embarazo.tipoParto ?? "Eutócico",
+                                  decoration: const InputDecoration(labelText: 'Tipo de parto'),
+                                  items: ['Eutócico', 'Distósico']
+                                      .map((String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(value),
+                                    );
+                                  }).toList(),
+                                  onChanged: (newValue) {
+                                    var updatedEmbarazo = embarazo.copyWith(
+                                        tipoParto: newValue);
+                                    context
+                                        .read<AddPacienteBloc>()
+                                        .add(UpdateEmbarazo(
+                                      index: index,
+                                      model: updatedEmbarazo,
+                                    ));
+                                  },
+                                ),
+                                const SizedBox(height: 10),
+                                DropdownButtonFormField<String>(
+                                  value: embarazo.tipoDistocia ?? "Cesárea",
+                                  decoration: const InputDecoration(labelText: 'Tipo de distosia'),
+                                  items: ['Cesárea', 'Instrumentación']
+                                      .map((String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(value),
+                                    );
+                                  }).toList(),
+                                  onChanged: (newValue) {
+                                    var updatedEmbarazo = embarazo.copyWith(
+                                        tipoDistocia: newValue);
+                                    context
+                                        .read<AddPacienteBloc>()
+                                        .add(UpdateEmbarazo(
+                                      index: index,
+                                      model: updatedEmbarazo,
+                                    ));
+                                  },
+                                ),
+                                const SizedBox(height: 10),
+                                DropdownButtonFormField<String>(
+                                  value: embarazo.tipoNacimiento ?? "Sencillo",
+                                  decoration: const InputDecoration(labelText: 'Tipo de nacimiento'),
+                                  items: ['Sencillo', 'Múltiple']
+                                      .map((String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(value),
+                                    );
+                                  }).toList(),
+                                  onChanged: (newValue) {
+                                    var updatedEmbarazo = embarazo.copyWith(
+                                        tipoNacimiento: newValue);
+                                    context
+                                        .read<AddPacienteBloc>()
+                                        .add(UpdateEmbarazo(
+                                      index: index,
+                                      model: updatedEmbarazo,
+                                    ));
+                                  },
+                                ),
+                                const SizedBox(height: 10),
+                                DropdownButtonFormField<String>(
+                                  value: embarazo.lugarParto ?? "Institucional",
+                                  decoration: const InputDecoration(labelText: 'Lugar de parto'),
+                                  items: ['Institucional intrahospitalario', 'Institucional extrahospitalario', 'No institucional']
+                                      .map((String value) {
+                                    return DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(value),
+                                    );
+                                  }).toList(),
+                                  onChanged: (newValue) {
+                                    var updatedEmbarazo = embarazo.copyWith(
+                                        lugarParto: newValue);
+                                    context
+                                        .read<AddPacienteBloc>()
+                                        .add(UpdateEmbarazo(
+                                      index: index,
+                                      model: updatedEmbarazo,
+                                    ));
                                   },
                                 ),
                                 const SizedBox(height: 10),

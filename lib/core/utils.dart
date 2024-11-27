@@ -81,7 +81,7 @@ void scrollToForm(GlobalKey key, ScrollController scrollController) {
     // Desplazarse a la posición del formulario
     scrollController.animateTo(
       offset - 10,
-      duration: const Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 500),
       curve: Curves.easeInOut,
     );
   }
