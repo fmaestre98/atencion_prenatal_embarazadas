@@ -139,6 +139,10 @@ class DatosPersonalesPage extends StatelessWidget {
                   if (update) {
                     context.read<AddPacienteBloc>().add(UpdateCurrentStep(
                         step: state.currentStepDatosPersonales + 1));
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text("Revise los datos ingresados")),
+                    );
                   }
                 } else {
                   _submitDatosPersonales(context);
@@ -1873,7 +1877,7 @@ class DatosPersonalesPage extends StatelessWidget {
                                 ),
                                 const SizedBox(height: 10),
                                 DropdownButtonFormField<String>(
-                                  value: embarazo.lugarParto ?? "Institucional",
+                                  value: embarazo.lugarParto ?? "Institucional intrahospitalario",
                                   decoration: const InputDecoration(
                                       labelText: 'Lugar de parto'),
                                   items: [

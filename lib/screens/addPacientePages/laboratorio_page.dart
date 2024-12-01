@@ -206,6 +206,10 @@ class LaboratorioPage extends StatelessWidget {
                     context.read<AddPacienteBloc>().add(
                         UpdateCurrentStepLaboratorio(
                             step: state.currentStepLaboratorio + 1)); 
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text("Revise los datos ingresados")),
+                    );
                   }
                 } else {
                   _submitLaboratorio(context);

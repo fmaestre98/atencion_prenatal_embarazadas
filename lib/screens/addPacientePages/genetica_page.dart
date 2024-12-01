@@ -2,9 +2,7 @@
 import 'package:atencion_prenatal_embarazadas/bloc/add/add_event.dart';
 import 'package:atencion_prenatal_embarazadas/core/utils.dart';
 import 'package:atencion_prenatal_embarazadas/models/genetica_model.dart';
-import 'package:atencion_prenatal_embarazadas/router/router.dart';
 import 'package:atencion_prenatal_embarazadas/router/routes.dart';
-import 'package:atencion_prenatal_embarazadas/screens/addPacientePages/laboratorio_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -116,6 +114,10 @@ class GeneticaPage extends StatelessWidget {
                   if(update){
                     context.read<AddPacienteBloc>().add(UpdateCurrentStepGenetica(
                         step: state.currentStepGenetica + 1));
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text("Revise los datos ingresados")),
+                    );
                   }
                 } else {
                   _submitGenetica(context);

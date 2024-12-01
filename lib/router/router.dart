@@ -46,8 +46,6 @@ final router = GoRouter(
           GoRoute(
             path: Routes.addPage,
             builder: (context, state) {
-              safePrint("WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
-              safePrint(state.extra);
               if(state.extra != null){
                 final bloc = context.read<AddPacienteBloc>();
                 bloc.add(LoadPacienteData(pacienteId: state.extra as int));

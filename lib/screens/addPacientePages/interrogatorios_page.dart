@@ -113,6 +113,10 @@ class InterrogatorioPage extends StatelessWidget {
                     context.read<AddPacienteBloc>().add(
                         UpdateCurrentStepInterrogatorio(
                             step: state.currentStepInterrogatorio + 1));
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text("Revise los datos ingresados")),
+                    );
                   }
                 } else {
                   _submitInterrogatorio(context);

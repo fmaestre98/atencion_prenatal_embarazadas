@@ -61,25 +61,53 @@ class InterconsultasPage extends StatelessWidget {
                 type: StepperType.vertical,
                 currentStep: state.currentStepInterconsultas,
                 onStepContinue: () {
+                  bool update = false;
                   if (state.currentStepInterconsultas < 7) {
                     if (state.currentStepInterconsultas == 0) {
+                      if (_formKey.currentState!.validate()) {
+                        update = true;
+                      }
                       scrollToForm(_formKey, _scrollController);
                     } else if (state.currentStepInterconsultas == 1) {
+                      if (_formKey2.currentState!.validate()) {
+                        update = true;
+                      }
                       scrollToForm(_formKey2, _scrollController);
                     } else if (state.currentStepInterconsultas == 2) {
+                      if (_formKey3.currentState!.validate()) {
+                        update = true;
+                      }
                       scrollToForm(_formKey3, _scrollController);
                     } else if (state.currentStepInterconsultas == 3) {
+                      if (_formKey4.currentState!.validate()) {
+                        update = true;
+                      }
                       scrollToForm(_formKey4, _scrollController);
                     } else if (state.currentStepInterconsultas == 4) {
+                      if (_formKey5.currentState!.validate()) {
+                        update = true;
+                      }
                       scrollToForm(_formKey5, _scrollController);
                     } else if (state.currentStepInterconsultas == 5) {
+                      if (_formKey6.currentState!.validate()) {
+                        update = true;
+                      }
                       scrollToForm(_formKey6, _scrollController);
                     } else if (state.currentStepInterconsultas == 6) {
+                      if (_formKey7.currentState!.validate()) {
+                        update = true;
+                      }
                       scrollToForm(_formKey7, _scrollController);
                     }
-                    context.read<AddPacienteBloc>().add(
-                        UpdateCurrentStepInterconsultas(
-                            step: state.currentStepInterconsultas + 1));
+                    if(update){
+                      context.read<AddPacienteBloc>().add(
+                          UpdateCurrentStepInterconsultas(
+                              step: state.currentStepInterconsultas + 1));
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text("Revise los datos ingresados")),
+                      );
+                    }
                   } else {
                     _submitInterconsultas(context);
                   }

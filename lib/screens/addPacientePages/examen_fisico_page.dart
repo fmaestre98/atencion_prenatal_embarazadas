@@ -140,6 +140,10 @@ class ExamenFisicoPage extends StatelessWidget {
                     context.read<AddPacienteBloc>().add(
                         UpdateCurrentStepExamenFisico(
                             step: state.currentStepExamenFisico + 1));
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text("Revise los datos ingresados")),
+                    );
                   }
                 } else {
                   _submitExamenFisico(context);
@@ -392,7 +396,7 @@ class ExamenFisicoPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         _buildRadioGroup('Tejido celular subcutáneo',
-                            state.examenFisicoModel?.tejidoCelularSubcutaneo,
+                            state.examenFisicoModel?.tejidoCelularSubcutaneo ?? 'NE',
                             (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
@@ -404,7 +408,7 @@ class ExamenFisicoPage extends StatelessWidget {
                               ));
                         }),
                         _buildRadioGroup(
-                            'Facies', state.examenFisicoModel?.facies, (value) {
+                            'Facies', state.examenFisicoModel?.facies ?? 'NE', (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
                           context
@@ -414,7 +418,7 @@ class ExamenFisicoPage extends StatelessWidget {
                                     examenFisico.copyWith(facies: value),
                               ));
                         }),
-                        _buildRadioGroup('Piel', state.examenFisicoModel?.piel,
+                        _buildRadioGroup('Piel', state.examenFisicoModel?.piel ?? 'NE',
                             (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
@@ -426,7 +430,7 @@ class ExamenFisicoPage extends StatelessWidget {
                               ));
                         }),
                         _buildRadioGroup(
-                            'Mucosas', state.examenFisicoModel?.mucosas,
+                            'Mucosas', state.examenFisicoModel?.mucosas ?? 'NE',
                             (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
@@ -438,7 +442,7 @@ class ExamenFisicoPage extends StatelessWidget {
                               ));
                         }),
                         _buildRadioGroup(
-                            'Faneras', state.examenFisicoModel?.faneras,
+                            'Faneras', state.examenFisicoModel?.faneras ?? 'NE',
                             (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
@@ -480,7 +484,7 @@ class ExamenFisicoPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         _buildRadioGroup(
-                            'Inspección', state.examenFisicoModel?.rInspeccion,
+                            'Inspección', state.examenFisicoModel?.rInspeccion ?? 'NE',
                             (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
@@ -492,7 +496,7 @@ class ExamenFisicoPage extends StatelessWidget {
                               ));
                         }),
                         _buildRadioGroup(
-                            'Palpación', state.examenFisicoModel?.rPalpacion,
+                            'Palpación', state.examenFisicoModel?.rPalpacion ?? 'NE',
                             (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
@@ -504,7 +508,7 @@ class ExamenFisicoPage extends StatelessWidget {
                               ));
                         }),
                         _buildRadioGroup(
-                            'Percusión', state.examenFisicoModel?.rPercucion,
+                            'Percusión', state.examenFisicoModel?.rPercucion ?? 'NE',
                             (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
@@ -516,7 +520,7 @@ class ExamenFisicoPage extends StatelessWidget {
                               ));
                         }),
                         _buildRadioGroup('Auscultación',
-                            state.examenFisicoModel?.rAuscultacion, (value) {
+                            state.examenFisicoModel?.rAuscultacion ?? 'NE', (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
                           context
@@ -557,7 +561,7 @@ class ExamenFisicoPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         _buildRadioGroup(
-                            'Inspección', state.examenFisicoModel?.acInspeccion,
+                            'Inspección', state.examenFisicoModel?.acInspeccion ?? 'NE',
                             (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
@@ -569,7 +573,7 @@ class ExamenFisicoPage extends StatelessWidget {
                               ));
                         }),
                         _buildRadioGroup(
-                            'Palpación', state.examenFisicoModel?.acPalpacion,
+                            'Palpación', state.examenFisicoModel?.acPalpacion ?? 'NE',
                             (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
@@ -581,7 +585,7 @@ class ExamenFisicoPage extends StatelessWidget {
                               ));
                         }),
                         _buildRadioGroup('Auscultación',
-                            state.examenFisicoModel?.acAuscultacion, (value) {
+                            state.examenFisicoModel?.acAuscultacion ?? 'NE', (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
                           context
@@ -622,7 +626,7 @@ class ExamenFisicoPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         _buildRadioGroup('Venoso Periférico',
-                            state.examenFisicoModel?.venosoPeriferico, (value) {
+                            state.examenFisicoModel?.venosoPeriferico ?? 'NE', (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
                           context
@@ -633,7 +637,7 @@ class ExamenFisicoPage extends StatelessWidget {
                               ));
                         }),
                         _buildRadioGroup(
-                            'Linfático', state.examenFisicoModel?.linfatico,
+                            'Linfático', state.examenFisicoModel?.linfatico ?? 'NE',
                             (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
@@ -674,7 +678,7 @@ class ExamenFisicoPage extends StatelessWidget {
                     key: _formKey6,
                     child: Column(
                       children: <Widget>[
-                        _buildRadioGroup('Boca', state.examenFisicoModel?.boca,
+                        _buildRadioGroup('Boca', state.examenFisicoModel?.boca ?? 'NE',
                             (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
@@ -686,7 +690,7 @@ class ExamenFisicoPage extends StatelessWidget {
                               ));
                         }),
                         _buildRadioGroup(
-                            'Lengua', state.examenFisicoModel?.lengua, (value) {
+                            'Lengua', state.examenFisicoModel?.lengua ?? 'NE', (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
                           context
@@ -697,7 +701,7 @@ class ExamenFisicoPage extends StatelessWidget {
                               ));
                         }),
                         _buildRadioGroup(
-                            'Orofaringe', state.examenFisicoModel?.orofaringe,
+                            'Orofaringe', state.examenFisicoModel?.orofaringe ?? 'NE',
                             (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
@@ -739,7 +743,7 @@ class ExamenFisicoPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         _buildRadioGroup(
-                            'Inspección', state.examenFisicoModel?.aInspeccion,
+                            'Inspección', state.examenFisicoModel?.aInspeccion ?? 'NE',
                             (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
@@ -751,7 +755,7 @@ class ExamenFisicoPage extends StatelessWidget {
                               ));
                         }),
                         _buildRadioGroup(
-                            'Palpación', state.examenFisicoModel?.aPalpacion,
+                            'Palpación', state.examenFisicoModel?.aPalpacion ?? 'NE',
                             (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
@@ -763,7 +767,7 @@ class ExamenFisicoPage extends StatelessWidget {
                               ));
                         }),
                         _buildRadioGroup(
-                            'Percusión', state.examenFisicoModel?.aPercucion,
+                            'Percusión', state.examenFisicoModel?.aPercucion ?? 'NE',
                             (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
@@ -775,7 +779,7 @@ class ExamenFisicoPage extends StatelessWidget {
                               ));
                         }),
                         _buildRadioGroup('Auscultación',
-                            state.examenFisicoModel?.aAuscultacion, (value) {
+                            state.examenFisicoModel?.aAuscultacion ?? 'NE', (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
                           context
@@ -786,7 +790,7 @@ class ExamenFisicoPage extends StatelessWidget {
                               ));
                         }),
                         _buildRadioGroup('Tacto Rectal',
-                            state.examenFisicoModel?.aTactoRectal, (value) {
+                            state.examenFisicoModel?.aTactoRectal ?? 'NE', (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
                           context
@@ -827,7 +831,7 @@ class ExamenFisicoPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         _buildRadioGroup(
-                            'Inspección', state.examenFisicoModel?.uInspeccion,
+                            'Inspección', state.examenFisicoModel?.uInspeccion ?? 'NE',
                             (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
@@ -839,7 +843,7 @@ class ExamenFisicoPage extends StatelessWidget {
                               ));
                         }),
                         _buildRadioGroup(
-                            'Palpación', state.examenFisicoModel?.uPalpacion,
+                            'Palpación', state.examenFisicoModel?.uPalpacion ?? 'NE',
                             (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
@@ -851,7 +855,7 @@ class ExamenFisicoPage extends StatelessWidget {
                               ));
                         }),
                         _buildRadioGroup(
-                            'Percusión', state.examenFisicoModel?.uPercucion,
+                            'Percusión', state.examenFisicoModel?.uPercucion ?? 'NE',
                             (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
@@ -893,7 +897,7 @@ class ExamenFisicoPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         _buildRadioGroup('Vulva y Perine',
-                            state.examenFisicoModel?.vuelvaPerine, (value) {
+                            state.examenFisicoModel?.vuelvaPerine ?? 'NE', (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
                           context
@@ -934,7 +938,7 @@ class ExamenFisicoPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         _buildRadioGroup(
-                            'Vagina', state.examenFisicoModel?.vagina, (value) {
+                            'Vagina', state.examenFisicoModel?.vagina ?? 'NE', (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
                           context
@@ -975,7 +979,7 @@ class ExamenFisicoPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         _buildRadioGroup(
-                            'Cuello', state.examenFisicoModel?.cuello, (value) {
+                            'Cuello', state.examenFisicoModel?.cuello ?? 'NE', (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
                           context
@@ -1016,7 +1020,7 @@ class ExamenFisicoPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         _buildRadioGroup(
-                            'Útero', state.examenFisicoModel?.utero, (value) {
+                            'Útero', state.examenFisicoModel?.utero ?? 'NE', (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
                           context
@@ -1057,7 +1061,7 @@ class ExamenFisicoPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         _buildRadioGroup(
-                            'Anejos', state.examenFisicoModel?.anejos, (value) {
+                            'Anejos', state.examenFisicoModel?.anejos ?? 'NE', (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
                           context
@@ -1098,7 +1102,7 @@ class ExamenFisicoPage extends StatelessWidget {
                     child: Column(
                       children: <Widget>[
                         _buildRadioGroup(
-                            'Inspección', state.examenFisicoModel?.mInspeccion,
+                            'Inspección', state.examenFisicoModel?.mInspeccion ?? 'NE',
                             (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
@@ -1110,7 +1114,7 @@ class ExamenFisicoPage extends StatelessWidget {
                               ));
                         }),
                         _buildRadioGroup(
-                            'Palpación', state.examenFisicoModel?.mPalpacion,
+                            'Palpación', state.examenFisicoModel?.mPalpacion ?? 'NE',
                             (value) {
                           var examenFisico = state.examenFisicoModel ??
                               ExamenFisicoModel(id: 0);
@@ -1158,7 +1162,7 @@ class ExamenFisicoPage extends StatelessWidget {
   }
 
   Widget _buildRadioGroup(
-      String title, String? value, ValueChanged<String?> onChanged) {
+      String title, String value, ValueChanged<String?> onChanged) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
