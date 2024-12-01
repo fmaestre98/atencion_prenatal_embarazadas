@@ -18,8 +18,10 @@ class GeneticaPage extends StatelessWidget {
   final _formKey4 = GlobalKey<FormState>();
   final _formKey5 = GlobalKey<FormState>();
   final _formKey6 = GlobalKey<FormState>();
+  final ScrollController _scrollController = ScrollController();
 
-  GeneticaPage({Key? key}) : super(key: key);
+  GeneticaPage({Key? key})
+      : super(key: key ?? const ValueKey<String>('GeneticaPage'));
 
   void _submitGenetica(BuildContext context) {
     if (_formKey.currentState!.validate() &&
@@ -52,7 +54,7 @@ class GeneticaPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Genética e Imagenología'),
+        title: const Text('Genética e Imagenología'),
       ),
       body: BlocConsumer<AddPacienteBloc, AddPacienteState>(
         listenWhen: (previous, current) =>
@@ -79,8 +81,42 @@ class GeneticaPage extends StatelessWidget {
               currentStep: state.currentStepGenetica,
               onStepContinue: () {
                 if (state.currentStepGenetica < 6) {
-                  context.read<AddPacienteBloc>().add(UpdateCurrentStepGenetica(
-                      step: state.currentStepGenetica + 1));
+                  bool update = false;
+                  if (state.currentStepGenetica == 0) {
+                    if (_formKey.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey, _scrollController);
+                  } else if (state.currentStepGenetica == 1) {
+                    if (_formKey2.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey2, _scrollController);
+                  } else if (state.currentStepGenetica == 2) {
+                    if (_formKey3.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey3, _scrollController);
+                  } else if (state.currentStepGenetica == 3) {
+                    if (_formKey4.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey4, _scrollController);
+                  } else if (state.currentStepGenetica == 4) {
+                    if (_formKey5.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey5, _scrollController);
+                  } else if (state.currentStepGenetica == 5) {
+                    if (_formKey6.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey6, _scrollController);
+                  }
+                  if(update){
+                    context.read<AddPacienteBloc>().add(UpdateCurrentStepGenetica(
+                        step: state.currentStepGenetica + 1));
+                  }
                 } else {
                   _submitGenetica(context);
                 }
@@ -102,6 +138,9 @@ class GeneticaPage extends StatelessWidget {
                         TextFormField(
                           initialValue: state.geneticaModel?.efhb ?? '',
                           decoration: const InputDecoration(labelText: 'EFHB'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el EFHB'
+                              : null,
                           onChanged: (value) {
                             var genetica =
                                 state.geneticaModel ?? GeneticaModel(id: 0);
@@ -113,6 +152,9 @@ class GeneticaPage extends StatelessWidget {
                         TextFormField(
                           initialValue: state.geneticaModel?.afp ?? '',
                           decoration: const InputDecoration(labelText: 'AFP'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el AFP'
+                              : null,
                           onChanged: (value) {
                             var genetica =
                                 state.geneticaModel ?? GeneticaModel(id: 0);
@@ -165,6 +207,9 @@ class GeneticaPage extends StatelessWidget {
                           decoration: const InputDecoration(
                               labelText: 'Número de fetos'),
                           keyboardType: TextInputType.number,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa el número de fetos'
+                              : null,
                           onChanged: (value) {
                             var genetica =
                                 state.geneticaModel ?? GeneticaModel(id: 0);
@@ -213,6 +258,9 @@ class GeneticaPage extends StatelessWidget {
                                   initialValue: feto.lc,
                                   decoration: const InputDecoration(
                                       labelText: 'LC (Feto)'),
+                                  validator: (value) => value == null || value.isEmpty
+                                      ? 'Por favor ingresa el lc'
+                                      : null,
                                   onChanged: (value) {
                                     context
                                         .read<AddPacienteBloc>()
@@ -226,6 +274,9 @@ class GeneticaPage extends StatelessWidget {
                                   initialValue: feto.corion,
                                   decoration: const InputDecoration(
                                       labelText: 'Corion (Feto)'),
+                                  validator: (value) => value == null || value.isEmpty
+                                      ? 'Por favor ingresa el corion'
+                                      : null,
                                   onChanged: (value) {
                                     context
                                         .read<AddPacienteBloc>()
@@ -239,6 +290,9 @@ class GeneticaPage extends StatelessWidget {
                                   initialValue: feto.tn,
                                   decoration:
                                       const InputDecoration(labelText: 'TN'),
+                                  validator: (value) => value == null || value.isEmpty
+                                      ? 'Por favor ingresa el TN'
+                                      : null,
                                   onChanged: (value) {
                                     context
                                         .read<AddPacienteBloc>()
@@ -252,6 +306,9 @@ class GeneticaPage extends StatelessWidget {
                                   initialValue: feto.cuatroMiembros,
                                   decoration: const InputDecoration(
                                       labelText: '4 Miembros'),
+                                  validator: (value) => value == null || value.isEmpty
+                                      ? 'Por favor ingresa este campo'
+                                      : null,
                                   onChanged: (value) {
                                     context
                                         .read<AddPacienteBloc>()
@@ -266,6 +323,9 @@ class GeneticaPage extends StatelessWidget {
                                   initialValue: feto.estomago,
                                   decoration: const InputDecoration(
                                       labelText: 'Estomago'),
+                                  validator: (value) => value == null || value.isEmpty
+                                      ? 'Por favor ingresa este campo'
+                                      : null,
                                   onChanged: (value) {
                                     context
                                         .read<AddPacienteBloc>()
@@ -279,6 +339,9 @@ class GeneticaPage extends StatelessWidget {
                                   initialValue: feto.paa,
                                   decoration:
                                       const InputDecoration(labelText: 'PAA'),
+                                  validator: (value) => value == null || value.isEmpty
+                                      ? 'Por favor ingresa este campo'
+                                      : null,
                                   onChanged: (value) {
                                     context
                                         .read<AddPacienteBloc>()
@@ -345,6 +408,9 @@ class GeneticaPage extends StatelessWidget {
                           decoration: const InputDecoration(
                               labelText: 'Número de fetos'),
                           keyboardType: TextInputType.number,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa este campo'
+                              : null,
                           onChanged: (value) {
                             var genetica =
                                 state.geneticaModel ?? GeneticaModel(id: 0);
@@ -392,6 +458,9 @@ class GeneticaPage extends StatelessWidget {
                                   initialValue: feto.lc,
                                   decoration: const InputDecoration(
                                       labelText: 'LC (Feto)'),
+                                  validator: (value) => value == null || value.isEmpty
+                                      ? 'Por favor ingresa este campo'
+                                      : null,
                                   onChanged: (value) {
                                     context
                                         .read<AddPacienteBloc>()
@@ -405,6 +474,9 @@ class GeneticaPage extends StatelessWidget {
                                   initialValue: feto.cc,
                                   decoration:
                                       const InputDecoration(labelText: 'CC'),
+                                  validator: (value) => value == null || value.isEmpty
+                                      ? 'Por favor ingresa este campo'
+                                      : null,
                                   onChanged: (value) {
                                     context
                                         .read<AddPacienteBloc>()
@@ -418,6 +490,9 @@ class GeneticaPage extends StatelessWidget {
                                   initialValue: feto.cordon3Vasos,
                                   decoration: const InputDecoration(
                                       labelText: '3 Vasos'),
+                                  validator: (value) => value == null || value.isEmpty
+                                      ? 'Por favor ingresa este campo'
+                                      : null,
                                   onChanged: (value) {
                                     context
                                         .read<AddPacienteBloc>()
@@ -432,6 +507,9 @@ class GeneticaPage extends StatelessWidget {
                                   initialValue: feto.vejiga,
                                   decoration: const InputDecoration(
                                       labelText: 'Vejiga'),
+                                  validator: (value) => value == null || value.isEmpty
+                                      ? 'Por favor ingresa este campo'
+                                      : null,
                                   onChanged: (value) {
                                     context
                                         .read<AddPacienteBloc>()
@@ -445,6 +523,9 @@ class GeneticaPage extends StatelessWidget {
                                   initialValue: feto.estomago,
                                   decoration: const InputDecoration(
                                       labelText: 'Estomago'),
+                                  validator: (value) => value == null || value.isEmpty
+                                      ? 'Por favor ingresa este campo'
+                                      : null,
                                   onChanged: (value) {
                                     context
                                         .read<AddPacienteBloc>()
@@ -458,6 +539,9 @@ class GeneticaPage extends StatelessWidget {
                                   initialValue: feto.columna,
                                   decoration: const InputDecoration(
                                       labelText: 'Columna'),
+                                  validator: (value) => value == null || value.isEmpty
+                                      ? 'Por favor ingresa este campo'
+                                      : null,
                                   onChanged: (value) {
                                     context
                                         .read<AddPacienteBloc>()
@@ -496,7 +580,10 @@ class GeneticaPage extends StatelessWidget {
                           initialValue:
                               state.geneticaModel?.longitudDelCuello ?? '',
                           decoration: const InputDecoration(
-                              labelText: 'Longitud del Cuello'),
+                              labelText: 'Longitud del cuello'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa la longitud del cuello'
+                              : null,
                           onChanged: (value) {
                             var genetica =
                                 state.geneticaModel ?? GeneticaModel(id: 0);
@@ -509,6 +596,9 @@ class GeneticaPage extends StatelessWidget {
                         TextFormField(
                           initialValue: state.geneticaModel?.oci ?? '',
                           decoration: const InputDecoration(labelText: 'OCI'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa este campo'
+                              : null,
                           onChanged: (value) {
                             var genetica =
                                 state.geneticaModel ?? GeneticaModel(id: 0);
@@ -521,6 +611,9 @@ class GeneticaPage extends StatelessWidget {
                           initialValue: state.geneticaModel?.valorOci ?? '',
                           decoration:
                               const InputDecoration(labelText: 'Valor OCI'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa este campo'
+                              : null,
                           onChanged: (value) {
                             var genetica =
                                 state.geneticaModel ?? GeneticaModel(id: 0);
@@ -534,6 +627,9 @@ class GeneticaPage extends StatelessWidget {
                               state.geneticaModel?.maniobrasEsfuerzo ?? '',
                           decoration: const InputDecoration(
                               labelText: 'Maniobras de Esfuerzo'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa este campo'
+                              : null,
                           onChanged: (value) {
                             var genetica =
                                 state.geneticaModel ?? GeneticaModel(id: 0);
@@ -546,6 +642,9 @@ class GeneticaPage extends StatelessWidget {
                         TextFormField(
                           initialValue: state.geneticaModel?.icc ?? '',
                           decoration: const InputDecoration(labelText: 'ICC'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa este campo'
+                              : null,
                           onChanged: (value) {
                             var genetica =
                                 state.geneticaModel ?? GeneticaModel(id: 0);
@@ -558,6 +657,9 @@ class GeneticaPage extends StatelessWidget {
                           initialValue: state.geneticaModel?.iccPercentil ?? '',
                           decoration:
                               const InputDecoration(labelText: 'ICC Percentil'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa este campo'
+                              : null,
                           onChanged: (value) {
                             var genetica =
                                 state.geneticaModel ?? GeneticaModel(id: 0);
@@ -569,6 +671,9 @@ class GeneticaPage extends StatelessWidget {
                         TextFormField(
                           initialValue:
                               state.geneticaModel?.csDatosDeInteres ?? '',
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa este campo'
+                              : null,
                           decoration: const InputDecoration(
                               labelText: 'Datos de Interés'),
                           onChanged: (value) {
@@ -594,6 +699,9 @@ class GeneticaPage extends StatelessWidget {
                         TextFormField(
                           initialValue: state.geneticaModel?.ip1 ?? '',
                           decoration: const InputDecoration(labelText: 'IP1'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa este campo'
+                              : null,
                           onChanged: (value) {
                             var genetica =
                                 state.geneticaModel ?? GeneticaModel(id: 0);
@@ -605,6 +713,9 @@ class GeneticaPage extends StatelessWidget {
                         TextFormField(
                           initialValue: state.geneticaModel?.ipD ?? '',
                           decoration: const InputDecoration(labelText: 'IPD'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa este campo'
+                              : null,
                           onChanged: (value) {
                             var genetica =
                                 state.geneticaModel ?? GeneticaModel(id: 0);
@@ -616,6 +727,9 @@ class GeneticaPage extends StatelessWidget {
                         TextFormField(
                           initialValue: state.geneticaModel?.ipM ?? '',
                           decoration: const InputDecoration(labelText: 'IPM'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa este campo'
+                              : null,
                           onChanged: (value) {
                             var genetica =
                                 state.geneticaModel ?? GeneticaModel(id: 0);
@@ -628,6 +742,9 @@ class GeneticaPage extends StatelessWidget {
                           initialValue: state.geneticaModel?.ipmPercentil ?? '',
                           decoration:
                               const InputDecoration(labelText: 'IPM Percentil'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa este campo'
+                              : null,
                           onChanged: (value) {
                             var genetica =
                                 state.geneticaModel ?? GeneticaModel(id: 0);
@@ -641,6 +758,9 @@ class GeneticaPage extends StatelessWidget {
                               state.geneticaModel?.dusDatosDeInteres ?? '',
                           decoration: const InputDecoration(
                               labelText: 'Datos de Interés'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa este campo'
+                              : null,
                           onChanged: (value) {
                             var genetica =
                                 state.geneticaModel ?? GeneticaModel(id: 0);
@@ -692,6 +812,9 @@ class GeneticaPage extends StatelessWidget {
                               state.geneticaModel?.scLongitudCuello ?? '',
                           decoration: const InputDecoration(
                               labelText: 'Longitud del Cuello'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa este campo'
+                              : null,
                           onChanged: (value) {
                             var genetica =
                                 state.geneticaModel ?? GeneticaModel(id: 0);
@@ -704,6 +827,9 @@ class GeneticaPage extends StatelessWidget {
                         TextFormField(
                           initialValue: state.geneticaModel?.scOci ?? '',
                           decoration: const InputDecoration(labelText: 'OCI'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa este campo'
+                              : null,
                           onChanged: (value) {
                             var genetica =
                                 state.geneticaModel ?? GeneticaModel(id: 0);
@@ -716,6 +842,9 @@ class GeneticaPage extends StatelessWidget {
                           initialValue: state.geneticaModel?.scValorOci ?? '',
                           decoration:
                               const InputDecoration(labelText: 'Valor OCI'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa este campo'
+                              : null,
                           onChanged: (value) {
                             var genetica =
                                 state.geneticaModel ?? GeneticaModel(id: 0);
@@ -729,6 +858,9 @@ class GeneticaPage extends StatelessWidget {
                               state.geneticaModel?.scManiobrasEsfuerzo ?? '',
                           decoration: const InputDecoration(
                               labelText: 'Maniobras de Esfuerzo'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa este campo'
+                              : null,
                           onChanged: (value) {
                             var genetica =
                                 state.geneticaModel ?? GeneticaModel(id: 0);
@@ -741,6 +873,9 @@ class GeneticaPage extends StatelessWidget {
                         TextFormField(
                           initialValue: state.geneticaModel?.scIcc ?? '',
                           decoration: const InputDecoration(labelText: 'ICC'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa este campo'
+                              : null,
                           onChanged: (value) {
                             var genetica =
                                 state.geneticaModel ?? GeneticaModel(id: 0);
@@ -754,6 +889,9 @@ class GeneticaPage extends StatelessWidget {
                               state.geneticaModel?.scIccPercentil ?? '',
                           decoration:
                               const InputDecoration(labelText: 'ICC Percentil'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa este campo'
+                              : null,
                           onChanged: (value) {
                             var genetica =
                                 state.geneticaModel ?? GeneticaModel(id: 0);
@@ -766,6 +904,9 @@ class GeneticaPage extends StatelessWidget {
                         TextFormField(
                           initialValue: state.geneticaModel?.eg ?? '',
                           decoration: const InputDecoration(labelText: 'EG'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa este campo'
+                              : null,
                           onChanged: (value) {
                             var genetica =
                                 state.geneticaModel ?? GeneticaModel(id: 0);
@@ -779,6 +920,9 @@ class GeneticaPage extends StatelessWidget {
                               state.geneticaModel?.scDatosDeInteres ?? '',
                           decoration: const InputDecoration(
                               labelText: 'Datos de Interés'),
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa este campo'
+                              : null,
                           onChanged: (value) {
                             var genetica =
                                 state.geneticaModel ?? GeneticaModel(id: 0);

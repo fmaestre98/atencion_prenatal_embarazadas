@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import '../../bloc/add/add_bloc.dart';
 import '../../bloc/add/add_event.dart';
 import '../../bloc/add/add_state.dart';
+import '../../core/utils.dart';
 
 class LaboratorioPage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -33,7 +34,8 @@ class LaboratorioPage extends StatelessWidget {
   final _formKey22 = GlobalKey<FormState>();
   final _formKey23 = GlobalKey<FormState>();
   final _formKey24 = GlobalKey<FormState>();
-
+  final ScrollController _scrollController = ScrollController();
+  
   // Agrega más controladores según tu modelo
 
   LaboratorioPage({Key? key}) : super(key: key);
@@ -77,10 +79,134 @@ class LaboratorioPage extends StatelessWidget {
               type: StepperType.vertical,
               currentStep: state.currentStepLaboratorio,
               onStepContinue: () {
+                bool update = false;
                 if (state.currentStepLaboratorio < 24) {
-                  context.read<AddPacienteBloc>().add(
-                      UpdateCurrentStepLaboratorio(
-                          step: state.currentStepLaboratorio + 1));
+                  if (state.currentStepLaboratorio == 0) {
+                    if (_formKey.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey, _scrollController);
+                  } else if (state.currentStepLaboratorio == 1) {
+                    if (_formKey2.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey2, _scrollController);
+                  } else if (state.currentStepLaboratorio == 2) {
+                    if (_formKey3.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey3, _scrollController);
+                  } else if (state.currentStepLaboratorio == 3) {
+                    if (_formKey4.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey4, _scrollController);
+                  } else if (state.currentStepLaboratorio == 4) {
+                    if (_formKey5.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey5, _scrollController);
+                  } else if (state.currentStepLaboratorio == 5) {
+                    if (_formKey6.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey6, _scrollController);
+                  } else if (state.currentStepLaboratorio == 6) {
+                    if (_formKey7.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey7, _scrollController);
+                  } else if (state.currentStepLaboratorio == 7) {
+                    if (_formKey8.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey8, _scrollController);
+                  } else if (state.currentStepLaboratorio == 8) {
+                    if (_formKey9.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey9, _scrollController);
+                  } else if (state.currentStepLaboratorio == 9) {
+                    if (_formKey10.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey10, _scrollController);
+                  } else if (state.currentStepLaboratorio == 10) {
+                    if (_formKey11.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey11, _scrollController);
+                  } else if (state.currentStepLaboratorio == 11) {
+                    if (_formKey12.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey12, _scrollController);
+                  } else if (state.currentStepLaboratorio == 12) {
+                    if (_formKey13.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey13, _scrollController);
+                  } else if (state.currentStepLaboratorio == 13) {
+                    if (_formKey14.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey14, _scrollController);
+                  } else if (state.currentStepLaboratorio == 14) {
+                    if (_formKey15.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey15, _scrollController);
+                  } else if (state.currentStepLaboratorio == 15) {
+                    if (_formKey16.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey16, _scrollController);
+                  } else if (state.currentStepLaboratorio == 16) {
+                    if (_formKey17.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey17, _scrollController);
+                  } else if (state.currentStepLaboratorio == 17) {
+                    if (_formKey18.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey18, _scrollController);
+                  } else if (state.currentStepLaboratorio == 18) {
+                    if (_formKey19.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey19, _scrollController);
+                  } else if (state.currentStepLaboratorio == 19) {
+                    if (_formKey20.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey20, _scrollController);
+                  } else if (state.currentStepLaboratorio == 20) {
+                    if (_formKey21.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey21, _scrollController);
+                  } else if (state.currentStepLaboratorio == 21) {
+                    if (_formKey22.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey22, _scrollController);
+                  } else if (state.currentStepLaboratorio == 22) {
+                    if (_formKey23.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey23, _scrollController);
+                  } else if (state.currentStepLaboratorio == 23) {
+                    if (_formKey24.currentState!.validate()) {
+                      update = true;
+                    }
+                    scrollToForm(_formKey24, _scrollController);
+                  }
+                  if(update){
+                    context.read<AddPacienteBloc>().add(
+                        UpdateCurrentStepLaboratorio(
+                            step: state.currentStepLaboratorio + 1)); 
+                  }
                 } else {
                   _submitLaboratorio(context);
                 }
@@ -140,7 +266,7 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTime(context, (value) {
+                                  selectDateTime(context, (value) {
                                 var laboratorio =
                                     state.laboratorioMicrobiologiaModel ??
                                         LaboratorioMicrobiologiaModel(id: 0);
@@ -195,7 +321,7 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTime(context, (value) {
+                                  selectDateTime(context, (value) {
                                 var laboratorio =
                                     state.laboratorioMicrobiologiaModel ??
                                         LaboratorioMicrobiologiaModel(id: 0);
@@ -261,7 +387,7 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTime(context, (value) {
+                                  selectDateTime(context, (value) {
                                 var laboratorio =
                                     state.laboratorioMicrobiologiaModel ??
                                         LaboratorioMicrobiologiaModel(id: 0);
@@ -316,7 +442,7 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTime(context, (value) {
+                                  selectDateTime(context, (value) {
                                 var laboratorio =
                                     state.laboratorioMicrobiologiaModel ??
                                         LaboratorioMicrobiologiaModel(id: 0);
@@ -382,7 +508,7 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTime(context, (value) {
+                                  selectDateTime(context, (value) {
                                 var laboratorio =
                                     state.laboratorioMicrobiologiaModel ??
                                         LaboratorioMicrobiologiaModel(id: 0);
@@ -436,7 +562,7 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTime(context, (value) {
+                                  selectDateTime(context, (value) {
                                 var laboratorio =
                                     state.laboratorioMicrobiologiaModel ??
                                         LaboratorioMicrobiologiaModel(id: 0);
@@ -501,7 +627,7 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTime(context, (value) {
+                                  selectDateTime(context, (value) {
                                 var laboratorio =
                                     state.laboratorioMicrobiologiaModel ??
                                         LaboratorioMicrobiologiaModel(id: 0);
@@ -555,7 +681,7 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTime(context, (value) {
+                                  selectDateTime(context, (value) {
                                 var laboratorio =
                                     state.laboratorioMicrobiologiaModel ??
                                         LaboratorioMicrobiologiaModel(id: 0);
@@ -617,7 +743,7 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTime(context, (value) {
+                                  selectDateTime(context, (value) {
                                 var laboratorio =
                                     state.laboratorioMicrobiologiaModel ??
                                         LaboratorioMicrobiologiaModel(id: 0);
@@ -679,7 +805,7 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTime(context, (value) {
+                                  selectDateTime(context, (value) {
                                 var laboratorio =
                                     state.laboratorioMicrobiologiaModel ??
                                         LaboratorioMicrobiologiaModel(id: 0);
@@ -741,7 +867,7 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTime(context, (value) {
+                                  selectDateTime(context, (value) {
                                 var laboratorio =
                                     state.laboratorioMicrobiologiaModel ??
                                         LaboratorioMicrobiologiaModel(id: 0);
@@ -803,7 +929,7 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTime(context, (value) {
+                                  selectDateTime(context, (value) {
                                 var laboratorio =
                                     state.laboratorioMicrobiologiaModel ??
                                         LaboratorioMicrobiologiaModel(id: 0);
@@ -865,7 +991,7 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTime(context, (value) {
+                                  selectDateTime(context, (value) {
                                 var laboratorio =
                                     state.laboratorioMicrobiologiaModel ??
                                         LaboratorioMicrobiologiaModel(id: 0);
@@ -927,7 +1053,7 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTime(context, (value) {
+                                  selectDateTime(context, (value) {
                                 var laboratorio =
                                     state.laboratorioMicrobiologiaModel ??
                                         LaboratorioMicrobiologiaModel(id: 0);
@@ -989,7 +1115,7 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTime(context, (value) {
+                                  selectDateTime(context, (value) {
                                 var laboratorio =
                                     state.laboratorioMicrobiologiaModel ??
                                         LaboratorioMicrobiologiaModel(id: 0);
@@ -1051,7 +1177,7 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTime(context, (value) {
+                                  selectDateTime(context, (value) {
                                 var laboratorio =
                                     state.laboratorioMicrobiologiaModel ??
                                         LaboratorioMicrobiologiaModel(id: 0);
@@ -1113,7 +1239,7 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTime(context, (value) {
+                                  selectDateTime(context, (value) {
                                 var laboratorio =
                                     state.laboratorioMicrobiologiaModel ??
                                         LaboratorioMicrobiologiaModel(id: 0);
@@ -1175,7 +1301,7 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTime(context, (value) {
+                                  selectDateTime(context, (value) {
                                 var laboratorio =
                                     state.laboratorioMicrobiologiaModel ??
                                         LaboratorioMicrobiologiaModel(id: 0);
@@ -1237,7 +1363,7 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTime(context, (value) {
+                                  selectDateTime(context, (value) {
                                 var laboratorio =
                                     state.laboratorioMicrobiologiaModel ??
                                         LaboratorioMicrobiologiaModel(id: 0);
@@ -1299,7 +1425,7 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTime(context, (value) {
+                                  selectDateTime(context, (value) {
                                 var laboratorio =
                                     state.laboratorioMicrobiologiaModel ??
                                         LaboratorioMicrobiologiaModel(id: 0);
@@ -1361,7 +1487,7 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTime(context, (value) {
+                                  selectDateTime(context, (value) {
                                 var laboratorio =
                                     state.laboratorioMicrobiologiaModel ??
                                         LaboratorioMicrobiologiaModel(id: 0);
@@ -1423,7 +1549,7 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTime(context, (value) {
+                                  selectDateTime(context, (value) {
                                 var laboratorio =
                                     state.laboratorioMicrobiologiaModel ??
                                         LaboratorioMicrobiologiaModel(id: 0);
@@ -1484,7 +1610,7 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTime(context, (value) {
+                                  selectDateTime(context, (value) {
                                 var laboratorio =
                                     state.laboratorioMicrobiologiaModel ??
                                         LaboratorioMicrobiologiaModel(id: 0);
@@ -1545,7 +1671,7 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTime(context, (value) {
+                                  selectDateTime(context, (value) {
                                 var laboratorio =
                                     state.laboratorioMicrobiologiaModel ??
                                         LaboratorioMicrobiologiaModel(id: 0);
@@ -1606,7 +1732,7 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTime(context, (value) {
+                                  selectDateTime(context, (value) {
                                 var laboratorio =
                                     state.laboratorioMicrobiologiaModel ??
                                         LaboratorioMicrobiologiaModel(id: 0);
@@ -1668,7 +1794,7 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTime(context, (value) {
+                                  selectDateTime(context, (value) {
                                 var laboratorio =
                                     state.laboratorioMicrobiologiaModel ??
                                         LaboratorioMicrobiologiaModel(id: 0);
@@ -1730,7 +1856,7 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTime(context, (value) {
+                                  selectDateTime(context, (value) {
                                 var laboratorio =
                                     state.laboratorioMicrobiologiaModel ??
                                         LaboratorioMicrobiologiaModel(id: 0);
@@ -1791,7 +1917,7 @@ class LaboratorioPage extends StatelessWidget {
                             ),
                             ElevatedButton(
                               onPressed: () =>
-                                  _selectDateTime(context, (value) {
+                                  selectDateTime(context, (value) {
                                 var laboratorio =
                                     state.laboratorioMicrobiologiaModel ??
                                         LaboratorioMicrobiologiaModel(id: 0);
@@ -1821,20 +1947,5 @@ class LaboratorioPage extends StatelessWidget {
         },
       ),
     );
-  }
-
-  void _selectDateTime(
-      BuildContext context, Null Function(dynamic value) onChange) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: DateTime(1990),
-      firstDate: DateTime(1900),
-      lastDate: DateTime.now(),
-    );
-    if (picked != null) {
-      // Actualiza la fecha de nacimiento
-      print("my-logs $picked");
-      onChange(picked);
-    }
   }
 }

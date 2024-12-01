@@ -22,10 +22,10 @@ class DatosPersonalesPage extends StatelessWidget {
   final _formKey8 = GlobalKey<FormState>();
   final ScrollController _scrollController = ScrollController();
 
-  DatosPersonalesPage({Key? key}) : super(key: key ?? const ValueKey<String>('DatosPersonalesPage'));
+  DatosPersonalesPage({Key? key})
+      : super(key: key ?? const ValueKey<String>('DatosPersonalesPage'));
 
   void _submitDatosPersonales(BuildContext context) {
-    safePrint("OOOOOOOOOOOOOOOOOOOOOOOOOOOWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW");
     if (_formKey.currentState!.validate() &&
         _formKey2.currentState!.validate() &&
         _formKey3.currentState!.validate() &&
@@ -85,8 +85,15 @@ class DatosPersonalesPage extends StatelessWidget {
                 if (state.currentStepDatosPersonales < 8) {
                   if (state.currentStepDatosPersonales == 0) {
                     if (_formKey.currentState!.validate()) {
-                      update = true;
-                      scrollToForm(_formKey, _scrollController);
+                      if (state.paciente?.fechaNacimiento == null) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                              content: Text("Ingrese la fecha de nacimiento")),
+                        );
+                      } else {
+                        update = true;
+                        scrollToForm(_formKey, _scrollController);
+                      }
                     }
                   } else if (state.currentStepDatosPersonales == 1) {
                     if (_formKey2.currentState!.validate()) {
@@ -110,8 +117,16 @@ class DatosPersonalesPage extends StatelessWidget {
                     }
                   } else if (state.currentStepDatosPersonales == 5) {
                     if (_formKey6.currentState!.validate()) {
-                      update = true;
-                      scrollToForm(_formKey6, _scrollController);
+                      if(state.antecedentesGinecologicos
+                          ?.fechaUltimaMenstruacion == null) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                              content: Text("Ingrese la fecha de la última menstruación")),
+                        );
+                      } else {
+                        update = true;
+                        scrollToForm(_formKey6, _scrollController);
+                      }
                     }
                   } else if (state.currentStepDatosPersonales == 6) {
                     if (_formKey7.currentState!.validate()) {
@@ -674,13 +689,16 @@ class DatosPersonalesPage extends StatelessWidget {
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () =>
-                                  selectDateTime(context, (value){
-                                    var embarazo = state.embarazoActual ?? EmbarazoActual(id: 0);
-                                    context.read<AddPacienteBloc>().add(UpdateEmbarazoActual(
-                                      embarazoActual: embarazo.copyWith(fechaPartoEstimado: value),
+                              onPressed: () => selectDateTime(context, (value) {
+                                var embarazo = state.embarazoActual ??
+                                    EmbarazoActual(id: 0);
+                                context
+                                    .read<AddPacienteBloc>()
+                                    .add(UpdateEmbarazoActual(
+                                      embarazoActual: embarazo.copyWith(
+                                          fechaPartoEstimado: value),
                                     ));
-                                  }),
+                              }),
                               child: const Text('Seleccionar'),
                             ),
                           ],
@@ -850,10 +868,13 @@ class DatosPersonalesPage extends StatelessWidget {
                                   ?.enfermedadesGenerales ??
                               '',
                           decoration: const InputDecoration(
-                            labelText: 'Enfermermedades generales',
+                            labelText: 'Enfermedades generales',
                             border: OutlineInputBorder(),
                           ),
                           maxLines: 3,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa las enfermedades generales'
+                              : null,
                           onChanged: (value) {
                             var antecedentesPatologicosPersonales =
                                 state.antecedentesPatologicosPersonales ??
@@ -878,6 +899,9 @@ class DatosPersonalesPage extends StatelessWidget {
                             border: OutlineInputBorder(),
                           ),
                           maxLines: 3,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa las enfermedades endocrinas'
+                              : null,
                           onChanged: (value) {
                             var antecedentesPatologicosPersonales =
                                 state.antecedentesPatologicosPersonales ??
@@ -886,14 +910,11 @@ class DatosPersonalesPage extends StatelessWidget {
                                 .read<AddPacienteBloc>()
                                 .add(UpdateAntecedentesPatologicosPersonales(
                                   model: antecedentesPatologicosPersonales
-                                      .copyWith(
-                                    enfermedadesEndocrinas: value,
-                                  ),
+                                      .copyWith(enfermedadesEndocrinas: value),
                                 ));
                           },
                         ),
                         const SizedBox(height: 16),
-
                         // Enfermedades respiratorias
                         TextFormField(
                           initialValue: state.antecedentesPatologicosPersonales
@@ -904,6 +925,9 @@ class DatosPersonalesPage extends StatelessWidget {
                             border: OutlineInputBorder(),
                           ),
                           maxLines: 3,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa las enfermedades respiratorias'
+                              : null,
                           onChanged: (value) {
                             var antecedentesPatologicosPersonales =
                                 state.antecedentesPatologicosPersonales ??
@@ -930,6 +954,9 @@ class DatosPersonalesPage extends StatelessWidget {
                             border: OutlineInputBorder(),
                           ),
                           maxLines: 3,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa las enfermedades cardiovasculares'
+                              : null,
                           onChanged: (value) {
                             var antecedentesPatologicosPersonales =
                                 state.antecedentesPatologicosPersonales ??
@@ -956,6 +983,9 @@ class DatosPersonalesPage extends StatelessWidget {
                             border: OutlineInputBorder(),
                           ),
                           maxLines: 3,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa las enfermedades digestivas'
+                              : null,
                           onChanged: (value) {
                             var antecedentesPatologicosPersonales =
                                 state.antecedentesPatologicosPersonales ??
@@ -982,6 +1012,9 @@ class DatosPersonalesPage extends StatelessWidget {
                             border: OutlineInputBorder(),
                           ),
                           maxLines: 3,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa las enfermedades renales'
+                              : null,
                           onChanged: (value) {
                             var antecedentesPatologicosPersonales =
                                 state.antecedentesPatologicosPersonales ??
@@ -1008,6 +1041,9 @@ class DatosPersonalesPage extends StatelessWidget {
                             border: OutlineInputBorder(),
                           ),
                           maxLines: 3,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa las enfermedades neuronales'
+                              : null,
                           onChanged: (value) {
                             var antecedentesPatologicosPersonales =
                                 state.antecedentesPatologicosPersonales ??
@@ -1034,6 +1070,9 @@ class DatosPersonalesPage extends StatelessWidget {
                             border: OutlineInputBorder(),
                           ),
                           maxLines: 3,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa las enfermedades hematológicas'
+                              : null,
                           onChanged: (value) {
                             var antecedentesPatologicosPersonales =
                                 state.antecedentesPatologicosPersonales ??
@@ -1060,6 +1099,9 @@ class DatosPersonalesPage extends StatelessWidget {
                             border: OutlineInputBorder(),
                           ),
                           maxLines: 3,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa las enfermedades reumatológicas'
+                              : null,
                           onChanged: (value) {
                             var antecedentesPatologicosPersonales =
                                 state.antecedentesPatologicosPersonales ??
@@ -1086,6 +1128,9 @@ class DatosPersonalesPage extends StatelessWidget {
                             border: OutlineInputBorder(),
                           ),
                           maxLines: 3,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa las enfermedades de transmisión sexual'
+                              : null,
                           onChanged: (value) {
                             var antecedentesPatologicosPersonales =
                                 state.antecedentesPatologicosPersonales ??
@@ -1112,6 +1157,9 @@ class DatosPersonalesPage extends StatelessWidget {
                             border: OutlineInputBorder(),
                           ),
                           maxLines: 3,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa las enfermedades ginecológicas'
+                              : null,
                           onChanged: (value) {
                             var antecedentesPatologicosPersonales =
                                 state.antecedentesPatologicosPersonales ??
@@ -1138,6 +1186,9 @@ class DatosPersonalesPage extends StatelessWidget {
                             border: OutlineInputBorder(),
                           ),
                           maxLines: 3,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa los antecedentes familiares'
+                              : null,
                           onChanged: (value) {
                             var antecedentesPatologicosPersonales =
                                 state.antecedentesPatologicosPersonales ??
@@ -1164,6 +1215,9 @@ class DatosPersonalesPage extends StatelessWidget {
                             border: OutlineInputBorder(),
                           ),
                           maxLines: 3,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa los antecedentes quirúrgicos'
+                              : null,
                           onChanged: (value) {
                             var antecedentesPatologicosPersonales =
                                 state.antecedentesPatologicosPersonales ??
@@ -1189,6 +1243,9 @@ class DatosPersonalesPage extends StatelessWidget {
                             border: OutlineInputBorder(),
                           ),
                           maxLines: 3,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa los hábitos psicobiológicos'
+                              : null,
                           onChanged: (value) {
                             var antecedentesPatologicosPersonales =
                                 state.antecedentesPatologicosPersonales ??
@@ -1215,6 +1272,9 @@ class DatosPersonalesPage extends StatelessWidget {
                             border: OutlineInputBorder(),
                           ),
                           maxLines: 3,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa las transfusiones previas'
+                              : null,
                           onChanged: (value) {
                             var antecedentesPatologicosPersonales =
                                 state.antecedentesPatologicosPersonales ??
@@ -1241,6 +1301,9 @@ class DatosPersonalesPage extends StatelessWidget {
                             border: OutlineInputBorder(),
                           ),
                           maxLines: 3,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa las inmunizaciones'
+                              : null,
                           onChanged: (value) {
                             var antecedentesPatologicosPersonales =
                                 state.antecedentesPatologicosPersonales ??
@@ -1303,6 +1366,9 @@ class DatosPersonalesPage extends StatelessWidget {
                             border: OutlineInputBorder(),
                           ),
                           maxLines: 3,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa las características'
+                              : null,
                           onChanged: (value) {
                             var antecedente = state.antecedentesGinecologicos ??
                                 AntecedentesGinecologicos(id: 0);
@@ -1352,6 +1418,9 @@ class DatosPersonalesPage extends StatelessWidget {
                             border: OutlineInputBorder(),
                           ),
                           maxLines: 3,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa las características'
+                              : null,
                           onChanged: (value) {
                             var antecedente = state.antecedentesGinecologicos ??
                                 AntecedentesGinecologicos(id: 0);
@@ -1546,6 +1615,9 @@ class DatosPersonalesPage extends StatelessWidget {
                             border: OutlineInputBorder(),
                           ),
                           maxLines: 3,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa las observaciones'
+                              : null,
                           onChanged: (value) {
                             var antecedentes =
                                 state.antecedentesGinecologicos ??
@@ -1643,6 +1715,9 @@ class DatosPersonalesPage extends StatelessWidget {
                             border: OutlineInputBorder(),
                           ),
                           maxLines: 3,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa las observaciones'
+                              : null,
                           onChanged: (value) {
                             var antecedentes =
                                 state.antecedentesGinecologicos ??
@@ -1730,7 +1805,8 @@ class DatosPersonalesPage extends StatelessWidget {
                                 const SizedBox(height: 10),
                                 DropdownButtonFormField<String>(
                                   value: embarazo.tipoParto ?? "Eutócico",
-                                  decoration: const InputDecoration(labelText: 'Tipo de parto'),
+                                  decoration: const InputDecoration(
+                                      labelText: 'Tipo de parto'),
                                   items: ['Eutócico', 'Distósico']
                                       .map((String value) {
                                     return DropdownMenuItem<String>(
@@ -1739,20 +1815,21 @@ class DatosPersonalesPage extends StatelessWidget {
                                     );
                                   }).toList(),
                                   onChanged: (newValue) {
-                                    var updatedEmbarazo = embarazo.copyWith(
-                                        tipoParto: newValue);
+                                    var updatedEmbarazo =
+                                        embarazo.copyWith(tipoParto: newValue);
                                     context
                                         .read<AddPacienteBloc>()
                                         .add(UpdateEmbarazo(
-                                      index: index,
-                                      model: updatedEmbarazo,
-                                    ));
+                                          index: index,
+                                          model: updatedEmbarazo,
+                                        ));
                                   },
                                 ),
                                 const SizedBox(height: 10),
                                 DropdownButtonFormField<String>(
                                   value: embarazo.tipoDistocia ?? "Cesárea",
-                                  decoration: const InputDecoration(labelText: 'Tipo de distosia'),
+                                  decoration: const InputDecoration(
+                                      labelText: 'Tipo de distosia'),
                                   items: ['Cesárea', 'Instrumentación']
                                       .map((String value) {
                                     return DropdownMenuItem<String>(
@@ -1766,15 +1843,16 @@ class DatosPersonalesPage extends StatelessWidget {
                                     context
                                         .read<AddPacienteBloc>()
                                         .add(UpdateEmbarazo(
-                                      index: index,
-                                      model: updatedEmbarazo,
-                                    ));
+                                          index: index,
+                                          model: updatedEmbarazo,
+                                        ));
                                   },
                                 ),
                                 const SizedBox(height: 10),
                                 DropdownButtonFormField<String>(
                                   value: embarazo.tipoNacimiento ?? "Sencillo",
-                                  decoration: const InputDecoration(labelText: 'Tipo de nacimiento'),
+                                  decoration: const InputDecoration(
+                                      labelText: 'Tipo de nacimiento'),
                                   items: ['Sencillo', 'Múltiple']
                                       .map((String value) {
                                     return DropdownMenuItem<String>(
@@ -1788,31 +1866,35 @@ class DatosPersonalesPage extends StatelessWidget {
                                     context
                                         .read<AddPacienteBloc>()
                                         .add(UpdateEmbarazo(
-                                      index: index,
-                                      model: updatedEmbarazo,
-                                    ));
+                                          index: index,
+                                          model: updatedEmbarazo,
+                                        ));
                                   },
                                 ),
                                 const SizedBox(height: 10),
                                 DropdownButtonFormField<String>(
                                   value: embarazo.lugarParto ?? "Institucional",
-                                  decoration: const InputDecoration(labelText: 'Lugar de parto'),
-                                  items: ['Institucional intrahospitalario', 'Institucional extrahospitalario', 'No institucional']
-                                      .map((String value) {
+                                  decoration: const InputDecoration(
+                                      labelText: 'Lugar de parto'),
+                                  items: [
+                                    'Institucional intrahospitalario',
+                                    'Institucional extrahospitalario',
+                                    'No institucional'
+                                  ].map((String value) {
                                     return DropdownMenuItem<String>(
                                       value: value,
                                       child: Text(value),
                                     );
                                   }).toList(),
                                   onChanged: (newValue) {
-                                    var updatedEmbarazo = embarazo.copyWith(
-                                        lugarParto: newValue);
+                                    var updatedEmbarazo =
+                                        embarazo.copyWith(lugarParto: newValue);
                                     context
                                         .read<AddPacienteBloc>()
                                         .add(UpdateEmbarazo(
-                                      index: index,
-                                      model: updatedEmbarazo,
-                                    ));
+                                          index: index,
+                                          model: updatedEmbarazo,
+                                        ));
                                   },
                                 ),
                                 const SizedBox(height: 10),
@@ -1821,6 +1903,9 @@ class DatosPersonalesPage extends StatelessWidget {
                                   decoration: const InputDecoration(
                                       labelText:
                                           'Patologías asociadas al embarazo'),
+                                  validator: (value) => value == null || value.isEmpty
+                                      ? 'Por favor ingresa las patologías asociadas al embarazo'
+                                      : null,
                                   onChanged: (value) {
                                     var updatedEmbarazo = embarazo.copyWith(
                                         patologiasAsociadas: value);
@@ -1896,7 +1981,7 @@ class DatosPersonalesPage extends StatelessWidget {
                   content: Form(
                       key: _formKey8,
                       child: Column(children: <Widget>[
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         TextFormField(
@@ -1907,6 +1992,9 @@ class DatosPersonalesPage extends StatelessWidget {
                             border: OutlineInputBorder(),
                           ),
                           maxLines: 3,
+                          validator: (value) => value == null || value.isEmpty
+                              ? 'Por favor ingresa los datos de interés'
+                              : null,
                           onChanged: (value) {
                             var paciente = state.paciente ?? Paciente(id: 0);
                             context

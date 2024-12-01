@@ -1,7 +1,6 @@
 // lib/screens/signos_vitales_page.dart
 import 'package:atencion_prenatal_embarazadas/bloc/add/add_event.dart';
 import 'package:atencion_prenatal_embarazadas/models/signos_vitales_model.dart';
-import 'package:atencion_prenatal_embarazadas/router/router.dart';
 import 'package:atencion_prenatal_embarazadas/router/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,7 +8,6 @@ import 'package:go_router/go_router.dart';
 import '../../bloc/add/add_bloc.dart';
 import '../../bloc/add/add_state.dart';
 import '../../core/utils.dart';
-import 'examen_fisico_page.dart';
 
 class SignosVitalesPage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();

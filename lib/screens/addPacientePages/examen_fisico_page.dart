@@ -1,6 +1,4 @@
 import 'package:atencion_prenatal_embarazadas/core/utils.dart';
-import 'package:atencion_prenatal_embarazadas/router/router.dart';
-import 'package:atencion_prenatal_embarazadas/screens/addPacientePages/genetica_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -9,7 +7,6 @@ import '../../bloc/add/add_event.dart';
 import '../../bloc/add/add_state.dart';
 import '../../models/examen_fisico_model.dart';
 import '../../router/routes.dart';
-import 'laboratorio_page.dart';
 
 class ExamenFisicoPage extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -28,35 +25,11 @@ class ExamenFisicoPage extends StatelessWidget {
   final _formKey14 = GlobalKey<FormState>();
   final ScrollController _scrollController = ScrollController();
 
-  // Controladores de texto
-  final TextEditingController _examenFisicoGeneralController =
-      TextEditingController();
-  final TextEditingController _examenEspecificoController =
-      TextEditingController();
-
-  // Agrega más controladores según tu modelo
-
-  ExamenFisicoPage({Key? key}) : super(key: key);
+  ExamenFisicoPage({Key? key}) : super(key: key ?? const ValueKey<String>('ExamenFisicoPage'));
 
   void _submitExamenFisico(BuildContext context) {
-    /* if (_formKey.currentState!.validate() &&
-        _formKey2.currentState!.validate() &&
-        _formKey3.currentState!.validate() &&
-        _formKey4.currentState!.validate() &&
-        _formKey5.currentState!.validate() &&
-        _formKey6.currentState!.validate() &&
-        _formKey7.currentState!.validate() &&
-        _formKey8.currentState!.validate() &&
-        _formKey9.currentState!.validate() &&
-        _formKey10.currentState!.validate() &&
-        _formKey11.currentState!.validate() &&
-        _formKey12.currentState!.validate() &&
-        _formKey13.currentState!.validate() &&
-        _formKey14.currentState!.validate()) {*/
     _formKey.currentState!.save();
-
     context.read<AddPacienteBloc>().add(SubmitExamenFisico());
-    //}
   }
 
   @override

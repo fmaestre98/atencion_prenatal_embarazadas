@@ -46,6 +46,9 @@ Widget buildObservationField(String? initialValue, Function(String?) onChanged )
       border: OutlineInputBorder(),
     ),
     maxLines: 3,
+    validator: (value) => value == null || value.isEmpty
+        ? 'Por favor ingresa este campo'
+        : null,
     onChanged: onChanged,
 
   );

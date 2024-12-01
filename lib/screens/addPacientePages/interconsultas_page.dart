@@ -135,6 +135,9 @@ class InterconsultasPage extends StatelessWidget {
                                 state.interconsultasModel?.psEvaluacion ?? '',
                             decoration:
                                 const InputDecoration(labelText: 'Evaluación'),
+                            validator: (value) => value == null || value.isEmpty
+                                ? 'Por favor ingresa la evaluación'
+                                : null,
                             onChanged: (value) {
                               var model = state.interconsultasModel ??
                                   InterconsultasModel(id: 0);
@@ -150,6 +153,9 @@ class InterconsultasPage extends StatelessWidget {
                                 state.interconsultasModel?.psCodigo ?? '',
                             decoration:
                                 const InputDecoration(labelText: 'Código'),
+                            validator: (value) => value == null || value.isEmpty
+                                ? 'Por favor ingresa el código'
+                                : null,
                             onChanged: (value) {
                               var model = state.interconsultasModel ??
                                   InterconsultasModel(id: 0);
@@ -165,6 +171,9 @@ class InterconsultasPage extends StatelessWidget {
                                 state.interconsultasModel?.psDescripcion ?? '',
                             decoration:
                                 const InputDecoration(labelText: 'Descripción'),
+                            validator: (value) => value == null || value.isEmpty
+                                ? 'Por favor ingresa la descripción'
+                                : null,
                             onChanged: (value) {
                               var model = state.interconsultasModel ??
                                   InterconsultasModel(id: 0);
@@ -180,6 +189,9 @@ class InterconsultasPage extends StatelessWidget {
                                 state.interconsultasModel?.psEstructura ?? '',
                             decoration:
                                 const InputDecoration(labelText: 'Estructura'),
+                            validator: (value) => value == null || value.isEmpty
+                                ? 'Por favor ingresa la estructura'
+                                : null,
                             onChanged: (value) {
                               var model = state.interconsultasModel ??
                                   InterconsultasModel(id: 0);
@@ -196,6 +208,9 @@ class InterconsultasPage extends StatelessWidget {
                                     '',
                             decoration: const InputDecoration(
                                 labelText: 'Tipo de Diagnóstico'),
+                            validator: (value) => value == null || value.isEmpty
+                                ? 'Por favor ingresa el tipo de diagnóstico'
+                                : null,
                             onChanged: (value) {
                               var model = state.interconsultasModel ??
                                   InterconsultasModel(id: 0);
@@ -213,6 +228,9 @@ class InterconsultasPage extends StatelessWidget {
                                     '',
                             decoration: const InputDecoration(
                                 labelText: 'Conducta Seguida'),
+                            validator: (value) => value == null || value.isEmpty
+                                ? 'Por favor ingresa la conducta seguida'
+                                : null,
                             onChanged: (value) {
                               var model = state.interconsultasModel ??
                                   InterconsultasModel(id: 0);
@@ -267,6 +285,9 @@ class InterconsultasPage extends StatelessWidget {
                                 state.interconsultasModel?.nEvaluacion ?? '',
                             decoration:
                                 const InputDecoration(labelText: 'Evaluación'),
+                            validator: (value) => value == null || value.isEmpty
+                                ? 'Por favor ingresa la evaluación'
+                                : null,
                             onChanged: (value) {
                               var model = state.interconsultasModel ??
                                   InterconsultasModel(id: 0);
@@ -321,6 +342,9 @@ class InterconsultasPage extends StatelessWidget {
                                 state.interconsultasModel?.miEvaluacion ?? '',
                             decoration:
                                 const InputDecoration(labelText: 'Evaluación'),
+                            validator: (value) => value == null || value.isEmpty
+                                ? 'Por favor ingresa la evaluación'
+                                : null,
                             onChanged: (value) {
                               var model = state.interconsultasModel ??
                                   InterconsultasModel(id: 0);
@@ -375,6 +399,9 @@ class InterconsultasPage extends StatelessWidget {
                                 state.interconsultasModel?.tsEvaluacion ?? '',
                             decoration:
                                 const InputDecoration(labelText: 'Evaluación'),
+                            validator: (value) => value == null || value.isEmpty
+                                ? 'Por favor ingresa la evaluación'
+                                : null,
                             onChanged: (value) {
                               var model = state.interconsultasModel ??
                                   InterconsultasModel(id: 0);
@@ -429,6 +456,9 @@ class InterconsultasPage extends StatelessWidget {
                                 state.interconsultasModel?.dEvaluacion ?? '',
                             decoration:
                                 const InputDecoration(labelText: 'Evaluación'),
+                            validator: (value) => value == null || value.isEmpty
+                                ? 'Por favor ingresa la evaluación'
+                                : null,
                             onChanged: (value) {
                               var model = state.interconsultasModel ??
                                   InterconsultasModel(id: 0);
@@ -456,6 +486,9 @@ class InterconsultasPage extends StatelessWidget {
                                 '',
                             decoration: const InputDecoration(
                                 labelText: 'Examen Estomatológico'),
+                            validator: (value) => value == null || value.isEmpty
+                                ? 'Por favor ingresa este campo'
+                                : null,
                             onChanged: (value) {
                               var model = state.interconsultasModel ??
                                   InterconsultasModel(id: 0);
@@ -474,6 +507,9 @@ class InterconsultasPage extends StatelessWidget {
                             keyboardType: TextInputType.number,
                             decoration: const InputDecoration(
                                 labelText: 'Número de Exodoncia'),
+                            validator: (value) => value == null || value.isEmpty
+                                ? 'Por favor ingresa este campo'
+                                : null,
                             onChanged: (value) {
                               var model = state.interconsultasModel ??
                                   InterconsultasModel(id: 0);
@@ -491,6 +527,9 @@ class InterconsultasPage extends StatelessWidget {
                                 '',
                             decoration: const InputDecoration(
                                 labelText: 'Realizadas Exodoncia'),
+                            validator: (value) => value == null || value.isEmpty
+                                ? 'Por favor ingresa este campo'
+                                : null,
                             onChanged: (value) {
                               var model = state.interconsultasModel ??
                                   InterconsultasModel(id: 0);
@@ -509,6 +548,9 @@ class InterconsultasPage extends StatelessWidget {
                             keyboardType: TextInputType.number,
                             decoration: const InputDecoration(
                                 labelText: 'Número de Obturaciones'),
+                            validator: (value) => value == null || value.isEmpty
+                                ? 'Por favor ingresa este campo'
+                                : null,
                             onChanged: (value) {
                               var model = state.interconsultasModel ??
                                   InterconsultasModel(id: 0);
@@ -526,6 +568,9 @@ class InterconsultasPage extends StatelessWidget {
                                 '',
                             decoration: const InputDecoration(
                                 labelText: 'Realizadas Obturaciones'),
+                            validator: (value) => value == null || value.isEmpty
+                                ? 'Por favor ingresa este campo'
+                                : null,
                             onChanged: (value) {
                               var model = state.interconsultasModel ??
                                   InterconsultasModel(id: 0);
@@ -567,6 +612,9 @@ class InterconsultasPage extends StatelessWidget {
                             keyboardType: TextInputType.number,
                             decoration: const InputDecoration(
                                 labelText: 'No. asistencia'),
+                            validator: (value) => value == null || value.isEmpty
+                                ? 'Por favor ingresa este campo'
+                                : null,
                             onChanged: (value) {
                               var model = state.interconsultasModel ??
                                   InterconsultasModel(id: 0);
@@ -582,6 +630,9 @@ class InterconsultasPage extends StatelessWidget {
                                 state.interconsultasModel?.observaciones ?? '',
                             decoration: const InputDecoration(
                                 labelText: 'Observaciones'),
+                            validator: (value) => value == null || value.isEmpty
+                                ? 'Por favor ingresa este campo'
+                                : null,
                             onChanged: (value) {
                               var model = state.interconsultasModel ??
                                   InterconsultasModel(id: 0);
