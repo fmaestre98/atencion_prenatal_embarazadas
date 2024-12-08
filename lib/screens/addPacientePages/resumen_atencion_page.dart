@@ -78,6 +78,7 @@ class ResumenAtencionPage extends StatelessWidget {
                     .toString()
                     .split(' ')[0] ??
                 ''),
+        _buildInfoRow('Edad', state.paciente?.edad.toString()),
         _buildInfoRow('Sexo', state.paciente?.sexo),
         _buildInfoRow('Dirección', state.paciente?.direccion),
         _buildInfoRow('No. Identidad', state.paciente?.noIdentidad),

@@ -15,7 +15,8 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
     // Cargar los datos del paciente usando el ID
     on<LoadPacienteData>(_loadPacienteData);
     on<ClearPacienteData>(_clearPacienteData);
-    on<UpdateDatosPersonales>(_onUpdateDatosPersonales);
+    on<
+        UpdateDatosPersonales>(_onUpdateDatosPersonales);
     on<UpdateInterrogatorio>(_onUpdateInterrogatorio);
     on<UpdateSignosVitales>(_onUpdateSignosVitales);
     // Maneja otros eventos similares...

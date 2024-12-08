@@ -59,7 +59,7 @@ String? getValueFromBool(bool? value) {
 }
 
 void selectDateTime(
-    BuildContext context, Null Function(dynamic value) onChange) async {
+    BuildContext context, Null Function(DateTime? value) onChange) async {
   final DateTime? picked = await showDatePicker(
     context: context,
     initialDate: DateTime(1990),

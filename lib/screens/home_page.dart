@@ -78,8 +78,15 @@ class HomeContent extends StatelessWidget {
                         return const Center(child: CircularProgressIndicator());
                       } else if (state is EmbarazadasLoaded) {
                         if (state.embarazadas.isEmpty) {
-                          return const Center(
-                              child: Text('No hay embarazadas registradas.'));
+                          return RefreshIndicator(
+                            onRefresh: () async {
+                              context.read<HomeBloc>().add(LoadEmbarazadas());
+                              await Future.delayed(
+                                  const Duration(milliseconds: 500));
+                            },
+                            child: const Center(
+                                child: Text('No hay embarazadas registradas.')),
+                          );
                         }
                         return RefreshIndicator(
                             onRefresh: () async {
