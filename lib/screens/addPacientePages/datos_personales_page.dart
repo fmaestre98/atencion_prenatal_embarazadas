@@ -72,8 +72,7 @@ class DatosPersonalesPage extends StatelessWidget {
                 current.antecedentesGinecologicos ||
             previous.antecedentesPatologicosPersonales !=
                 current.antecedentesPatologicosPersonales ||
-            previous.embarazoList != current.embarazoList ||
-            previous.edad != current.edad,
+            previous.embarazoList != current.embarazoList,
         builder: (context, state) {
           return Padding(
             padding: const EdgeInsets.all(16.0),
