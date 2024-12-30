@@ -83,23 +83,13 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
           pacienteLoaded: true,
         ));
        }
-      safePrint(state.paciente?.noIdentidad);
-      safePrint(state.antecedentesObstetricos?.embarazos);
-      safePrint(state.fetos1erTrimestre);
-      safePrint(state.fetosSeguimiento);
-
-      safePrint("EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
-      safePrint(state.embarazoList);
     }
   }
 
 
   void _clearPacienteData(
       ClearPacienteData event, Emitter<AddPacienteState> emit) {
-        safePrint("called _clearPacienteData");
         emit(const AddPacienteState());
-        safePrint("PPPPPPPPPPPPPPPPPPPPPPPPPP");
-        safePrint(state.paciente?.noIdentidad);
   }
 
   void _onUpdatePacienteLoaded(
@@ -149,7 +139,6 @@ class AddPacienteBloc extends Bloc<AddPacienteEvent, AddPacienteState> {
 
   void _onUpdateInterconsultas(
       UpdateInterconsultas event, Emitter<AddPacienteState> emit) {
-    safePrint("_onUpdateInterconsultas");
     emit(state.copyWith(interconsultasModel: event.model));
   }
 
